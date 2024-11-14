@@ -11,19 +11,19 @@ export class BaseService<T extends Model> implements IBaseService<T>{
   ){}
 
   getAll(): Observable<T[]> {
-    throw new Error("Method not implemented.");
+    return this.repository.getAll();
   }
   getById(id: string): Observable<T | null> {
-    throw new Error("Method not implemented.");
+    return this.repository.getById(id);
   }
   add(entity: T): Observable<T> {
-    throw new Error("Method not implemented.");
+    return this.repository.add(entity);
   }
   update(id: string, entity: T): Observable<T> {
-    throw new Error("Method not implemented.");
+    return this.repository.update(id, entity);
   }
   delete(id: string): Observable<T> {
-    throw new Error("Method not implemented.");
+    return this.repository.delete(id);
   }
 
 }

@@ -4,9 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { MachinePageRoutingModule } from './machine-routing.module';
+import { ExercisePageRoutingModule } from './exercise-routing.module';
 
-import { MachinePage } from './machine.page';
+import { ExercisePage } from './exercise.page';
 import { SharedModule } from 'src/app/shared/components/shared.module';
 
 @NgModule({
@@ -14,9 +14,9 @@ import { SharedModule } from 'src/app/shared/components/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    MachinePageRoutingModule,
+    ExercisePageRoutingModule,
     SharedModule
   ],
-  declarations: [MachinePage]
+  declarations: [ExercisePage]
 })
-export class MachinePageModule {}
+export class ExercisePageModule {}

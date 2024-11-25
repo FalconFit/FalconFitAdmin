@@ -1,4 +1,3 @@
-import { Userff } from './../../models/userff.model';
 import { SignInPayload, SignUpPayload, User } from "../../models/auth.model";
 
 export interface IAuthMapping{

@@ -1,8 +1,13 @@
+import { Injectable } from "@angular/core";
 import { Machine } from "../../models/machine.model";
 import { Paginated } from "../../models/paginated.model";
 import { IBaseMapping } from "../interfaces/base-mapping.interface";
 
+@Injectable({
+  providedIn: 'root'
+})
 export class MachineMappingStrapi implements IBaseMapping<Machine>{
+
   getPaginated(page: number, pageSize: number, pages: number, data: any): Paginated<Machine> {
     throw new Error("Method not implemented.");
   }

@@ -21,6 +21,7 @@ export class MachinePage implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loadMoreMachines()
   }
 
   selectedPerson: any = null;

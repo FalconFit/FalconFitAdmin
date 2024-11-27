@@ -11,7 +11,7 @@
   <ng-container *ngFor="let machine of _machine | async; let i=index">
     <ion-item>
       <ion-avatar slot="start" #avatar>
-        <img [src]="machine.photo?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
+        <img [src]="machine.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
       </ion-avatar>
       <ion-label>
         <h2>{{machine.title}}</h2>

@@ -5,7 +5,7 @@ export interface Machine extends Model {
   subtitle: string,
   description: string,
   taken: Boolean,
-  photo?:{
+  picture?:{
     url:string | undefined,
     large:string | undefined,
     medium:string | undefined,
@@ -13,4 +13,5 @@ export interface Machine extends Model {
     thumbnail:string | undefined
   },
   exerciseId?: string
+  userId?: string
 }

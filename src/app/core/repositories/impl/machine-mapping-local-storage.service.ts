@@ -44,7 +44,7 @@ interface MachineRaw{
             subtitle:data.name.last,
             description:data.description,
             taken:data.taken,
-            photo:{
+            picture:{
                 url:data.photo.url,
                 large:data.photo.large,
                 medium:data.photo.medium,

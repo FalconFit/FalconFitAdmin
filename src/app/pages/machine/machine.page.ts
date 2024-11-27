@@ -11,8 +11,6 @@ import { Paginated } from 'src/app/core/models/paginated.model';
   styleUrls: ['./machine.page.scss'],
 })
 export class MachinePage implements OnInit {
-
-
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
 
@@ -20,7 +18,6 @@ export class MachinePage implements OnInit {
     private machineSvc: MachineService,
     private modalCtrl: ModalController,
     private alertCtrl: AlertController,
-
   ) { }
 
   ngOnInit() {
@@ -32,21 +29,21 @@ export class MachinePage implements OnInit {
   pageSize:number = 25;
   pages:number = 0;
 
-  loadMoreMachines(notify:HTMLIonInfiniteScrollElement | null = null) {
-    if(this.page<=this.pages){
-      this.machineSvc.getAll(this.page, this.pageSize).subscribe({
-        next:(response:Paginated<Machine>)=>{
-          this._machine.next([...this._machine.value, ...response.data]);
-          this.page++;
-          notify?.complete();
-        }
-      });
-    }
-    else{
-      notify?.complete();
-    }
+  // loadMoreMachines(notify:HTMLIonInfiniteScrollElement | null = null) {
+  //   if(this.page<=this.pages){
+  //     this.machineSvc.getAll(this.page, this.pageSize).subscribe({
+  //       next:(response:Paginated<Machine>)=>{
+  //         this._machine.next([...this._machine.value, ...response.data]);
+  //         this.page++;
+  //         notify?.complete();
+  //       }
+  //     });
+  //   }
+  //   else{
+  //     notify?.complete();
+  //   }
 
-  }
+  // }
 
   async openMachineDetail(_t13: any,_t14: number) {
     throw new Error('Method not implemented.');

@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: "xxxxxxx"
+  //Poner el enlace de Netlify
 };

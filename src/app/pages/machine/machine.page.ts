@@ -21,7 +21,7 @@ export class MachinePage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadMoreMachines()
+    this.loadMachines()
   }
 
   selectedPerson: any = null;
@@ -30,9 +30,16 @@ export class MachinePage implements OnInit {
   pageSize:number = 25;
   pages:number = 0;
 
-  onIonInfinite(ev:InfiniteScrollCustomEvent) {
-    this.loadMoreMachines(ev.target);
 
+  loadMachines(){
+    this.page=1;
+    this.machineSvc.getAll(this.page, this.pageSize).subscribe({
+      next:(response:Paginated<Machine>)=>{
+        this._machine.next([...response.data]);
+        this.page++;
+        this.pages = response.pages;
+      }
+    });
   }
 
   loadMoreMachines(notify:HTMLIonInfiniteScrollElement | null = null) {

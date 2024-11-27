@@ -9,9 +9,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/components/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, UPLOAD_API_URL_TOKEN } from './core/repositories/repository.tokens';
-import { MachineMappingFactory, MachineRepositoryFactory } from './core/repositories/repository.factory';
+import { AuthenticationServiceFactory, AuthMappingFactory, MachineMappingFactory, MachineRepositoryFactory } from './core/repositories/repository.factory';
 import { MachineService } from './core/services/impl/machine.service';
 import { environment } from 'src/environments/environment.prod';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -22,13 +28,15 @@ import { environment } from 'src/environments/environment.prod';
     IonicModule.forRoot(),
     AppRoutingModule,
     ReactiveFormsModule,
-    SharedModule
+    HttpClientModule,
+    SharedModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideHttpClient(),
 
     { provide: BACKEND_TOKEN, useValue: 'strapi' },
-    { provide: MACHINE_RESOURCE_NAME_TOKEN, useValue: 'machine' },
+    { provide: MACHINE_RESOURCE_NAME_TOKEN, useValue: 'machines' },
     { provide: MACHINE_API_URL_TOKEN, useValue: `http://localhost:1337/api` },
     { provide: AUTH_SIGN_IN_API_URL_TOKEN, useValue: `${environment.apiUrl}/api/auth/local` },
     { provide: AUTH_SIGN_UP_API_URL_TOKEN, useValue: 'http://localhost:1337/api/auth/local/register' },
@@ -37,10 +45,12 @@ import { environment } from 'src/environments/environment.prod';
 
     MachineMappingFactory,
     MachineRepositoryFactory,
+    AuthMappingFactory,
     {
       provide: 'MachineService',
       useClass: MachineService
-    }
+    },
+    AuthenticationServiceFactory
   ],
   bootstrap: [AppComponent],
 })

@@ -5,10 +5,12 @@ import { Machine } from "../models/machine.model";
 import { IBaseMapping } from "./interfaces/base-mapping.interface";
 import { IStrapiAuthentication } from "../services/interfaces/strapi-authentication.interface";
 import { IAuthentication } from "../services/interfaces/authentication.interface";
+import { IUserffRepository } from "./interfaces/userff-repository.interface";
 
 export const RESOURCE_NAME_TOKEN = new InjectionToken<string>('ResourceName');
 export const MACHINE_RESOURCE_NAME_TOKEN = new InjectionToken<IMachineRepository>('MachineResourceName');
 export const REPOSITORY_TOKEN = new InjectionToken<IBaseRepository<any>>('REPOSITORY_TOKEN');
+export const USERFF_REPOSITORY_TOKEN = new InjectionToken<IUserffRepository>('IUserffRepository');
 export const MACHINE_REPOSITORY_TOKEN = new InjectionToken<IMachineRepository>('IMachineRepository');
 
 export const API_URL_TOKEN = new InjectionToken<string>('ApiUrl');

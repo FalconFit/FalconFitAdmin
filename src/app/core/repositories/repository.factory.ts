@@ -1,6 +1,6 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 import { Machine } from "../models/machine.model";
-import { BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN } from "./repository.tokens";
+import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN } from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -12,6 +12,8 @@ import { IStrapiAuthentication } from "../services/interfaces/strapi-authenticat
 import { StrapiRepositoryService } from "./impl/strapi-repository.service";
 import { MachineLocalStorageMapping } from "./impl/machine-mapping-local-storage.service";
 import { BaseAuthenticationService } from "../services/impl/base-authentication.service";
+import { StrapiAuthenticationService } from "../services/impl/strapi-authentication.service";
+import { StrapiAuthMappingService } from "../services/impl/strapi-auth-mapping.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -71,7 +73,7 @@ export function createBaseAuthMappingFactory(token: InjectionToken<IAuthMapping>
         case 'json-server':
           throw new Error("BACKEND NOT IMPLEMENTED");
         case 'strapi':
-          // TODO return new StrapiAuthMappingService();
+          return new StrapiAuthMappingService();
         default:
           throw new Error("BACKEND NOT IMPLEMENTED");
       }
@@ -85,6 +87,29 @@ export const MachineMappingFactory = createBaseMappingFactory<Machine>(
   [BACKEND_TOKEN],
   'machine'
 );
+
+export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);
+
+export const AuthenticationServiceFactory:FactoryProvider = {
+  provide: BaseAuthenticationService,
+  useFactory: (backend:string, signIn:string, signUp:string, meUrl:string, mapping:IAuthMapping, http:HttpClient) => {
+    switch(backend){
+      case 'http':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'local-storage':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'json-server':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'strapi':
+        return new StrapiAuthenticationService(signIn, signUp, meUrl, mapping, http);
+      default:
+        throw new Error("BACKEND NOT IMPLEMENTED");
+    }
+
+  },
+  deps: [BACKEND_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_MAPPING_TOKEN, HttpClient]
+};
+
 export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Machine>(MACHINE_REPOSITORY_TOKEN,
   [BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN]
 );

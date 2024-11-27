@@ -46,6 +46,7 @@ export class StrapiRepositoryService<T extends Model> extends BaseRepositoryHttp
     @Inject(REPOSITORY_MAPPING_TOKEN) mapping:IBaseMapping<T>
   ) {
     super(http, auth, apiUrl, resource, mapping);
+    console.log(http)
   }
 
   private getHeaders() {

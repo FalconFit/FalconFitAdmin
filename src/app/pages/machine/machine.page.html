@@ -7,6 +7,7 @@
 <ion-content [fullscreen]="true">
   <app-routing-bar></app-routing-bar>
 
+  <!-- Listar Maquinas -->
   <ng-container *ngFor="let machine of _machine | async; let i=index">
     <ion-item>
       <ion-avatar slot="start" #avatar>
@@ -25,14 +26,13 @@
         </ion-button>
       </ion-buttons>
     </ion-item>
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-      <ion-fab-button (click)="onAddMachine()">
-        <ion-icon name="add-outline"></ion-icon>
-      </ion-fab-button>
-    </ion-fab>
-
   </ng-container>
 
-
+  <!-- Añadir Maquina -->
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="onAddMachine()">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 
 </ion-content>

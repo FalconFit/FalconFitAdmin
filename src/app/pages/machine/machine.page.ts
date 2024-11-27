@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MachineService } from '../../core/services/impl/machine.service';
-import { AlertController, ModalController } from '@ionic/angular';
+import { AlertController, InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
 import { Paginated } from 'src/app/core/models/paginated.model';
@@ -29,21 +29,25 @@ export class MachinePage implements OnInit {
   pageSize:number = 25;
   pages:number = 0;
 
-  // loadMoreMachines(notify:HTMLIonInfiniteScrollElement | null = null) {
-  //   if(this.page<=this.pages){
-  //     this.machineSvc.getAll(this.page, this.pageSize).subscribe({
-  //       next:(response:Paginated<Machine>)=>{
-  //         this._machine.next([...this._machine.value, ...response.data]);
-  //         this.page++;
-  //         notify?.complete();
-  //       }
-  //     });
-  //   }
-  //   else{
-  //     notify?.complete();
-  //   }
+  onIonInfinite(ev:InfiniteScrollCustomEvent) {
+    this.loadMoreMachines(ev.target);
 
-  // }
+  }
+
+  loadMoreMachines(notify:HTMLIonInfiniteScrollElement | null = null) {
+    if(this.page<=this.pages){
+      this.machineSvc.getAll(this.page, this.pageSize).subscribe({
+        next:(response:Paginated<Machine>)=>{
+          this._machine.next([...this._machine.value, ...response.data]);
+          this.page++;
+          notify?.complete();
+        }
+      });
+    }
+    else{
+      notify?.complete();
+    }
+  }
 
   async openMachineDetail(_t13: any,_t14: number) {
     throw new Error('Method not implemented.');

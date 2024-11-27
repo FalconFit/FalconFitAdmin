@@ -1,6 +1,6 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 import { Machine } from "../models/machine.model";
-import { BACKEND_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN } from "./repository.tokens";
+import { BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN } from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -11,6 +11,7 @@ import { BaseRepositoryLocalStorageService } from "./impl/base-repository-local-
 import { IStrapiAuthentication } from "../services/interfaces/strapi-authentication.interface";
 import { StrapiRepositoryService } from "./impl/strapi-repository.service";
 import { MachineLocalStorageMapping } from "./impl/machine-mapping-local-storage.service";
+import { BaseAuthenticationService } from "../services/impl/base-authentication.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -83,4 +84,7 @@ export const MachineMappingFactory = createBaseMappingFactory<Machine>(
   MACHINE_REPOSITORY_MAPPING_TOKEN,
   [BACKEND_TOKEN],
   'machine'
+);
+export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Machine>(MACHINE_REPOSITORY_TOKEN,
+  [BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN]
 );

@@ -11,6 +11,5 @@ export interface Userff extends Model{
         small:string | undefined,
         thumbnail:string | undefined
     },
-    supersetId?:string,
     userId?:string
 }

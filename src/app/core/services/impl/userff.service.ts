@@ -6,6 +6,7 @@ import { Userff } from '../../models/userff.model';
 import { USERFF_REPOSITORY_TOKEN } from '../../repositories/repository.tokens';
 import { IUserffRepository } from '../../repositories/interfaces/userff-repository.interface';
 import { map, Observable } from 'rxjs';
+import { User } from '../../models/auth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,5 +16,11 @@ export class UserffService extends BaseService<Userff> implements IUserffService
     @Inject(USERFF_REPOSITORY_TOKEN) repository: IUserffRepository
   ) {
     super(repository);
+  }
+
+  getByUserId(userId: string): Observable<Userff | null> {
+    return this.repository.getAll(1, 1, {user: userId}).pipe(
+      map(res => Array.isArray(res) ? res[0] || null : res.data[0] || null)
+    );
   }
 }

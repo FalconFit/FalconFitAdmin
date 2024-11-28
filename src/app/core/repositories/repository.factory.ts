@@ -1,6 +1,6 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 import { Machine } from "../models/machine.model";
-import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN } from "./repository.tokens";
+import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -14,6 +14,7 @@ import { MachineLocalStorageMapping } from "./impl/machine-mapping-local-storage
 import { BaseAuthenticationService } from "../services/impl/base-authentication.service";
 import { StrapiAuthenticationService } from "../services/impl/strapi-authentication.service";
 import { StrapiAuthMappingService } from "../services/impl/strapi-auth-mapping.service";
+import { Userff } from "../models/userff.model";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -88,7 +89,6 @@ export const MachineMappingFactory = createBaseMappingFactory<Machine>(
   'machine'
 );
 
-export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);
 
 export const AuthenticationServiceFactory:FactoryProvider = {
   provide: BaseAuthenticationService,
@@ -110,6 +110,12 @@ export const AuthenticationServiceFactory:FactoryProvider = {
   deps: [BACKEND_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_MAPPING_TOKEN, HttpClient]
 };
 
+export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);
+
 export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Machine>(MACHINE_REPOSITORY_TOKEN,
   [BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN]
+);
+
+export const UserffRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Userff>(USERFF_REPOSITORY_TOKEN,
+  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN, USERFF_REPOSITORY_TOKEN]
 );

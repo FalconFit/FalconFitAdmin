@@ -9,12 +9,14 @@ import { IUserffRepository } from "./interfaces/userff-repository.interface";
 
 export const RESOURCE_NAME_TOKEN = new InjectionToken<string>('ResourceName');
 export const MACHINE_RESOURCE_NAME_TOKEN = new InjectionToken<IMachineRepository>('MachineResourceName');
+export const USERFF_RESOURCE_NAME_TOKEN = new InjectionToken<IUserffRepository>('MachineResourceName');
 export const REPOSITORY_TOKEN = new InjectionToken<IBaseRepository<any>>('REPOSITORY_TOKEN');
-export const USERFF_REPOSITORY_TOKEN = new InjectionToken<IUserffRepository>('IUserffRepository');
 export const MACHINE_REPOSITORY_TOKEN = new InjectionToken<IMachineRepository>('IMachineRepository');
+export const USERFF_REPOSITORY_TOKEN = new InjectionToken<IUserffRepository>('IUserffRepository');
 
 export const API_URL_TOKEN = new InjectionToken<string>('ApiUrl');
 export const MACHINE_API_URL_TOKEN = new InjectionToken<string>('MachineApiUrl');
+export const USERFF_API_URL_TOKEN = new InjectionToken<string>('UserffApiUrl');
 export const AUTH_SIGN_IN_API_URL_TOKEN = new InjectionToken<string>('AuthSignInApiUrl');
 export const AUTH_SIGN_UP_API_URL_TOKEN = new InjectionToken<string>('AuthSignUpApiUrl');
 export const AUTH_ME_API_URL_TOKEN = new InjectionToken<string>('AuthMeApiUrl');

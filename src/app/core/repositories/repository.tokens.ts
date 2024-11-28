@@ -6,6 +6,7 @@ import { IBaseMapping } from "./interfaces/base-mapping.interface";
 import { IStrapiAuthentication } from "../services/interfaces/strapi-authentication.interface";
 import { IAuthentication } from "../services/interfaces/authentication.interface";
 import { IUserffRepository } from "./interfaces/userff-repository.interface";
+import { Userff } from "../models/userff.model";
 
 export const RESOURCE_NAME_TOKEN = new InjectionToken<string>('ResourceName');
 export const MACHINE_RESOURCE_NAME_TOKEN = new InjectionToken<IMachineRepository>('MachineResourceName');
@@ -25,6 +26,7 @@ export const UPLOAD_API_URL_TOKEN = new InjectionToken<string>('UploadApiUrl');
 
 export const REPOSITORY_MAPPING_TOKEN = new InjectionToken<IBaseMapping<any>>('IBaseRepositoryMapping');
 export const MACHINE_REPOSITORY_MAPPING_TOKEN = new InjectionToken<IBaseMapping<Machine>>('IMachineRepositoryMapping');
+export const USERFF_REPOSITORY_MAPPING_TOKEN = new InjectionToken<IBaseMapping<Userff>>('IUserffRepositoryMapping');
 export const AUTH_TOKEN = new InjectionToken<IAuthentication>('IAuthentication');
 export const STRAPI_AUTH_TOKEN = new InjectionToken<IStrapiAuthentication>('IStrapiAuthentication');
 export const AUTH_MAPPING_TOKEN = new InjectionToken<IBaseMapping<Machine>>('IAuthMapping');

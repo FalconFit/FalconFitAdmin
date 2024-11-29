@@ -1,4 +1,4 @@
-import { Paginated } from "../../models/paginated.model";
+import { Paginated } from "../../models/Paginated.model";
 
 export interface IBaseMapping<T> {
   getPaginated(page:number, pageSize: number, pages:number, data:any):Paginated<T>;

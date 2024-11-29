@@ -3,7 +3,7 @@ import { MachineService } from '../../core/services/impl/machine.service';
 import { AlertController, InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
-import { Paginated } from 'src/app/core/models/paginated.model';
+import { Paginated } from 'src/app/core/models/Paginated.model';
 
 @Component({
   selector: 'app-machine',

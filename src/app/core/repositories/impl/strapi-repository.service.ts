@@ -6,7 +6,7 @@ import { SearchParams }from '../interfaces/base-repository.interface';
 import { API_URL_TOKEN, REPOSITORY_MAPPING_TOKEN, RESOURCE_NAME_TOKEN, STRAPI_AUTH_TOKEN } from '../repository.tokens';
 import { Model } from '../../models/base.model';
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
-import { Paginated } from '../../models/paginated.model';
+import { Paginated } from '../../models/Paginated.model';
 import { BaseRepositoryHttpService } from './base-repository-http.service';
 import { IStrapiAuthentication } from '../../services/interfaces/strapi-authentication.interface';
 

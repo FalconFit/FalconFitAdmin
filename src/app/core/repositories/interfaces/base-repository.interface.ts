@@ -1,6 +1,6 @@
-import { Paginated } from "../../models/paginated.model";
 import { Observable } from "rxjs";
 import { Model } from "../../models/base.model";
+import { Paginated } from "../../models/Paginated.model";
 export interface SearchParams {
   [key: string]: string; // O el tipo que necesites para los valores
 }

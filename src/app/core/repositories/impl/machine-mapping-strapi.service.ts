@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { Machine } from "../../models/machine.model";
-import { Paginated } from "../../models/paginated.model";
+import { Paginated } from "../../models/Paginated.model";
 import { IBaseMapping } from "../interfaces/base-mapping.interface";
 import { Meta } from "@angular/platform-browser";
 import { StrapiMedia } from "../../services/impl/strapi-media.service";

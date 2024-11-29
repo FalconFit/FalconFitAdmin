@@ -6,7 +6,6 @@ import { Userff } from '../../models/userff.model';
 import { USERFF_REPOSITORY_TOKEN } from '../../repositories/repository.tokens';
 import { IUserffRepository } from '../../repositories/interfaces/userff-repository.interface';
 import { map, Observable } from 'rxjs';
-import { User } from '../../models/auth.model';
 
 @Injectable({
   providedIn: 'root'

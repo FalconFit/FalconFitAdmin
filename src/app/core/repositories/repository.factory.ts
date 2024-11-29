@@ -124,5 +124,5 @@ export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFac
 );
 
 export const UserffRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Userff>(USERFF_REPOSITORY_TOKEN,
-  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN, USERFF_REPOSITORY_TOKEN]
+  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN]
 );

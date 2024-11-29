@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { MachineService } from '../../core/services/impl/machine.service';
 import { AlertController, InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
 import { Paginated } from 'src/app/core/models/Paginated.model';
+import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
 
 @Component({
   selector: 'app-machine',
@@ -13,11 +14,12 @@ import { Paginated } from 'src/app/core/models/Paginated.model';
 export class MachinePage implements OnInit {
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
+  peopleSv: any;
 
   constructor(
     private machineSvc: MachineService,
     private modalCtrl: ModalController,
-    private alertCtrl: AlertController,
+    private alertController: AlertController,
   ) { }
 
   ngOnInit() {
@@ -29,7 +31,7 @@ export class MachinePage implements OnInit {
   page:number = 1;
   pageSize:number = 25;
   pages:number = 0;
-
+  totalPages!: number;
 
   loadMachines(){
     this.page=1;
@@ -57,15 +59,92 @@ export class MachinePage implements OnInit {
     }
   }
 
+  refresh(){
+    this.machineSvc.getAll(1, (this.page - 1) * this.pageSize).subscribe({
+      next:(response:Paginated<Machine>)=>{
+        this.totalPages = response.pages;
+        this._machine.next(response.data);
+      }
+    });
+  }
+
+  async onUpdateMachine(machine: any, index: number){
+    const modal = await this.modalCtrl.create({
+      component: MachineFormComponent,
+      componentProps: {
+        mode: "edit",
+        machine: machine,
+        groups: await lastValueFrom(this.machineSvc.getAll()),
+      }
+    })
+
+    modal.onDidDismiss().then((data:any)=>{
+      this.machineSvc.update(machine!.id, data.data).subscribe({
+        next:(response: Machine) => {
+          this.refresh();
+        }
+      })
+    })
+
+    await modal.present();
+  }
+
   async openMachineDetail(_t13: any,_t14: number) {
     throw new Error('Method not implemented.');
   }
 
-  async onDeleteMachine(_t13: any) {
-    throw new Error('Method not implemented.');
+  async onDeleteMachine(machine:Machine){
+    const alert = await this.alertController.create({
+      header: "Eliminar máquina",
+      message: "¿Está seguro de que desea eliminar la máquina?",
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Eliminado cancelado');
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            console.log('Eliminado confirmado');
+            this.machineSvc.delete(machine.id).subscribe({
+              next:(deletedMachine) => {
+                console.log(`Máquina eliminada: ${deletedMachine.title} ${deletedMachine.subtitle}`);
+                this.refresh();
+              }
+            });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   async onAddMachine() {
-    throw new Error('Method not implemented.');
+    const modal = await this.modalCtrl.create({
+      component:MachineFormComponent,
+      componentProps:{
+      }
+    });
+
+    modal.onDidDismiss().then((data)=>{
+      let machine:Machine = {
+        id: '',
+        title: data.data.name,
+        subtitle: data.data.surname,
+        description: data.data.age,
+        taken: false
+      }
+      this.machineSvc.add(machine).subscribe({
+        next:(response: Machine) => {
+          this.refresh();
+        }
+      });
+    });
+
+    return await modal.present();
   }
 }

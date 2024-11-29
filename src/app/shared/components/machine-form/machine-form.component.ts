@@ -20,7 +20,6 @@ export class MachineFormComponent  implements OnInit {
     if(_machine && _machine.id)
       this.mode = 'edit';
 
-    this.formGroup.controls['picture'].setValue(_machine.picture);
     this.formGroup.controls['title'].setValue(_machine.title);
     this.formGroup.controls['subtitle'].setValue(_machine.subtitle);
     this.formGroup.controls['description'].setValue(_machine.description);

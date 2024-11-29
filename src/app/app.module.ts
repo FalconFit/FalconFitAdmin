@@ -46,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: AUTH_ME_API_URL_TOKEN, useValue: 'http://localhost:1337/api/users/me' },
     { provide: UPLOAD_API_URL_TOKEN, useValue: 'http://localhost:1337/api/upload' },
 
+    AuthenticationServiceFactory,
     MachineMappingFactory,
     MachineRepositoryFactory,
     AuthMappingFactory,
@@ -59,7 +60,7 @@ export function createTranslateLoader(http: HttpClient) {
       provide: 'UserffService',
       useClass: UserffService
     },
-    AuthenticationServiceFactory
+
   ],
   bootstrap: [AppComponent],
 })

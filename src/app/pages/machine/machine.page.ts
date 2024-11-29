@@ -59,12 +59,13 @@ export class MachinePage implements OnInit {
 
   async openMachineDetail(_t13: any,_t14: number) {
     throw new Error('Method not implemented.');
-    }
+  }
 
-    async onDeleteMachine(_t13: any) {
+  async onDeleteMachine(_t13: any) {
     throw new Error('Method not implemented.');
-    }
-    async onAddMachine() {
-      throw new Error('Method not implemented.');
-      }
+  }
+
+  async onAddMachine() {
+    throw new Error('Method not implemented.');
+  }
 }

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { RouterModule } from '@angular/router';
 import { RoutingBarComponent } from './routing-bar/routing-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
@@ -11,7 +12,8 @@ import { RoutingBarComponent } from './routing-bar/routing-bar.component';
   imports: [
     CommonModule,
     RouterModule,
-    IonicModule
+    IonicModule,
+    ReactiveFormsModule
   ],
   exports:[RoutingBarComponent]
 })

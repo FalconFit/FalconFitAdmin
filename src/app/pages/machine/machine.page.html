@@ -1,38 +1,47 @@
-<ion-header [translucent]="true">
+<ion-header [translucent]="true" class="header">
   <ion-toolbar>
-    <ion-title>machine</ion-title>
+    <ion-title>MAQUINAS</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <app-routing-bar></app-routing-bar>
+<ion-content [fullscreen]="true" class="content">
+  <ion-grid>
+    <ion-row>
+      <!-- Tarjeta -->
+      <ion-col size="4" size-md="6" size-sm="12" *ngFor="let machine of _machine | async; let i=index">
+        <ion-card class="card">
+          <!-- Bloque 1: Imagen -->
+          <div class="image-container">
+            <img
+              [src]="machine.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
+              alt="Machine Picture" />
+          </div>
 
-  <!-- Listar Maquinas -->
-  <ng-container *ngFor="let machine of _machine | async; let i=index">
-    <ion-item>
-      <ion-avatar slot="start" #avatar>
-        <img [src]="machine.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'" />
-      </ion-avatar>
-      <ion-label>
-        <h2>{{machine.title}}</h2>
-        <p>{{machine.subtitle}}</p>
-      </ion-label>
-      <ion-buttons slot="end">
-        <ion-button color="primary" (click)="openMachineDetail(machine, i)">
-          <ion-icon name="create-outline" slot="icon-only"></ion-icon>
-        </ion-button>
-        <ion-button color="danger" (click)="onDeleteMachine(machine)">
-          <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
-        </ion-button>
-      </ion-buttons>
-    </ion-item>
-  </ng-container>
+          <!-- Bloque 2: Información -->
+          <ion-card-content class="info-block">
+            <h2 class="title">{{ machine.title || 'Título no disponible' }}</h2>
+            <p class="subtitle">{{ machine.subtitle || 'Subtítulo no disponible' }}</p>
+            <p class="description">{{ machine.description || 'Descripción no disponible' }}</p>
+          </ion-card-content>
 
-  <!-- Añadir Maquina -->
+          <!-- Bloque 3: Botones -->
+          <div class="button-block">
+            <ion-button color="primary" (click)="openMachineDetail(machine, i)" class="btn-primary">
+              <ion-icon name="create-outline"></ion-icon>
+            </ion-button>
+            <ion-button color="secondary" (click)="onDeleteMachine(machine)" class="btn-secondary">
+              <ion-icon name="trash-outline"></ion-icon>
+            </ion-button>
+          </div>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!-- Botón flotante para añadir -->
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="onAddMachine()">
+    <ion-fab-button (click)="onAddMachine()" class="fab-button">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
-
 </ion-content>

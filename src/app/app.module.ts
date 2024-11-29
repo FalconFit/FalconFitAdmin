@@ -15,6 +15,7 @@ import { environment } from 'src/environments/environment.prod';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { HttpClient, HttpClientModule, provideHttpClient } from '@angular/common/http';
 import { UserffService } from './core/services/impl/userff.service';
+import { MachineFormComponent } from './shared/components/machine-form/machine-form.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -22,7 +23,8 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MachineFormComponent
   ],
   imports: [
     BrowserModule,
@@ -47,9 +49,10 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: UPLOAD_API_URL_TOKEN, useValue: 'http://localhost:1337/api/upload' },
 
     AuthenticationServiceFactory,
+    AuthMappingFactory,
+
     MachineMappingFactory,
     MachineRepositoryFactory,
-    AuthMappingFactory,
     UserffRepositoryFactory,
     UserffMappingFactory,
     {

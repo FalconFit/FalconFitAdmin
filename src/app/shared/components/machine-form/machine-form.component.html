@@ -30,7 +30,7 @@
     <!-- Título -->
     <ion-item>
       <ion-input
-        label="Título"
+        [label]="'MACHINE.TITLE' | translate"
         label-placement="stacked"
         type="text"
         formControlName="title"
@@ -38,14 +38,14 @@
       </ion-input>
     </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('title')?.invalid && (formGroup.get('title')?.dirty || formGroup.get('title')?.touched)">
-      <p *ngIf="formGroup.get('title')?.errors?.['required']">El título es obligatorio.</p>
-      <p *ngIf="formGroup.get('title')?.errors?.['minlength']">El título debe tener al menos 3 caracteres.</p>
+      <p *ngIf="formGroup.get('title')?.errors?.['required']">{{ 'MACHINE.ERRORS.TITLE_REQUIRED' | translate}}</p>
+      <p *ngIf="formGroup.get('title')?.errors?.['minlength']">{{ 'MACHINE.ERRORS.TITLE_MIN_LENGTH' | translate}}</p>
     </ion-text>
 
     <!-- Subtítulo -->
     <ion-item>
       <ion-input
-        label="Subtítulo"
+        [label]="'MACHINE.SUBTITLE' | translate"
         label-placement="stacked"
         type="text"
         formControlName="subtitle"

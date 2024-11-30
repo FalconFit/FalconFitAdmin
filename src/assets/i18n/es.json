@@ -1,0 +1,21 @@
+{
+  "MACHINE": {
+      "EDIT": "Editar máquina",
+      "NEW": "Nueva máquina",
+      "TITLE": "Título",
+      "SUBTITLE": "Subtítulo",
+      "DESCRIPTION": "Descripción",
+      "TAKEN": "Ocupada",
+      "PICTURE": "Foto",
+      "SUBMIT": "Registrate",
+      "UPDATE": "Actualiza",
+      "ERRORS": {
+        "TITLE_REQUIRED": "Añade un título",
+        "TITLE_MIN_LENGTH": "El título debe tener al menos 2 carácteres",
+        "SUBTITLE_REQUIRED": "Añade un subtítulo",
+        "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 2 carácteres",
+        "DESCRIPTION_REQUIRED": "Añade una descripción",
+        "DESCRIPTION_MAX_LENGHT": "La descripción no debe exceder los 500 carácteres"
+      }
+    }
+  }

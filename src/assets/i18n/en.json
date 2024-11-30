@@ -1,0 +1,21 @@
+{
+"MACHINE": {
+    "EDIT": "Edit machine",
+    "NEW": "New machine",
+    "TITLE": "Title",
+    "SUBTITLE": "Subtitle",
+    "DESCRIPTION": "Description",
+    "TAKEN": "Taken",
+    "PICTURE": "Picture",
+    "SUBMIT": "Register",
+    "UPDATE": "Update",
+    "ERRORS": {
+      "TITLE_REQUIRED": "Title is required",
+      "TITLE_MIN_LENGTH": "Title must be at least 2 characters long",
+      "SUBTITLE_REQUIRED": "Subtitle is required",
+      "SUBTITLE_MIN_LENGTH": "Subtitle must be at least 2 characters long",
+      "DESCRIPTION_REQUIRED": "Description is required",
+      "DESCRIPTION_MAX_LENGHT": "Description can't exced 500 characters"
+    }
+  }
+}

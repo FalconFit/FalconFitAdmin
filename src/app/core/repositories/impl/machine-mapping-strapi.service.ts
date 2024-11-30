@@ -49,10 +49,10 @@ export class MachineMappingStrapi implements IBaseMapping<Machine>{
   }
 
   getOne(data: Data | MachineRaw): Machine {
-    const isPersonRaw = (data: Data | MachineRaw): data is MachineRaw => 'meta' in data;
+    const isMachineRaw = (data: Data | MachineRaw): data is MachineRaw => 'meta' in data;
 
-        const attributes = isPersonRaw(data) ? data.data.attributes : data.attributes;
-        const id = isPersonRaw(data) ? data.data.id : data.id;
+        const attributes = isMachineRaw(data) ? data.data.attributes : data.attributes;
+        const id = isMachineRaw(data) ? data.data.id : data.id;
 
         return {
             id: id.toString(),
@@ -99,9 +99,9 @@ export class MachineMappingStrapi implements IBaseMapping<Machine>{
 
         Object.keys(data).forEach(key => {
             switch(key){
-                case 'name': mappedData.title = data[key];
+                case 'title': mappedData.title = data[key];
                 break;
-                case 'surname': mappedData.subtitle = data[key];
+                case 'subtitle': mappedData.subtitle = data[key];
                 break;
                 case 'description': mappedData.description = data[key];
                 break;

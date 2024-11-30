@@ -14,7 +14,7 @@ export class MachineFormComponent  implements OnInit {
   formGroup:FormGroup;
   mode:'new'|'edit' = 'new';
   isMobile: boolean = false;
-  photo: string | null = null;
+  picture: string | null = null;
 
   @Input() set machine(_machine:Machine){
     if(_machine && _machine.id)
@@ -34,7 +34,7 @@ export class MachineFormComponent  implements OnInit {
     this.formGroup = this.fb.group({
       title:['', [Validators.required, Validators.minLength(2)]],
       subtitle:['', [Validators.required, Validators.minLength(2)]],
-      description:['', [Validators.required, Validators.email]],
+      description:['', [Validators.required, Validators.maxLength(500)]],
     });
   }
 
@@ -46,7 +46,7 @@ export class MachineFormComponent  implements OnInit {
 
       const reader = new FileReader();
       reader.onload = (e: any) => {
-        this.photo = e.target.result; // Guardar la imagen como base64 para la previsualización
+        this.picture = e.target.result; // Guardar la imagen como base64 para la previsualización
       };
       reader.readAsDataURL(file);
     }

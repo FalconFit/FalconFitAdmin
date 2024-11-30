@@ -18,7 +18,7 @@
       <ion-label position="stacked">Imagen</ion-label>
       <div class="photo-container">
         <!-- Previsualización de la imagen -->
-        <img [src]="photo || 'https://ionicframework.com/docs/img/demos/avatar.svg'" alt="Machine Photo" class="photo-preview" />
+        <img [src]="picture || 'https://ionicframework.com/docs/img/demos/avatar.svg'" alt="Machine Photo" class="photo-preview" />
         <ion-button expand="block" color="primary" class="upload-button">
           <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
           Seleccionar Imagen
@@ -68,7 +68,7 @@
     </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">La descripción es obligatoria.</p>
-      <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">La descripción no debe superar los 200 caracteres.</p>
+      <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">La descripción no debe superar los 500 caracteres.</p>
     </ion-text>
 
     <!-- Botón de envío -->

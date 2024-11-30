@@ -68,6 +68,32 @@ export class MachinePage implements OnInit {
     });
   }
 
+  async onAddMachine() {
+    const modal = await this.modalCtrl.create({
+      component:MachineFormComponent,
+      componentProps:{
+      }
+    });
+
+    modal.onDidDismiss().then((data)=>{
+      let machine:Machine = {
+        id: '',
+        picture: data.data.picture,
+        title: data.data.title,
+        subtitle: data.data.subtitle,
+        description: data.data.description,
+        taken: false
+      }
+      this.machineSvc.add(machine).subscribe({
+        next:(response: Machine) => {
+          this.refresh();
+        }
+      });
+    });
+
+    return await modal.present();
+  }
+
   async onUpdateMachine(machine: any, index: number){
     const modal = await this.modalCtrl.create({
       component: MachineFormComponent,
@@ -123,28 +149,5 @@ export class MachinePage implements OnInit {
     await alert.present();
   }
 
-  async onAddMachine() {
-    const modal = await this.modalCtrl.create({
-      component:MachineFormComponent,
-      componentProps:{
-      }
-    });
 
-    modal.onDidDismiss().then((data)=>{
-      let machine:Machine = {
-        id: '',
-        title: data.data.name,
-        subtitle: data.data.surname,
-        description: data.data.age,
-        taken: false
-      }
-      this.machineSvc.add(machine).subscribe({
-        next:(response: Machine) => {
-          this.refresh();
-        }
-      });
-    });
-
-    return await modal.present();
-  }
 }

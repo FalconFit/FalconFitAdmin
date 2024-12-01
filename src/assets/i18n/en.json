@@ -38,22 +38,29 @@
   },
 
   "MACHINE": {
-    "EDIT": "Edit machine",
-    "NEW": "New machine",
+    "EDIT_TITLE": "Edit Machine",
+    "NEW_TITLE": "New Machine",
+    "IMAGE": "Image",
+    "SELECT_IMAGE": "Select Image",
     "TITLE": "Title",
     "SUBTITLE": "Subtitle",
     "DESCRIPTION": "Description",
-    "TAKEN": "Taken",
-    "PICTURE": "Picture",
-    "SUBMIT": "Register",
-    "UPDATE": "Update",
+    "PLACEHOLDERS": {
+      "TITLE": "Enter a title",
+      "SUBTITLE": "Enter a subtitle",
+      "DESCRIPTION": "Enter a description"
+    },
     "ERRORS": {
-      "TITLE_REQUIRED": "Title is required",
-      "TITLE_MIN_LENGTH": "Title must be at least 2 characters long",
-      "SUBTITLE_REQUIRED": "Subtitle is required",
-      "SUBTITLE_MIN_LENGTH": "Subtitle must be at least 2 characters long",
-      "DESCRIPTION_REQUIRED": "Description is required",
-      "DESCRIPTION_MAX_LENGHT": "Description can't exced 500 characters"
+      "TITLE_REQUIRED": "Title is required.",
+      "TITLE_MIN_LENGTH": "Title must be at least 3 characters.",
+      "SUBTITLE_REQUIRED": "Subtitle is required.",
+      "SUBTITLE_MIN_LENGTH": "Subtitle must be at least 3 characters.",
+      "DESCRIPTION_REQUIRED": "Description is required.",
+      "DESCRIPTION_MAX_LENGTH": "Description must not exceed 500 characters."
+    },
+    "BUTTONS": {
+      "CREATE": "Create",
+      "UPDATE": "Update"
     }
   },
 

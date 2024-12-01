@@ -38,22 +38,29 @@
   },
 
   "MACHINE": {
-    "EDIT": "Editar máquina",
-    "NEW": "Nueva máquina",
+    "EDIT_TITLE": "Editar Máquina",
+    "NEW_TITLE": "Nueva Máquina",
+    "IMAGE": "Imagen",
+    "SELECT_IMAGE": "Seleccionar Imagen",
     "TITLE": "Título",
     "SUBTITLE": "Subtítulo",
     "DESCRIPTION": "Descripción",
-    "TAKEN": "Ocupada",
-    "PICTURE": "Foto",
-    "SUBMIT": "Registrate",
-    "UPDATE": "Actualiza",
+    "PLACEHOLDERS": {
+      "TITLE": "Introduce un título",
+      "SUBTITLE": "Introduce un subtítulo",
+      "DESCRIPTION": "Introduce una descripción"
+    },
     "ERRORS": {
-      "TITLE_REQUIRED": "Añade un título",
-      "TITLE_MIN_LENGTH": "El título debe tener al menos 2 carácteres",
-      "SUBTITLE_REQUIRED": "Añade un subtítulo",
-      "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 2 carácteres",
-      "DESCRIPTION_REQUIRED": "Añade una descripción",
-      "DESCRIPTION_MAX_LENGHT": "La descripción no debe exceder los 500 carácteres"
+      "TITLE_REQUIRED": "El título es obligatorio.",
+      "TITLE_MIN_LENGTH": "El título debe tener al menos 3 caracteres.",
+      "SUBTITLE_REQUIRED": "El subtítulo es obligatorio.",
+      "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 3 caracteres.",
+      "DESCRIPTION_REQUIRED": "La descripción es obligatoria.",
+      "DESCRIPTION_MAX_LENGTH": "La descripción no debe superar los 500 caracteres."
+    },
+    "BUTTONS": {
+      "CREATE": "Crear",
+      "UPDATE": "Actualizar"
     }
   },
 

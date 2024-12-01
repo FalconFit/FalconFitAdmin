@@ -65,8 +65,8 @@
   },
 
   "PLACE": {
-    "EDIT_TITLE": "Editar Máquina",
-    "NEW_TITLE": "Nueva Máquina",
+    "EDIT_TITLE": "Editar lugar",
+    "NEW_TITLE": "Nuevo lugar",
     "TITLE": "Título",
     "DESCRIPTION": "Descripción",
     "PLACEHOLDERS": {

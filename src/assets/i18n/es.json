@@ -1,21 +1,59 @@
 {
+  "LANGUAGE": "Idioma",
+  "LOGIN": {
+    "TITLE": "Iniciar sesión",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "ERRORS": {
+      "EMAIL_REQUIRED": "El correo electrónico es obligatorio",
+      "EMAIL_INVALID": "Por favor, introduce un correo electrónico válido",
+      "PASSWORD_REQUIRED": "La contraseña es obligatoria"
+    },
+    "NO_ACCOUNT": "¿No tienes cuenta?",
+    "REGISTER": "Regístrate",
+    "SUBMIT": "Iniciar sesión"
+  },
+
+  "REGISTER": {
+    "TITLE": "Crear cuenta",
+    "NAME": "Nombre",
+    "SURNAME": "Apellidos",
+    "EMAIL": "Correo electrónico",
+    "PASSWORD": "Contraseña",
+    "CONFIRM_PASSWORD": "Confirmar Contraseña",
+    "ERRORS": {
+      "NAME_REQUIRED": "Debe introducir su nombre",
+      "NAME_MIN_LENGTH": "El nombre debe tener al menos 2 caracteres",
+      "SURNAME_REQUIRED": "Debe introducir su/s apellido/s",
+      "SURNAME_MIN_LENGTH": "El/Los apellido/s deben tener al menos 2 caracteres",
+      "EMAIL_REQUIRED": "Debe introducir un email",
+      "EMAIL_INVALID": "Debe introducir un email válido",
+      "PASSWORD_REQUIRED": "Debe introducir una contraseña",
+      "PASSWORD_STRENGTH": "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un carácter especial (&#64;$!%*?&.)",
+      "PASSWORDS_MISMATCH": "Las contraseñas no coinciden"
+    },
+    "NO_ACCOUNT": "¿Ya tienes cuenta?",
+    "LOGIN": "Iniciar sesión",
+    "SUBMIT": "Crear cuenta"
+  },
+
   "MACHINE": {
-      "EDIT": "Editar máquina",
-      "NEW": "Nueva máquina",
-      "TITLE": "Título",
-      "SUBTITLE": "Subtítulo",
-      "DESCRIPTION": "Descripción",
-      "TAKEN": "Ocupada",
-      "PICTURE": "Foto",
-      "SUBMIT": "Registrate",
-      "UPDATE": "Actualiza",
-      "ERRORS": {
-        "TITLE_REQUIRED": "Añade un título",
-        "TITLE_MIN_LENGTH": "El título debe tener al menos 2 carácteres",
-        "SUBTITLE_REQUIRED": "Añade un subtítulo",
-        "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 2 carácteres",
-        "DESCRIPTION_REQUIRED": "Añade una descripción",
-        "DESCRIPTION_MAX_LENGHT": "La descripción no debe exceder los 500 carácteres"
-      }
+    "EDIT": "Editar máquina",
+    "NEW": "Nueva máquina",
+    "TITLE": "Título",
+    "SUBTITLE": "Subtítulo",
+    "DESCRIPTION": "Descripción",
+    "TAKEN": "Ocupada",
+    "PICTURE": "Foto",
+    "SUBMIT": "Registrate",
+    "UPDATE": "Actualiza",
+    "ERRORS": {
+      "TITLE_REQUIRED": "Añade un título",
+      "TITLE_MIN_LENGTH": "El título debe tener al menos 2 carácteres",
+      "SUBTITLE_REQUIRED": "Añade un subtítulo",
+      "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 2 carácteres",
+      "DESCRIPTION_REQUIRED": "Añade una descripción",
+      "DESCRIPTION_MAX_LENGHT": "La descripción no debe exceder los 500 carácteres"
     }
   }
+}

@@ -1,42 +1,52 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Iniciar Sesión</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="login-page">
 
-<ion-content [fullscreen]="true" scrollY="true">
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <ion-select interface="popover" placeholder="🌐 {{ 'LANGUAGE' | translate }}" (ionChange)="changeLanguage($event.detail.value)">
+      <ion-select-option value="en">English</ion-select-option>
+      <ion-select-option value="es">Español</ion-select-option>
+    </ion-select>
+  </div>
+
   <div class="login-container">
-
+    <ion-text color="light" class="title">
+      <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
+    </ion-text>
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <ion-grid>
-        <ion-row>
-          <ion-col style="display:flex" class="ion-justify-content-center">
-            <ion-text><h1>Iniciar sesión</h1></ion-text>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-grid>
-        <ion-row>
-          <ion-col style="display:flex" class="ion-justify-content-center ion-align-items-center">
-            ¿No tienes cuenta?<ion-button style="text-transform:none" (click)="onRegister()" fill="clear">Regístrate</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
+      <!-- Email Input -->
       <ion-item>
-        <ion-input labelPlacement="floating" label="Email" type="email" formControlName="email" required></ion-input>
+        <ion-label position="floating">{{ 'LOGIN.EMAIL' | translate }}</ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
+
+      <!-- Password Input -->
       <ion-item>
-        <ion-input labelPlacement="floating" label="Contraseña" type="password" formControlName="password" required></ion-input>
+        <ion-label position="floating">{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
       </ion-item>
+
+      <!-- Error Messages -->
       <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-        <p *ngIf="email?.errors?.['required']">*Debe introducir un email</p>
-        <p *ngIf="email?.errors?.['email']">*Debe introducir un email correcto</p>
+        <p *ngIf="email?.errors?.['required']">{{ 'LOGIN.ERRORS.EMAIL_REQUIRED' | translate }}</p>
+        <p *ngIf="email?.errors?.['email']">{{ 'LOGIN.ERRORS.EMAIL_INVALID' | translate }}</p>
       </ion-text>
       <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-        <p *ngIf="password?.errors?.['required']">*Debe introducir una contraseña</p>
+        <p *ngIf="password?.errors?.['required']">{{ 'LOGIN.ERRORS.PASSWORD_REQUIRED' | translate }}</p>
       </ion-text>
-      <ion-button style="text-transform:none" expand="block" type="submit" [disabled]="loginForm.invalid">
-        Iniciar sesión
+
+      <!-- Register Button -->
+      <ion-grid>
+        <ion-row>
+          <ion-col style="display: flex" class="ion-justify-content-center ion-align-items-center">
+            <span class="secondary-text">{{ 'LOGIN.NO_ACCOUNT' | translate }}</span>
+            <ion-button style="text-transform: none" (click)="onRegister()" fill="clear" color="secondary">{{ 'LOGIN.REGISTER' | translate }}</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+
+      <!-- Login Button -->
+      <ion-button expand="block" color="primary" type="submit" [disabled]="loginForm.invalid">
+        {{ 'LOGIN.SUBMIT' | translate }}
       </ion-button>
     </form>
   </div>

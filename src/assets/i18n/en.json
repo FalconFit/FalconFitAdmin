@@ -1,5 +1,43 @@
 {
-"MACHINE": {
+  "LANGUAGE": "Language",
+  "LOGIN": {
+    "TITLE": "Login",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "ERRORS": {
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email address",
+      "PASSWORD_REQUIRED": "Password is required"
+    },
+    "NO_ACCOUNT": "Don't have an account?",
+    "REGISTER": "Register",
+    "SUBMIT": "Login"
+  },
+
+  "REGISTER": {
+    "TITLE": "Create Account",
+    "NAME": "First Name",
+    "SURNAME": "Last Name",
+    "EMAIL": "Email",
+    "PASSWORD": "Password",
+    "CONFIRM_PASSWORD": "Confirm Password",
+    "ERRORS": {
+      "NAME_REQUIRED": "Name is required",
+      "NAME_MIN_LENGTH": "Name must be at least 2 characters long",
+      "SURNAME_REQUIRED": "Surname is required",
+      "SURNAME_MIN_LENGTH": "Surname must be at least 2 characters long",
+      "EMAIL_REQUIRED": "Email is required",
+      "EMAIL_INVALID": "Please enter a valid email",
+      "PASSWORD_REQUIRED": "Password is required",
+      "PASSWORD_STRENGTH": "Password must be at least 8 characters, with one uppercase, one lowercase, one digit, and one special character (&#64;$!%*?&.)",
+      "PASSWORDS_MISMATCH": "Passwords do not match"
+    },
+    "NO_ACCOUNT": "Already have an account?",
+    "LOGIN": "Login",
+    "SUBMIT": "Create Account"
+  },
+
+  "MACHINE": {
     "EDIT": "Edit machine",
     "NEW": "New machine",
     "TITLE": "Title",

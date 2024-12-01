@@ -55,5 +55,14 @@
       "DESCRIPTION_REQUIRED": "Description is required",
       "DESCRIPTION_MAX_LENGHT": "Description can't exced 500 characters"
     }
+  },
+
+  "MENU": {
+    "TITLE": "Menu",
+    "HOME": "Home",
+    "MACHINES": "Machines",
+    "EXERCISES": "Exercises",
+    "LOGOUT": "Logout",
+    "PROFILE": "Profile"
   }
 }

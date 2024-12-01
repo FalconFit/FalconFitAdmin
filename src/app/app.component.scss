@@ -1,0 +1,137 @@
+/* Estilo para el ion-menu */
+ion-menu {
+  --background: #1A1A2E; /* Fondo principal (Azul oscuro imperial) */
+  --width: 280px; /* Ancho del menú lateral */
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para el menú */
+  --border-radius: 10px; /* Esquinas redondeadas */
+  --ion-background-color: #1A1A2E; /* Color de fondo */
+  --ion-text-color: #F0E3CA; /* Color de la tipografía secundaria (Beige claro) */
+}
+
+/* Estilo para el ion-toolbar dentro del ion-menu */
+ion-menu ion-toolbar {
+  --background: #521945; /* Barra de navegación (Granate profundo) */
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+  --padding-start: 20px;
+  --padding-end: 20px;
+}
+
+/* Estilo para el título del ion-toolbar */
+ion-menu ion-toolbar ion-title {
+  font-weight: bold;
+  font-size: 18px;
+  color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}
+
+/* Estilo para los íconos de idioma (ion-fab-button) */
+ion-menu ion-fab-button {
+  background-color: transparent;
+  border-radius: 50%;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+ion-menu ion-fab-button ion-icon {
+  color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}
+
+/* Estilo para los ítem del menú */
+ion-menu ion-list ion-item {
+  --background: transparent;
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+  --padding-start: 20px;
+  --padding-end: 20px;
+  font-size: 16px;
+  transition: background 0.3s ease-in-out;
+}
+
+ion-menu ion-list ion-item:hover {
+  --background: #CB6D51; /* Destacados/Notificaciones (Naranja cobre) */
+  --color: #1A1A2E; /* Fondo principal (Azul oscuro imperial) */
+}
+
+/* Estilo para el ion-footer */
+ion-menu ion-footer {
+  --background: #2C2E43; /* Tarjetas (Gris pizarra oscuro) */
+}
+
+ion-menu ion-footer ion-item {
+  --background: transparent;
+  --padding-start: 15px;
+  --padding-end: 15px;
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}
+
+/* Estilo para el avatar del usuario */
+ion-footer ion-avatar {
+  width: 40px;
+  height: 40px;
+}
+
+ion-footer ion-avatar img {
+  border-radius: 50%;
+}
+
+/* Estilo para el nombre del usuario */
+ion-footer ion-label h3 {
+  font-size: 16px;
+  font-weight: bold;
+  color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+  margin-left: 10px;
+}
+
+/* Estilo para los ítem de autenticación (con visibilidad condicional) */
+ion-menu ion-item[ng-reflect-ng-if="true"] {
+  display: block;
+}
+
+ion-menu ion-item[ng-reflect-ng-if="false"] {
+  display: none;
+}
+
+/* Estilo para la lista de elementos de menú */
+ion-menu ion-list {
+  padding-top: 10px;
+}
+
+/* Estilo para los botones principales y secundarios */
+ion-menu ion-item ion-button {
+  --background: #A31D2E; /* Botón principal (Rojo imperial oscuro) */
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+  --border-radius: 5px;
+  --padding-start: 16px;
+  --padding-end: 16px;
+}
+
+ion-menu ion-item ion-button.secondary {
+  --background: #6E7C7C; /* Botón secundario (Gris acero) */
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}
+
+/* Ajustes para la barra de navegación y los íconos */
+ion-toolbar {
+  --background: #521945; /* Barra de navegación (Granate profundo) */
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+  padding: 10px 20px;
+}
+
+ion-toolbar ion-fab {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+ion-toolbar ion-fab ion-fab-list {
+  margin-right: 55px;
+}
+
+ion-toolbar ion-fab ion-fab-button {
+  --background: transparent;
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}
+
+ion-toolbar ion-fab ion-fab-button.ion-color-primary {
+  --background: #A31D2E; /* Botón principal (Rojo imperial oscuro) */
+  --color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
+}

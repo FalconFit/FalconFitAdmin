@@ -55,5 +55,14 @@
       "DESCRIPTION_REQUIRED": "Añade una descripción",
       "DESCRIPTION_MAX_LENGHT": "La descripción no debe exceder los 500 carácteres"
     }
+  },
+
+  "MENU": {
+    "TITLE": "Menu",
+    "HOME": "Inicio",
+    "MACHINES": "Máquinas",
+    "EXERCISES": "Ejercicios",
+    "LOGOUT": "Cerrar sesión",
+    "PROFILE": "Perfil"
   }
 }

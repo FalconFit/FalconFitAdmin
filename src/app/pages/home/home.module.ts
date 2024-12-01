@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { SharedModule } from "../../shared/components/shared.module";
 import { TranslateModule } from '@ngx-translate/core';
+import { GoogleMapsModule } from '@angular/google-maps';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { TranslateModule } from '@ngx-translate/core';
     IonicModule,
     HomePageRoutingModule,
     SharedModule,
+    GoogleMapsModule,
     TranslateModule.forChild()
 ],
   declarations: [HomePage]

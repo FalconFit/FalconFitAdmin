@@ -9,10 +9,46 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+<ion-content>
+  <div class="container">
+    <!-- Columna del Mapa -->
+    <div class="map-column">
+      <google-map
+        [center]="center"
+        [zoom]="zoom"
+        [options]="options"
+        (mapClick)="addMarker($event)">
+
+        <map-marker
+          *ngFor="let marker of markers"
+          [position]="marker.position">
+        </map-marker>
+
+      </google-map>
+    </div>
+
+    <!-- Columna de Tarjetas -->
+    <div class="cards-column">
+      <ion-card *ngFor="let location of locations" class="location-card">
+        <ion-card-header>
+          <ion-card-title>{{ location.name }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p>{{ location.description }}</p>
+          <ion-button expand="full" (click)="focusLocation(location)">Ver en el mapa</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </div>
+
+  <!-- Botones para cambiar el tipo de mapa -->
+  <ion-footer>
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-buttons slot="start">
+        <ion-button (click)="changeMapType('roadmap')">Mapa Normal</ion-button>
+        <ion-button (click)="changeMapType('satellite')">Vista Satélite</ion-button>
+        <ion-button (click)="changeMapType('hybrid')">Vista Híbrida</ion-button>
+      </ion-buttons>
     </ion-toolbar>
-  </ion-header>
+  </ion-footer>
 </ion-content>

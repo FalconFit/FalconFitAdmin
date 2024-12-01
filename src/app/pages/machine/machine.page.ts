@@ -14,7 +14,6 @@ import { MachineFormComponent } from 'src/app/shared/components/machine-form/mac
 export class MachinePage implements OnInit {
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
-  peopleSv: any;
 
   constructor(
     private machineSvc: MachineService,

@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Paginated } from 'src/app/core/models/Paginated.model';
+import { Place } from 'src/app/core/models/place.model';
+import { PlaceService } from 'src/app/core/services/impl/place.service';
+import { MapModuleComponent } from 'src/app/shared/components/map-module/map-module.component';
 
 @Component({
   selector: 'app-home',
@@ -6,6 +12,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  _place:BehaviorSubject<Place[]> = new BehaviorSubject<Place[]>([]);
+  machine$:Observable<Place[]> = this._place.asObservable();
+
+  page:number = 1;
+  pageSize:number = 25;
+  pages:number = 0;
+  totalPages!: number;
+
   center: google.maps.LatLngLiteral = { lat: 36.71919368379839, lng: -4.531364206046131 };
   zoom = 18;
   options: google.maps.MapOptions = {
@@ -24,7 +38,10 @@ export class HomePage {
     { name: 'Statue of Liberty', description: 'A historic landmark.', position: { lat: 40.689247, lng: -74.044502 } }
   ];
 
-  constructor() {
+  constructor(
+    private modalCtrl: ModalController,
+    private placeSvc: PlaceService,
+  ) {
     this.getUserLocation(); // Llama a la función para obtener la ubicación del usuario
   }
 
@@ -45,10 +62,43 @@ export class HomePage {
     );
   }
 
+  async onAddPlace(lat: number, lng: number) {
+    const modal = await this.modalCtrl.create({
+      component:MapModuleComponent,
+      componentProps:{
+      }
+    });
+
+    modal.onDidDismiss().then((data)=>{
+      let place:Place = {
+        id: '',
+        title: data.data.title,
+        description: data.data.description,
+        lat: lat,
+        lng: lng
+      }
+      this.placeSvc.add(place).subscribe({
+        next:(response: Place) => {
+          this.refresh();
+        }
+      });
+    });
+
+    return await modal.present();
+  }
+
+
   // Función para agregar un marcador en el mapa
   addMarker(event: google.maps.MapMouseEvent) {
     if (event.latLng) {
-      this.markers.push({ position: event.latLng.toJSON() });
+      const position = event.latLng.toJSON();
+      this.markers.push({ position });
+      const posLatitude = position.lat;
+      const posLenght = position.lng;
+
+      this.onAddPlace(posLatitude, posLenght)
+
+      console.log("Marcador añadido:", position); // Opcional: Verifica los valores en la consola
     }
   }
 
@@ -58,19 +108,12 @@ export class HomePage {
     this.zoom = 18; // Acerca el zoom
   }
 
-  // Función para cambiar el tipo de mapa
-  changeMapType(mapType: string) {
-    switch (mapType) {
-      case 'satellite':
-        this.options.mapTypeId = google.maps.MapTypeId.SATELLITE;
-        break;
-      case 'hybrid':
-        this.options.mapTypeId = google.maps.MapTypeId.HYBRID;
-        break;
-      case 'roadmap':
-      default:
-        this.options.mapTypeId = google.maps.MapTypeId.ROADMAP;
-        break;
-    }
+  refresh(){
+    this.placeSvc.getAll(1, (this.page - 1) * this.pageSize).subscribe({
+      next:(response:Paginated<Place>)=>{
+        this.totalPages = response.pages;
+        this._place.next(response.data);
+      }
+    });
   }
 }

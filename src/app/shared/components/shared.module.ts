@@ -8,11 +8,12 @@ import { MapComponent } from './map/map.component';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { MachineFormComponent } from './machine-form/machine-form.component';
 import { TranslateModule } from '@ngx-translate/core';
+import { MapModuleComponent } from './map-module/map-module.component';
 
 
 
 @NgModule({
-  declarations: [RoutingBarComponent, MachineFormComponent, MapComponent],
+    declarations: [RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent],
   imports: [
     CommonModule,
     RouterModule,

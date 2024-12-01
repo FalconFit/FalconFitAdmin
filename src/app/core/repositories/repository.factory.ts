@@ -1,6 +1,6 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 import { Machine } from "../models/machine.model";
-import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from "./repository.tokens";
+import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, PLACE_REPOSITORY_TOKEN, PLACE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -16,6 +16,8 @@ import { StrapiAuthenticationService } from "../services/impl/strapi-authenticat
 import { StrapiAuthMappingService } from "../services/impl/strapi-auth-mapping.service";
 import { Userff } from "../models/userff.model";
 import { UserffMappingStrapi } from "./impl/userff-mapping-strapi.service";
+import { Place } from "../models/place.model";
+import { PlaceMappingStrapi } from "./impl/place-mapping-strapi.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -41,7 +43,7 @@ export function createBaseRepositoryFactory<T extends Model>(
 export function createBaseMappingFactory<T extends Model>(
   token: InjectionToken<IBaseMapping<T>>,
   dependencies: any[],
-  modelType: 'machine' | 'userff'
+  modelType: 'machine' | 'userff' | 'place'
 ): FactoryProvider {
   return {
     provide: token,
@@ -52,9 +54,13 @@ export function createBaseMappingFactory<T extends Model>(
             ? new MachineLocalStorageMapping()
             : null;
         case 'strapi':
-          return modelType === 'machine'
-            ? new MachineMappingStrapi()
-            : new UserffMappingStrapi();
+          if(modelType === 'machine'){
+            return new MachineMappingStrapi()
+          }else if(modelType === 'place'){
+            return new PlaceMappingStrapi()
+          }else{
+            return new UserffMappingStrapi()
+          }
         default:
           throw new Error("BACKEND NOT IMPLEMENTED");
       }
@@ -90,12 +96,17 @@ export const MachineMappingFactory = createBaseMappingFactory<Machine>(
   'machine'
 );
 
+export const PlaceMappingFactory = createBaseMappingFactory<Place>(
+  PLACE_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN],
+  'place'
+);
+
 export const UserffMappingFactory = createBaseMappingFactory<Userff>(
   USERFF_REPOSITORY_MAPPING_TOKEN,
   [BACKEND_TOKEN],
   'userff'
 );
-
 
 export const AuthenticationServiceFactory:FactoryProvider = {
   provide: BaseAuthenticationService,
@@ -121,6 +132,10 @@ export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(
 
 export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Machine>(MACHINE_REPOSITORY_TOKEN,
   [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN]
+);
+
+export const PlaceRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Place>(PLACE_REPOSITORY_TOKEN,
+  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN]
 );
 
 export const UserffRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Userff>(USERFF_REPOSITORY_TOKEN,

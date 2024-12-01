@@ -1,6 +1,6 @@
 import { Model } from "./base.model";
 
-export interface Location extends Model {
+export interface Place extends Model {
   title:string,
   description: string,
   lat: number,

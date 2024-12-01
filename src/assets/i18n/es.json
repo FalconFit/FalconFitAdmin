@@ -64,6 +64,27 @@
     }
   },
 
+  "PLACE": {
+    "EDIT_TITLE": "Editar Máquina",
+    "NEW_TITLE": "Nueva Máquina",
+    "TITLE": "Título",
+    "DESCRIPTION": "Descripción",
+    "PLACEHOLDERS": {
+      "TITLE": "Introduce un título",
+      "DESCRIPTION": "Introduce una descripción"
+    },
+    "ERRORS": {
+      "TITLE_REQUIRED": "El título es obligatorio.",
+      "TITLE_MIN_LENGTH": "El título debe tener al menos 3 caracteres.",
+      "DESCRIPTION_REQUIRED": "La descripción es obligatoria.",
+      "DESCRIPTION_MAX_LENGTH": "La descripción no debe superar los 500 caracteres."
+    },
+    "BUTTONS": {
+      "CREATE": "Crear",
+      "UPDATE": "Actualizar"
+    }
+  },
+
   "MENU": {
     "TITLE": "Menu",
     "HOME": "Inicio",

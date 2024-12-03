@@ -19,6 +19,9 @@ import { MachineFormComponent } from './shared/components/machine-form/machine-f
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { GoogleMapsModule } from '@angular/google-maps';
 import { PlaceService } from './core/services/impl/place.service';
+import { provideLottieOptions } from 'ngx-lottie';
+import player from 'lottie-web';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -46,6 +49,9 @@ export function createTranslateLoader(http: HttpClient) {
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    provideLottieOptions({
+      player: () => player,
+    }),
     provideHttpClient(),
 
     { provide: BACKEND_TOKEN, useValue: 'strapi' },

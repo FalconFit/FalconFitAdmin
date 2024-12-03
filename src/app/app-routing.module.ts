@@ -5,8 +5,12 @@ import { authGuard } from './core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'dumbbell',
+    loadChildren: () => import('./pages/dumbbell/dumbbell.page').then( m => m.DumbbellPage)
   },
   {
     path: 'login',
@@ -30,7 +34,8 @@ const routes: Routes = [
     path: 'exercise',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/exercise/exercise.module').then( m => m.ExercisePageModule)
-  },
+  }
+
 ];
 
 @NgModule({

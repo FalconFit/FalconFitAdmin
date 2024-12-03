@@ -9,11 +9,12 @@ import { GoogleMapsModule } from '@angular/google-maps';
 import { MachineFormComponent } from './machine-form/machine-form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MapModuleComponent } from './map-module/map-module.component';
+import { PictureSelectableComponent } from './picture-selectable/picture-selectable.component';
 
 
 
 @NgModule({
-    declarations: [RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent],
+    declarations: [RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent, PictureSelectableComponent],
   imports: [
     CommonModule,
     RouterModule,
@@ -22,6 +23,6 @@ import { MapModuleComponent } from './map-module/map-module.component';
     GoogleMapsModule,
     TranslateModule.forChild()
   ],
-  exports:[RoutingBarComponent]
+  exports:[RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent, PictureSelectableComponent]
 })
 export class SharedModule { }

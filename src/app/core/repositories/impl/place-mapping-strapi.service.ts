@@ -28,7 +28,7 @@ export interface MachineAttributes {
   title: string
   subtitle: string
   description: string
-  taken: boolean
+  taken: Boolean
   createdAt?: string
   updatedAt?: string
   publishedAt?: string
@@ -82,7 +82,7 @@ export class PlaceMappingStrapi implements IBaseMapping<Machine>{
   }
 
 
-  setAdd(data: Machine) {
+  setAdd(data: Machine): MachineData {
     return {
       data:{
           title:data.title,
@@ -94,7 +94,7 @@ export class PlaceMappingStrapi implements IBaseMapping<Machine>{
       }
   };
   }
-  setUpdate(data: any) {
+  setUpdate(data: any): MachineData {
     const mappedData: Partial<MachineAttributes> = {};
 
         Object.keys(data).forEach(key => {

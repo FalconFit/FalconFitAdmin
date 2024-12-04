@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { ExercisePageRoutingModule } from './exercise-routing.module';
 
 import { ExercisePage } from './exercise.page';
-import { SharedModule } from 'src/app/shared/components/shared.module';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
@@ -16,7 +15,6 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     ExercisePageRoutingModule,
-    SharedModule,
     TranslateModule.forChild()
   ],
   declarations: [ExercisePage]

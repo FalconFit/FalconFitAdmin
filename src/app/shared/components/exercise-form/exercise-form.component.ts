@@ -1,27 +1,27 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ModalController, Platform } from '@ionic/angular';
-import { Machine } from 'src/app/core/models/machine.model';
+import { Exercise } from '../../../core/models/exercise.model';
 
 @Component({
-  selector: 'app-machine-form',
-  templateUrl: './machine-form.component.html',
-  styleUrls: ['./machine-form.component.scss'],
+  selector: 'app-exercise-form',
+  templateUrl: './exercise-form.component.html',
+  styleUrls: ['./exercise-form.component.scss'],
 })
-export class MachineFormComponent  implements OnInit {
+export class ExerciseFormComponent  implements OnInit {
 
   formGroup:FormGroup;
   mode:'new'|'edit' = 'new';
   isMobile: boolean = false;
   picture: string | null = null;
 
-  @Input() set machine(_machine:Machine){
-    if(_machine && _machine.id)
+  @Input() set exercise(_exercise:Exercise){
+    if(_exercise && _exercise.id)
       this.mode = 'edit';
 
-    this.formGroup.controls['title'].setValue(_machine.title);
-    this.formGroup.controls['subtitle'].setValue(_machine.subtitle);
-    this.formGroup.controls['description'].setValue(_machine.description);
+    this.formGroup.controls['title'].setValue(_exercise.title);
+    this.formGroup.controls['subtitle'].setValue(_exercise.subtitle);
+    this.formGroup.controls['description'].setValue(_exercise.description);
   }
 
   constructor(

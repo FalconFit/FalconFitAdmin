@@ -148,5 +148,4 @@ export class MachinePage implements OnInit {
     await alert.present();
   }
 
-
 }

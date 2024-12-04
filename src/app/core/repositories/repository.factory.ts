@@ -1,6 +1,6 @@
 import { FactoryProvider, InjectionToken } from "@angular/core";
 import { Machine } from "../models/machine.model";
-import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, PLACE_REPOSITORY_TOKEN, PLACE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from "./repository.tokens";
+import { AUTH_MAPPING_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, EXERCISE_API_URL_TOKEN, EXERCISE_REPOSITORY_MAPPING_TOKEN, EXERCISE_REPOSITORY_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, PLACE_REPOSITORY_TOKEN, PLACE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -18,6 +18,8 @@ import { Userff } from "../models/userff.model";
 import { UserffMappingStrapi } from "./impl/userff-mapping-strapi.service";
 import { Place } from "../models/place.model";
 import { PlaceMappingStrapi } from "./impl/place-mapping-strapi.service";
+import { ExerciseMappingStrapi } from "./impl/exercise-mapping-strapi.service";
+import { Exercise } from "../models/exercise.model";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -43,7 +45,7 @@ export function createBaseRepositoryFactory<T extends Model>(
 export function createBaseMappingFactory<T extends Model>(
   token: InjectionToken<IBaseMapping<T>>,
   dependencies: any[],
-  modelType: 'machine' | 'userff' | 'place'
+  modelType: 'machine' | 'userff' | 'place' | 'exercise'
 ): FactoryProvider {
   return {
     provide: token,
@@ -58,6 +60,8 @@ export function createBaseMappingFactory<T extends Model>(
             return new MachineMappingStrapi()
           }else if(modelType === 'place'){
             return new PlaceMappingStrapi()
+          }else if(modelType === 'exercise'){
+            return new ExerciseMappingStrapi()
           }else{
             return new UserffMappingStrapi()
           }
@@ -102,6 +106,12 @@ export const PlaceMappingFactory = createBaseMappingFactory<Place>(
   'place'
 );
 
+export const ExerciseMappingFactory = createBaseMappingFactory<Exercise>(
+  EXERCISE_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN],
+  'exercise'
+);
+
 export const UserffMappingFactory = createBaseMappingFactory<Userff>(
   USERFF_REPOSITORY_MAPPING_TOKEN,
   [BACKEND_TOKEN],
@@ -136,6 +146,10 @@ export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFac
 
 export const PlaceRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Place>(PLACE_REPOSITORY_TOKEN,
   [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN]
+);
+
+export const ExerciseRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Exercise>(EXERCISE_REPOSITORY_TOKEN,
+  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, EXERCISE_API_URL_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, EXERCISE_REPOSITORY_MAPPING_TOKEN]
 );
 
 export const UserffRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Userff>(USERFF_REPOSITORY_TOKEN,

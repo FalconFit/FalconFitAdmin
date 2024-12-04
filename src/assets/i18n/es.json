@@ -64,6 +64,33 @@
     }
   },
 
+  "EXERCISE": {
+    "EDIT_TITLE": "Editar ejercicio",
+    "NEW_TITLE": "Nueva ejercicio",
+    "IMAGE": "Imagen",
+    "SELECT_IMAGE": "Seleccionar Imagen",
+    "TITLE": "Título",
+    "SUBTITLE": "Subtítulo",
+    "DESCRIPTION": "Descripción",
+    "PLACEHOLDERS": {
+      "TITLE": "Introduce un título",
+      "SUBTITLE": "Introduce un subtítulo",
+      "DESCRIPTION": "Introduce una descripción"
+    },
+    "ERRORS": {
+      "TITLE_REQUIRED": "El título es obligatorio.",
+      "TITLE_MIN_LENGTH": "El título debe tener al menos 3 caracteres.",
+      "SUBTITLE_REQUIRED": "El subtítulo es obligatorio.",
+      "SUBTITLE_MIN_LENGTH": "El subtítulo debe tener al menos 3 caracteres.",
+      "DESCRIPTION_REQUIRED": "La descripción es obligatoria.",
+      "DESCRIPTION_MAX_LENGTH": "La descripción no debe superar los 500 caracteres."
+    },
+    "BUTTONS": {
+      "CREATE": "Crear",
+      "UPDATE": "Actualizar"
+    }
+  },
+
   "PLACE": {
     "EDIT_TITLE": "Editar lugar",
     "NEW_TITLE": "Nuevo lugar",

@@ -10,11 +10,19 @@ import { MachineFormComponent } from './machine-form/machine-form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { MapModuleComponent } from './map-module/map-module.component';
 import { PictureSelectableComponent } from './picture-selectable/picture-selectable.component';
+import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
 
 
 
 @NgModule({
-    declarations: [RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent, PictureSelectableComponent],
+    declarations: [
+    RoutingBarComponent,
+    MachineFormComponent,
+    MapModuleComponent,
+    MapComponent,
+    PictureSelectableComponent,
+    ExerciseFormComponent
+  ],
   imports: [
     CommonModule,
     RouterModule,
@@ -23,6 +31,12 @@ import { PictureSelectableComponent } from './picture-selectable/picture-selecta
     GoogleMapsModule,
     TranslateModule.forChild()
   ],
-  exports:[RoutingBarComponent, MachineFormComponent, MapModuleComponent,  MapComponent, PictureSelectableComponent]
+  exports:[RoutingBarComponent,
+    MachineFormComponent,
+    MapModuleComponent,
+    MapComponent,
+    PictureSelectableComponent,
+    ExerciseFormComponent
+  ]
 })
 export class SharedModule { }

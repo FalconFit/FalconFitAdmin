@@ -4,7 +4,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Paginated } from 'src/app/core/models/Paginated.model';
 import { ExerciseService } from 'src/app/core/services/impl/exercise.service';
-import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
+import { ExerciseFormComponent } from 'src/app/shared/components/exercise-form/exercise-form.component';
 
 @Component({
   selector: 'app-exercise',
@@ -70,7 +70,7 @@ export class ExercisePage implements OnInit {
 
   async onAddExercise() {
     const modal = await this.modalCtrl.create({
-      component:MachineFormComponent,
+      component:ExerciseFormComponent,
       componentProps:{
       }
     });
@@ -94,7 +94,7 @@ export class ExercisePage implements OnInit {
 
   async onUpdateExercise(exercise: any, index: number){
     const modal = await this.modalCtrl.create({
-      component: MachineFormComponent,
+      component: ExerciseFormComponent,
       componentProps: {
         mode: "edit",
         exercise: exercise,

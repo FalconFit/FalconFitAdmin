@@ -20,7 +20,7 @@ export class ExercisePage implements OnInit {
     private exerciseSvc: ExerciseService,
     private modalCtrl: ModalController,
     private alertController: AlertController,
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.loadExercises()
@@ -81,6 +81,7 @@ export class ExercisePage implements OnInit {
         title: data.data.title,
         subtitle: data.data.subtitle,
         description: data.data.description,
+        machineId: data.data.machineId
       }
       this.exerciseSvc.add(exercise).subscribe({
         next:(response: Exercise) => {

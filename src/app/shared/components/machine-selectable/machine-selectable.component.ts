@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit, ViewChild, forwardRef } from '@angular/core';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
-import { IonPopover } from '@ionic/angular';
-import { BehaviorSubject } from 'rxjs';
+import { IonInput, IonPopover } from '@ionic/angular';
+import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
 import { MachineService } from 'src/app/core/services/impl/machine.service';
 
@@ -54,6 +54,38 @@ export class MachineSelectableComponent  implements OnDestroy {
     })
   }
 
+  private async selectMachine(id:string|undefined, propagate:boolean=false){
+    if(id){
+      this.machineSelected  = await lastValueFrom(this.machineSvc.getById(id));
+    }
+    else
+      this.machineSelected = null;
+    if(propagate && this.machineSelected)
+      this.propagateChange(this.machineSelected.id);
+  }
 
+  onMachineClicked(popover:IonPopover, machine:Machine){
+    this.selectMachine(machine.id, true);
+    popover.dismiss();
+  }
+
+  private async filter(filtering:string){
+    this.loadMachines(filtering);
+  }
+
+  onFilter(evt:any){
+    this.filter(evt.detail.value);
+  }
+
+  clearSearch(input:IonInput){
+    input.value = "";
+    this.filter("");
+  }
+
+  deselect(popover:IonPopover|null=null){
+    this.selectMachine(undefined, true);
+    if(popover)
+      popover.dismiss();
+  }
 
 }

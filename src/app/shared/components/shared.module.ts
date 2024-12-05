@@ -11,6 +11,7 @@ import { TranslateModule } from '@ngx-translate/core';
 import { MapModuleComponent } from './map-module/map-module.component';
 import { PictureSelectableComponent } from './picture-selectable/picture-selectable.component';
 import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
+import { MachineSelectableComponent } from './machine-selectable/machine-selectable.component';
 
 
 
@@ -21,7 +22,8 @@ import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
     MapModuleComponent,
     MapComponent,
     PictureSelectableComponent,
-    ExerciseFormComponent
+    ExerciseFormComponent,
+    MachineSelectableComponent
   ],
   imports: [
     CommonModule,
@@ -36,7 +38,8 @@ import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
     MapModuleComponent,
     MapComponent,
     PictureSelectableComponent,
-    ExerciseFormComponent
+    ExerciseFormComponent,
+    MachineSelectableComponent
   ]
 })
 export class SharedModule { }

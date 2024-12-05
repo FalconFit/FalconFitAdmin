@@ -34,22 +34,10 @@ export class ExerciseFormComponent  implements OnInit {
       title:['', [Validators.required, Validators.minLength(2)]],
       subtitle:['', [Validators.required, Validators.minLength(2)]],
       description:['', [Validators.required, Validators.maxLength(500)]],
+      machineId:[null,[]]
     });
   }
 
-  onFileSelected(event: Event) {
-    const fileInput = event.target as HTMLInputElement;
-
-    if (fileInput.files && fileInput.files[0]) {
-      const file = fileInput.files[0];
-
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.picture = e.target.result; // Guardar la imagen como base64 para la previsualización
-      };
-      reader.readAsDataURL(file);
-    }
-  }
 
   ngOnInit() {}
 

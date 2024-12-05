@@ -65,6 +65,7 @@
   },
 
   "EXERCISE": {
+    "MACHINE":"Máquina relacionada",
     "EDIT_TITLE": "Editar ejercicio",
     "NEW_TITLE": "Nueva ejercicio",
     "IMAGE": "Imagen",
@@ -119,5 +120,10 @@
     "EXERCISES": "Ejercicios",
     "LOGOUT": "Cerrar sesión",
     "PROFILE": "Perfil"
+  },
+  "MACHINE_SELECTABLE": {
+    "SELECT_MACHINE": "Seleccione una máquina",
+    "NONE": "Ninguna",
+    "SEARCH": "Buscar"
   }
 }

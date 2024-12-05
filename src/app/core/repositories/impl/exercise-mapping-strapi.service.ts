@@ -76,6 +76,7 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
           subtitle:data.subtitle,
           description:data.description,
           user:data.userId?Number(data.userId):null,
+          machineId: data.machineId?Number(data.machineId):null
       }
   };
   }

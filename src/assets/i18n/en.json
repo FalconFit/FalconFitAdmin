@@ -65,6 +65,7 @@
   },
 
   "EXERCISE": {
+    "MACHINE":"Machine related",
     "EDIT_TITLE": "Edit exercise",
     "NEW_TITLE": "New exercose",
     "TITLE": "Title",
@@ -109,7 +110,6 @@
       "UPDATE": "Update"
     }
   },
-
   "MENU": {
     "TITLE": "Menu",
     "HOME": "Home",
@@ -117,5 +117,10 @@
     "EXERCISES": "Exercises",
     "LOGOUT": "Logout",
     "PROFILE": "Profile"
+  },
+  "MACHINE_SELECTABLE": {
+    "SELECT_MACHINE": "Select a machine",
+    "NONE": "None",
+    "SEARCH": "Search"
   }
 }

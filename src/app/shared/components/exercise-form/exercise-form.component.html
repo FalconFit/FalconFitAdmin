@@ -57,6 +57,12 @@
       <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">{{ 'EXERCISE.ERRORS.DESCRIPTION_MAX_LENGTH' | translate }}</p>
     </ion-text>
 
+    <!-- Selección de máquinas -->
+    <ion-item>
+      <ion-label position="stacked">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
+      <app-machine-selectable formControlName="machineId"></app-machine-selectable>
+    </ion-item>
+
     <!-- Botón de envío -->
     <ion-button [disabled]="!formGroup.valid || !formGroup.dirty" expand="full" type="submit">
       {{ mode === 'edit' ? ('EXERCISE.BUTTONS.UPDATE' | translate) : ('EXERCISE.BUTTONS.CREATE' | translate) }}

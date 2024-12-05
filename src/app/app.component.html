@@ -24,7 +24,6 @@
       <ion-item (click)="menu.close()" routerLink="/home" routerDirection="root">{{ 'MENU.HOME' | translate }}</ion-item>
       <ion-item (click)="menu.close()" *ngIf="(authSvc.authenticated$ | async)" routerLink="/machine" routerDirection="root">{{ 'MENU.MACHINES' | translate }}</ion-item>
       <ion-item (click)="menu.close()" *ngIf="(authSvc.authenticated$ | async)" routerLink="/exercise" routerDirection="root">{{ 'MENU.EXERCISES' | translate }}</ion-item>
-      <ion-item (click)="menu.close()" *ngIf="(authSvc.authenticated$ | async)" routerLink="/profile" routerDirection="root">{{ 'MENU.PROFILE' | translate }}</ion-item>
       <ion-item (click)="menu.close()" *ngIf="(authSvc.authenticated$ | async)" (click)="logout()" button>{{ 'MENU.LOGOUT' | translate }}</ion-item>
     </ion-list>
   </ion-content>

@@ -35,7 +35,6 @@ export class MachineSelectableComponent implements OnDestroy, ControlValueAccess
     public machineSvc: MachineService
   ) { }
 
-  // Implementación de ControlValueAccessor
   writeValue(value: string): void {
     this.selectMachine(value);
   }

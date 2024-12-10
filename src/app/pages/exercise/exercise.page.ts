@@ -69,9 +69,11 @@ export class ExercisePage implements OnInit {
   }
 
   async onAddExercise() {
+    let _exercises:Exercise[] = await lastValueFrom(this.exerciseSvc.getAll())
     const modal = await this.modalCtrl.create({
       component:ExerciseFormComponent,
       componentProps:{
+        exercises: _exercises
       }
     });
 
@@ -85,7 +87,7 @@ export class ExercisePage implements OnInit {
       }
       this.exerciseSvc.add(exercise).subscribe({
         next:(response: Exercise) => {
-          this.refresh();
+          this.loadExercises();
         }
       });
     });
@@ -106,7 +108,7 @@ export class ExercisePage implements OnInit {
     modal.onDidDismiss().then((data:any)=>{
       this.exerciseSvc.update(exercise!.id, data.data).subscribe({
         next:(response: Exercise) => {
-          this.refresh();
+          this.loadExercises();
         }
       })
     })

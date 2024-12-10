@@ -8,6 +8,10 @@ export interface UserRaw{
   data: any
 }
 
+export interface MachineRaw{
+  data: any
+}
+
 export interface ExerciseRaw {
   data: Data
   meta: Meta
@@ -29,6 +33,7 @@ export interface ExerciseAttributes {
   updatedAt?: string
   publishedAt?: string
   user:UserRaw | number | null,
+  machine: MachineRaw | number | null
 }
 
 
@@ -54,6 +59,8 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
             title: attributes.title,
             subtitle: attributes.subtitle,
             description: attributes.description,
+            machineName: typeof attributes.machine === 'object' ? attributes.machine?.data?.title.toString() : undefined,
+            machineId: typeof attributes.machine === 'object' ? attributes.machine?.data?.id.toString() : undefined,
             userId: typeof attributes.user === 'object' ? attributes.user?.data?.id.toString() : undefined,
         };
   }
@@ -76,7 +83,7 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
           subtitle:data.subtitle,
           description:data.description,
           user:data.userId?Number(data.userId):null,
-          machineId: data.machineId?Number(data.machineId):null
+          machine: data.machineId?Number(data.machineId):null
       }
   };
   }
@@ -90,6 +97,8 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
                 case 'subtitle': mappedData.subtitle = data[key];
                 break;
                 case 'description': mappedData.description = data[key];
+                break;
+                case 'machine': mappedData.machine = data[key] ? Number(data[key]) : null;
                 break;
                 case 'userId': mappedData.user = data[key] ? Number(data[key]) : null;
                 break;

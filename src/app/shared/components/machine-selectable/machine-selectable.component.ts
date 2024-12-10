@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild, forwardRef } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IonInput, IonPopover } from '@ionic/angular';
 import { BehaviorSubject, lastValueFrom } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
@@ -15,24 +15,42 @@ import { MachineService } from 'src/app/core/services/impl/machine.service';
     multi: true
   }]
 })
-export class MachineSelectableComponent  implements OnDestroy {
+export class MachineSelectableComponent implements OnDestroy, ControlValueAccessor {
 
-  machineSelected:Machine | null = null;
-  disabled:boolean = true;
-  private _machines:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
+  machineSelected: Machine | null = null;
+  disabled: boolean = false;
+  private _machines: BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   public machines$ = this._machines.asObservable();
 
   propagateChange = (obj: any) => {}
+  propagateTouched = () => {}
 
   @ViewChild('popover', { read: IonPopover }) popover: IonPopover | undefined;
 
-  page:number = 1;
-  pageSize:number = 25;
-  pages:number = 0;
+  page: number = 1;
+  pageSize: number = 25;
+  pages: number = 0;
 
   constructor(
     public machineSvc: MachineService
   ) { }
+
+  // Implementación de ControlValueAccessor
+  writeValue(value: string): void {
+    this.selectMachine(value);
+  }
+
+  registerOnChange(fn: any): void {
+    this.propagateChange = fn;
+  }
+
+  registerOnTouched(fn: any): void {
+    this.propagateTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    this.disabled = isDisabled;
+  }
 
   ngOnDestroy(): void {
     this.popover?.dismiss();
@@ -42,50 +60,52 @@ export class MachineSelectableComponent  implements OnDestroy {
     this.loadMachines("")
   }
 
-  private async loadMachines(filter:string){
+  private async loadMachines(filter: string){
     this.page = 1;
     this.machineSvc.getAll(this.page, this.pageSize).subscribe({
-      next:response=>{
+      next: response => {
         this._machines.next([...response.data]);
         this.page++;
         this.pages = response.pages;
       },
-      error:err=>{}
+      error: err => {}
     })
   }
 
-  private async selectMachine(id:string|undefined, propagate:boolean=false){
+  private async selectMachine(id: string | undefined, propagate: boolean = false){
     if(id){
-      this.machineSelected  = await lastValueFrom(this.machineSvc.getById(id));
+      this.machineSelected = await lastValueFrom(this.machineSvc.getById(id));
     }
     else
       this.machineSelected = null;
+
     if(propagate && this.machineSelected)
       this.propagateChange(this.machineSelected.id);
   }
 
-  onMachineClicked(popover:IonPopover, machine:Machine){
+  onMachineClicked(popover: IonPopover, machine: Machine){
     this.selectMachine(machine.id, true);
+    this.propagateTouched();
     popover.dismiss();
   }
 
-  private async filter(filtering:string){
+  private async filter(filtering: string){
     this.loadMachines(filtering);
   }
 
-  onFilter(evt:any){
+  onFilter(evt: any){
     this.filter(evt.detail.value);
   }
 
-  clearSearch(input:IonInput){
+  clearSearch(input: IonInput){
     input.value = "";
     this.filter("");
   }
 
-  deselect(popover:IonPopover|null=null){
+  deselect(popover: IonPopover | null = null){
     this.selectMachine(undefined, true);
+    this.propagateTouched();
     if(popover)
       popover.dismiss();
   }
-
 }

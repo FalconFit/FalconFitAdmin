@@ -34,7 +34,11 @@ const routes: Routes = [
     path: 'exercise',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/exercise/exercise.module').then( m => m.ExercisePageModule)
+  },  {
+    path: 'about',
+    loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   }
+
 
 ];
 

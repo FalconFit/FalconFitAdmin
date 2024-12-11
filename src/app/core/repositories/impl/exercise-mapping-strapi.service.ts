@@ -9,7 +9,7 @@ export interface UserRaw{
 }
 
 export interface MachineRaw{
-  data: any
+  data: MachineData
 }
 
 export interface ExerciseRaw {
@@ -21,6 +21,12 @@ export interface Data {
   id: number
   attributes: ExerciseAttributes
 }
+
+export interface MachineData {
+  id: number
+  attributes: MachineAttributes
+}
+
 export interface ExerciseData {
   data: ExerciseAttributes;
 }
@@ -34,6 +40,13 @@ export interface ExerciseAttributes {
   publishedAt?: string
   user:UserRaw | number | null,
   machine: MachineRaw | number | null
+}
+
+export interface MachineAttributes {
+  title: string
+  createdAt?: string
+  updatedAt?: string
+  publishedAt?: string
 }
 
 
@@ -59,7 +72,7 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
             title: attributes.title,
             subtitle: attributes.subtitle,
             description: attributes.description,
-            machineName: typeof attributes.machine === 'object' ? attributes.machine?.data?.title.toString() : undefined,
+            machine: typeof attributes.machine === 'object' ? attributes.machine?.data?.attributes.title : undefined,
             machineId: typeof attributes.machine === 'object' ? attributes.machine?.data?.id.toString() : undefined,
             userId: typeof attributes.user === 'object' ? attributes.user?.data?.id.toString() : undefined,
         };

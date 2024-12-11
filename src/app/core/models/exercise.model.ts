@@ -4,7 +4,7 @@ export interface Exercise extends Model{
   title: string,
   subtitle: string,
   description: string,
-  machineName?: string,
+  machine?: string,
   machineId?: string,
   userId?: string
 }

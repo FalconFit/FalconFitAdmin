@@ -1,71 +1,66 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
       {{ mode === 'edit' ? ('EXERCISE.EDIT_TITLE' | translate) : ('EXERCISE.NEW_TITLE' | translate) }}
     </ion-title>
     <ion-buttons slot="end" *ngIf="isMobile">
-      <ion-button (click)="dismiss()">
+      <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <!-- Título -->
-    <ion-item>
+      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
       <ion-input
-        [label]="'EXERCISE.TITLE' | translate"
-        label-placement="stacked"
         type="text"
         formControlName="title"
         [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
       </ion-input>
-    </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('title')?.invalid && (formGroup.get('title')?.dirty || formGroup.get('title')?.touched)">
       <p *ngIf="formGroup.get('title')?.errors?.['required']">{{ 'EXERCISE.ERRORS.TITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('title')?.errors?.['minlength']">{{ 'EXERCISE.ERRORS.TITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Subtítulo -->
-    <ion-item>
+      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
       <ion-input
-        [label]="'EXERCISE.SUBTITLE' | translate"
-        label-placement="stacked"
         type="text"
         formControlName="subtitle"
         [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
       </ion-input>
-    </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('subtitle')?.invalid && (formGroup.get('subtitle')?.dirty || formGroup.get('subtitle')?.touched)">
       <p *ngIf="formGroup.get('subtitle')?.errors?.['required']">{{ 'EXERCISE.ERRORS.SUBTITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('subtitle')?.errors?.['minlength']">{{ 'EXERCISE.ERRORS.SUBTITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Descripción -->
-    <ion-item>
+      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
       <ion-textarea
-        [label]="'EXERCISE.DESCRIPTION' | translate"
-        label-placement="stacked"
         formControlName="description"
         [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate">
       </ion-textarea>
-    </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">{{ 'EXERCISE.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">{{ 'EXERCISE.ERRORS.DESCRIPTION_MAX_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Selección de máquinas -->
-    <ion-item>
-      <ion-label position="stacked">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
+      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
       <app-machine-selectable formControlName="machineId"></app-machine-selectable>
-    </ion-item>
 
     <!-- Botón de envío -->
-    <ion-button [disabled]="!formGroup.valid || !formGroup.dirty" expand="full" type="submit">
-      {{ mode === 'edit' ? ('EXERCISE.BUTTONS.UPDATE' | translate) : ('EXERCISE.BUTTONS.CREATE' | translate) }}
-    </ion-button>
+    <div class="button-container">
+      <ion-button
+        [disabled]="!formGroup.valid || !formGroup.dirty"
+        expand="full"
+        type="submit"
+        color="success">
+        {{ mode === 'edit' ? ('EXERCISE.BUTTONS.UPDATE' | translate) : ('EXERCISE.BUTTONS.CREATE' | translate) }}
+      </ion-button>
+    </div>
   </form>
 </ion-content>

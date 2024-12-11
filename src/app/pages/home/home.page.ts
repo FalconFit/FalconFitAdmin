@@ -13,7 +13,7 @@ import { MapModuleComponent } from 'src/app/shared/components/map-module/map-mod
 })
 export class HomePage {
   _place:BehaviorSubject<Place[]> = new BehaviorSubject<Place[]>([]);
-  machine$:Observable<Place[]> = this._place.asObservable();
+  place$:Observable<Place[]> = this._place.asObservable();
 
   page:number = 1;
   pageSize:number = 25;
@@ -32,11 +32,11 @@ export class HomePage {
   markers: any[] = [];
   userLocation!: google.maps.LatLngLiteral;
 
-  locations = [
-    { name: 'Black Gym', description: 'El mejor gimnasio del mundo.', position: { lat: 36.71919368379839, lng: -4.531364206046131 } },
-    { name: 'Belive campanillas', description: 'Gimnasio mas malillo.', position: { lat: 36.73889315897362, lng: -4.54770824595761 } },
-    { name: 'Statue of Liberty', description: 'A historic landmark.', position: { lat: 40.689247, lng: -74.044502 } }
-  ];
+  // locations = [
+  //   { name: 'Black Gym', description: 'El mejor gimnasio del mundo.', position: { lat: 36.71919368379839, lng: -4.531364206046131 } },
+  //   { name: 'Belive campanillas', description: 'Gimnasio mas malillo.', position: { lat: 36.73889315897362, lng: -4.54770824595761 } },
+  //   { name: 'Statue of Liberty', description: 'A historic landmark.', position: { lat: 40.689247, lng: -74.044502 } }
+  // ];
 
   constructor(
     private modalCtrl: ModalController,
@@ -62,6 +62,21 @@ export class HomePage {
     );
   }
 
+  ngOnInit() {
+    this.loadPlaces()
+  }
+
+  loadPlaces(){
+    this.page=1;
+    this.placeSvc.getAll(this.page, this.pageSize).subscribe({
+      next:(response:Paginated<Place>)=>{
+        this._place.next([...response.data]);
+        this.page++;
+        this.pages = response.pages;
+      }
+    });
+  }
+
   async onAddPlace(lat: number, lng: number) {
     const modal = await this.modalCtrl.create({
       component:MapModuleComponent,
@@ -74,8 +89,8 @@ export class HomePage {
         id: '',
         title: data.data.title,
         description: data.data.description,
-        lat: lat,
-        lng: lng
+        latitud: lat,
+        longitud: lng
       }
       this.placeSvc.add(place).subscribe({
         next:(response: Place) => {

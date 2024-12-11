@@ -20,9 +20,9 @@
     </div>
 
     <div class="cards-column">
-      <ion-card *ngFor="let location of locations" class="location-card">
+      <ion-card *ngFor="let location of _place | async" class="location-card">
         <ion-card-header>
-          <ion-card-title>{{ location.name }}</ion-card-title>
+          <ion-card-title>{{ location.title }}</ion-card-title>
         </ion-card-header>
         <ion-card-content>
           <p>{{ location.description }}</p>

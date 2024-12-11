@@ -1,5 +1,7 @@
 {
   "LANGUAGE": "Idioma",
+  "NAVIGATE": "Navegar",
+  "ABOUTME":"Proyecto realizado por Miguel Falcón para el 1º trimestre. Estudiante de 2ºDAM, sigueme en mis redes sociales para ver mi progreso",
   "LOGIN": {
     "TITLE": "Iniciar sesión",
     "EMAIL": "Correo electrónico",

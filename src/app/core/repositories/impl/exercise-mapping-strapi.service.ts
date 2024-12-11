@@ -103,24 +103,33 @@ export class ExerciseMappingStrapi implements IBaseMapping<Exercise>{
   setUpdate(data: any) {
     const mappedData: Partial<ExerciseAttributes> = {};
 
-        Object.keys(data).forEach(key => {
-            switch(key){
-                case 'title': mappedData.title = data[key];
+    Object.keys(data).forEach(key => {
+        switch (key) {
+            case 'title':
+                mappedData.title = data[key];
                 break;
-                case 'subtitle': mappedData.subtitle = data[key];
+            case 'subtitle':
+                mappedData.subtitle = data[key];
                 break;
-                case 'description': mappedData.description = data[key];
+            case 'description':
+                mappedData.description = data[key];
                 break;
-                case 'machine': mappedData.machine = data[key] ? Number(data[key]) : null;
+            case 'machineId':
+                mappedData.machine = data[key]
+                    ? { data: { id: Number(data[key]), attributes: {} as MachineAttributes } }
+                    : null;
                 break;
-                case 'userId': mappedData.user = data[key] ? Number(data[key]) : null;
+            case 'userId':
+                mappedData.user = data[key]
+                    ? { data: { id: Number(data[key]) } }
+                    : null;
                 break;
-            }
-        });
+        }
+    });
 
-        return {
-            data: mappedData as ExerciseAttributes
-        };
-  }
+    return {
+        data: mappedData as ExerciseAttributes
+    };
+}
 
 }

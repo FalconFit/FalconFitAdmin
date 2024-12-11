@@ -1,5 +1,7 @@
 {
   "LANGUAGE": "Language",
+  "NAVIGATE": "Navigate",
+  "ABOUTME":"Project done by Miguel Falcón for the 1º quarter. 2ºDAM student, leave a follow in my social media to see my progress",
   "LOGIN": {
     "TITLE": "Login",
     "EMAIL": "Email",

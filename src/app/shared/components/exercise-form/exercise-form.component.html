@@ -3,6 +3,11 @@
     <ion-title>
       {{ mode === 'edit' ? ('EXERCISE.EDIT_TITLE' | translate) : ('EXERCISE.NEW_TITLE' | translate) }}
     </ion-title>
+    <ion-buttons slot="start">
+      <ion-button (click)="dismiss()" color="light">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
     <ion-buttons slot="end" *ngIf="isMobile">
       <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -26,7 +31,7 @@
     </ion-text>
 
     <!-- Subtítulo -->
-      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
+      <ion-label  color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
       <ion-input
         type="text"
         formControlName="subtitle"

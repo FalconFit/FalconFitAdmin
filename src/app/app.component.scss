@@ -31,6 +31,16 @@ ion-menu ion-fab-button {
   margin-left: -10px;
 }
 
+.language-section {
+  text-align: center; /* Centrar el texto si es necesario */
+}
+
+.language-buttons {
+  display: flex;
+  justify-content: center; /* Centrar los botones horizontalmente */
+  gap: 10px; /* Espacio entre los botones */
+}
+
 ion-menu ion-fab-button ion-icon {
   color: #F0E3CA; /* Tipografía secundaria (Beige claro) */
 }

@@ -12,6 +12,7 @@ import { MapModuleComponent } from './map-module/map-module.component';
 import { PictureSelectableComponent } from './picture-selectable/picture-selectable.component';
 import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
 import { MachineSelectableComponent } from './machine-selectable/machine-selectable.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
 
@@ -23,7 +24,8 @@ import { MachineSelectableComponent } from './machine-selectable/machine-selecta
     MapComponent,
     PictureSelectableComponent,
     ExerciseFormComponent,
-    MachineSelectableComponent
+    MachineSelectableComponent,
+    ToolbarComponent
   ],
   imports: [
     CommonModule,
@@ -39,7 +41,8 @@ import { MachineSelectableComponent } from './machine-selectable/machine-selecta
     MapComponent,
     PictureSelectableComponent,
     ExerciseFormComponent,
-    MachineSelectableComponent
+    MachineSelectableComponent,
+    ToolbarComponent
   ]
 })
 export class SharedModule { }

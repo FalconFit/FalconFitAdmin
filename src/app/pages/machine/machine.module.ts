@@ -5,6 +5,7 @@ import { MachinePage } from './machine.page';
 import { MachinePageRoutingModule } from './machine-routing.module';
 import { FormsModule } from '@angular/forms';
 import { TranslateModule } from '@ngx-translate/core';
+import { SharedModule } from 'src/app/shared/components/shared.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { TranslateModule } from '@ngx-translate/core';
     FormsModule,
     IonicModule,
     MachinePageRoutingModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    SharedModule
   ],
   declarations: [MachinePage]
 })

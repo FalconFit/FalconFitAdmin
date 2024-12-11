@@ -1,26 +1,19 @@
-<ion-header>
-  <ion-toolbar color="primary">
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>About Me</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar [title]="'MENU.ABOUT' | translate"></app-toolbar>
 
 <ion-content class="ion-padding">
   <div class="about-container">
     <!-- Imagen -->
-    <img src="assets/img/profile.jpg" alt="Profile Picture" class="profile-picture">
+    <img src="assets/img/Imagen.jpeg" alt="Profile Picture" class="profile-picture">
 
     <!-- Nombre -->
     <h1 class="name">Miguel Jesús Falcón Carvajal</h1>
 
     <!-- Redes Sociales -->
     <div class="social-links">
-      <ion-button fill="clear" color="primary" href="https://instagram.com/yourprofile" target="_blank">
+      <ion-button fill="clear" color="primary" href="https://github.com/miguelfalcon04" target="_blank">
         <ion-icon slot="icon-only" name="logo-github"></ion-icon>
       </ion-button>
-      <ion-button fill="clear" color="primary" href="https://linkedin.com/in/yourprofile" target="_blank">
+      <ion-button fill="clear" color="primary" href="https://www.linkedin.com/in/miguel-jes%C3%BAs-falc%C3%B3n-carvajal-1a280a279/" target="_blank">
         <ion-icon slot="icon-only" name="logo-linkedin"></ion-icon>
       </ion-button>
     </div>

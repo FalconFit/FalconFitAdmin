@@ -22,9 +22,8 @@
   color: var(--color-text-primary);
 }
 
-/* Tarjetas */
 .card {
-  background-color: var(--color-card-bg);
+  background-color: #2C2E43;
   color: var(--color-text-secondary);
   border-radius: 12px;
   overflow: hidden;
@@ -32,18 +31,16 @@
   flex-direction: column;
   height: 100%;
   justify-content: space-between;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 8px rgba(238, 14, 14, 0.2);
+  }
 }
 
-/* Bloque 1: Imagen */
-.image-container img {
-  width: 100%;
-  height: 200px; /* Aumenté la altura de la imagen */
-  object-fit: cover;
-  display: block;
-  border-bottom: 2px solid var(--color-highlight); /* Línea decorativa */
-}
-
-/* Bloque 2: Información */
 .info-block {
   padding: 10px;
   text-align: left;
@@ -57,18 +54,19 @@
 }
 
 .info-block .subtitle,
-.info-block .description {
+.info-block .description,
+.info-block .machine {
   font-size: 0.9em;
   color: var(--color-text-secondary);
   margin: 5px 0;
 }
 
-/* Bloque 3: Botones */
 .button-block {
   display: flex;
   justify-content: flex-end;
   gap: 5px;
   padding: 10px;
+  background-color: rgba(0,0,0,0.1);
 }
 
 .btn-primary {
@@ -81,21 +79,20 @@
   color: var(--color-text-secondary);
 }
 
-/* Botón flotante */
 .fab-button {
   background-color: var(--color-btn-primary);
   color: var(--color-text-secondary);
 }
 
-/* Responsive Design */
+.responsive-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 @media screen and (max-width: 768px) {
   ion-col {
     flex: 0 0 50%;
     max-width: 50%;
-  }
-
-  .image-container img {
-    height: 150px;
   }
 
   .info-block .title {
@@ -103,7 +100,8 @@
   }
 
   .info-block .subtitle,
-  .info-block .description {
+  .info-block .description,
+  .info-block .machine {
     font-size: 0.8em;
   }
 
@@ -112,14 +110,11 @@
   }
 }
 
+/* Ajustes para móviles */
 @media screen and (max-width: 480px) {
   ion-col {
     flex: 0 0 100%;
     max-width: 100%;
-  }
-
-  .image-container img {
-    height: 180px;
   }
 
   .info-block .title {
@@ -127,7 +122,8 @@
   }
 
   .info-block .subtitle,
-  .info-block .description {
+  .info-block .description,
+  .info-block .machine {
     font-size: 0.8em;
   }
 

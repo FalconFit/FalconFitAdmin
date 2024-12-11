@@ -1,19 +1,12 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>
-      {{ 'MENU.HOME' | translate }}
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar [title]="'MENU.HOME' | translate"></app-toolbar>
 
 <ion-content>
   <div class="container">
-    <!-- Columna del Mapa -->
     <div class="map-column">
       <google-map
+        width="100%"
+        height="100%"
+        class="full-map"
         [center]="center"
         [zoom]="zoom"
         [options]="options"
@@ -23,11 +16,9 @@
           *ngFor="let marker of markers"
           [position]="marker.position">
         </map-marker>
-
       </google-map>
     </div>
 
-    <!-- Columna de Tarjetas -->
     <div class="cards-column">
       <ion-card *ngFor="let location of locations" class="location-card">
         <ion-card-header>
@@ -35,10 +26,9 @@
         </ion-card-header>
         <ion-card-content>
           <p>{{ location.description }}</p>
-          <ion-button expand="full" (click)="focusLocation(location)">Ver en el mapa</ion-button>
+          <ion-button expand="block" (click)="focusLocation(location)">Ver en el mapa</ion-button>
         </ion-card-content>
       </ion-card>
     </div>
   </div>
-
 </ion-content>

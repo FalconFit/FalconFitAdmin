@@ -17,7 +17,8 @@ import { GoogleMapsModule } from '@angular/google-maps';
     IonicModule,
     HomePageRoutingModule,
     GoogleMapsModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    SharedModule
 ],
   declarations: [HomePage]
 })

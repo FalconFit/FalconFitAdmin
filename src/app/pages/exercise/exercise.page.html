@@ -1,16 +1,9 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>{{ 'MENU.EXERCISES' | translate }}</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-toolbar [title]="'MENU.EXERCISES' | translate"></app-toolbar>
 
 <ion-content [fullscreen]="true" class="content">
   <ion-grid>
-    <ion-row>
-      <ion-col size="4" size-md="6" size-sm="12" *ngFor="let exercise of _exercise | async; let i=index">
+    <ion-row class="responsive-row">
+      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let exercise of _exercise | async; let i=index">
         <ion-card class="card">
           <!-- Bloque 1: Información -->
           <ion-card-content class="info-block">
@@ -41,4 +34,3 @@
     </ion-fab-button>
   </ion-fab>
 </ion-content>
-

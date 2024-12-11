@@ -1,0 +1,25 @@
+ion-toolbar {
+  --background: #2C2E43; /* Fondo oscuro */
+  --color: #F0E3CA;     /* Color del texto */
+
+  display: flex;
+  align-items: center;
+
+  ion-avatar {
+    width: 32px;
+    height: 32px;
+    margin-right: 5px;
+  }
+
+  ion-label h3 {
+    color: #D4AF37;
+    margin: 0;
+    font-size: 14px;
+  }
+
+  ion-buttons[slot="end"] {
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+  }
+}

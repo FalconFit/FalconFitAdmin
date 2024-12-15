@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: "http://localhost:1337"
+  apiUrl: "https://falconfitstrapi.onrender.com"
   //Poner el enlace de Netlify
 };

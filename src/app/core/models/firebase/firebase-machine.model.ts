@@ -1,6 +1,6 @@
 import { DocumentReference } from "firebase/firestore"
 
-export interface Machine {
+export interface FirebaseMachine {
   title:string,
   subtitle: string,
   description: string,

@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/components/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
-import { AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, EXERCISE_API_URL_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, UPLOAD_API_URL_TOKEN, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from './core/repositories/repository.tokens';
+import { AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, EXERCISE_API_URL_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, UPLOAD_API_URL_TOKEN, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from './core/repositories/repository.tokens';
 import { AuthenticationServiceFactory, AuthMappingFactory, ExerciseMappingFactory, ExerciseRepositoryFactory, MachineMappingFactory, MachineRepositoryFactory, PlaceMappingFactory, PlaceRepositoryFactory, UserffMappingFactory, UserffRepositoryFactory } from './core/repositories/repository.factory';
 import { MachineService } from './core/services/impl/machine.service';
 import { environment } from 'src/environments/environment.prod';
@@ -54,7 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     provideHttpClient(),
 
-    { provide: BACKEND_TOKEN, useValue: 'strapi' },
+    { provide: BACKEND_TOKEN, useValue: 'firebase' },
     { provide: MACHINE_RESOURCE_NAME_TOKEN, useValue: 'machines' },
     { provide: EXERCISE_RESOURCE_NAME_TOKEN, useValue: 'exercises' },
     { provide: PLACE_RESOURCE_NAME_TOKEN, useValue: 'places' },
@@ -67,6 +67,15 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: AUTH_SIGN_UP_API_URL_TOKEN, useValue: `${environment.apiUrl}/api/auth/local/register` },
     { provide: AUTH_ME_API_URL_TOKEN, useValue: `${environment.apiUrl}/api/users/me` },
     { provide: UPLOAD_API_URL_TOKEN, useValue: `${environment.apiUrl}/api/upload` },
+    { provide: FIREBASE_CONFIG_TOKEN, useValue:
+      {
+        apiKey: "AIzaSyCgX3qQHu1EisUWrOuQITrdiKhK2DEYsF8",
+        authDomain: "people-e038c.firebaseapp.com",
+        projectId: "people-e038c",
+        storageBucket: "people-e038c.appspot.com",
+        messagingSenderId: "399453954592",
+      }
+    },
 
     AuthenticationServiceFactory,
     AuthMappingFactory,

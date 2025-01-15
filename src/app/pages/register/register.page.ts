@@ -38,23 +38,14 @@ export class RegisterPage {
   onSubmit() {
     if (this.registerForm.valid) {
       this.authSvc.signUp(this.registerForm.value).subscribe({
-        next: (resp:User) => {
-          const userData = {
-            ...this.registerForm.value,
-            userId: resp.id.toString()
-          };
-
-          this.userffSvc.add(userData).subscribe({
-            next: resp => {
-              const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
-              this.router.navigateByUrl(returnUrl);
-            },
-            error: err => {}
-          });
+        next: (user: User) => {
+          console.log('Usuario registrado y autenticado:', user);
+          const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+          this.router.navigateByUrl(returnUrl);
         },
-        error: err => {
-          console.log(err);
-        }
+        error: (err) => {
+          console.error('Error en el registro:', err);
+        },
       });
     } else {
       console.log('Formulario no válido');

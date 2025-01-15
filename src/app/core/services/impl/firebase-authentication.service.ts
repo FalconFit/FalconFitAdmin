@@ -1,13 +1,13 @@
 import { Inject, Injectable } from '@angular/core';
-import { filter, map, Observable, of, tap, firstValueFrom, from } from 'rxjs';
+import { filter, map, Observable, of, tap, firstValueFrom, from, switchMap } from 'rxjs';
 import { BaseAuthenticationService } from './base-authentication.service';
 import { AUTH_MAPPING_TOKEN, FIREBASE_CONFIG_TOKEN } from '../../repositories/repository.tokens';
 import { IAuthMapping } from '../interfaces/auth-mapping.interface';
 import { User } from '../../models/auth.model';
 import { initializeApp } from 'firebase/app';
-import { 
-  getAuth, 
-  signInWithEmailAndPassword, 
+import {
+  getAuth,
+  signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   signOut as firebaseSignOut,
   onAuthStateChanged
@@ -49,7 +49,7 @@ export class FirebaseAuthenticationService extends BaseAuthenticationService {
 
   signIn(authPayload: any): Observable<User> {
     const { email, password } = this.authMapping.signInPayload(authPayload);
-    
+
     return from(signInWithEmailAndPassword(this.auth, email, password)).pipe(
       map(userCredential => {
         return this.authMapping.signIn(userCredential.user);
@@ -59,7 +59,7 @@ export class FirebaseAuthenticationService extends BaseAuthenticationService {
 
   signUp(signUpPayload: any): Observable<User> {
     const { email, password } = this.authMapping.signUpPayload(signUpPayload);
-    
+
     return from(createUserWithEmailAndPassword(this.auth, email, password)).pipe(
       map(userCredential => {
         return this.authMapping.signUp(userCredential.user);
@@ -90,4 +90,4 @@ export class FirebaseAuthenticationService extends BaseAuthenticationService {
   getToken(): string | null {
     return this._token;
   }
-} 
+}

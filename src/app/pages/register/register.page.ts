@@ -1,10 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { User } from 'src/app/core/models/auth.model';
 import { BaseAuthenticationService } from 'src/app/core/services/impl/base-authentication.service';
 import { passwordsMatchValidator, passwordValidator } from 'src/app/core/utils/validators';
-import { UserffService } from 'src/app/core/services/impl/userff.service';
 import { TranslationService } from 'src/app/core/services/translate.service';
 
 
@@ -22,7 +21,6 @@ export class RegisterPage {
     private router: Router,
     private route:ActivatedRoute,
     private authSvc:BaseAuthenticationService,
-    private userffSvc:UserffService,
     private translationService: TranslationService
   ) {
     this.registerForm = this.fb.group({

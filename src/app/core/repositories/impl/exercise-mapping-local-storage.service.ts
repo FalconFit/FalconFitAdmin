@@ -1,6 +1,6 @@
 import { Exercise } from '../../models/exercise.model';
 import { Injectable } from "@angular/core";
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
 
 interface ExerciseRaw{

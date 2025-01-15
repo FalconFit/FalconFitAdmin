@@ -15,7 +15,6 @@ import { MachineSelectableComponent } from './machine-selectable/machine-selecta
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
 
-
 @NgModule({
     declarations: [
     RoutingBarComponent,

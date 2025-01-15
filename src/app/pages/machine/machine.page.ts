@@ -3,7 +3,7 @@ import { MachineService } from '../../core/services/impl/machine.service';
 import { AlertController, InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
 import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
-import { Paginated } from 'src/app/core/models/Paginated.model';
+import { Paginated } from 'src/app/core/models/paginated.model';
 import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
 
 @Component({

@@ -41,7 +41,6 @@ const routes: Routes = [
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
   }
 
-
 ];
 
 @NgModule({

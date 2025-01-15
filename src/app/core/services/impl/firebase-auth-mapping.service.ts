@@ -1,7 +1,7 @@
 import { Injectable } from "@angular/core";
 import { IAuthMapping } from "../interfaces/auth-mapping.interface";
 import { SignInPayload, SignUpPayload, User } from "../../models/auth.model";
-import { UserCredential, User as FirebaseUser } from 'firebase/auth';
+import { User as FirebaseUser } from 'firebase/auth';
 
 @Injectable({
   providedIn: 'root'

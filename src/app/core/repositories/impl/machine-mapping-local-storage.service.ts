@@ -1,6 +1,6 @@
 import { Machine } from './../../models/machine.model';
 import { Injectable } from "@angular/core";
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
 import { take } from 'rxjs';
 

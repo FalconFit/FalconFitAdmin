@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 import { IBaseMapping } from "../interfaces/base-mapping.interface";
 import { Meta } from "@angular/platform-browser";
 import { Exercise } from "../../models/exercise.model";

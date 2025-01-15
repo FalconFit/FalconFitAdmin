@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Paginated } from 'src/app/core/models/Paginated.model';
+import { Paginated } from 'src/app/core/models/paginated.model';
 import { Place } from 'src/app/core/models/place.model';
 import { PlaceService } from 'src/app/core/services/impl/place.service';
 import { MapModuleComponent } from 'src/app/shared/components/map-module/map-module.component';

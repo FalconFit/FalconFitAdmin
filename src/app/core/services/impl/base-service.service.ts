@@ -4,7 +4,7 @@ import { IBaseService } from "../interfaces/base-service.interface";
 import { Inject } from "@angular/core";
 import { REPOSITORY_TOKEN } from "../../repositories/repository.tokens";
 import { IBaseRepository, SearchParams } from "../../repositories/interfaces/base-repository.interface";
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 
 export class BaseService<T extends Model> implements IBaseService<T>{
   constructor(

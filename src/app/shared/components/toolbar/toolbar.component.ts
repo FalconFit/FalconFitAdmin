@@ -1,7 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BaseAuthenticationService } from 'src/app/core/services/impl/base-authentication.service';
 import { Observable } from 'rxjs';
-import { Userff } from 'src/app/core/models/userff.model';
 import { User } from 'src/app/core/models/auth.model';
 
 @Component({

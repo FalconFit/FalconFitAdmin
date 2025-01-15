@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 import { doc, DocumentReference, Firestore, getFirestore } from "firebase/firestore";
 import { FIREBASE_CONFIG_TOKEN } from "../repository.tokens";
 import { initializeApp } from "firebase/app";
@@ -23,13 +23,15 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      machine: data.machine,
+    }
+    if (data.machine) {
+      dataMapping.machine = data.machine;
     }
     if(dataMapping.machineId){
       dataMapping.machineId = doc(this.db, 'machines', data.machineId || '')
     }
     if(dataMapping.userId){
-      dataMapping.userId = doc(this.db, 'exercises', data.userId || '')
+      dataMapping.userId = doc(this.db, 'users', data.userId || '')
     }
     return dataMapping;
   }

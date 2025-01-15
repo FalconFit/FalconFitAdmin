@@ -22,7 +22,7 @@ import { IBaseRepository, SearchParams } from '../interfaces/base-repository.int
 import { FIREBASE_CONFIG_TOKEN, FIREBASE_COLLECTION_TOKEN, REPOSITORY_MAPPING_TOKEN } from '../repository.tokens';
 import { Model } from '../../models/base.model';
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 
 @Injectable({
   providedIn: 'root'

@@ -1,6 +1,6 @@
 import { IBaseMapping } from './../interfaces/base-mapping.interface';
 import { Injectable } from "@angular/core";
-import { Paginated } from "../../models/Paginated.model";
+import { Paginated } from "../../models/paginated.model";
 import { StrapiMedia } from "../../services/impl/strapi-media.service";
 import { Userff } from '../../models/userff.model';
 

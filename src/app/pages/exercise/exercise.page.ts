@@ -2,7 +2,7 @@ import { Exercise } from './../../core/models/exercise.model';
 import { Component, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
-import { Paginated } from 'src/app/core/models/Paginated.model';
+import { Paginated } from 'src/app/core/models/paginated.model';
 import { ExerciseService } from 'src/app/core/services/impl/exercise.service';
 import { ExerciseFormComponent } from 'src/app/shared/components/exercise-form/exercise-form.component';
 
@@ -83,7 +83,8 @@ export class ExercisePage implements OnInit {
         title: data.data.title,
         subtitle: data.data.subtitle,
         description: data.data.description,
-        machineId: data.data.machineId
+        machineId: data.data.machineId || null,
+        machine: data.data.machine || null
       }
       this.exerciseSvc.add(exercise).subscribe({
         next:(response: Exercise) => {

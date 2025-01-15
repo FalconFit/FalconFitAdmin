@@ -1,6 +1,6 @@
 import { Inject, Injectable } from '@angular/core';
 import { IBaseMapping } from '../interfaces/base-mapping.interface';
-import { Paginated } from '../../models/Paginated.model';
+import { Paginated } from '../../models/paginated.model';
 import { doc, Firestore, getFirestore } from 'firebase/firestore';
 import { FIREBASE_CONFIG_TOKEN } from '../repository.tokens';
 import { initializeApp } from 'firebase/app';
@@ -11,7 +11,6 @@ import { FirebaseMachine } from '../../models/firebase/firebase-machine.model';
   providedIn: 'root'
 })
 export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
-
 
   private db: Firestore;
 

@@ -26,10 +26,10 @@ import { PlaceMappingStrapi } from "./impl/place-mapping-strapi.service";
 import { ExerciseMappingStrapi } from "./impl/exercise-mapping-strapi.service";
 import { Exercise } from "../models/exercise.model";
 import { BaseRepositoryFirebaseService } from "./impl/base-repository-firebase.service";
-import { ExerciseMappingFirebaseService } from "./impl/exercise.mapping.firebase.service";
+import { ExerciseMappingFirebaseService } from "./impl/exercise-mapping-firebase.service";
+import { MachineMappingFirebaseService } from "./impl/machine-mapping-firebase.service";
 import { FirebaseAuthenticationService } from "../services/impl/firebase-authentication.service";
 import { FirebaseAuthMappingService } from "../services/impl/firebase-auth-mapping.service";
-import { MachineMappingFirebaseService } from "./impl/machine-mapping-firebase.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -165,17 +165,49 @@ export const AuthenticationServiceFactory:FactoryProvider = {
 export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);
 
 export const MachineRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Machine>(MACHINE_REPOSITORY_TOKEN,
-  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, FIREBASE_CONFIG_TOKEN]
-);
-
-export const PlaceRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Place>(PLACE_REPOSITORY_TOKEN,
-  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, FIREBASE_CONFIG_TOKEN]
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    MACHINE_API_URL_TOKEN,
+    MACHINE_RESOURCE_NAME_TOKEN,
+    MACHINE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
 );
 
 export const ExerciseRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Exercise>(EXERCISE_REPOSITORY_TOKEN,
-  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, EXERCISE_API_URL_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, EXERCISE_REPOSITORY_MAPPING_TOKEN, FIREBASE_CONFIG_TOKEN]
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    EXERCISE_API_URL_TOKEN,
+    EXERCISE_RESOURCE_NAME_TOKEN,
+    EXERCISE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
+);
+
+export const PlaceRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Place>(PLACE_REPOSITORY_TOKEN,
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    PLACE_API_URL_TOKEN,
+    PLACE_RESOURCE_NAME_TOKEN,
+    PLACE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
 );
 
 export const UserffRepositoryFactory: FactoryProvider = createBaseRepositoryFactory<Userff>(USERFF_REPOSITORY_TOKEN,
-  [BACKEND_TOKEN, HttpClient, BaseAuthenticationService, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, FIREBASE_CONFIG_TOKEN]
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    USERFF_API_URL_TOKEN,
+    USERFF_RESOURCE_NAME_TOKEN,
+    USERFF_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
 );

@@ -29,6 +29,7 @@ import { BaseRepositoryFirebaseService } from "./impl/base-repository-firebase.s
 import { ExerciseMappingFirebaseService } from "./impl/exercise.mapping.firebase.service";
 import { FirebaseAuthenticationService } from "../services/impl/firebase-authentication.service";
 import { FirebaseAuthMappingService } from "../services/impl/firebase-auth-mapping.service";
+import { MachineMappingFirebaseService } from "./impl/machine-mapping-firebase.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -78,7 +79,7 @@ export function createBaseMappingFactory<T extends Model>(
           }
         case 'firebase':
           if(modelType === 'machine'){
-            return new ExerciseMappingFirebaseService(firebaseConfig)
+            return new MachineMappingFirebaseService(firebaseConfig)
           }else if(modelType === 'exercise'){
             return new ExerciseMappingFirebaseService(firebaseConfig)
           }else{

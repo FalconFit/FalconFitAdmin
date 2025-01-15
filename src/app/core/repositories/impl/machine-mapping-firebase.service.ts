@@ -47,10 +47,10 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
       taken: data.taken
     };
     if(dataMapping.exerciseId){
-      dataMapping.exerciseId = doc(this.db, 'exercise', data.exerciseId || '');
+      dataMapping.exerciseId = doc(this.db, 'machines', data.exerciseId || '');
     }
     if(dataMapping.userId){
-      dataMapping.userId = doc(this.db, 'machine', data.userId || '')
+      dataMapping.userId = doc(this.db, 'machines', data.userId || '')
     }
     return dataMapping
   }

@@ -26,10 +26,10 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
       machine: data.machine,
     }
     if(dataMapping.machineId){
-      dataMapping.machineId = doc(this.db, 'machine', data.machineId || '')
+      dataMapping.machineId = doc(this.db, 'machines', data.machineId || '')
     }
     if(dataMapping.userId){
-      dataMapping.userId = doc(this.db, 'machine', data.userId || '')
+      dataMapping.userId = doc(this.db, 'exercises', data.userId || '')
     }
     return dataMapping;
   }

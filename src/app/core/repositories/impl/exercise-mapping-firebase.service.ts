@@ -6,6 +6,7 @@ import { FIREBASE_CONFIG_TOKEN } from "../repository.tokens";
 import { initializeApp } from "firebase/app";
 import { Exercise } from "../../models/exercise.model";
 import { FirebaseExercise } from "../../models/firebase/firebase-exercise.model";
+import { MachineService } from "../../services/impl/machine.service";
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,11 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
 
   private db: Firestore;
 
-  constructor(@Inject(FIREBASE_CONFIG_TOKEN) protected firebaseConfig: any){
-        this.db = getFirestore(initializeApp(firebaseConfig));
+  constructor(
+  @Inject(FIREBASE_CONFIG_TOKEN) protected firebaseConfig: any,
+  )
+  {
+    this.db = getFirestore(initializeApp(firebaseConfig));
   }
 
   setAdd(data: Exercise): FirebaseExercise {
@@ -23,12 +27,10 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
+      machineId: data.machineId
     }
     if (data.machine) {
       dataMapping.machine = data.machine;
-    }
-    if(dataMapping.machineId){
-      dataMapping.machineId = doc(this.db, 'machines', data.machineId || '')
     }
     if(dataMapping.userId){
       dataMapping.userId = doc(this.db, 'users', data.userId || '')
@@ -50,13 +52,15 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
   }
 
   getOne(data: { id: string } & FirebaseExercise): Exercise {
+    let pedo = 'Holaa'
+
     return {
       id: data.id,
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      machine: data.machine,
-      machineId: data.machineId?.id,
+      machine: pedo,
+      machineId: data.machineId,
       userId: data.userId?.id,
     };
   }

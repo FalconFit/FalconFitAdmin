@@ -5,6 +5,6 @@ export interface FirebaseExercise{
   subtitle: string,
   description: string,
   machine?: string,
-  machineId?: DocumentReference,
+  machineId?: string,
   userId?: DocumentReference
 }

@@ -65,6 +65,22 @@
     }
   }
 
+  ion-button.password-toggle {
+    --background: transparent; /* Fondo transparente */
+    --color: #F0E3CA; /* Color del icono */
+    padding: 0; /* Sin relleno */
+    margin: 0; /* Sin margen */
+    height: auto; /* Ajusta el tamaño del botón al icono */
+    width: auto;
+
+    ion-icon {
+      font-size: 20px; /* Tamaño del icono */
+    }
+
+    &:hover {
+      --color: #D4AF37; /* Cambia el color al pasar el mouse */
+    }
+  }
 
   ion-button {
     --background: #A31D2E;

@@ -52,10 +52,6 @@ export class LoginPage {
     this.router.navigate(['/register'], {queryParams:{ returnUrl:returnUrl}, replaceUrl:true});
   }
 
-  onForgotPassword(){
-
-  }
-
   get email(){
     return this.loginForm.controls['email'];
   }
@@ -63,4 +59,10 @@ export class LoginPage {
   get password(){
     return this.loginForm.controls['password'];
   }
+
+    // Controla la visibilidad de la contraseñas
+    showPasswordFirst: boolean = false;
+    togglePasswordVisibilityFirst(): void {
+      this.showPasswordFirst = !this.showPasswordFirst;
+    }
 }

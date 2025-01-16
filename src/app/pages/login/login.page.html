@@ -22,8 +22,13 @@
       <!-- Password Input -->
       <ion-item>
         <ion-label position="floating">{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input [type]="showPasswordFirst ? 'text' : 'password'" formControlName="password"></ion-input>
+        <!-- Botón del ojo -->
+        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilityFirst()">
+          <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
       </ion-item>
+
 
       <!-- Error Messages -->
       <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">

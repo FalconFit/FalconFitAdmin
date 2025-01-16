@@ -6,7 +6,6 @@ import { BaseAuthenticationService } from 'src/app/core/services/impl/base-authe
 import { passwordsMatchValidator, passwordValidator } from 'src/app/core/utils/validators';
 import { TranslationService } from 'src/app/core/services/translate.service';
 
-
 @Component({
   selector: 'app-register',
   templateUrl: './register.page.html',
@@ -78,6 +77,18 @@ export class RegisterPage {
 
   get confirmPassword(){
     return this.registerForm.controls['confirmPassword'];
+  }
+
+  // Controla la visibilidad de las contraseñas
+
+  showPasswordFirst: boolean = false;
+  togglePasswordVisibilityFirst(): void {
+    this.showPasswordFirst = !this.showPasswordFirst;
+  }
+
+  showPasswordSecond: boolean = false;
+  togglePasswordVisibilitySecond(): void {
+    this.showPasswordSecond = !this.showPasswordSecond;
   }
 
 }

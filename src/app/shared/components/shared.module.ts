@@ -13,7 +13,7 @@ import { PictureSelectableComponent } from './picture-selectable/picture-selecta
 import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
 import { MachineSelectableComponent } from './machine-selectable/machine-selectable.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
+import { ShowPasswordPipe } from '../pipes/show-password.pipe';
 
 @NgModule({
     declarations: [
@@ -24,7 +24,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     PictureSelectableComponent,
     ExerciseFormComponent,
     MachineSelectableComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ShowPasswordPipe
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     PictureSelectableComponent,
     ExerciseFormComponent,
     MachineSelectableComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    ShowPasswordPipe
   ]
 })
 export class SharedModule { }

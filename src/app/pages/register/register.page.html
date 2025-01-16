@@ -47,7 +47,14 @@
       <!-- Contraseña -->
       <ion-item>
         <ion-label position="floating">{{ 'REGISTER.PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" formControlName="password"></ion-input>
+        <ion-input
+          [type]="showPasswordFirst ? 'text' : 'password'"
+          formControlName="password">
+        </ion-input>
+        <!-- Botón del ojo -->
+        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilityFirst()">
+          <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
       </ion-item>
       <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
         <p *ngIf="password?.errors?.['required']">{{ 'REGISTER.ERRORS.PASSWORD_REQUIRED' | translate }}</p>
@@ -57,8 +64,20 @@
       <!-- Confirmar Contraseña -->
       <ion-item>
         <ion-label position="floating">{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</ion-label>
-        <ion-input type="password" formControlName="confirmPassword"></ion-input>
+        <ion-input
+          [type]="showPasswordSecond ? 'text' : 'password'"
+          formControlName="confirmPassword">
+        </ion-input>
+        <!-- Botón del ojo -->
+        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilitySecond()">
+          <ion-icon [name]="showPasswordSecond ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        </ion-button>
       </ion-item>
+      <ion-text class="input-error" color="danger" *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
+        <p *ngIf="confirmPassword?.errors?.['required']">{{ 'REGISTER.ERRORS.CONFIRM_PASSWORD_REQUIRED' | translate }}</p>
+      </ion-text>
+
+      <!-- Error de contraseñas no coinciden -->
       <ion-text class="input-error" color="danger" *ngIf="registerForm.errors?.['passwordsMismatch']">
         <p>{{ 'REGISTER.ERRORS.PASSWORDS_MISMATCH' | translate }}</p>
       </ion-text>

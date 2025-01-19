@@ -22,6 +22,7 @@ export class ExerciseFormComponent  implements OnInit {
     this.formGroup.controls['title'].setValue(_exercise.title);
     this.formGroup.controls['subtitle'].setValue(_exercise.subtitle);
     this.formGroup.controls['description'].setValue(_exercise.description);
+    this.formGroup.controls['machineId'].setValue(_exercise.machineId);
   }
 
   constructor(
@@ -51,6 +52,10 @@ export class ExerciseFormComponent  implements OnInit {
 
   get description(){
     return this.formGroup.controls['description'];
+  }
+
+  get machine(){
+    return this.formGroup.controls['machine'];
   }
 
   getDirtyValues(formGroup: FormGroup): any {

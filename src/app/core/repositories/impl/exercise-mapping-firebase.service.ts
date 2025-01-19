@@ -27,10 +27,8 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      machineId: data.machineId
-    }
-    if (data.machine) {
-      dataMapping.machine = data.machine;
+      machineId: data.machineId,
+      machine: data.machine
     }
     if(dataMapping.userId){
       dataMapping.userId = doc(this.db, 'users', data.userId || '')
@@ -45,7 +43,11 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
     if (data.subtitle) result.subtitle = data.subtitle;
     if (data.description) result.description = data.description;
     if (data.machine) result.machine = data.machine;
-    if (data.machineId) result.machineId = doc(this.db, 'machine', data.machineId || '');
+
+    // Guarda el Id como un string
+    if (data.machineId) result.machineId = data.machineId;
+    // Guarda el id como una referencia
+    // if (data.machineId) result.machineId = doc(this.db, 'machine', data.machineId || '');
     if (data.userId) result.user = data.userId || '';
 
     return result;

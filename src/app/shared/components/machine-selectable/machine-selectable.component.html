@@ -1,21 +1,32 @@
-<div id="popover-button" #popoverButton>
-  <div style="display:flex" class="ion-justify-content-between ion-align-items-center">
-    <div style="display:flex" class="ion-justify-content-start ion-align-items-center">
-      <ion-text *ngIf="!machineSelected && !disabled">{{ 'MACHINE_SELECTABLE.SELECT_MACHINE' | translate }}</ion-text>
-      <ion-text *ngIf="!machineSelected && disabled">{{ 'MACHINE_SELECTABLE.NONE' | translate }}</ion-text>
-      <ion-text *ngIf="machineSelected">{{machineSelected.title}}</ion-text>
+<div id="popover-button" #popoverButton class="machine-selector">
+  <div class="selector-header">
+    <div class="selector-text">
+      <ion-text *ngIf="!machineSelected && !disabled" class="placeholder">
+        {{ 'MACHINE_SELECTABLE.SELECT_MACHINE' | translate }}
+      </ion-text>
+      <ion-text *ngIf="!machineSelected && disabled" class="placeholder disabled">
+        {{ 'MACHINE_SELECTABLE.NONE' | translate }}
+      </ion-text>
+      <ion-text *ngIf="machineSelected" class="selected-text">
+        {{machineSelected.title}}
+      </ion-text>
     </div>
-    <ion-icon name="chevron-down-outline" color="medium"></ion-icon>
+    <ion-icon name="chevron-down-outline" color="medium" class="selector-icon"></ion-icon>
   </div>
 
-  <ion-popover class="selectable-popover" style="width:100%" *ngIf="!disabled" trigger="popover-button" #popover (willPresent)="onLoadMachines()">
+  <ion-popover
+  class="machine-popover"
+  [style]="{'--width': 'auto'}"
+  *ngIf="!disabled"
+  trigger="popover-button"
+  #popover
+  (willPresent)="onLoadMachines()">
     <ng-template>
       <ion-content class="popover-content">
-        <ion-list class="list-scrollable">
-
-          <div class="scrollable-content">
-            <ion-item *ngFor="let machine of machines$ | async" button (click)="onMachineClicked(popover, machine)">
-              <ion-text >{{machine.title}} </ion-text>
+        <ion-list class="machine-list">
+          <div class="scrollable-wrapper">
+            <ion-item *ngFor="let machine of machines$ | async" button (click)="onMachineClicked(popover, machine)" class="machine-item">
+              <ion-text>{{machine.title}}</ion-text>
             </ion-item>
           </div>
         </ion-list>

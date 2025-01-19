@@ -52,14 +52,12 @@ export class ExerciseMappingFirebaseService implements IBaseMapping<Exercise> {
   }
 
   getOne(data: { id: string } & FirebaseExercise): Exercise {
-    let pedo = 'Holaa'
-
     return {
       id: data.id,
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      machine: pedo,
+      machine: data.machine,
       machineId: data.machineId,
       userId: data.userId?.id,
     };

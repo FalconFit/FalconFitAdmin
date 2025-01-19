@@ -69,12 +69,12 @@ export function createTranslateLoader(http: HttpClient) {
     { provide: UPLOAD_API_URL_TOKEN, useValue: `${environment.apiUrl}/api/upload` },
     { provide: FIREBASE_CONFIG_TOKEN, useValue:
       {
-        apiKey: "AIzaSyBMWy0zrRfvCCTl0tDxk7NNVFheth9GCEI",
-        authDomain: "falconfitfirebase-85c43.firebaseapp.com",
-        projectId: "falconfitfirebase-85c43",
-        storageBucket: "falconfitfirebase-85c43.firebasestorage.app",
-        messagingSenderId: "665246663494",
-        appId: "1:665246663494:web:6a145aceb126e4ae49db47"
+        apiKey: "AIzaSyAwUBB6esfEWMMUaDqrjbaDWtUvbDg0EeM",
+        authDomain: "falconfit-c1f5d.firebaseapp.com",
+        projectId: "falconfit-c1f5d",
+        storageBucket: "falconfit-c1f5d.firebasestorage.app",
+        messagingSenderId: "440094101030",
+        appId: "1:440094101030:web:a45e70d5533821d8a4a0e7"
       }
     },
 

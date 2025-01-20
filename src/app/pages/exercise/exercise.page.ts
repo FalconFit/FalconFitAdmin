@@ -4,6 +4,7 @@ import { ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { ExerciseService } from 'src/app/core/services/impl/exercise.service';
+import { MachineService } from 'src/app/core/services/impl/machine.service';
 import { ExerciseFormComponent } from 'src/app/shared/components/exercise-form/exercise-form.component';
 
 @Component({
@@ -16,8 +17,12 @@ export class ExercisePage implements OnInit {
   _exercise:BehaviorSubject<Exercise[]> = new BehaviorSubject<Exercise[]>([]);
   exercise$:Observable<Exercise[]> = this._exercise.asObservable();
 
+  // Añadimos un map para cachear los nombres de las máquinas y evitar consultas repetidas
+  private machineNames: Map<string, string> = new Map();
+
   constructor(
     private exerciseSvc: ExerciseService,
+    private machineSvc: MachineService,
     private modalCtrl: ModalController,
     private alertController: AlertController,
   ) {}
@@ -33,28 +38,62 @@ export class ExercisePage implements OnInit {
   pages:number = 0;
   totalPages!: number;
 
-  loadExercises(){
-    this.page=1;
+  loadExercises() {
+    this.page = 1;
     this.exerciseSvc.getAll(this.page, this.pageSize).subscribe({
-      next:(response:Paginated<Exercise>)=>{
-        this._exercise.next([...response.data]);
+      next: async (response: Paginated<Exercise>) => {
+        // Enriquecemos los datos con los nombres de las máquinas
+        const enrichedData = await this.enrichExercisesWithMachineNames(response.data);
+        this._exercise.next([...enrichedData]);
         this.page++;
         this.pages = response.pages;
       }
     });
   }
 
-  loadMoreExercises(notify:HTMLIonInfiniteScrollElement | null = null) {
-    if(this.page<=this.pages){
+  private async enrichExercisesWithMachineNames(exercises: Exercise[]): Promise<Exercise[]> {
+    // Creamos una copia profunda para no modificar los datos originales
+    const enrichedExercises = JSON.parse(JSON.stringify(exercises));
+
+    // Procesamos cada ejercicio
+    for (const exercise of enrichedExercises) {
+      if (exercise.machineId) {
+        // Primero revisamos si ya tenemos el nombre en caché
+        if (this.machineNames.has(exercise.machineId)) {
+          exercise.machine = this.machineNames.get(exercise.machineId);
+        } else {
+          // Si no está en caché, hacemos la consulta
+          this.machineSvc.getById(exercise.machineId).subscribe({
+            next: (machine) => {
+              if (machine) {
+                // Guardamos en caché para futuras consultas
+                this.machineNames.set(exercise.machineId!, machine.title);
+                exercise.machine = machine.title;
+                // Actualizamos el BehaviorSubject con los datos más recientes
+                this._exercise.next([...this._exercise.value]);
+              }
+            }
+          });
+        }
+      }
+    }
+
+    return enrichedExercises;
+  }
+
+
+  // Modificamos también loadMoreExercises para usar el mismo proceso
+  loadMoreExercises(notify: HTMLIonInfiniteScrollElement | null = null) {
+    if (this.page <= this.pages) {
       this.exerciseSvc.getAll(this.page, this.pageSize).subscribe({
-        next:(response:Paginated<Exercise>)=>{
-          this._exercise.next([...this._exercise.value, ...response.data]);
+        next: async (response: Paginated<Exercise>) => {
+          const enrichedData = await this.enrichExercisesWithMachineNames(response.data);
+          this._exercise.next([...this._exercise.value, ...enrichedData]);
           this.page++;
           notify?.complete();
         }
       });
-    }
-    else{
+    } else {
       notify?.complete();
     }
   }

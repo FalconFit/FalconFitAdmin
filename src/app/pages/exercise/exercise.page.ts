@@ -98,11 +98,14 @@ export class ExercisePage implements OnInit {
     }
   }
 
-  refresh(){
+  refresh() {
+    // Modificamos el método refresh para usar el mismo proceso de enriquecimiento
     this.exerciseSvc.getAll(1, (this.page - 1) * this.pageSize).subscribe({
-      next:(response:Paginated<Exercise>)=>{
+      next: async (response: Paginated<Exercise>) => {
         this.totalPages = response.pages;
-        this._exercise.next(response.data);
+        // Usamos el mismo método de enriquecimiento que en loadExercises
+        const enrichedData = await this.enrichExercisesWithMachineNames(response.data);
+        this._exercise.next(enrichedData);
       }
     });
   }

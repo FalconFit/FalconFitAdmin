@@ -6,5 +6,6 @@ export interface FirebaseMachine {
   description: string,
   taken: Boolean,
   exerciseId?: DocumentReference,
-  userId?: DocumentReference
+  userId?: DocumentReference,
+  picture?: string
 }

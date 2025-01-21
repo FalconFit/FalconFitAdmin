@@ -5,7 +5,8 @@ BACKEND_TOKEN, EXERCISE_API_URL_TOKEN, EXERCISE_REPOSITORY_MAPPING_TOKEN, EXERCI
 EXERCISE_RESOURCE_NAME_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_TOKEN, MACHINE_REPOSITORY_TOKEN,
 MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, PLACE_REPOSITORY_TOKEN,
 PLACE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN,
-USERFF_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN } from "./repository.tokens";
+USERFF_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN,
+UPLOAD_API_URL_TOKEN} from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -31,6 +32,10 @@ import { MachineMappingFirebaseService } from "./impl/machine-mapping-firebase.s
 import { FirebaseAuthenticationService } from "../services/impl/firebase-authentication.service";
 import { FirebaseAuthMappingService } from "../services/impl/firebase-auth-mapping.service";
 import { PlaceMappingFirebaseService } from "./impl/place-mapping-firebase.service";
+import { BaseMediaService } from "../services/impl/base-media.service";
+import { FirebaseMediaService } from "../services/impl/firebase-media.service";
+import { StrapiMediaService } from "../services/impl/strapi-media.service";
+import { IAuthentication } from "../services/interfaces/authentication.interface";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -163,6 +168,28 @@ export const AuthenticationServiceFactory:FactoryProvider = {
 
   },
   deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_MAPPING_TOKEN, HttpClient]
+};
+
+export const MediaServiceFactory:FactoryProvider = {
+  provide: BaseMediaService,
+  useFactory: (backend:string, firebaseConfig:any, upload:string, auth:IAuthentication, http:HttpClient) => {
+    switch(backend){
+      case 'http':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'local-storage':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'json-server':
+        throw new Error("BACKEND NOT IMPLEMENTED");
+      case 'firebase':
+        return new FirebaseMediaService(firebaseConfig, auth);
+      case 'strapi':
+        return new StrapiMediaService(upload, auth as IStrapiAuthentication, http);
+      default:
+        throw new Error("BACKEND NOT IMPLEMENTED");
+    }
+
+  },
+  deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, UPLOAD_API_URL_TOKEN, BaseAuthenticationService, HttpClient]
 };
 
 export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);

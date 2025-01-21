@@ -22,6 +22,7 @@ export class MachineFormComponent  implements OnInit {
     this.formGroup.controls['title'].setValue(_machine.title);
     this.formGroup.controls['subtitle'].setValue(_machine.subtitle);
     this.formGroup.controls['description'].setValue(_machine.description);
+    this.formGroup.controls['picture'].setValue(_machine.picture);
   }
 
   constructor(
@@ -34,6 +35,7 @@ export class MachineFormComponent  implements OnInit {
       title:['', [Validators.required, Validators.minLength(2)]],
       subtitle:['', [Validators.required, Validators.minLength(2)]],
       description:['', [Validators.required, Validators.maxLength(500)]],
+      picture:['']
     });
   }
 

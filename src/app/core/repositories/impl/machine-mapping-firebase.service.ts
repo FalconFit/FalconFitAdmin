@@ -26,6 +26,13 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
       taken: data.taken,
       exerciseId: data.exerciseId?.id,
       userId: data.userId?.id,
+      picture: data.picture ? {
+        url: data.picture,
+        large: data.picture,
+        medium: data.picture,
+        small: data.picture,
+        thumbnail: data.picture
+      } : undefined
     };
   }
 
@@ -43,7 +50,8 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
       title: data.title,
       subtitle: data.subtitle,
       description: data.description,
-      taken: data.taken
+      taken: data.taken,
+      picture: data.picture ? data.picture.url : ''
     };
     if(dataMapping.exerciseId){
       dataMapping.exerciseId = doc(this.db, 'machines', data.exerciseId || '');
@@ -63,6 +71,7 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
     if (data.taken) result.taken = data.taken;
     if (data.exerciseId) result.exerciseId = doc(this.db, 'machine', data.exerciseId || '');
     if (data.userId) result.user = data.userId || '';
+    if (data.picture) result.picture = data.picture;
 
     return result;
   }

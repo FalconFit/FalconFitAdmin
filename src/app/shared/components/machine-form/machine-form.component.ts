@@ -22,7 +22,7 @@ export class MachineFormComponent  implements OnInit {
     this.formGroup.controls['title'].setValue(_machine.title);
     this.formGroup.controls['subtitle'].setValue(_machine.subtitle);
     this.formGroup.controls['description'].setValue(_machine.description);
-    this.formGroup.controls['picture'].setValue(_machine.picture);
+    this.formGroup.controls['picture'].setValue(_machine.picture?.large);
   }
 
   constructor(
@@ -37,20 +37,6 @@ export class MachineFormComponent  implements OnInit {
       description:['', [Validators.required, Validators.maxLength(500)]],
       picture:['']
     });
-  }
-
-  onFileSelected(event: Event) {
-    const fileInput = event.target as HTMLInputElement;
-
-    if (fileInput.files && fileInput.files[0]) {
-      const file = fileInput.files[0];
-
-      const reader = new FileReader();
-      reader.onload = (e: any) => {
-        this.picture = e.target.result; // Guardar la imagen como base64 para la previsualización
-      };
-      reader.readAsDataURL(file);
-    }
   }
 
   ngOnInit() {}

@@ -27,12 +27,7 @@
       <ion-label position="stacked">{{ 'MACHINE.IMAGE' | translate }}</ion-label>
       <div class="photo-container">
         <!-- Previsualización de la imagen -->
-        <img [src]="picture || 'https://ionicframework.com/docs/img/demos/avatar.svg'" alt="Machine Photo" class="photo-preview" />
-        <ion-button expand="block" color="primary" class="upload-button">
-          <ion-icon name="cloud-upload-outline" slot="start"></ion-icon>
-          {{ 'MACHINE.SELECT_IMAGE' | translate }}
-          <app-picture-selectable formControlName="picture"></app-picture-selectable>
-        </ion-button>
+        <app-picture-selectable formControlName="picture"></app-picture-selectable>
       </div>
 
     <!-- Título -->

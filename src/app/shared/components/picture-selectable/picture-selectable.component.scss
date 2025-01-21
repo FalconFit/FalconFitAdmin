@@ -1,63 +1,79 @@
-div.user-picture{
-  min-width:300px;
-  height:300px;
-  ion-img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      cursor: pointer;
-  }
-  ion-button.picture-button{
-      margin:0;
-      --padding-start:0;
-      --padding-end:0;
+$primary-color: #3880ff;
+$danger-color: #eb445a;
+$background-color: #f4f5f8;
 
-      .button-native{
-          padding:0!important;
-      }
-  }
-}
+.photo-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 1rem;
+  background-color: $background-color;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
-ion-modal.auto-height{
-  &.bottom {
-      align-items: flex-end;
-  }
+  .photo-container {
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 
-  --height: auto;
-
-  .ion-page {
+    .photo-preview {
       position: relative;
-      display: block;
-      contain: content;
-
-      .inner-content {
-          max-height: 80vh;
-          overflow: auto;
-          padding: 10px;
+      img {
+        width: 100%;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
       }
+
+      .action-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+
+        ion-button {
+          flex: 1;
+          margin: 0 0.5rem;
+          font-size: 0.9rem;
+        }
+      }
+    }
+
+    .empty-state {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+
+      .placeholder-icon {
+        font-size: 3rem;
+        color: #ccc;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 1rem;
+      }
+
+      ion-button {
+        font-size: 1rem;
+      }
+    }
+
+    .photo-modal {
+      .modal-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        img {
+          max-width: 90%;
+          max-height: 90%;
+          border-radius: 8px;
+        }
+      }
+    }
   }
-}
-
-.change-picture-btn {
-position: absolute;
-top: 0;
-right: 0;
---background: rgba(var(--ion-color-primary-rgb), 0.7);
-}
-
-.delete-picture-btn {
-position: absolute;
-top: 40px;
-right: 0;
---background: rgba(var(--ion-color-danger-rgb), 0.7);
-}
-
-.empty-picture-btn {
-height: 100%;
-width: 100%;
-}
-
-.empty-picture-icon {
-width: 100%;
-height: 100%;
 }

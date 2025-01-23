@@ -51,7 +51,7 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
       subtitle: data.subtitle,
       description: data.description,
       taken: data.taken,
-      picture: data.picture ? data.picture.url : ''
+      picture: data.picture?.url || ''
     };
     if(dataMapping.exerciseId){
       dataMapping.exerciseId = doc(this.db, 'machines', data.exerciseId || '');

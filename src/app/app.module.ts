@@ -9,7 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/components/shared.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AUTH_ME_API_URL_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, BACKEND_TOKEN, EXERCISE_API_URL_TOKEN, EXERCISE_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_RESOURCE_NAME_TOKEN, UPLOAD_API_URL_TOKEN, USERFF_API_URL_TOKEN, USERFF_RESOURCE_NAME_TOKEN } from './core/repositories/repository.tokens';
-import { AuthenticationServiceFactory, AuthMappingFactory, ExerciseMappingFactory, ExerciseRepositoryFactory, MachineMappingFactory, MachineRepositoryFactory, PlaceMappingFactory, PlaceRepositoryFactory, UserffMappingFactory, UserffRepositoryFactory } from './core/repositories/repository.factory';
+import { AuthenticationServiceFactory, AuthMappingFactory, ExerciseMappingFactory, ExerciseRepositoryFactory, MachineMappingFactory, MachineRepositoryFactory, MediaServiceFactory, PlaceMappingFactory, PlaceRepositoryFactory, UserffMappingFactory, UserffRepositoryFactory } from './core/repositories/repository.factory';
 import { MachineService } from './core/services/impl/machine.service';
 import { environment } from 'src/environments/environment.prod';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
@@ -21,6 +21,7 @@ import { PlaceService } from './core/services/impl/place.service';
 import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { ExerciseService } from './core/services/impl/exercise.service';
+import { BaseMediaService } from './core/services/impl/base-media.service';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -88,6 +89,7 @@ export function createTranslateLoader(http: HttpClient) {
     PlaceRepositoryFactory,
     UserffRepositoryFactory,
     UserffMappingFactory,
+    MediaServiceFactory,
     {
       provide: 'MachineService',
       useClass: MachineService
@@ -104,7 +106,6 @@ export function createTranslateLoader(http: HttpClient) {
       provide: 'PlaceService',
       useClass: PlaceService
     },
-
   ],
   bootstrap: [AppComponent],
 })

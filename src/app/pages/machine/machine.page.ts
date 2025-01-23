@@ -5,6 +5,7 @@ import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { Machine } from 'src/app/core/models/machine.model';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
+import { BaseMediaService } from 'src/app/core/services/impl/base-media.service';
 
 @Component({
   selector: 'app-machine',
@@ -19,6 +20,7 @@ export class MachinePage implements OnInit {
     private machineSvc: MachineService,
     private modalCtrl: ModalController,
     private alertController: AlertController,
+    private mediaService: BaseMediaService
   ) { }
 
   ngOnInit() {
@@ -74,7 +76,12 @@ export class MachinePage implements OnInit {
       }
     });
 
-    modal.onDidDismiss().then((data)=>{
+    modal.onDidDismiss().then(async (data)=>{
+      const base64Response = await fetch(data.data.picture);
+      const blob = await base64Response.blob();
+      const uploadedBlob = await lastValueFrom(this.mediaService.upload(blob));
+      data.data.picture = uploadedBlob[0];
+
       let machine:Machine = {
         id: '',
         picture: data.data.picture,

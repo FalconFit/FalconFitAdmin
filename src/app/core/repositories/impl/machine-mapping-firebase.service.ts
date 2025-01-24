@@ -71,7 +71,7 @@ export class MachineMappingFirebaseService implements IBaseMapping<Machine> {
     if (data.taken) result.taken = data.taken;
     if (data.exerciseId) result.exerciseId = doc(this.db, 'machine', data.exerciseId || '');
     if (data.userId) result.user = data.userId || '';
-    if (data.picture) result.picture = data.picture;
+    if (data.picture) result.picture = data.picture.url;
 
     return result;
   }

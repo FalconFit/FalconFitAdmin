@@ -1,28 +1,25 @@
-/* Paleta de colores */
-:root {
-  --color-bg-main: #1A1A2E;
-  --color-navbar: #521945;
-  --color-card-bg: #2C2E43;
-  --color-text-primary: #D4AF37;
-  --color-text-secondary: #F0E3CA;
-  --color-btn-primary: #A31D2E;
-  --color-btn-secondary: #6E7C7C;
-  --color-highlight: #CB6D51;
+// .content {
+//   background-color: var(--header-color);
+//   color: var(--color-text-secondary);
+// }
+
+// ion-content.content {
+//   background-color: var(--header-color) !important;
+// }
+
+ion-content {
+  --background: var(--ion-color-secondary);
 }
 
-.content {
-  background-color: var(--color-bg-main);
-  color: var(--color-text-secondary);
-}
 
 .header {
-  background-color: var(--color-navbar);
-  color: var(--color-text-primary);
+  background-color: var(--navbar-color);
+  color: var(--navbar-text);
 }
 
-.card {
-  background-color: #2C2E43;
-  color: var(--color-text-secondary);
+ion-card {
+  background-color: var(--ion-color-tertiary);
+  color: var(--ion-color-light-contrast);
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -37,7 +34,7 @@
   height: 200px;
   object-fit: cover;
   display: block;
-  border-bottom: 2px solid var(--color-highlight);
+  border-bottom: 2px solid var(--highlight-color);
 }
 
 .info-block {
@@ -66,19 +63,19 @@
   padding: 10px;
 }
 
-.btn-primary {
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
+btn-primary {
+  background-color: var(--edit-button); /* Color corporativo del botón editar */
+  color: var(--btn-text-primary); /* Texto claro para contraste */
 }
 
 .btn-secondary {
-  background-color: var(--color-btn-secondary);
-  color: var(--color-text-secondary);
+  background-color: var(--delete-button); /* Color corporativo del botón eliminar */
+  color: var(--btn-text-secondary); /* Texto claro para contraste */
 }
 
 .fab-button {
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
+  background-color: var(--fab-button-bg); /* Botón flotante (coherente con el diseño) */
+  color: var(--fab-button-text); /* Texto o ícono del botón flotante */
 }
 
 .responsive-row {

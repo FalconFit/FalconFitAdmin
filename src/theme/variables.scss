@@ -1,83 +1,78 @@
-// Corporate color palette with a classic, grand, and elegant style
 :root {
-  --ion-color-primary: #2c1f27;
-  --ion-color-primary-rgb: 44,31,39;
+  --ion-color-primary: #2C394B; // Azul oscuro estoico
+  --ion-color-primary-rgb: 44,57,75;
   --ion-color-primary-contrast: #ffffff;
   --ion-color-primary-contrast-rgb: 255,255,255;
-  --ion-color-primary-shade: #261a22;
-  --ion-color-primary-tint: #3d2f3b;
+  --ion-color-primary-shade: #273242;
+  --ion-color-primary-tint: #414D5D;
 
-  --ion-color-secondary: #4a2f3b;
-  --ion-color-secondary-rgb: 74,47,59;
+  --ion-color-secondary: #334756; // Azul grisáceo
+  --ion-color-secondary-rgb: 51,71,86;
   --ion-color-secondary-contrast: #ffffff;
   --ion-color-secondary-contrast-rgb: 255,255,255;
-  --ion-color-secondary-shade: #402932;
-  --ion-color-secondary-tint: #5d4450;
+  --ion-color-secondary-shade: #2d3e4c;
+  --ion-color-secondary-tint: #475967;
 
-  --ion-color-tertiary: #775053;
-  --ion-color-tertiary-rgb: 119,80,83;
+  --ion-color-tertiary: #4A6670; // Azul verdoso
+  --ion-color-tertiary-rgb: 74,102,112;
   --ion-color-tertiary-contrast: #ffffff;
   --ion-color-tertiary-contrast-rgb: 255,255,255;
-  --ion-color-tertiary-shade: #69464a;
-  --ion-color-tertiary-tint: #8a6a6d;
+  --ion-color-tertiary-shade: #415a63;
+  --ion-color-tertiary-tint: #5c757e;
 
-  --ion-color-success: #3b5f41;
-  --ion-color-success-rgb: 59,95,65;
+  --ion-color-success: #395B50; // Verde oscuro
+  --ion-color-success-rgb: 57,91,80;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255,255,255;
-  --ion-color-success-shade: #34543a;
-  --ion-color-success-tint: #4f7760;
+  --ion-color-success-shade: #324f46;
+  --ion-color-success-tint: #4d6b62;
 
-  --ion-color-warning: #7a5c28;
-  --ion-color-warning-rgb: 122,92,40;
+  --ion-color-warning: #846C5B; // Marrón neutro
+  --ion-color-warning-rgb: 132,108,91;
   --ion-color-warning-contrast: #ffffff;
   --ion-color-warning-contrast-rgb: 255,255,255;
-  --ion-color-warning-shade: #6a5024;
-  --ion-color-warning-tint: #8c7241;
+  --ion-color-warning-shade: #745f50;
+  --ion-color-warning-tint: #907b6b;
 
-  --ion-color-danger: #5b2e2c;
-  --ion-color-danger-rgb: 91,46,44;
+  --ion-color-danger: #733C3C; // Rojo oscuro
+  --ion-color-danger-rgb: 115,60,60;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255,255,255;
-  --ion-color-danger-shade: #502927;
-  --ion-color-danger-tint: #6f4846;
+  --ion-color-danger-shade: #653535;
+  --ion-color-danger-tint: #815050;
 
-  --ion-color-light: #d9d4ce;
-  --ion-color-light-rgb: 217,212,206;
+  --ion-color-light: #E5E9EC; // Gris claro
+  --ion-color-light-rgb: 229,233,236;
   --ion-color-light-contrast: #000000;
   --ion-color-light-contrast-rgb: 0,0,0;
-  --ion-color-light-shade: #c2bdb8;
-  --ion-color-light-tint: #e3dfda;
+  --ion-color-light-shade: #caced0;
+  --ion-color-light-tint: #e8ebee;
 
-  --ion-color-medium: #aba095;
-  --ion-color-medium-rgb: 171,160,149;
+  --ion-color-medium: #9BA4AD; // Gris medio
+  --ion-color-medium-rgb: 155,164,173;
   --ion-color-medium-contrast: #000000;
   --ion-color-medium-contrast-rgb: 0,0,0;
-  --ion-color-medium-shade: #958c82;
-  --ion-color-medium-tint: #bdb3a9;
+  --ion-color-medium-shade: #889098;
+  --ion-color-medium-tint: #a5adb5;
 
-  --ion-color-dark: #3b322b;
-  --ion-color-dark-rgb: 59,50,43;
+  --ion-color-dark: #282F35; // Gris oscuro
+  --ion-color-dark-rgb: 40,47,53;
   --ion-color-dark-contrast: #ffffff;
   --ion-color-dark-contrast-rgb: 255,255,255;
-  --ion-color-dark-shade: #332b25;
-  --ion-color-dark-tint: #50473f;
+  --ion-color-dark-shade: #23292f;
+  --ion-color-dark-tint: #3e444a;
 
-  // Custom colors for specific UI elements
-  --edit-button: #4a785c; /* Classic green for edit actions */
-  --edit-button-contrast: #ffffff;
+  --card-color: #334756; // Azul grisáceo para tarjetas
+  --card-color-contrast: #ffffff;
 
-  --delete-button: #783a3a; /* Deep red for delete actions */
-  --delete-button-contrast: #ffffff;
-
-  --card-color: #f4f1ec; /* Light parchment-style background for cards */
-  --card-color-contrast: #2c1f27;
-
-  --header-color: #2c1f27; /* Matches primary color */
+  --header-color: #2C394B; // Azul oscuro para header
   --header-color-contrast: #ffffff;
 
-  --footer-color: #2c1f27; /* Consistent with header */
+  --footer-color: #2C394B; // Azul oscuro para footer
   --footer-color-contrast: #ffffff;
 
-  --background-color: #f8f5f2; /* Elegant, soft background color */
+  --background-color: #1B2430; // Azul muy oscuro para fondo
+
+  --color-text-primary: #F8F8F8
+  --color-text-secondary: #F0F0F0
 }

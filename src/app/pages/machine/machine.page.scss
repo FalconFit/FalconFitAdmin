@@ -1,12 +1,10 @@
 ion-content {
-  // --background: var(--ion-color-secondary);
-  --background: url(../../../assets/img/wallpaper.jpg) 0 0/100% 100% no-repeat;
+  --background: var(--background-color);
 }
 
 ion-card {
-  // background-color: var(--ion-color-tertiary);
-  background-color: #2C2C3E ;
-  color: var(--ion-color-light-contrast);
+  background-color: var(--card-color);
+  color: #282F35;
   border-radius: 12px;
   overflow: hidden;
   display: flex;
@@ -32,14 +30,22 @@ ion-card {
 .info-block .title {
   font-size: 1.2em;
   font-weight: bold;
-  color: var(--color-text-primary);
+  color: #F8F8F8; // Blanco suave
+  font-family: 'Playfair Display', serif; // Fuente serif elegante
   margin-bottom: 5px;
 }
 
-.info-block .subtitle,
+.info-block .subtitle {
+  font-size: 0.9em;
+  color: #C4C4C4; // Gris claro
+  font-family: 'Lato', sans-serif; // Fuente sans-serif moderna
+  margin: 5px 0;
+}
+
 .info-block .description {
   font-size: 0.9em;
-  color: var(--color-text-secondary);
+  color: #F0F0F0; // Gris más claro que el subtítulo
+  font-family: 'Lato', sans-serif;
   margin: 5px 0;
 }
 
@@ -50,19 +56,8 @@ ion-card {
   padding: 10px;
 }
 
-btn-primary {
-  background-color: var(--edit-button); /* Color corporativo del botón editar */
-  color: var(--btn-text-primary); /* Texto claro para contraste */
-}
-
-.btn-secondary {
-  background-color: var(--delete-button); /* Color corporativo del botón eliminar */
-  color: var(--btn-text-secondary); /* Texto claro para contraste */
-}
-
 .fab-button {
-  background-color: var(--fab-button-bg); /* Botón flotante (coherente con el diseño) */
-  color: var(--fab-button-text); /* Texto o ícono del botón flotante */
+  margin-right: 2ch;
 }
 
 .responsive-row {

@@ -1,5 +1,5 @@
 ion-toolbar {
-  --background: #2C2E43; /* Fondo oscuro */
+  --background: var(--header-color); /* Fondo oscuro */
   --color: #F0E3CA;     /* Color del texto */
 
   display: flex;

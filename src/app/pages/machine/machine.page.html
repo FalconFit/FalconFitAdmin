@@ -21,10 +21,10 @@
 
           <!-- Bloque 3: Botones -->
           <div class="button-block">
-            <ion-button color="primary" (click)="onUpdateMachine(machine, i)" class="btn-primary">
+            <ion-button color="success" (click)="onUpdateMachine(machine, i)">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button color="secondary" (click)="onDeleteMachine(machine)" class="btn-secondary">
+            <ion-button color="danger" (click)="onDeleteMachine(machine)">
               <ion-icon name="trash-outline"></ion-icon>
             </ion-button>
           </div>
@@ -35,7 +35,7 @@
 
   <!-- Botón flotante para añadir -->
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button (click)="onAddMachine()" class="fab-button">
+    <ion-fab-button (click)="onAddMachine()" class="fab-button" color="tertiary">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>

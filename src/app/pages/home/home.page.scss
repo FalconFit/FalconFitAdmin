@@ -1,7 +1,22 @@
-.container {
+// .container {
+//   display: flex;
+//   flex-direction: column;
+//   height: 100vh;
+//   --background: var(--background-color);
+
+
+//   @media (min-width: 992px) {
+//     flex-direction: row;
+//   }
+// }
+
+ion-content {
+  --background: var(--background-color);
   display: flex;
   flex-direction: column;
   height: 100vh;
+  --background: var(--background-color);
+
 
   @media (min-width: 992px) {
     flex-direction: row;
@@ -33,7 +48,7 @@ google-map {
   height: 50vh;
   overflow-y: auto;
   padding: 16px;
-  background-color: var(--ion-background-color);
+  background-color: var(--background-color);
 
   @media (min-width: 992px) {
     width: 40%;

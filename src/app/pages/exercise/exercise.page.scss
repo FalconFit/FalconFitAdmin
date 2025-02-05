@@ -1,29 +1,9 @@
-/* Paleta de colores */
-:root {
-  --color-bg-main: #1A1A2E;
-  --color-navbar: #521945;
-  --color-card-bg: #2C2E43;
-  --color-text-primary: #D4AF37;
-  --color-text-secondary: #F0E3CA;
-  --color-btn-primary: #A31D2E;
-  --color-btn-secondary: #6E7C7C;
-  --color-highlight: #CB6D51;
+ion-content {
+  --background: var(--background-color);
 }
 
-/* Fondo principal */
-.content {
-  background-color: var(--color-bg-main);
-  color: var(--color-text-secondary);
-}
-
-/* Encabezado */
-.header {
-  background-color: var(--color-navbar);
-  color: var(--color-text-primary);
-}
-
-.card {
-  background-color: #2C2E43;
+ion-card {
+  background-color: var(--card-color);
   color: var(--color-text-secondary);
   border-radius: 12px;
   overflow: hidden;
@@ -80,8 +60,7 @@
 }
 
 .fab-button {
-  background-color: var(--color-btn-primary);
-  color: var(--color-text-secondary);
+  margin-right: 2ch;
 }
 
 .responsive-row {

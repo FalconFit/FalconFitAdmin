@@ -1,14 +1,21 @@
 ion-content {
   --background: var(--background-color);
+
+  &::part(scroll) {
+    display: flex;
+    // Eliminamos el scroll del contenedor principal
+    overflow: hidden;
+  }
 }
 
 .main-container {
   display: flex;
   flex-direction: column;
-  height: 100%;
   width: 100%;
+  // Altura exacta del viewport sin el header
+  height: calc(100vh - 56px); // 56px es la altura típica del header de Ionic
+  overflow: hidden;
 
-  // Desktop layout
   @media (min-width: 992px) {
     flex-direction: row;
   }
@@ -18,18 +25,21 @@ ion-content {
   position: relative;
   height: 50vh;
   width: 100%;
+  // Eliminamos cualquier desbordamiento
+  overflow: hidden;
 
-  // Desktop layout
   @media (min-width: 992px) {
-    height: 100vh;
+    height: calc(100vh - 56px);
     width: 60%;
-    position: sticky;
-    top: 0;
+    position: fixed;
+    top: 56px;
+    left: 0;
   }
 
   google-map {
     width: 100%;
     height: 100%;
+    display: block;
   }
 }
 
@@ -37,10 +47,10 @@ ion-content {
   width: 100%;
   background-color: var(--background-color);
 
-  // Desktop layout
   @media (min-width: 992px) {
     width: 40%;
-    height: 100vh;
+    margin-left: 60%; // Compensamos el espacio del mapa fijo
+    height: calc(100vh - 56px);
   }
 }
 
@@ -49,16 +59,44 @@ ion-content {
   height: 100%;
   overflow-y: auto;
 
-  // Desktop layout
+  // Estilo sofisticado para el scroll
+  &::-webkit-scrollbar {
+    width: 8px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+  }
+
+  // Estilo para Firefox
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+
   @media (min-width: 992px) {
-    height: 100vh;
-    position: sticky;
-    top: 0;
+    height: 100%;
+    padding: 24px;
   }
 }
 
 .location-card {
   margin-bottom: 16px;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
 
   &:last-child {
     margin-bottom: 0;

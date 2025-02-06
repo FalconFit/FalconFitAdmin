@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-map',
@@ -6,19 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./map.component.scss']
 })
 export class MapComponent {
-  center = { lat: 40.73061, lng: -73.935242 };
-  zoom = 12;
-  options: google.maps.MapOptions = {
+  @Input() center: google.maps.LatLngLiteral = { lat: 40.73061, lng: -73.935242 };
+  @Input() zoom: number = 8;
+  @Input() options: google.maps.MapOptions = {
     mapTypeId: 'roadmap',
     disableDefaultUI: true,
   };
+  @Input() markers: any[] = [];
 
-  markers: any[] = [];
+  @Output() mapClick = new EventEmitter<google.maps.MapMouseEvent>();
 
   addMarker(event: google.maps.MapMouseEvent) {
-    if (event.latLng) {
-      this.markers.push({ position: event.latLng.toJSON() });
-    }
+    this.mapClick.emit(event);
   }
-
 }

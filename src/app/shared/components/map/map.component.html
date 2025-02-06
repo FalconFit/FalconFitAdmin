@@ -1,3 +1,11 @@
-<google-map [center]="center" [zoom]="zoom" [options]="options" (mapClick)="addMarker($event)">
-  <map-marker *ngFor="let marker of markers" [position]="marker.position"></map-marker>
+<google-map
+  [center]="center"
+  [zoom]="zoom"
+  [options]="options"
+  (mapClick)="addMarker($event)">
+  <map-marker
+    *ngFor="let marker of markers"
+    [position]="marker.position"
+    [title]="marker.title">
+  </map-marker>
 </google-map>

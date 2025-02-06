@@ -2,20 +2,18 @@
 
 <ion-content>
   <div class="main-container">
+    <!-- Contenedor del mapa -->
     <div class="map-container">
-      <google-map
+      <app-map
         [center]="center"
         [zoom]="zoom"
         [options]="options"
+        [markers]="markers"
         (mapClick)="addMarker($event)">
-        <map-marker
-          *ngFor="let marker of markers"
-          [position]="marker.position"
-          [title]="marker.title">
-        </map-marker>
-      </google-map>
+      </app-map>
     </div>
 
+    <!-- Contenedor de tarjetas -->
     <div class="cards-container">
       <div class="cards-scroll">
         <ion-card *ngFor="let location of _place | async" class="location-card">

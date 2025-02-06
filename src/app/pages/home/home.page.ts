@@ -130,7 +130,7 @@ export class HomePage implements OnInit {
         lat: location.latitud as number,
         lng: location.longitud as number
       };
-      this.zoom = 18;
+      this.zoom = 15;
     }
   }
 

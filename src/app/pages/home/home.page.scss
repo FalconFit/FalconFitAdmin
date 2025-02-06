@@ -1,114 +1,119 @@
+/* --- Global --- */
+html, body, ion-content {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; // Evitamos scroll en la página
+}
+
 ion-content {
   --background: var(--background-color);
-
   &::part(scroll) {
     display: flex;
-    // Eliminamos el scroll del contenedor principal
     overflow: hidden;
   }
 }
 
+/* --- Contenedor principal --- */
 .main-container {
   display: flex;
-  flex-direction: column;
-  width: 100%;
-  // Altura exacta del viewport sin el header
-  height: calc(100vh - 56px); // 56px es la altura típica del header de Ionic
+  flex-direction: row;
+  width: 100vw;
+  /* Se descuenta la altura del toolbar (56px típico de Ionic) */
+  height: calc(100vh - 56px);
   overflow: hidden;
 
-  @media (min-width: 992px) {
-    flex-direction: row;
+  /* Para móvil: se pasa a columna */
+  @media (max-width: 768px) {
+    flex-direction: column;
   }
 }
 
+/* --- Contenedor del mapa --- */
 .map-container {
-  position: relative;
-  height: 50vh;
-  width: 100%;
-  // Eliminamos cualquier desbordamiento
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
   overflow: hidden;
 
-  @media (min-width: 992px) {
-    height: calc(100vh - 56px);
-    width: 60%;
-    position: fixed;
-    top: 56px;
-    left: 0;
-  }
-
+  /* El mapa se centra y ocupa el 90% de su contenedor */
   google-map {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    border-radius: 15px; /* Opcional */
     display: block;
   }
-}
 
-.cards-container {
-  width: 100%;
-  background-color: var(--background-color);
-
-  @media (min-width: 992px) {
-    width: 40%;
-    margin-left: 60%; // Compensamos el espacio del mapa fijo
-    height: calc(100vh - 56px);
+  /* Para móvil, asignamos la mitad de la altura */
+  @media (max-width: 768px) {
+    height: 50%;
   }
 }
 
+/* --- Contenedor de tarjetas --- */
+.cards-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background-color: var(--background-color);
+
+  /* Para móvil, asignamos la mitad de la altura */
+  @media (max-width: 768px) {
+    height: 50%;
+  }
+}
+
+/* --- Scroll de tarjetas con barra personalizada (tomado del segundo SCSS) --- */
 .cards-scroll {
   padding: 16px;
   height: 100%;
   overflow-y: auto;
 
-  // Estilo sofisticado para el scroll
+  /* Para Chrome y Edge */
   &::-webkit-scrollbar {
     width: 8px;
     background-color: transparent;
   }
-
   &::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 4px;
     transition: background-color 0.3s ease;
-
     &:hover {
       background-color: rgba(255, 255, 255, 0.3);
     }
   }
-
   &::-webkit-scrollbar-track {
     background-color: rgba(0, 0, 0, 0.1);
     border-radius: 4px;
   }
 
-  // Estilo para Firefox
+  /* Para Firefox */
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
-
-  @media (min-width: 992px) {
-    height: 100%;
-    padding: 24px;
-  }
 }
 
+/* --- Tarjeta de ubicación --- */
 .location-card {
   margin-bottom: 16px;
   transition: transform 0.2s ease;
-
   &:hover {
     transform: translateY(-2px);
   }
-
   &:last-child {
     margin-bottom: 0;
   }
-
   ion-card-title {
     font-size: 1.2rem;
   }
-
   ion-card-content {
     p {
       margin-bottom: 12px;
     }
   }
 }
+
+

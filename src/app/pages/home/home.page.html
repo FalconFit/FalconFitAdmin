@@ -22,9 +22,14 @@
           </ion-card-header>
           <ion-card-content>
             <p>{{ location.description }}</p>
-            <ion-button expand="block" (click)="focusLocation(location)">
-              {{ 'NAVIGATE' | translate }}
-            </ion-button>
+            <div class="card-actions">
+              <ion-button expand="block" color="warning" (click)="focusLocation(location)" class="navigate-btn">
+                {{ 'NAVIGATE' | translate }}
+              </ion-button>
+              <ion-button expand="block" color="danger" (click)="deleteLocation(location)" class="delete-btn">
+                <ion-icon name="trash-outline"></ion-icon>
+              </ion-button>
+            </div>
           </ion-card-content>
         </ion-card>
       </div>

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AlertController, ModalController } from '@ionic/angular';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { Place } from 'src/app/core/models/place.model';
@@ -41,6 +41,7 @@ export class HomePage implements OnInit {
   constructor(
     private modalCtrl: ModalController,
     private placeSvc: PlaceService,
+    private alertController: AlertController,
   ) {
     this.getUserLocation();
   }
@@ -132,6 +133,35 @@ export class HomePage implements OnInit {
       };
       this.zoom = 15;
     }
+  }
+
+  async deleteLocation(location: Place) {
+    const alert = await this.alertController.create({
+      header: "Eliminar ubicación",
+      message: "¿Está seguro de que desea eliminar esta ubicación?",
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          handler: () => {
+            console.log('Eliminado cancelado');
+          }
+        },
+        {
+          text: 'Eliminar',
+          handler: () => {
+            console.log('Eliminado confirmado');
+            this.placeSvc.delete(location.id).subscribe({
+              next:() => {
+                this.refresh();
+              }
+            });
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   refresh() {

@@ -1,25 +1,84 @@
 ion-toolbar {
-  --background: var(--header-color); /* Fondo oscuro */
-  --color: #F0E3CA;     /* Color del texto */
+  --background: var(--header-color);
+  --color: var(--color-text-toolbar);
 
-  display: flex;
-  align-items: center;
-
-  ion-avatar {
-    width: 32px;
-    height: 32px;
-    margin-right: 5px;
-  }
-
-  ion-label h3 {
-    color: #D4AF37;
-    margin: 0;
-    font-size: 14px;
-  }
-
-  ion-buttons[slot="end"] {
+  .toolbar-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    margin-right: 30px;
+    width: 100%;
+    padding: 0 8px;
+
+    // Contenedor izquierdo
+    .left-content {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0; // Evita que se encoja
+
+      ion-buttons {
+        margin: 0;
+      }
+
+      ion-title {
+        padding: 0;
+        margin-left: 8px;
+        font-size: 1.1rem;
+
+        // Asegura que el título sea siempre visible en móvil
+        @media (max-width: 576px) {
+          font-size: 1rem;
+          max-width: 150px; // Ajusta según necesites
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    // Contenedor derecho
+    .user-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-left: auto; // Empuja el contenido hacia la derecha
+
+      ion-avatar {
+        width: 32px;
+        height: 32px;
+        flex-shrink: 0; // Evita que el avatar se encoja
+      }
+
+      .username-label {
+        h3 {
+          color: #D4AF37;
+          margin: 0;
+          font-size: 14px;
+
+          // Ajustes para móvil
+          @media (max-width: 576px) {
+            max-width: 80px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+            // Oculta el nombre de usuario en pantallas muy pequeñas
+            @media (max-width: 360px) {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Ajustes específicos para Ionic
+::ng-deep {
+  ion-header ion-toolbar {
+    --padding-start: 0;
+    --padding-end: 0;
+  }
+  ion-menu-button {
+    --color: var(--color-text-toolbar) !important;
   }
 }

@@ -3,11 +3,13 @@
     <ion-title>
       {{ mode === 'edit' ? ('EXERCISE.EDIT_TITLE' | translate) : ('EXERCISE.NEW_TITLE' | translate) }}
     </ion-title>
-    <ion-buttons slot="start">
+    <!-- Botón de cierre para desktop -->
+    <ion-buttons slot="start" *ngIf="!isMobile">
       <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
+    <!-- Botón de cierre para mobile -->
     <ion-buttons slot="end" *ngIf="isMobile">
       <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -19,43 +21,45 @@
 <ion-content class="ion-padding custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <!-- Título -->
-      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
-      <ion-input
-        type="text"
-        formControlName="title"
-        [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
-      </ion-input>
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="title"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
+    </ion-input>
     <ion-text color="danger" *ngIf="formGroup.get('title')?.invalid && (formGroup.get('title')?.dirty || formGroup.get('title')?.touched)">
       <p *ngIf="formGroup.get('title')?.errors?.['required']">{{ 'EXERCISE.ERRORS.TITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('title')?.errors?.['minlength']">{{ 'EXERCISE.ERRORS.TITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Subtítulo -->
-      <ion-label  color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
-      <ion-input
-        type="text"
-        formControlName="subtitle"
-        [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
-      </ion-input>
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="subtitle"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
+    </ion-input>
     <ion-text color="danger" *ngIf="formGroup.get('subtitle')?.invalid && (formGroup.get('subtitle')?.dirty || formGroup.get('subtitle')?.touched)">
       <p *ngIf="formGroup.get('subtitle')?.errors?.['required']">{{ 'EXERCISE.ERRORS.SUBTITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('subtitle')?.errors?.['minlength']">{{ 'EXERCISE.ERRORS.SUBTITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Descripción -->
-      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
-      <ion-textarea
-        formControlName="description"
-        [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate">
-      </ion-textarea>
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
+    <ion-textarea
+      formControlName="description"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate"
+      [autoGrow]="true"
+      [rows]="3">
+    </ion-textarea>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">{{ 'EXERCISE.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">{{ 'EXERCISE.ERRORS.DESCRIPTION_MAX_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Selección de máquinas -->
-      <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
-      <app-machine-selectable formControlName="machineId"></app-machine-selectable>
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
+    <app-machine-selectable formControlName="machineId"></app-machine-selectable>
 
     <!-- Botón de envío -->
     <div class="button-container">

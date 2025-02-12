@@ -3,48 +3,57 @@
     <ion-title>
       {{ mode === 'edit' ? ('PLACE.EDIT_TITLE' | translate) : ('PLACE.NEW_TITLE' | translate) }}
     </ion-title>
+
+    <!-- Botón de cierre para desktop -->
+    <ion-buttons slot="start" *ngIf="!isMobile">
+      <ion-button (click)="dismiss()" color="light">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- Botón de cierre para mobile -->
     <ion-buttons slot="end" *ngIf="isMobile">
-      <ion-button (click)="dismiss()">
+      <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding  custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <!-- Título -->
-    <ion-item>
-      <ion-input
-        [label]="'PLACE.TITLE' | translate"
-        label-placement="stacked"
-        type="text"
-        formControlName="title"
-        [placeholder]="'PLACE.PLACEHOLDERS.TITLE' | translate">
-      </ion-input>
-    </ion-item>
+    <ion-label position="stacked" color="tertiary">{{ 'PLACE.TITLE' | translate }}</ion-label>
+    <ion-input
+      label-placement="stacked"
+      formControlName="title"
+      type="text"
+      [placeholder]="'PLACE.PLACEHOLDERS.TITLE' | translate">
+    </ion-input>
     <ion-text color="danger" *ngIf="formGroup.get('title')?.invalid && (formGroup.get('title')?.dirty || formGroup.get('title')?.touched)">
       <p *ngIf="formGroup.get('title')?.errors?.['required']">{{ 'PLACE.ERRORS.TITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('title')?.errors?.['minlength']">{{ 'PLACE.ERRORS.TITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Descripción -->
-    <ion-item>
+      <ion-label position="stacked" color="tertiary">{{ 'PLACE.DESCRIPTION' | translate }}</ion-label>
       <ion-textarea
-        [label]="'PLACE.DESCRIPTION' | translate"
         label-placement="stacked"
+        type="text"
         formControlName="description"
-        [placeholder]="'PLACE.PLACEHOLDERS.DESCRIPTION' | translate">
+        [placeholder]="'PLACE.PLACEHOLDERS.DESCRIPTION' | translate"
+        [autoGrow]="true"
+        [rows]="3">
       </ion-textarea>
-    </ion-item>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">{{ 'PLACE.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">{{ 'PLACE.ERRORS.DESCRIPTION_MAX_LENGTH' | translate }}</p>
     </ion-text>
 
     <!-- Botón de envío -->
-    <ion-button [disabled]="!formGroup.valid || !formGroup.dirty" expand="full" type="submit">
-      {{ mode === 'edit' ? ('PLACE.BUTTONS.UPDATE' | translate) : ('PLACE.BUTTONS.CREATE' | translate) }}
-    </ion-button>
+    <div class="button-container">
+      <ion-button [disabled]="!formGroup.valid || !formGroup.dirty" expand="full" type="submit" color="success">
+        {{ mode === 'edit' ? ('PLACE.BUTTONS.UPDATE' | translate) : ('PLACE.BUTTONS.CREATE' | translate) }}
+      </ion-button>
+    </div>
   </form>
 </ion-content>

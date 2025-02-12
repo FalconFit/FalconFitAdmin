@@ -23,7 +23,7 @@
 <ion-content class="ion-padding custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
     <!-- Imagen -->
-      <ion-label position="stacked">{{ 'MACHINE.IMAGE' | translate }}</ion-label>
+      <ion-label position="stacked" color="tertiary">{{ 'MACHINE.IMAGE' | translate }}</ion-label>
       <div class="photo-container">
         <!-- Previsualización de la imagen -->
         <app-picture-selectable formControlName="picture"></app-picture-selectable>
@@ -57,13 +57,13 @@
 
     <!-- Descripción -->
     <ion-label position="stacked" color="tertiary">{{ 'MACHINE.DESCRIPTION' | translate }}</ion-label>
-      <ion-textarea
-        label-placement="stacked"
-        formControlName="description"
-        [placeholder]="'MACHINE.PLACEHOLDERS.DESCRIPTION' | translate"
-        [autoGrow]="true"
-        [rows]="3">
-      </ion-textarea>
+    <ion-textarea
+      label-placement="stacked"
+      formControlName="description"
+      [placeholder]="'MACHINE.PLACEHOLDERS.DESCRIPTION' | translate"
+      [autoGrow]="true"
+      [rows]="3">
+    </ion-textarea>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">{{ 'MACHINE.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('description')?.errors?.['maxlength']">{{ 'MACHINE.ERRORS.DESCRIPTION_MAX_LENGTH' | translate }}</p>

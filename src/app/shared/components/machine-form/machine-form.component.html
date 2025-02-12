@@ -5,14 +5,13 @@
       {{ mode === 'edit' ? ('MACHINE.EDIT_TITLE' | translate) : ('MACHINE.NEW_TITLE' | translate) }}
     </ion-title>
 
-    <!-- Botón de cerrar en el lado izquierdo -->
-    <ion-buttons slot="start">
+    <!-- Botón de cierre para desktop -->
+    <ion-buttons slot="start" *ngIf="!isMobile">
       <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
     </ion-buttons>
-
-    <!-- Botón de cerrar para móviles en el lado derecho -->
+    <!-- Botón de cierre para mobile -->
     <ion-buttons slot="end" *ngIf="isMobile">
       <ion-button (click)="dismiss()" color="light">
         <ion-icon slot="icon-only" name="close"></ion-icon>
@@ -31,8 +30,8 @@
       </div>
 
     <!-- Título -->
+    <ion-label position="stacked" color="tertiary">{{ 'MACHINE.TITLE' | translate }}</ion-label>
       <ion-input
-        [label]="'MACHINE.TITLE' | translate"
         label-placement="stacked"
         type="text"
         formControlName="title"
@@ -44,8 +43,8 @@
     </ion-text>
 
     <!-- Subtítulo -->
+    <ion-label position="stacked" color="tertiary">{{ 'MACHINE.SUBTITLE' | translate }}</ion-label>
       <ion-input
-        [label]="'MACHINE.SUBTITLE' | translate"
         label-placement="stacked"
         type="text"
         formControlName="subtitle"
@@ -57,11 +56,13 @@
     </ion-text>
 
     <!-- Descripción -->
+    <ion-label position="stacked" color="tertiary">{{ 'MACHINE.DESCRIPTION' | translate }}</ion-label>
       <ion-textarea
-        [label]="'MACHINE.DESCRIPTION' | translate"
         label-placement="stacked"
         formControlName="description"
-        [placeholder]="'MACHINE.PLACEHOLDERS.DESCRIPTION' | translate">
+        [placeholder]="'MACHINE.PLACEHOLDERS.DESCRIPTION' | translate"
+        [autoGrow]="true"
+        [rows]="3">
       </ion-textarea>
     <ion-text color="danger" *ngIf="formGroup.get('description')?.invalid && (formGroup.get('description')?.dirty || formGroup.get('description')?.touched)">
       <p *ngIf="formGroup.get('description')?.errors?.['required']">{{ 'MACHINE.ERRORS.DESCRIPTION_REQUIRED' | translate }}</p>

@@ -23,6 +23,7 @@ ion-header {
 .custom-form-container {
   padding: 20px;
   height: 100%;
+  font-size: 2.1ch;
 
   form {
     display: flex;
@@ -53,31 +54,6 @@ ion-header {
     max-height: 150px;
     overflow: hidden;
   }
-}
-
-.button-container {
-  margin: 24px 16px;
-
-  ion-button {
-    --border-radius: 25px;
-    height: 48px;
-    font-weight: 500;
-    text-transform: uppercase;
-    overflow: hidden;
-
-    &::part(native) {
-      border-radius: var(--border-radius);
-    }
-  }
-}
-
-.custom-form-container {
-  // Mantenemos los estilos existentes
-  padding: 20px;
-  height: 100%;
-
-  // Agregamos estilos para el scroll
-  overflow-y: auto;
 
   // Personalizamos la barra de scroll para navegadores webkit (Chrome, Safari, etc.)
   &::-webkit-scrollbar {
@@ -103,14 +79,20 @@ ion-header {
   scrollbar-width: thin;  // Barra delgada
   scrollbar-color: rgba(255, 255, 255, 0.2) transparent;  // Color de la barra y el track
 
-  form {
-    // Mantenemos los estilos existentes
-    display: flex;
-    flex-direction: column;
-    height: auto;
+}
 
-    // Aseguramos que el contenido se ajuste correctamente
-    width: 100%;
-    max-width: 100%;
+.button-container {
+  margin: 24px 16px;
+
+  ion-button {
+    --border-radius: 25px;
+    height: 48px;
+    font-weight: 500;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &::part(native) {
+      border-radius: var(--border-radius);
+    }
   }
 }

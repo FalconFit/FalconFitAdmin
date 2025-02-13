@@ -121,29 +121,42 @@ export class MachinePage implements OnInit {
     })
 
     modal.onDidDismiss().then(async (data:any)=>{
-      // Convertir base64 a blob
-      const base64Response = await fetch(data.data.picture);
-      const blob = await base64Response.blob();
+      let machineUpdate:Machine
+      if(data.data.picture){
+        // Convertir base64 a blob
+        const base64Response = await fetch(data.data.picture);
+        const blob = await base64Response.blob();
 
-      // Subir imagen
-      const uploadedUrls = await lastValueFrom(this.mediaService.upload(blob));
-      const imageUrls = uploadedUrls.map(url => url.toString());
-
-
-      let machineUpdate:Machine = {
-        id: '',
-        picture: {
-          url: imageUrls[0],
-          large: imageUrls[0],
-          medium: imageUrls[0],
-          small: imageUrls[0],
-          thumbnail: imageUrls[0]
-        },
-        title: data.data.title,
-        subtitle: data.data.subtitle,
-        description: data.data.description,
-        taken: false
+        // Subir imagen
+        const uploadedUrls = await lastValueFrom(this.mediaService.upload(blob));
+        const imageUrls = uploadedUrls.map(url => url.toString());
+        machineUpdate = {
+          id: '',
+          picture: {
+            url: imageUrls[0],
+            large: imageUrls[0],
+            medium: imageUrls[0],
+            small: imageUrls[0],
+            thumbnail: imageUrls[0]
+          },
+          title: data.data.title,
+          subtitle: data.data.subtitle,
+          description: data.data.description,
+          taken: false
+        }
+      }else{
+        machineUpdate = {
+          id: '',
+          title: data.data.title,
+          subtitle: data.data.subtitle,
+          description: data.data.description,
+          taken: false
+        }
       }
+
+
+
+
       this.machineSvc.update(machine!.id, machineUpdate).subscribe({
         next:(response: Machine) => {
           this.refresh();

@@ -7,7 +7,7 @@ import { Paginated } from 'src/app/core/models/paginated.model';
 import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
 import { BaseMediaService } from 'src/app/core/services/impl/base-media.service';
 import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
-import { ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
+import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 
 @Component({
   selector: 'app-machine',
@@ -31,6 +31,34 @@ export class MachinePage implements OnInit {
 
   ngOnInit() {
     this.loadMachines()
+
+    this.machineSubscription.subscribe('machines').subscribe((change: CollectionChange<Machine>) =>{
+      const currentMachines = [...this._machine.value];
+
+      // Solo procesar cambios de documentos que ya tenemos cargados
+      if (!this.loadedIds.has(change.id) && change.type !== 'added') {
+        return;
+      }
+      switch(change.type) {
+        case 'added':
+        case 'modified':
+          const index = currentMachines.findIndex(p => p.id === change.id);
+          if (index >= 0) {
+            currentMachines[index] = change.data!;
+          }
+        break;
+
+        case 'removed':
+          const removeIndex = currentMachines.findIndex(p => p.id === change.id);
+          if (removeIndex >= 0) {
+            currentMachines.splice(removeIndex, 1);
+            this.loadedIds.delete(change.id);
+          }
+        break;
+      }
+
+      this._machine.next(currentMachines);
+    });
   }
 
   selectedPerson: any = null;
@@ -44,6 +72,7 @@ export class MachinePage implements OnInit {
     this.page=1;
     this.machineSvc.getAll(this.page, this.pageSize).subscribe({
       next:(response:Paginated<Machine>)=>{
+        response.data.forEach(machine => this.loadedIds.add(machine.id))
         this._machine.next([...response.data]);
         this.page++;
         this.pages = response.pages;
@@ -55,6 +84,7 @@ export class MachinePage implements OnInit {
     if(this.page<=this.pages){
       this.machineSvc.getAll(this.page, this.pageSize).subscribe({
         next:(response:Paginated<Machine>)=>{
+          response.data.forEach(machine => this.loadedIds.add(machine.id))
           this._machine.next([...this._machine.value, ...response.data]);
           this.page++;
           notify?.complete();

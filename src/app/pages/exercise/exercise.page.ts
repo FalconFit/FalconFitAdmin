@@ -1,10 +1,12 @@
 import { Exercise } from './../../core/models/exercise.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
+import { EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { ExerciseService } from 'src/app/core/services/impl/exercise.service';
 import { MachineService } from 'src/app/core/services/impl/machine.service';
+import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { ExerciseFormComponent } from 'src/app/shared/components/exercise-form/exercise-form.component';
 
 @Component({
@@ -19,16 +21,47 @@ export class ExercisePage implements OnInit {
 
   // Añadimos un map para cachear los nombres de las máquinas y evitar consultas repetidas
   private machineNames: Map<string, string> = new Map();
+  private loadedIds: Set<string> = new Set();
 
   constructor(
     private exerciseSvc: ExerciseService,
     private machineSvc: MachineService,
     private modalCtrl: ModalController,
     private alertController: AlertController,
+    @Inject(EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN)
+    private exerciseSubscription: ICollectionSubscription<Exercise>
   ) {}
 
   ngOnInit() {
     this.loadExercises()
+
+    this.exerciseSubscription.subscribe('exercises').subscribe((change: CollectionChange<Exercise>) =>{
+      const currentExercises = [...this._exercise.value];
+
+      // Solo procesar cambios de documentos que ya tenemos cargados
+      if (!this.loadedIds.has(change.id) && change.type !== 'added') {
+        return;
+      }
+      switch(change.type) {
+        case 'added':
+        case 'modified':
+          const index = currentExercises.findIndex(p => p.id === change.id);
+          if (index >= 0) {
+            currentExercises[index] = change.data!;
+          }
+        break;
+
+        case 'removed':
+          const removeIndex = currentExercises.findIndex(p => p.id === change.id);
+          if (removeIndex >= 0) {
+            currentExercises.splice(removeIndex, 1);
+            this.loadedIds.delete(change.id);
+          }
+        break;
+      }
+
+      this._exercise.next(currentExercises);
+    });
   }
 
   selectedPerson: any = null;
@@ -44,6 +77,7 @@ export class ExercisePage implements OnInit {
       next: async (response: Paginated<Exercise>) => {
         // Enriquecemos los datos con los nombres de las máquinas
         const enrichedData = await this.enrichExercisesWithMachineNames(response.data);
+        response.data.forEach(exercise => this.loadedIds.add(exercise.id))
         this._exercise.next([...enrichedData]);
         this.page++;
         this.pages = response.pages;
@@ -88,6 +122,7 @@ export class ExercisePage implements OnInit {
       this.exerciseSvc.getAll(this.page, this.pageSize).subscribe({
         next: async (response: Paginated<Exercise>) => {
           const enrichedData = await this.enrichExercisesWithMachineNames(response.data);
+          response.data.forEach(exercise => this.loadedIds.add(exercise.id))
           this._exercise.next([...this._exercise.value, ...enrichedData]);
           this.page++;
           notify?.complete();

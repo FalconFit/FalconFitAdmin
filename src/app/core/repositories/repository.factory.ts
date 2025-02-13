@@ -6,7 +6,10 @@ EXERCISE_RESOURCE_NAME_TOKEN, MACHINE_API_URL_TOKEN, MACHINE_REPOSITORY_MAPPING_
 MACHINE_RESOURCE_NAME_TOKEN, PLACE_API_URL_TOKEN, PLACE_REPOSITORY_MAPPING_TOKEN, PLACE_REPOSITORY_TOKEN,
 PLACE_RESOURCE_NAME_TOKEN, USERFF_API_URL_TOKEN, USERFF_REPOSITORY_MAPPING_TOKEN, USERFF_REPOSITORY_TOKEN,
 USERFF_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN,
-UPLOAD_API_URL_TOKEN} from "./repository.tokens";
+UPLOAD_API_URL_TOKEN,
+MACHINE_COLLECTION_SUBSCRIPTION_TOKEN,
+EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN,
+PLACE_COLLECTION_SUBSCRIPTION_TOKEN} from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -36,6 +39,8 @@ import { BaseMediaService } from "../services/impl/base-media.service";
 import { FirebaseMediaService } from "../services/impl/firebase-media.service";
 import { StrapiMediaService } from "../services/impl/strapi-media.service";
 import { IAuthentication } from "../services/interfaces/authentication.interface";
+import { ICollectionSubscription } from "../services/interfaces/collection-subscription.interface";
+import { FirebaseCollectionSubscriptionService } from "../services/impl/firebase-collection-subscription.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -191,6 +196,43 @@ export const MediaServiceFactory:FactoryProvider = {
   },
   deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, UPLOAD_API_URL_TOKEN, BaseAuthenticationService, HttpClient]
 };
+
+export function createCollectionSubscriptionFactory<T extends Model>(
+  collectionName: string,
+  mappingToken: InjectionToken<IBaseMapping<T>>,
+  collectionSubscriptionToken: InjectionToken<ICollectionSubscription<T>>
+): FactoryProvider {
+  return {
+    provide: collectionSubscriptionToken,
+    useFactory: (backend: string, firebaseConfig: any, mapping: IBaseMapping<T>) => {
+      switch (backend) {
+        case 'firebase':
+          return new FirebaseCollectionSubscriptionService<T>(firebaseConfig, mapping);
+        default:
+          throw new Error("BACKEND NOT IMPLEMENTED");
+      }
+    },
+    deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, mappingToken]
+  };
+}
+
+export const MachineCollectionSubscriptionFactory = createCollectionSubscriptionFactory<Machine>(
+  'machines',
+  MACHINE_REPOSITORY_MAPPING_TOKEN,
+  MACHINE_COLLECTION_SUBSCRIPTION_TOKEN
+)
+
+export const ExerciseCollectionSubscriptionFactory = createCollectionSubscriptionFactory<Exercise>(
+  'exercises',
+  EXERCISE_REPOSITORY_MAPPING_TOKEN,
+  EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN
+)
+
+export const PlaceCollectionSubscriptionFactory = createCollectionSubscriptionFactory<Place>(
+  'places',
+  PLACE_REPOSITORY_MAPPING_TOKEN,
+  PLACE_COLLECTION_SUBSCRIPTION_TOKEN
+)
 
 export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { MachineService } from '../../core/services/impl/machine.service';
 import { AlertController, InfiniteScrollCustomEvent, ModalController } from '@ionic/angular';
 import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
@@ -6,6 +6,8 @@ import { Machine } from 'src/app/core/models/machine.model';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { MachineFormComponent } from 'src/app/shared/components/machine-form/machine-form.component';
 import { BaseMediaService } from 'src/app/core/services/impl/base-media.service';
+import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
+import { ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 
 @Component({
   selector: 'app-machine',
@@ -16,11 +18,15 @@ export class MachinePage implements OnInit {
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
 
+  private loadedIds: Set<string> = new Set();
+
   constructor(
     private machineSvc: MachineService,
     private modalCtrl: ModalController,
     private alertController: AlertController,
-    private mediaService: BaseMediaService
+    private mediaService: BaseMediaService,
+    @Inject(MACHINE_COLLECTION_SUBSCRIPTION_TOKEN)
+    private machineSubscription: ICollectionSubscription<Machine>
   ) { }
 
   ngOnInit() {

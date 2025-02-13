@@ -11,6 +11,8 @@ import { IPlaceRepository } from "./interfaces/place-repository.interface";
 import { Place } from "../models/place.model";
 import { IExerciseRepository } from "./interfaces/exercise-repository.interface";
 import { Exercise } from "../models/exercise.model";
+import { ICollectionSubscription } from "../services/interfaces/collection-subscription.interface";
+import { Model } from "../models/base.model";
 
 // MACHINE
 export const MACHINE_RESOURCE_NAME_TOKEN = new InjectionToken<IMachineRepository>('MachineResourceName');
@@ -53,3 +55,9 @@ export const UPLOAD_API_URL_TOKEN = new InjectionToken<string>('UploadApiUrl');
 export const STRAPI_AUTH_TOKEN = new InjectionToken<IStrapiAuthentication>('IStrapiAuthentication');
 export const FIREBASE_CONFIG_TOKEN = new InjectionToken<string>('FIREBASE_CONFIG_TOKEN')
 export const FIREBASE_COLLECTION_TOKEN = new InjectionToken<string>('FIREBASE_COLLECTION_TOKEN')
+
+// SUBSCRIPTIONS
+export const COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Model>>('CollectionSubscriptionToken');
+export const MACHINE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Machine>>('MachineCollectionSubscriptionToken');
+export const EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Exercise>>('ExerciseCollectionSubscriptionToken');
+export const PLACE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Place>>('PlaceCollectionSubscriptionToken');

@@ -35,21 +35,28 @@ export class ExercisePage implements OnInit {
   ngOnInit() {
     this.loadExercises()
 
-    this.exerciseSubscription.subscribe('exercises').subscribe((change: CollectionChange<Exercise>) =>{
+    this.exerciseSubscription.subscribe('exercises').subscribe(async (change: CollectionChange<Exercise>) => {
       const currentExercises = [...this._exercise.value];
 
       // Solo procesar cambios de documentos que ya tenemos cargados
       if (!this.loadedIds.has(change.id) && change.type !== 'added') {
         return;
       }
+
       switch(change.type) {
         case 'added':
         case 'modified':
           const index = currentExercises.findIndex(p => p.id === change.id);
           if (index >= 0) {
-            currentExercises[index] = change.data!;
+            // Enriquecemos el ejercicio modificado antes de actualizarlo
+            const enrichedExercise = await this.enrichSingleExercise(change.data!);
+            currentExercises[index] = enrichedExercise;
+          } else if (change.type === 'added') {
+            // Si es nuevo, lo añadimos al final
+            const enrichedExercise = await this.enrichSingleExercise(change.data!);
+            currentExercises.push(enrichedExercise);
           }
-        break;
+          break;
 
         case 'removed':
           const removeIndex = currentExercises.findIndex(p => p.id === change.id);
@@ -57,7 +64,7 @@ export class ExercisePage implements OnInit {
             currentExercises.splice(removeIndex, 1);
             this.loadedIds.delete(change.id);
           }
-        break;
+          break;
       }
 
       this._exercise.next(currentExercises);
@@ -86,34 +93,36 @@ export class ExercisePage implements OnInit {
   }
 
   private async enrichExercisesWithMachineNames(exercises: Exercise[]): Promise<Exercise[]> {
-    // Creamos una copia profunda para no modificar los datos originales
-    const enrichedExercises = JSON.parse(JSON.stringify(exercises));
-
-    // Procesamos cada ejercicio
-    for (const exercise of enrichedExercises) {
-      if (exercise.machineId) {
-        // Primero revisamos si ya tenemos el nombre en caché
-        if (this.machineNames.has(exercise.machineId)) {
-          exercise.machine = this.machineNames.get(exercise.machineId);
-        } else {
-          // Si no está en caché, hacemos la consulta
-          this.machineSvc.getById(exercise.machineId).subscribe({
-            next: (machine) => {
-              if (machine) {
-                // Guardamos en caché para futuras consultas
-                this.machineNames.set(exercise.machineId!, machine.title);
-                exercise.machine = machine.title;
-                // Actualizamos el BehaviorSubject con los datos más recientes
-                this._exercise.next([...this._exercise.value]);
-              }
-            }
-          });
-        }
-      }
-    }
+    const enrichedExercises = await Promise.all(
+      exercises.map(exercise => this.enrichSingleExercise(exercise))
+    );
 
     return enrichedExercises;
   }
+
+  // Nuevo método para enriquecer un solo ejercicio
+private async enrichSingleExercise(exercise: Exercise): Promise<Exercise> {
+  const enrichedExercise = JSON.parse(JSON.stringify(exercise));
+
+  if (enrichedExercise.machineId) {
+    if (this.machineNames.has(enrichedExercise.machineId)) {
+      enrichedExercise.machine = this.machineNames.get(enrichedExercise.machineId);
+    } else {
+      try {
+        const machine = await lastValueFrom(this.machineSvc.getById(enrichedExercise.machineId));
+        if (machine) {
+          this.machineNames.set(enrichedExercise.machineId!, machine.title);
+          enrichedExercise.machine = machine.title;
+        }
+      } catch (error) {
+        console.error('Error fetching machine:', error);
+        enrichedExercise.machine = 'Error al cargar máquina';
+      }
+    }
+  }
+
+  return enrichedExercise;
+}
 
 
   // Modificamos también loadMoreExercises para usar el mismo proceso

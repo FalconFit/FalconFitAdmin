@@ -14,6 +14,7 @@ import { ExerciseFormComponent } from './exercise-form/exercise-form.component';
 import { MachineSelectableComponent } from './machine-selectable/machine-selectable.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ShowPasswordPipe } from '../pipes/show-password.pipe';
+import { CustomLabelDirective } from '../directives/custom-label.directive';
 
 @NgModule({
     declarations: [
@@ -25,7 +26,8 @@ import { ShowPasswordPipe } from '../pipes/show-password.pipe';
     ExerciseFormComponent,
     MachineSelectableComponent,
     ToolbarComponent,
-    ShowPasswordPipe
+    ShowPasswordPipe,
+    CustomLabelDirective
   ],
   imports: [
     CommonModule,
@@ -43,7 +45,8 @@ import { ShowPasswordPipe } from '../pipes/show-password.pipe';
     ExerciseFormComponent,
     MachineSelectableComponent,
     ToolbarComponent,
-    ShowPasswordPipe
+    ShowPasswordPipe,
+    CustomLabelDirective
   ]
 })
 export class SharedModule { }

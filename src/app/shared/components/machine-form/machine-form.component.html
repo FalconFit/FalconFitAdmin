@@ -50,7 +50,8 @@
         formControlName="subtitle"
         [placeholder]="'MACHINE.PLACEHOLDERS.SUBTITLE' | translate">
       </ion-input>
-    <ion-text color="danger" *ngIf="formGroup.get('subtitle')?.invalid && (formGroup.get('subtitle')?.dirty || formGroup.get('subtitle')?.touched)">
+    <ion-text customLabel [errors]="formGroup.get('subtitle')?.errors"
+    color="danger" *ngIf="formGroup.get('subtitle')?.invalid && (formGroup.get('subtitle')?.dirty || formGroup.get('subtitle')?.touched)">
       <p *ngIf="formGroup.get('subtitle')?.errors?.['required']">{{ 'MACHINE.ERRORS.SUBTITLE_REQUIRED' | translate }}</p>
       <p *ngIf="formGroup.get('subtitle')?.errors?.['minlength']">{{ 'MACHINE.ERRORS.SUBTITLE_MIN_LENGTH' | translate }}</p>
     </ion-text>

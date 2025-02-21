@@ -30,8 +30,7 @@
       "SURNAME_MIN_LENGTH": "El/Los apellido/s deben tener al menos 2 caracteres",
       "EMAIL_REQUIRED": "Debe introducir un email",
       "EMAIL_INVALID": "Debe introducir un email válido",
-      "PASSWORD_REQUIRED": "Debe introducir una contraseña",
-      "PASSWORD_STRENGTH": "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un carácter especial (&#64;$!%*?&.)",
+      "PASSWORD_REQUIRED": "La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un dígito y un carácter especial (&#64;$!%*?&.)",
       "PASSWORDS_MISMATCH": "Las contraseñas no coinciden"
     },
     "NO_ACCOUNT": "¿Ya tienes cuenta?",
@@ -69,9 +68,7 @@
   "EXERCISE": {
     "MACHINE":"Máquina relacionada",
     "EDIT_TITLE": "Editar ejercicio",
-    "NEW_TITLE": "Nueva ejercicio",
-    "IMAGE": "Imagen",
-    "SELECT_IMAGE": "Seleccionar Imagen",
+    "NEW_TITLE": "Nuevo ejercicio",
     "TITLE": "Título",
     "SUBTITLE": "Subtítulo",
     "DESCRIPTION": "Descripción",

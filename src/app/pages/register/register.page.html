@@ -19,9 +19,7 @@
         <ion-label position="floating">{{ 'REGISTER.NAME' | translate }}</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
-      <ion-text class="input-error" color="danger" *ngIf="name?.invalid && (name?.dirty || name?.touched)">
-        <p *ngIf="name?.errors?.['required']">{{ 'REGISTER.ERRORS.NAME_REQUIRED' | translate }}</p>
-        <p *ngIf="name?.errors?.['minlength']">{{ 'REGISTER.ERRORS.NAME_MIN_LENGTH' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="registerForm.get('name')?.errors" field="NAME" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Apellidos -->
@@ -29,9 +27,7 @@
         <ion-label position="floating">{{ 'REGISTER.SURNAME' | translate }}</ion-label>
         <ion-input type="text" formControlName="surname"></ion-input>
       </ion-item>
-      <ion-text class="input-error" color="danger" *ngIf="surname?.invalid && (surname?.dirty || surname?.touched)">
-        <p *ngIf="surname?.errors?.['required']">{{ 'REGISTER.ERRORS.SURNAME_REQUIRED' | translate }}</p>
-        <p *ngIf="surname?.errors?.['minlength']">{{ 'REGISTER.ERRORS.SURNAME_MIN_LENGTH' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="registerForm.get('surname')?.errors" field="SURNAME" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Email -->
@@ -39,9 +35,7 @@
         <ion-label position="floating">{{ 'REGISTER.EMAIL' | translate }}</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
-      <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-        <p *ngIf="email?.errors?.['required']">{{ 'REGISTER.ERRORS.EMAIL_REQUIRED' | translate }}</p>
-        <p *ngIf="email?.errors?.['email']">{{ 'REGISTER.ERRORS.EMAIL_INVALID' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="registerForm.get('email')?.errors" field="EMAIL" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Contraseña -->
@@ -56,9 +50,7 @@
           <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
         </ion-button>
       </ion-item>
-      <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-        <p *ngIf="password?.errors?.['required']">{{ 'REGISTER.ERRORS.PASSWORD_REQUIRED' | translate }}</p>
-        <p *ngIf="password?.errors?.['passwordStrength']">{{ 'REGISTER.ERRORS.PASSWORD_STRENGTH' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="registerForm.get('password')?.errors" field="PASSWORD" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Confirmar Contraseña -->
@@ -73,8 +65,7 @@
           <ion-icon [name]="showPasswordSecond ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
         </ion-button>
       </ion-item>
-      <ion-text class="input-error" color="danger" *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)">
-        <p *ngIf="confirmPassword?.errors?.['required']">{{ 'REGISTER.ERRORS.CONFIRM_PASSWORD_REQUIRED' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="registerForm.get('confirmPassword')?.errors" field="PASSWORD" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Error de contraseñas no coinciden -->

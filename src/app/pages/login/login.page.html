@@ -31,12 +31,10 @@
 
 
       <!-- Error Messages -->
-      <ion-text class="input-error" color="danger" *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-        <p *ngIf="email?.errors?.['required']">{{ 'LOGIN.ERRORS.EMAIL_REQUIRED' | translate }}</p>
-        <p *ngIf="email?.errors?.['email']">{{ 'LOGIN.ERRORS.EMAIL_INVALID' | translate }}</p>
+      <ion-text class="input-error" customLabel [errors]="loginForm.get('email')?.errors" field="EMAIL" page="LOGIN" color="danger">
       </ion-text>
-      <ion-text class="input-error" color="danger" *ngIf="password?.invalid && (password?.dirty || password?.touched)">
-        <p *ngIf="password?.errors?.['required']">{{ 'LOGIN.ERRORS.PASSWORD_REQUIRED' | translate }}</p>
+      <p></p>
+      <ion-text class="input-error" customLabel [errors]="loginForm.get('password')?.errors" field="PASSWORD" page="LOGIN" color="danger">
       </ion-text>
 
       <!-- Register Button -->

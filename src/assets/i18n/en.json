@@ -30,8 +30,7 @@
       "SURNAME_MIN_LENGTH": "Surname must be at least 2 characters long",
       "EMAIL_REQUIRED": "Email is required",
       "EMAIL_INVALID": "Please enter a valid email",
-      "PASSWORD_REQUIRED": "Password is required",
-      "PASSWORD_STRENGTH": "Password must be at least 8 characters, with one uppercase, one lowercase, one digit, and one special character (&#64;$!%*?&.)",
+      "PASSWORD_REQUIRED": "Password must be at least 8 characters, with one uppercase, one lowercase, one digit, and one special character (&#64;$!%*?&.)",
       "PASSWORDS_MISMATCH": "Passwords do not match"
     },
     "NO_ACCOUNT": "Already have an account?",

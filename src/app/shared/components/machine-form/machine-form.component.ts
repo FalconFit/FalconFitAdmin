@@ -32,8 +32,8 @@ export class MachineFormComponent  implements OnInit {
   ) {
     this.isMobile = this.platform.is('ios') || this.platform.is('android');
     this.formGroup = this.fb.group({
-      title:['', [Validators.required, Validators.minLength(2)]],
-      subtitle:['', [Validators.required, Validators.minLength(2)]],
+      title:['', [Validators.required, Validators.minLength(3)]],
+      subtitle:['', [Validators.required, Validators.minLength(3)]],
       description:['', [Validators.required, Validators.maxLength(500)]],
       picture:['']
     });

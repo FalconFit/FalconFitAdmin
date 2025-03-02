@@ -190,9 +190,6 @@ export class MachinePage implements OnInit {
         }
       }
 
-
-
-
       this.machineSvc.update(machine!.id, machineUpdate).subscribe({
         next:(response: Machine) => {
           this.refresh();
@@ -201,10 +198,6 @@ export class MachinePage implements OnInit {
     })
 
     await modal.present();
-  }
-
-  async openMachineDetail(_t13: any,_t14: number) {
-    throw new Error('Method not implemented.');
   }
 
   async onDeleteMachine(machine:Machine){
@@ -235,6 +228,10 @@ export class MachinePage implements OnInit {
     });
 
     await alert.present();
+  }
+
+  async openMachineDetail(machine: Machine) {
+    throw new Error('Method not implemented.');
   }
 
 }

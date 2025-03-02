@@ -4,7 +4,7 @@
   <ion-grid>
     <ion-row class="responsive-row">
       <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let machine of _machine | async; let i=index">
-        <ion-card class="card">
+        <ion-card class="card" (click)="openMachineDetail(machine)">
           <!-- Bloque 1: Imagen -->
           <div class="image-container">
             <img
@@ -13,7 +13,7 @@
           </div>
 
           <!-- Bloque 2: Información -->
-          <ion-card-content class="info-block">
+          <ion-card-content class="info-block" >
             <h2 class="title"> {{ machine.title || 'Título no disponible' }}</h2>
             <p class="subtitle">{{ machine.subtitle || 'Subtítulo no disponible' }}</p>
             <p class="description">{{ machine.description || 'Descripción no disponible' }}</p>

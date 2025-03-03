@@ -21,10 +21,10 @@
 
           <!-- Bloque 3: Botones -->
           <div class="button-block">
-            <ion-button color="success" (click)="onUpdateMachine(machine, i)">
+            <ion-button color="success" (click)="onUpdateMachine(machine, i); $event.stopPropagation()">
               <ion-icon name="create-outline"></ion-icon>
             </ion-button>
-            <ion-button color="danger" (click)="onDeleteMachine(machine)">
+            <ion-button color="danger" (click)="onDeleteMachine(machine); $event.stopPropagation()">
               <ion-icon name="trash-outline"></ion-icon>
             </ion-button>
           </div>

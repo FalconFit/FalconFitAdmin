@@ -4,8 +4,9 @@ import { ActivatedRoute } from '@angular/router';
 import { MachineService } from '../../core/services/impl/machine.service';
 import { Machine } from 'src/app/core/models/machine.model';
 import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
-import { ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
+import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Paginated } from 'src/app/core/models/paginated.model';
 
 @Component({
   selector: 'app-machine-details',
@@ -31,7 +32,7 @@ export class MachineDetailsPage implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loadMachines()
+    this.loadMachineDetails()
 
     this.machineSubscription.subscribe('machines').subscribe((change: CollectionChange<Machine>) =>{
       const currentMachines = [...this._machine.value];
@@ -63,28 +64,13 @@ export class MachineDetailsPage implements OnInit {
   }
 
   loadMachineDetails() {
-    this.loading = true;
-    // You'll need to create a method in your MachineService to find a machine by its URL name
-    this.machineSvc.getAll().subscribe({
-      next: (response) => {
-        // Find the machine where the title matches the URL parameter (after normalization)
-        const foundMachine = response.find(m =>
-          m.title.toLowerCase().replace(/\s+/g, '-') === this.machineName
-        );
-
-        if (foundMachine) {
-          this.machine = foundMachine;
-          this.error = null;
-        } else {
-          this.error = 'Machine not found';
-          this.machine = null;
-        }
-        this.loading = false;
-      },
-      error: (err) => {
-        this.error = 'Error loading machine details';
-        this.loading = false;
+    this.machineSvc.getById(this.machine!!.id).subscribe({
+      next:(response:Paginated<Machine>)=>{
+        response.data.forEach(machine => this.loadedIds.add(machine.id))
+        this._machine.next([...response.data]);
       }
     });
   }
+
+
 }

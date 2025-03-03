@@ -8,6 +8,7 @@ import { MachineFormComponent } from 'src/app/shared/components/machine-form/mac
 import { BaseMediaService } from 'src/app/core/services/impl/base-media.service';
 import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-machine',
@@ -25,6 +26,7 @@ export class MachinePage implements OnInit {
     private modalCtrl: ModalController,
     private alertController: AlertController,
     private mediaService: BaseMediaService,
+    private router: Router,
     @Inject(MACHINE_COLLECTION_SUBSCRIPTION_TOKEN)
     private machineSubscription: ICollectionSubscription<Machine>
   ) { }
@@ -231,7 +233,8 @@ export class MachinePage implements OnInit {
   }
 
   async openMachineDetail(machine: Machine) {
-    throw new Error('Method not implemented.');
+    const machineUrlParam = machine.title.toLowerCase().replace(/\s+/g, '-');
+    this.router.navigate(['/machine', machineUrlParam]);
   }
 
 }

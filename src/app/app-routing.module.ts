@@ -39,6 +39,11 @@ const routes: Routes = [
     path: 'about',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/about/about.module').then( m => m.AboutPageModule)
+  },
+  {
+    path: 'machine/:machineName',
+    canActivate: [authGuard],
+    loadChildren: () => import('./pages/machine-details/machine-details.module').then( m => m.MachineDetailsPageModule)
   }
 
 ];

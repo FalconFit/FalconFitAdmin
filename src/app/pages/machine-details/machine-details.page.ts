@@ -3,8 +3,6 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { MachineService } from '../../core/services/impl/machine.service';
 import { Machine } from 'src/app/core/models/machine.model';
-import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
-import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
 
@@ -27,50 +25,50 @@ export class MachineDetailsPage implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private machineSvc: MachineService,
-    @Inject(MACHINE_COLLECTION_SUBSCRIPTION_TOKEN)
-    private machineSubscription: ICollectionSubscription<Machine>
   ) { }
 
   ngOnInit() {
-    this.loadMachineDetails()
+    this.route.paramMap.subscribe(params => {
+      this.machineName = params.get('machineName') || '';
 
-    this.machineSubscription.subscribe('machines').subscribe((change: CollectionChange<Machine>) =>{
-      const currentMachines = [...this._machine.value];
-
-      // Solo procesar cambios de documentos que ya tenemos cargados
-      if (!this.loadedIds.has(change.id) && change.type !== 'added') {
-        return;
+      if (this.machineName) {
+        this.loadMachineDetails();
+      } else {
+        this.error = 'Invalid machine identifier';
+        this.loading = false;
       }
-      switch(change.type) {
-        case 'added':
-        case 'modified':
-          const index = currentMachines.findIndex(p => p.id === change.id);
-          if (index >= 0) {
-            currentMachines[index] = change.data!;
-          }
-        break;
-
-        case 'removed':
-          const removeIndex = currentMachines.findIndex(p => p.id === change.id);
-          if (removeIndex >= 0) {
-            currentMachines.splice(removeIndex, 1);
-            this.loadedIds.delete(change.id);
-          }
-        break;
-      }
-
-      this._machine.next(currentMachines);
     });
   }
 
   loadMachineDetails() {
-    this.machineSvc.getById(this.machine!!.id).subscribe({
-      next:(response:Paginated<Machine>)=>{
-        response.data.forEach(machine => this.loadedIds.add(machine.id))
+    this.loading = true;
+    this.error = null;
+
+    this.machineSvc.getAll(1, 100).subscribe({
+      next: (response: Paginated<Machine>) => {
+        response.data.forEach(machine => this.loadedIds.add(machine.id));
+
         this._machine.next([...response.data]);
+
+        const foundMachine = response.data.find(machine =>
+          machine.title.toLowerCase().replace(/\s+/g, '-') === this.machineName.toLowerCase()
+        );
+
+        if (foundMachine) {
+          this.machine = foundMachine;
+        } else {
+          this.error = 'Machine not found';
+          console.error('Machine not found with name:', this.machineName);
+        }
+
+        this.loading = false;
+      },
+      error: (err) => {
+        console.error('Error loading machines:', err);
+        this.error = 'Error loading machine details';
+        this.loading = false;
       }
     });
   }
-
 
 }

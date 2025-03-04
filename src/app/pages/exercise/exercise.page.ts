@@ -1,5 +1,7 @@
+import { Capacitor } from '@capacitor/core';
 import { Exercise } from './../../core/models/exercise.model';
 import { Component, Inject, OnInit } from '@angular/core';
+import { Share } from '@capacitor/share';
 import { ModalController, AlertController } from '@ionic/angular';
 import { BehaviorSubject, Observable, lastValueFrom } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
@@ -232,4 +234,30 @@ private async enrichSingleExercise(exercise: Exercise): Promise<Exercise> {
 
     await alert.present();
   }
+
+  shareExercise(exercise: Exercise) {
+    const text = `¡Descubre este increíble ejercicio!\n\n*${exercise.title}*\n` +
+                    `${exercise.subtitle ? exercise.subtitle + '\n' : ''}` +
+                    `${exercise.description ? exercise.description + '\n' : ''}` +
+                    `Máquina: ${exercise.machine ? exercise.machine : 'No disponible'}\n\n` +
+                    `¡Dale un impulso a tu entrenamiento y pruébalo ahora!`;
+
+    if(Capacitor.isNativePlatform()){
+      Share.share({
+        title: 'Comparte este ejercicio',
+        text: text,
+        url: '',
+        dialogTitle: 'Compartir en WhatsApp'
+      });
+    }else{
+      navigator.share({
+        title: `Hello`,
+        text: text,
+        url:''
+      });
+    }
+
+
+  }
+
 }

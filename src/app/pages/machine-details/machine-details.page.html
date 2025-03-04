@@ -1,31 +1,51 @@
 <app-toolbar [title]="machine?.title || 'Machine Detail'"></app-toolbar>
 
 <ion-content [fullscreen]="true">
-  <div *ngIf="loading">
+  <div *ngIf="loading" class="loading-container">
     <ion-spinner></ion-spinner>
     <p>Loading machine details...</p>
   </div>
 
-  <div *ngIf="error">
+  <div *ngIf="error" class="error-container">
     <ion-icon name="alert-circle-outline"></ion-icon>
     <p>{{ error }}</p>
   </div>
 
-  <div *ngIf="machine && !loading">
-    <ion-card>
-      <div class="image-container">
-        <img [src]="machine.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
-            alt="Machine Picture" />
+  <div *ngIf="machine && !loading" class="machine-detail-container">
+    <!-- Mobile Title and Subtitle Section (Visible only on mobile) -->
+    <div class="mobile-header">
+      <h1 class="machine-title">{{ machine.title }}</h1>
+      <h2 class="machine-subtitle">{{ machine.subtitle }}</h2>
+    </div>
+
+    <!-- Image Container -->
+    <div class="image-section">
+      <img
+        [src]="machine.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
+        alt="Machine Picture"
+        class="machine-image"
+      />
+    </div>
+
+    <!-- Information Section -->
+    <div class="info-section">
+      <div class="info-content-scroll">
+        <!-- Desktop Title and Subtitle Section (Visible only on desktop) -->
+        <div class="desktop-header">
+          <h1 class="machine-title">{{ machine.title }}</h1>
+          <h2 class="machine-subtitle">{{ machine.subtitle }}</h2>
+        </div>
+
+        <p class="machine-description">{{ machine.description }}</p>
+        <!-- Repeat description for testing scroll -->
+        <p *ngFor="let _ of [].constructor(20)" class="machine-description">
+          {{ machine.description }}
+        </p>
+
+        <div class="additional-details">
+          <!-- You can add more details here -->
+        </div>
       </div>
-
-      <ion-card-header>
-        <ion-card-title class="title">{{ machine.title }}</ion-card-title>
-      </ion-card-header>
-
-      <ion-card-content>
-        <ion-card-subtitle class="subtitle">{{ machine.subtitle }}</ion-card-subtitle>
-        <p class="description">{{ machine.description }}</p>
-      </ion-card-content>
-    </ion-card>
+    </div>
   </div>
 </ion-content>

@@ -237,27 +237,15 @@ private async enrichSingleExercise(exercise: Exercise): Promise<Exercise> {
 
   shareExercise(exercise: Exercise) {
     const text = `¡Descubre este increíble ejercicio!\n\n*${exercise.title}*\n` +
-                    `${exercise.subtitle ? exercise.subtitle + '\n' : ''}` +
-                    `${exercise.description ? exercise.description + '\n' : ''}` +
-                    `Máquina: ${exercise.machine ? exercise.machine : 'No disponible'}\n\n` +
-                    `¡Dale un impulso a tu entrenamiento y pruébalo ahora!`;
+                 `${exercise.subtitle ? exercise.subtitle + '\n' : ''}` +
+                 `${exercise.description ? exercise.description + '\n' : ''}` +
+                 `Máquina: ${exercise.machine ? exercise.machine : 'No disponible'}\n\n` +
+                 `¡Dale un impulso a tu entrenamiento y pruébalo ahora!`;
 
-    if(Capacitor.isNativePlatform()){
-      Share.share({
-        title: 'Comparte este ejercicio',
-        text: text,
-        url: '',
-        dialogTitle: 'Compartir en WhatsApp'
-      });
-    }else{
-      navigator.share({
-        title: `Hello`,
-        text: text,
-        url:''
-      });
-    }
-
-
+    Share.share({
+    text: text,
+    url: 'http://ionicframework.com/',
+    });
   }
 
 }

@@ -3,7 +3,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100%;
-  overflow: hidden;
 }
 
 ion-content {
@@ -68,14 +67,7 @@ ion-content {
 
 // Image Section
 .image-section {
-  flex: 0 0 50%;
   max-width: 50%;
-
-  @media screen and (max-width: 992px) {
-    flex: 0 0 50%;
-    max-width: 100%;
-    height: 50vh; // Half the viewport height on mobile
-  }
 
   .machine-image {
     width: 100%;
@@ -137,4 +129,43 @@ ion-content {
   align-items: center;
   height: 100%;
   text-align: center;
+}
+
+@media screen and (max-width: 992px) {
+  .machine-detail-container {
+    flex-direction: column;
+    height: 100vh; // Ensure full viewport height
+  }
+
+  .image-section {
+    height: 25vh; // 1/4 of viewport height
+    max-width: 100%;
+    order: 2; // Ensure image comes after toolbar
+  }
+
+  .info-section {
+    flex: 1;
+    max-width: 100%;
+    order: 3; // Scrollable content after image
+    height: calc(100vh - 25vh - var(--ion-safe-area-top)); // Subtract image and toolbar height
+    overflow: hidden;
+  }
+
+  .mobile-header {
+    display: none; // Remove this header since we'll use desktop header
+  }
+
+  .desktop-header {
+    display: block; // Always show title/subtitle in mobile view
+    order: 1; // Ensure it appears right after toolbar
+    padding: 1rem;
+    background-color: var(--background-color);
+    text-align: center;
+  }
+
+  .info-content-scroll {
+    height: 100%;
+    overflow-y: auto;
+    padding: 1rem; // Slightly reduced padding for mobile
+  }
 }

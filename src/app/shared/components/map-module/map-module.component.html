@@ -29,7 +29,7 @@
       type="text"
       [placeholder]="'PLACE.PLACEHOLDERS.TITLE' | translate">
     </ion-input>
-    <ion-text customLabel [errors]="formGroup.get('title')?.errors" field="TITLE" page="PLACE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('title')?.errors" field="TITLE" page="PLACE" color="danger">
     </ion-text>
 
     <!-- Descripción -->
@@ -42,7 +42,7 @@
       [autoGrow]="true"
       [rows]="3">
     </ion-textarea>
-    <ion-text customLabel [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="PLACE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="PLACE" color="danger">
     </ion-text>
 
     <!-- Botón de envío -->

@@ -19,7 +19,7 @@
         <ion-label position="floating">{{ 'REGISTER.NAME' | translate }}</ion-label>
         <ion-input type="text" formControlName="name"></ion-input>
       </ion-item>
-      <ion-text class="input-error" customLabel [errors]="registerForm.get('name')?.errors" field="NAME" page="REGISTER" color="danger">
+      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('name')?.errors" field="NAME" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Apellidos -->
@@ -27,7 +27,7 @@
         <ion-label position="floating">{{ 'REGISTER.SURNAME' | translate }}</ion-label>
         <ion-input type="text" formControlName="surname"></ion-input>
       </ion-item>
-      <ion-text class="input-error" customLabel [errors]="registerForm.get('surname')?.errors" field="SURNAME" page="REGISTER" color="danger">
+      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('surname')?.errors" field="SURNAME" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Email -->
@@ -35,7 +35,7 @@
         <ion-label position="floating">{{ 'REGISTER.EMAIL' | translate }}</ion-label>
         <ion-input type="email" formControlName="email"></ion-input>
       </ion-item>
-      <ion-text class="input-error" customLabel [errors]="registerForm.get('email')?.errors" field="EMAIL" page="REGISTER" color="danger">
+      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('email')?.errors" field="EMAIL" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Contraseña -->
@@ -50,7 +50,7 @@
           <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
         </ion-button>
       </ion-item>
-      <ion-text class="input-error" customLabel [errors]="registerForm.get('password')?.errors" field="PASSWORD" page="REGISTER" color="danger">
+      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('password')?.errors" field="PASSWORD" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Confirmar Contraseña -->
@@ -65,7 +65,7 @@
           <ion-icon [name]="showPasswordSecond ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
         </ion-button>
       </ion-item>
-      <ion-text class="input-error" customLabel [errors]="registerForm.get('confirmPassword')?.errors" field="PASSWORD" page="REGISTER" color="danger">
+      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('confirmPassword')?.errors" field="PASSWORD" page="REGISTER" color="danger">
       </ion-text>
 
       <!-- Error de contraseñas no coinciden -->

@@ -27,7 +27,7 @@
       formControlName="title"
       [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
     </ion-input>
-    <ion-text customLabel [errors]="formGroup.get('title')?.errors" field="TITLE" page="EXERCISE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('title')?.errors" field="TITLE" page="EXERCISE" color="danger">
     </ion-text>
 
     <!-- Subtítulo -->
@@ -37,7 +37,7 @@
       formControlName="subtitle"
       [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
     </ion-input>
-    <ion-text customLabel [errors]="formGroup.get('subtitle')?.errors" field="SUBTITLE" page="EXERCISE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('subtitle')?.errors" field="SUBTITLE" page="EXERCISE" color="danger">
     </ion-text>
 
     <!-- Descripción -->
@@ -48,7 +48,7 @@
       [autoGrow]="true"
       [rows]="3">
     </ion-textarea>
-    <ion-text customLabel [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="EXERCISE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="EXERCISE" color="danger">
     </ion-text>
 
     <!-- Selección de máquinas -->

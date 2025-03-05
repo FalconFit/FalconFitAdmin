@@ -31,10 +31,10 @@
 
 
       <!-- Error Messages -->
-      <ion-text class="input-error" customLabel [errors]="loginForm.get('email')?.errors" field="EMAIL" page="LOGIN" color="danger">
+      <ion-text class="input-error" customLabel *ngIf="loginForm.touched" [errors]="loginForm.get('email')?.errors" field="EMAIL" page="LOGIN" color="danger">
       </ion-text>
       <p></p>
-      <ion-text class="input-error" customLabel [errors]="loginForm.get('password')?.errors" field="PASSWORD" page="LOGIN" color="danger">
+      <ion-text class="input-error" customLabel *ngIf="loginForm.touched" [errors]="loginForm.get('password')?.errors" field="PASSWORD" page="LOGIN" color="danger">
       </ion-text>
 
       <!-- Register Button -->

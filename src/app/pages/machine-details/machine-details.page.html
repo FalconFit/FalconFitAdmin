@@ -37,10 +37,83 @@
         </div>
 
         <p class="machine-description">{{ machine.description }}</p>
-        <!-- Repeat description for testing scroll -->
-        <p *ngFor="let _ of [].constructor(20)" class="machine-description">
-          {{ machine.description }}
-        </p>
+
+        <div class="additional-details">
+          <div class="details-grid">
+            <div class="details-column">
+              <h3 class="details-section-title">Machine Performance</h3>
+              <div class="detail-item">
+                <ion-label>Max Weight Lifted</ion-label>
+                <ion-input
+                  type="number"
+                  placeholder="Enter max weight"
+                ></ion-input>
+              </div>
+              <div class="detail-item">
+                <ion-label>Typical Repetitions</ion-label>
+                <ion-input
+                  type="number"
+                  placeholder="Enter reps"
+                ></ion-input>
+              </div>
+              <div class="detail-item">
+                <ion-label>Sets per Workout</ion-label>
+                <ion-input
+                  type="number"
+                  placeholder="Enter sets"
+                ></ion-input>
+              </div>
+              <div class="detail-item">
+                <ion-label>Muscle Groups Targeted</ion-label>
+                <ion-select
+                  multiple="true"
+                  placeholder="Select muscle groups"
+                >
+                  <ion-select-option value="quadriceps">Quadriceps</ion-select-option>
+                  <ion-select-option value="hamstrings">Hamstrings</ion-select-option>
+                  <ion-select-option value="glutes">Glutes</ion-select-option>
+                  <ion-select-option value="calves">Calves</ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+
+            <div class="details-column">
+              <h3 class="details-section-title">Workout Tracking</h3>
+              <div class="detail-item">
+                <ion-label>Personal Record (PR)</ion-label>
+                <ion-input
+                  type="number"
+                  placeholder="Enter PR weight"
+                ></ion-input>
+              </div>
+              <div class="detail-item">
+                <ion-label>Rest Period</ion-label>
+                <ion-input
+                  type="number"
+                  placeholder="Rest time in seconds"
+                ></ion-input>
+              </div>
+              <div class="detail-item">
+                <ion-label>Progression Rate</ion-label>
+                <ion-select >
+                  <ion-select-option value="slow">Slow</ion-select-option>
+                  <ion-select-option value="moderate">Moderate</ion-select-option>
+                  <ion-select-option value="fast">Fast</ion-select-option>
+                </ion-select>
+              </div>
+              <div class="detail-item">
+                <ion-label>Machine Comfort Level</ion-label>
+                <ion-select >
+                  <ion-select-option value="1">Very Uncomfortable</ion-select-option>
+                  <ion-select-option value="2">Uncomfortable</ion-select-option>
+                  <ion-select-option value="3">Neutral</ion-select-option>
+                  <ion-select-option value="4">Comfortable</ion-select-option>
+                  <ion-select-option value="5">Very Comfortable</ion-select-option>
+                </ion-select>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <div class="additional-details">
           <!-- You can add more details here -->

@@ -16,20 +16,21 @@ FalconFit es una aplicación desarrollada con Angular e Ionic diseñada para la 
  - Modificación detallada de ejercicios
  - Eliminación de ejercicios
 
-- **FGestión de Ubicaciones**:
+- **Gestión de Ubicaciones**:
  - Mapa integrado de ubicación del gimnasio
  - Información geográfica detallada
  - Marcadores personalizados
 
 ## 🚀 Tecnologías y Arquitectura
 
-- **Frontend**: 
+- ### **Frontend**: 
  - Angular
  - Ionic
  - TypeScript
 
-- **Backend**:
+- ### **Backend**:
  - Strapi 
+ - Firebase   
  - Patrón Repositorio
 
 ## 🔧 Instalación y Configuración
@@ -40,10 +41,7 @@ FalconFit es una aplicación desarrollada con Angular e Ionic diseñada para la 
 - Ionic CLI
 
 ## DATOS DE INTERES
-La base de datos se extingue el 21/12/24
 
-### Enlace a video: https://youtu.be/AzznVzFDDZc
-### Enlace a strapi: https://github.com/miguelfalcon04/FalconFitStrapi.git
-### Enlace a render: https://falconfitstrapi.onrender.com
+### Enlace a video strapi: https://youtu.be/AzznVzFDDZc
+### Enlace a video firebase: https://youtu.be/4AQ87vs_5Wo
 ### Enlace a netlify: https://falconfitadmin.netlify.app
-

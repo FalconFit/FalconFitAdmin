@@ -6,7 +6,6 @@ import { FIREBASE_CONFIG_TOKEN } from "../repository.tokens";
 import { initializeApp } from "firebase/app";
 import { Exercise } from "../../models/exercise.model";
 import { FirebaseExercise } from "../../models/firebase/firebase-exercise.model";
-import { MachineService } from "../../services/impl/machine.service";
 
 @Injectable({
   providedIn: 'root'

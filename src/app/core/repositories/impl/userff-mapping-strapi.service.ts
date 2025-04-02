@@ -36,7 +36,8 @@ export interface PersonAttributes {
     updatedAt?: string
     publishedAt?: string
     user:UserRaw | number | null,
-    picture:MediaRaw | number | null
+    picture:MediaRaw | number | null,
+    role: string
 }
 
 export interface GroupAttributes {
@@ -54,8 +55,9 @@ export interface Meta {}
             data:{
                 name:data.name,
                 surname:data.surname,
-                user:data.userId?Number(data.userId):null,
-                picture:data.picture?Number(data.picture):null
+                user:data.uuid?Number(data.uuid):null,
+                picture:data.picture?Number(data.picture):null,
+                role: data.role
             }
         };
     }
@@ -95,14 +97,15 @@ export interface Meta {}
             id: id.toString(),
             name: attributes.name,
             surname: attributes.surname,
-            userId: typeof attributes.user === 'object' ? attributes.user?.data?.id.toString() : undefined,
+            uuid: typeof attributes.user === 'object' ? attributes.user?.data?.id.toString() : undefined,
             picture: typeof attributes.picture === 'object' ? {
                 url: attributes.picture?.data?.attributes?.url,
                 large: attributes.picture?.data?.attributes?.formats?.large?.url || attributes.picture?.data?.attributes?.url,
                 medium: attributes.picture?.data?.attributes?.formats?.medium?.url || attributes.picture?.data?.attributes?.url,
                 small: attributes.picture?.data?.attributes?.formats?.small?.url || attributes.picture?.data?.attributes?.url,
                 thumbnail: attributes.picture?.data?.attributes?.formats?.thumbnail?.url || attributes.picture?.data?.attributes?.url,
-            } : undefined
+            } : undefined,
+            role: attributes.role
         };
     }
     getAdded(data: PersonRaw):Userff {

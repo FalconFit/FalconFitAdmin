@@ -9,7 +9,8 @@ USERFF_RESOURCE_NAME_TOKEN, FIREBASE_CONFIG_TOKEN,
 UPLOAD_API_URL_TOKEN,
 MACHINE_COLLECTION_SUBSCRIPTION_TOKEN,
 EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN,
-PLACE_COLLECTION_SUBSCRIPTION_TOKEN} from "./repository.tokens";
+PLACE_COLLECTION_SUBSCRIPTION_TOKEN,
+USERFF_COLLECTION_SUBSCRIPTION_TOKEN} from "./repository.tokens";
 import { IAuthMapping } from "../services/interfaces/auth-mapping.interface";
 import { HttpClient } from "@angular/common/http";
 import { Model } from "../models/base.model";
@@ -41,6 +42,7 @@ import { StrapiMediaService } from "../services/impl/strapi-media.service";
 import { IAuthentication } from "../services/interfaces/authentication.interface";
 import { ICollectionSubscription } from "../services/interfaces/collection-subscription.interface";
 import { FirebaseCollectionSubscriptionService } from "../services/impl/firebase-collection-subscription.service";
+import { UserffMappingFirebaseService } from "./impl/userff-mapping-firebase.service";
 
 export function createBaseRepositoryFactory<T extends Model>(
   token: InjectionToken<IBaseRepository<T>>,
@@ -95,6 +97,8 @@ export function createBaseMappingFactory<T extends Model>(
             return new ExerciseMappingFirebaseService(firebaseConfig)
           }else if(modelType === 'place'){
             return new PlaceMappingFirebaseService(firebaseConfig)
+          }else if(modelType === 'userff'){
+            return new UserffMappingFirebaseService(firebaseConfig)
           }else{
             return new UserffMappingStrapi()
           }
@@ -232,6 +236,12 @@ export const PlaceCollectionSubscriptionFactory = createCollectionSubscriptionFa
   'places',
   PLACE_REPOSITORY_MAPPING_TOKEN,
   PLACE_COLLECTION_SUBSCRIPTION_TOKEN
+)
+
+export const UserffCollectionSubscriptionFactory = createCollectionSubscriptionFactory<Userff>(
+  'userff',
+  USERFF_REPOSITORY_MAPPING_TOKEN,
+  USERFF_COLLECTION_SUBSCRIPTION_TOKEN
 )
 
 export const AuthMappingFactory: FactoryProvider = createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN]);

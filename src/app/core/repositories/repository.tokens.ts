@@ -61,3 +61,4 @@ export const COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubsc
 export const MACHINE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Machine>>('MachineCollectionSubscriptionToken');
 export const EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Exercise>>('ExerciseCollectionSubscriptionToken');
 export const PLACE_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Place>>('PlaceCollectionSubscriptionToken');
+export const USERFF_COLLECTION_SUBSCRIPTION_TOKEN = new InjectionToken<ICollectionSubscription<Userff>>('UserffCollectionSubscriptionToken');

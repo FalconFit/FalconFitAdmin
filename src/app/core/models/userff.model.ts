@@ -11,5 +11,7 @@ export interface Userff extends Model{
         small:string | undefined,
         thumbnail:string | undefined
     },
-    userId?:string
+    userId?:string,
+    uuid:string,
+    role: string
 }

@@ -39,13 +39,14 @@ export class RegisterPage {
     if (this.registerForm.valid) {
       this.authSvc.signUp(this.registerForm.value).subscribe({
         next: (user: User) => {
-          console.log('Usuario registrado y autenticado:', user);
-
+          // Una vez el usuario se ha registrado exitosamente nos devuelve el uuid y el username
+          // Le asignamos predeterminadamente el rol de user para que un administrador busque al usuario y lo haga admin
+          // El id no lo puedo ignorar
           let user2: Userff = {
             name: user.username,
             uuid: user.id,
-            role: 'admin',
-            id: 'ke?'
+            role: 'user',
+            id: ''
           }
           this.userffSvc.add(user2)
 

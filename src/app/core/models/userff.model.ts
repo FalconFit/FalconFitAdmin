@@ -2,7 +2,7 @@ import { Model } from "./base.model";
 
 export interface Userff extends Model{
     name:string,
-    surname:string,
+    surname?:string,
     email?:string, //TODO: Quitar interrogación más adelante
     picture?:{
         url:string | undefined,

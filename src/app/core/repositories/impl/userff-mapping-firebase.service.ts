@@ -20,7 +20,6 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
   getOne(data: { id: string } & FirebaseUserff): Userff {
     return {
       name: data.name,
-      surname: data.surname,
       role: data.role,
       id: data.id,
       uuid: data.uuid,
@@ -40,7 +39,6 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
     let dataMapping: FirebaseUserff = {
       picture: data.picture?.url || '',
       name: data.name,
-      surname: data.surname,
       role: data.role,
       uuid: data.uuid
     };

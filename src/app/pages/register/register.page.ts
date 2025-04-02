@@ -5,6 +5,8 @@ import { User } from 'src/app/core/models/auth.model';
 import { BaseAuthenticationService } from 'src/app/core/services/impl/base-authentication.service';
 import { passwordsMatchValidator, passwordValidator } from 'src/app/core/utils/validators';
 import { TranslationService } from 'src/app/core/services/translate.service';
+import { Userff } from 'src/app/core/models/userff.model';
+import { UserffService } from 'src/app/core/services/impl/userff.service';
 
 @Component({
   selector: 'app-register',
@@ -20,6 +22,7 @@ export class RegisterPage {
     private router: Router,
     private route:ActivatedRoute,
     private authSvc:BaseAuthenticationService,
+    private userffSvc: UserffService,
     private translationService: TranslationService
   ) {
     this.registerForm = this.fb.group({
@@ -37,6 +40,15 @@ export class RegisterPage {
       this.authSvc.signUp(this.registerForm.value).subscribe({
         next: (user: User) => {
           console.log('Usuario registrado y autenticado:', user);
+
+          let user2: Userff = {
+            name: user.username,
+            uuid: user.id,
+            role: 'admin',
+            id: 'ke?'
+          }
+          this.userffSvc.add(user2)
+
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
           this.router.navigateByUrl(returnUrl);
         },

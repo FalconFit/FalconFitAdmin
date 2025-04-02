@@ -53,14 +53,6 @@ export class LoginPage {
   onRegister(){
     this.loginForm.reset();
     const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
-    let user: Userff = {
-      name: 'test',
-      surname: 'test',
-      uuid: 'test',
-      role: 'admin',
-      id: 'ke?'
-    }
-    this.userffSvc.add(user)
     this.router.navigate(['/register'], {queryParams:{ returnUrl:returnUrl}, replaceUrl:true});
   }
 

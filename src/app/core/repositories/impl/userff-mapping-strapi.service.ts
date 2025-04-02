@@ -30,7 +30,7 @@ export interface PersonData {
 
 export interface PersonAttributes {
     name: string
-    surname: string
+    surname?: string
     birthdate?: string
     createdAt?: string
     updatedAt?: string

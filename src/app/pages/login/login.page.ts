@@ -5,6 +5,8 @@ import { BaseAuthenticationService } from 'src/app/core/services/impl/base-authe
 import { UserffService } from 'src/app/core/services/impl/userff.service';
 import { TranslationService } from 'src/app/core/services/translate.service';
 import { Userff } from '../../core/models/userff.model';
+import { User } from 'src/app/core/models/auth.model';
+import { RoleManagerService } from '../../core/services/impl/role-manager.service';
 
 @Component({
   selector: 'app-login',
@@ -20,7 +22,8 @@ export class LoginPage {
     private route:ActivatedRoute,
     private authSvc:BaseAuthenticationService,
     private userffSvc: UserffService,
-    private translationService: TranslationService
+    private translationService: TranslationService,
+    private roleSvc: RoleManagerService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -31,8 +34,17 @@ export class LoginPage {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authSvc.signIn(this.loginForm.value).subscribe({
-        next: resp=>{
+        next: (user: User)=>{
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
+
+          let user3 = this.userffSvc.getByUuid(user.id).subscribe({
+            next: (userffDoc: Userff|null) => {
+              if(userffDoc){
+                this.roleSvc.setRole(userffDoc.role)
+                console.log("Rol de usuario", userffDoc.role)
+              }
+            }
+          })
 
           this.router.navigateByUrl(returnUrl); // Redirige a la página solicitada
         },

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { BaseAuthenticationService } from './core/services/impl/base-authentication.service';
 import { TranslationService } from './core/services/translate.service';
+import { RoleManagerService } from './core/services/impl/role-manager.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,8 @@ export class AppComponent {
   constructor(
     private translateService: TranslationService,
     public authSvc: BaseAuthenticationService,
-    private router: Router
+    private router: Router,
+    private roleSvc: RoleManagerService
   ) {
     this.currentLang = this.translateService.getCurrentLanguage();
   }
@@ -26,6 +28,7 @@ export class AppComponent {
 
   logout() {
     this.authSvc.signOut().subscribe(()=>{
+      this.roleSvc.clearRole()
       this.router.navigate(['/login']);
     });
   }

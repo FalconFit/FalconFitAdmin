@@ -34,7 +34,7 @@
   </ion-grid>
 
   <!-- Botón flotante para añadir -->
-  <ion-fab *ngIf="role$ === 'user'" slot="fixed" vertical="bottom" horizontal="end">
+  <ion-fab *ngIf="role$ === 'admin'" slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="onAddMachine()" class="fab-button" color="tertiary">
       <ion-icon name="add-outline"></ion-icon>
     </ion-fab-button>

@@ -19,8 +19,7 @@ import { RoleManagerService } from 'src/app/core/services/impl/role-manager.serv
 export class MachinePage implements OnInit {
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
-  _role:BehaviorSubject<string> = new BehaviorSubject<string>('')
-  role$: Observable<string> = this._role.asObservable();
+  role$: string = 'user'
 
   private loadedIds: Set<string> = new Set();
 
@@ -38,16 +37,7 @@ export class MachinePage implements OnInit {
 
   ngOnInit() {
     this.loadMachines()
-    this.role$ = this.roleSvc.currentRole$.subscribe({
-      next: (role: string|null) => {
-        if(role){
-          return role
-        }else{
-          return null
-        }
-      }
-    })
-    console.log("El rol es " + this.role$)
+    this.role$ = 'user'
 
     this.machineSubscription.subscribe('machines').subscribe((change: CollectionChange<Machine>) =>{
       const currentMachines = [...this._machine.value];

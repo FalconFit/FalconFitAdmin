@@ -9,7 +9,6 @@ import { BaseMediaService } from 'src/app/core/services/impl/base-media.service'
 import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { Router } from '@angular/router';
-import { RoleManagerService } from 'src/app/core/services/impl/role-manager.service';
 
 @Component({
   selector: 'app-machine',
@@ -19,7 +18,6 @@ import { RoleManagerService } from 'src/app/core/services/impl/role-manager.serv
 export class MachinePage implements OnInit {
   _machine:BehaviorSubject<Machine[]> = new BehaviorSubject<Machine[]>([]);
   machine$:Observable<Machine[]> = this._machine.asObservable();
-  role$: string = 'user'
 
   private loadedIds: Set<string> = new Set();
 
@@ -29,7 +27,6 @@ export class MachinePage implements OnInit {
     private alertController: AlertController,
     private mediaService: BaseMediaService,
     private router: Router,
-    private roleSvc: RoleManagerService,
     @Inject(MACHINE_COLLECTION_SUBSCRIPTION_TOKEN)
     private machineSubscription: ICollectionSubscription<Machine>
   ) { }
@@ -37,7 +34,6 @@ export class MachinePage implements OnInit {
 
   ngOnInit() {
     this.loadMachines()
-    this.role$ = 'user'
 
     this.machineSubscription.subscribe('machines').subscribe((change: CollectionChange<Machine>) =>{
       const currentMachines = [...this._machine.value];

@@ -1,7 +1,6 @@
 import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslationService } from 'src/app/core/services/translate.service';
 
 @Directive({
   selector: '[customLabel]',
@@ -31,21 +30,19 @@ export class CustomLabelDirective implements OnInit {
   constructor(
     private el: ElementRef<HTMLElement>,
     private translate: TranslateService,
-    private translationService: TranslationService
   ) {
     this.htmlElement = el;
   }
 
   ngOnInit(): void {
-    // Implementación opcional; se puede dejar vacío
   }
 
   setErrorMessage(): void {
-    if (!this.htmlElement) return;
+    if (!this.el) return;
 
     // Si no hay errores, limpiamos el mensaje
     if (!this._errors) {
-      this.htmlElement.nativeElement.innerText = '';
+      this.el.nativeElement.innerText = '';
       return;
     }
 
@@ -67,7 +64,7 @@ export class CustomLabelDirective implements OnInit {
     // Si encontramos una clave de traducción válida, la traducimos
     if (translationKey) {
       this.translate.get(translationKey).subscribe(translation => {
-        this.htmlElement.nativeElement.innerText = translation;
+        this.el.nativeElement.innerText = translation;
       });
     }
   }

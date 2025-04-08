@@ -37,7 +37,7 @@ export class LoginPage {
         next: (user: User)=>{
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
 
-          let user3 = this.userffSvc.getByUuid(user.id).subscribe({
+          this.userffSvc.getByUuid(user.id).subscribe({
             next: (userffDoc: Userff|null) => {
               if(userffDoc){
                 this.roleSvc.setRole(userffDoc.role)

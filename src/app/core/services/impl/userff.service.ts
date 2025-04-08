@@ -24,17 +24,23 @@ export class UserffService extends BaseService<Userff> implements IUserffService
   }
 
   getByUuid(uuid: string): Observable<Userff | null> {
-    // Usar un filtro para buscar por uuid
-    return this.repository.getAll(1, 1, { uuid: uuid }).pipe(
+    return this.repository.getAll(1, 100, { uuid: uuid }).pipe(
       map(res => {
+        console.log('Resultado de búsqueda:', res);
+
         // Manejar tanto un array como un objeto paginado
         if (Array.isArray(res)) {
-          return res[0] || null;
+          const foundUser = res.find(user => user.uuid === uuid);
+          console.log('Usuario encontrado (array):', foundUser);
+          return foundUser || null;
         } else if (res && res.data) {
-          return res.data[0] || null;
+          const foundUser = res.data.find(user => user.uuid === uuid);
+          console.log('Usuario encontrado (paginado):', foundUser);
+          return foundUser || null;
         }
         return null;
-      })
+      }),
+      take(1) // Asegura que la suscripción se complete después de un valor
     );
   }
 }

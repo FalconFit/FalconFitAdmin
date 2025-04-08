@@ -15,6 +15,7 @@ import { MachineSelectableComponent } from './machine-selectable/machine-selecta
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ShowPasswordPipe } from '../pipes/show-password.pipe';
 import { CustomLabelDirective } from '../directives/custom-label.directive';
+import { RoleDirective } from '../directives/showOrNotRole.directive';
 
 @NgModule({
     declarations: [
@@ -27,7 +28,8 @@ import { CustomLabelDirective } from '../directives/custom-label.directive';
     MachineSelectableComponent,
     ToolbarComponent,
     ShowPasswordPipe,
-    CustomLabelDirective
+    CustomLabelDirective,
+    RoleDirective
   ],
   imports: [
     CommonModule,
@@ -46,7 +48,8 @@ import { CustomLabelDirective } from '../directives/custom-label.directive';
     MachineSelectableComponent,
     ToolbarComponent,
     ShowPasswordPipe,
-    CustomLabelDirective
+    CustomLabelDirective,
+    RoleDirective
   ]
 })
 export class SharedModule { }

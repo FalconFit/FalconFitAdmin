@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit, OnDestroy } from '@angular/core';
+import { Directive, ElementRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
 import { RoleManagerService } from 'src/app/core/services/impl/role-manager.service';
 import { Subscription } from 'rxjs';
 
@@ -10,16 +10,15 @@ export class RoleDirective implements OnInit, OnDestroy {
 
   constructor(
     private el: ElementRef<HTMLElement>,
+    private renderer: Renderer2,
     private roleSvc: RoleManagerService
   ) {}
 
   ngOnInit() {
-    // Nos suscribimos a los cambios de rol
     this.subscription = this.roleSvc.currentRole$.subscribe(currentRole => {
       this.updateElementVisibility(currentRole);
     });
 
-    // También verificamos el valor actual por si ya está establecido
     const currentRole = this.roleSvc.getCurrentRoleValue();
     this.updateElementVisibility(currentRole);
   }
@@ -32,15 +31,14 @@ export class RoleDirective implements OnInit, OnDestroy {
 
   private updateElementVisibility(currentRole: string | null): void {
     if (!currentRole) {
-      this.el.nativeElement.hidden = true;
+      this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
       return;
     }
 
-    if(currentRole == 'admin'){
-      this.el.nativeElement.hidden = false;
-    }else{
-      this.el.nativeElement.hidden = true;
+    if(currentRole === 'admin'){
+      this.renderer.removeStyle(this.el.nativeElement, 'display');
+    } else {
+      this.renderer.setStyle(this.el.nativeElement, 'display', 'none');
     }
   }
-
 }

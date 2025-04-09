@@ -7,6 +7,7 @@ import { TranslationService } from 'src/app/core/services/translate.service';
 import { Userff } from '../../core/models/userff.model';
 import { User } from 'src/app/core/models/auth.model';
 import { RoleManagerService } from '../../core/services/impl/role-manager.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -34,25 +35,27 @@ export class LoginPage {
   onSubmit() {
     if (this.loginForm.valid) {
       this.authSvc.signIn(this.loginForm.value).subscribe({
-        next: (user: User)=>{
+        next: (user: User) => {
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';
 
-          this.userffSvc.getByUuid(user.id).subscribe({
-            next: (userffDoc: Userff|null) => {
-              if(userffDoc){
-                this.roleSvc.setRole(userffDoc.role)
-                console.log("Rol de usuario", userffDoc.role)
+          this.userffSvc.getByUuid(user.id).pipe(
+            tap((userffDoc: Userff|null) => {
+              if (userffDoc) {
+                this.roleSvc.setRole(userffDoc.role);
+                console.log("Rol de usuario", userffDoc.role);
               }
+            })
+          ).subscribe({
+            next: () => {
+              // Navego cuando ya tengo asiganado el rol
+              this.router.navigateByUrl(returnUrl);
             }
-          })
-
-          this.router.navigateByUrl(returnUrl); // Redirige a la página solicitada
+          });
         },
-        error: err=>{
+        error: err => {
           console.log(err);
         }
       });
-
     } else {
       console.log('Formulario no válido');
     }

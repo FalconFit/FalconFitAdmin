@@ -1,5 +1,5 @@
 import { Directive, ElementRef, OnInit, OnDestroy, Renderer2 } from '@angular/core';
-import { RoleManagerService } from 'src/app/core/services/impl/role-manager.service';
+import { RoleManagerService } from 'src/app/core/services/role-manager.service';
 import { Subscription } from 'rxjs';
 
 @Directive({
@@ -15,10 +15,6 @@ export class RoleDirective implements OnInit, OnDestroy {
   ) {}
 
   ngOnInit() {
-    this.subscription = this.roleSvc.currentRole$.subscribe(currentRole => {
-      this.updateElementVisibility(currentRole);
-    });
-
     const currentRole = this.roleSvc.getCurrentRoleValue();
     this.updateElementVisibility(currentRole);
   }

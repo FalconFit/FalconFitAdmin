@@ -11,7 +11,7 @@ import { RoleManagerService } from './core/services/role-manager.service';
 })
 export class AppComponent {
   currentLang: string;
-  curentRole: string;
+  currentRole: string;
 
   constructor(
     private translateService: TranslationService,
@@ -20,7 +20,7 @@ export class AppComponent {
     private router: Router,
   ) {
     this.currentLang = this.translateService.getCurrentLanguage();
-    this.curentRole = this.roleSvc.getCurrentRoleValue();
+    this.currentRole = this.roleSvc.getCurrentRoleValue();
   }
 
   changeLanguage(lang: string) {

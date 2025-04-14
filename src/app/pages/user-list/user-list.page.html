@@ -2,26 +2,35 @@
 
 <ion-content [fullscreen]="true" class="content">
   <ion-grid>
-    <ion-row class="responsive-row">
-      <ion-col size-xs="12" size-sm="6" size-md="4" size-lg="3" *ngFor="let user of _users | async; let i=index">
+    <ion-row>
+      <ion-col size="12" *ngFor="let user of _users | async; let i=index">
         <ion-card class="card">
-          <!-- Bloque 1: Imagen -->
-          <div class="image-container">
-            <img
-              [src]="user.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
-              alt="Machine Picture" />
+          <!-- Contenedor principal para organizar horizontalmente -->
+          <div class="card-horizontal-layout">
+            <!-- Bloque 1: Imagen (ahora a la izquierda) -->
+            <div class="image-container">
+              <img
+                [src]="user.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
+                alt="User Picture" />
+            </div>
+
+            <!-- Bloque 2: Información (ahora a la derecha) -->
+            <ion-card-content class="info-block">
+              <h2 class="title">{{ user.surname || 'Sin apellido' }}</h2>
+              <p class="subtitle">{{ user.name }}</p>
+
+              <!-- Selector de rol -->
+              <ion-item class="role-selector">
+                <ion-label>Rol</ion-label>
+                <ion-select [(ngModel)]="user.role" (ionChange)="updateUserRole(user)">
+                  <ion-select-option value="admin">Admin</ion-select-option>
+                  <ion-select-option value="user">User</ion-select-option>
+                </ion-select>
+              </ion-item>
+            </ion-card-content>
           </div>
-
-          <!-- Bloque 2: Información -->
-          <ion-card-content class="info-block" >
-            <h2 class="title"> {{ user.surname }}</h2>
-            <p class="subtitle">{{ user.name }}</p>
-            <p class="description">{{ user.role }}</p>
-          </ion-card-content>
-
         </ion-card>
       </ion-col>
     </ion-row>
   </ion-grid>
-
 </ion-content>

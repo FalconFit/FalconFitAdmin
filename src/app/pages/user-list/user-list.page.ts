@@ -103,4 +103,8 @@ export class UserListPage implements OnInit {
       }
     });
   }
+
+  updateUserRole(user: Userff) {
+
+  }
 }

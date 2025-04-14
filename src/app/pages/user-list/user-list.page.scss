@@ -1,115 +1,92 @@
 ion-content {
-    --background: var(--background-color);
+  --background: var(--background-color);
+}
+
+ion-card {
+  background-color: var(--card-color);
+  color: #282F35;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  margin: 10px 0;
+  cursor: pointer;
+}
+
+/* Nuevo contenedor para organizar horizontalmente */
+.card-horizontal-layout {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.image-container {
+  width: 30%; /* Ajusta este valor según lo grande que quieras el recuadro de la imagen */
+  min-width: 120px; /* Asegura un tamaño mínimo para la imagen */
+  max-width: 200px; /* Limita el tamaño máximo de la imagen */
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 2px solid var(--highlight-color); /* Borde entre la imagen y el contenido */
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  min-height: 150px; /* Altura mínima de la imagen */
+  object-fit: cover;
+  display: block;
+}
+
+.info-block {
+  text-align: left;
+  padding: 15px;
+  flex: 1; /* Toma el espacio restante */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.info-block .title {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #F8F8F8;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 5px;
+}
+
+.info-block .subtitle {
+  font-size: 1em;
+  color: #C4C4C4;
+  font-family: 'Lato', sans-serif;
+  margin: 5px 0;
+}
+
+/* Estilo para el selector de rol */
+.role-selector {
+  --background: transparent;
+  margin-top: 10px;
+}
+
+ion-select {
+  --color: #F0F0F0;
+  max-width: 100%;
+}
+
+/* Estilos responsivos para pantallas pequeñas */
+@media screen and (max-width: 576px) {
+  .card-horizontal-layout {
+    flex-direction: column; /* En móviles, volvemos a la disposición vertical */
   }
 
-  ion-card {
-    background-color: var(--card-color);
-    color: #282F35;
-    border-radius: 12px;
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    cursor: pointer;
-  }
-
-  .image-container img {
+  .image-container {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
-    display: block;
+    max-width: none;
+    border-right: none;
     border-bottom: 2px solid var(--highlight-color);
   }
 
-  .info-block {
-    padding: 10px;
-    text-align: left;
+  .image-container img {
+    height: 180px;
   }
-
-  .info-block .title {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #F8F8F8; // Blanco suave
-    font-family: 'Playfair Display', serif; // Fuente serif elegante
-    margin-bottom: 5px;
-  }
-
-  .info-block .subtitle {
-    font-size: 0.9em;
-    color: #C4C4C4; // Gris claro
-    font-family: 'Lato', sans-serif; // Fuente sans-serif moderna
-    margin: 5px 0;
-  }
-
-  .info-block .description {
-    font-size: 0.9em;
-    color: #F0F0F0; // Gris más claro que el subtítulo
-    font-family: 'Lato', sans-serif;
-    margin: 5px 0;
-  }
-
-  .button-block {
-    display: flex;
-    justify-content: flex-end;
-    gap: 5px;
-    padding: 10px;
-  }
-
-  .fab-button {
-    margin-right: 2ch;
-  }
-
-  .responsive-row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  @media screen and (max-width: 768px) {
-    ion-col {
-      flex: 0 0 50%;
-      max-width: 50%;
-    }
-
-    .image-container img {
-      height: 150px;
-    }
-
-    .info-block .title {
-      font-size: 1em;
-    }
-
-    .info-block .subtitle,
-    .info-block .description {
-      font-size: 0.8em;
-    }
-
-    .button-block {
-      justify-content: center;
-    }
-  }
-
-  @media screen and (max-width: 480px) {
-    ion-col {
-      flex: 0 0 100%;
-      max-width: 100%;
-    }
-
-    .image-container img {
-      height: 180px;
-    }
-
-    .info-block .title {
-      font-size: 1em;
-    }
-
-    .info-block .subtitle,
-    .info-block .description {
-      font-size: 0.8em;
-    }
-
-    .button-block {
-      justify-content: center;
-    }
-  }
+}

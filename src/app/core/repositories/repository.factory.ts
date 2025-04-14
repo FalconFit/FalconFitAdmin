@@ -239,7 +239,7 @@ export const PlaceCollectionSubscriptionFactory = createCollectionSubscriptionFa
 )
 
 export const UserffCollectionSubscriptionFactory = createCollectionSubscriptionFactory<Userff>(
-  'userff',
+  'userffs',
   USERFF_REPOSITORY_MAPPING_TOKEN,
   USERFF_COLLECTION_SUBSCRIPTION_TOKEN
 )

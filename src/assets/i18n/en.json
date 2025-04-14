@@ -111,6 +111,28 @@
       "UPDATE": "Update"
     }
   },
+
+  "USERLIST": {
+    "EDIT_TITLE": "Edit Place",
+    "NEW_TITLE": "New place",
+    "TITLE": "Title",
+    "DESCRIPTION": "Description",
+    "PLACEHOLDERS": {
+      "TITLE": "Enter a title",
+      "DESCRIPTION": "Enter a description"
+    },
+    "ERRORS": {
+      "TITLE_REQUIRED": "Title is required.",
+      "TITLE_MIN_LENGTH": "Title must be at least 3 characters.",
+      "DESCRIPTION_REQUIRED": "Description is required.",
+      "DESCRIPTION_MAX_LENGTH": "Description must not exceed 500 characters."
+    },
+    "BUTTONS": {
+      "CREATE": "Create",
+      "UPDATE": "Update"
+    }
+  },
+
   "MENU": {
     "TITLE": "Menu",
     "HOME": "Home",
@@ -119,8 +141,10 @@
     "LOGOUT": "Logout",
     "LANGUAGE": "Language",
     "ABOUT": "About",
-    "PROFILE": "Profile"
+    "PROFILE": "Profile",
+    "USERLIST": "User List"
   },
+
   "MACHINE_SELECTABLE": {
     "SELECT_MACHINE": "Select a machine",
     "NONE": "None",

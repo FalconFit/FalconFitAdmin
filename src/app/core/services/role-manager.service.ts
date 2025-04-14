@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
@@ -7,7 +6,6 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class RoleManagerService {
   private readonly ROLE_KEY = 'USER_ROLE';
-  private jwtHelper = new JwtHelperService();
   private roleSubject = new BehaviorSubject<string>('user');
   public role$: Observable<string> = this.roleSubject.asObservable();
 
@@ -19,9 +17,7 @@ export class RoleManagerService {
     try {
       const token = localStorage.getItem(this.ROLE_KEY);
       if (token) {
-        const decodedToken = this.jwtHelper.decodeToken(token);
-        const role = decodedToken?.role || 'user';
-        this.roleSubject.next(role);
+        this.roleSubject.next(token);
       } else {
         this.roleSubject.next('user');
       }
@@ -31,14 +27,11 @@ export class RoleManagerService {
     }
   }
 
-  setRole(token: string): void {
+  setRole(role?: string): void {
     try {
-      localStorage.setItem(this.ROLE_KEY, token);
+      localStorage.setItem(this.ROLE_KEY, role || 'user');
 
-      const decodedToken = this.jwtHelper.decodeToken(token);
-      const role = decodedToken?.role || 'user';
-
-      this.roleSubject.next(role);
+      this.roleSubject.next(role || 'user');
     } catch (error) {
       console.error('Error setting role from token', error);
       this.roleSubject.next('user');

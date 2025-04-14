@@ -1,0 +1,115 @@
+ion-content {
+    --background: var(--background-color);
+  }
+
+  ion-card {
+    background-color: var(--card-color);
+    color: #282F35;
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    cursor: pointer;
+  }
+
+  .image-container img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-bottom: 2px solid var(--highlight-color);
+  }
+
+  .info-block {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .info-block .title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #F8F8F8; // Blanco suave
+    font-family: 'Playfair Display', serif; // Fuente serif elegante
+    margin-bottom: 5px;
+  }
+
+  .info-block .subtitle {
+    font-size: 0.9em;
+    color: #C4C4C4; // Gris claro
+    font-family: 'Lato', sans-serif; // Fuente sans-serif moderna
+    margin: 5px 0;
+  }
+
+  .info-block .description {
+    font-size: 0.9em;
+    color: #F0F0F0; // Gris más claro que el subtítulo
+    font-family: 'Lato', sans-serif;
+    margin: 5px 0;
+  }
+
+  .button-block {
+    display: flex;
+    justify-content: flex-end;
+    gap: 5px;
+    padding: 10px;
+  }
+
+  .fab-button {
+    margin-right: 2ch;
+  }
+
+  .responsive-row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  @media screen and (max-width: 768px) {
+    ion-col {
+      flex: 0 0 50%;
+      max-width: 50%;
+    }
+
+    .image-container img {
+      height: 150px;
+    }
+
+    .info-block .title {
+      font-size: 1em;
+    }
+
+    .info-block .subtitle,
+    .info-block .description {
+      font-size: 0.8em;
+    }
+
+    .button-block {
+      justify-content: center;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    ion-col {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+
+    .image-container img {
+      height: 180px;
+    }
+
+    .info-block .title {
+      font-size: 1em;
+    }
+
+    .info-block .subtitle,
+    .info-block .description {
+      font-size: 0.8em;
+    }
+
+    .button-block {
+      justify-content: center;
+    }
+  }

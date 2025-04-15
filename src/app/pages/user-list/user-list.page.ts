@@ -113,13 +113,13 @@ export class UserListPage implements OnInit {
           component: UserFormComponent,
           componentProps: {
             mode: "edit",
-            machine: user,
+            user: user,
             groups: await lastValueFrom(this.userSvc.getAll()),
           }
         })
 
         modal.onDidDismiss().then(async (data:any)=>{
-          let machineUpdate:Machine
+          let userUpdate:Userff
           if(data.data.picture){
             // Convertir base64 a blob
             const base64Response = await fetch(data.data.picture);
@@ -128,32 +128,23 @@ export class UserListPage implements OnInit {
             // Subir imagen
             const uploadedUrls = await lastValueFrom(this.mediaService.upload(blob));
             const imageUrls = uploadedUrls.map(url => url.toString());
-            machineUpdate = {
-              id: '',
-              picture: {
-                url: imageUrls[0],
-                large: imageUrls[0],
-                medium: imageUrls[0],
-                small: imageUrls[0],
-                thumbnail: imageUrls[0]
-              },
-              title: data.data.title,
-              subtitle: data.data.subtitle,
-              description: data.data.description,
-              taken: false
+            userUpdate = {
+              name: data.data.name,
+              uuid: data.data.surname,
+              role: data.data.role,
+              id: ''
             }
           }else{
-            machineUpdate = {
+            userUpdate = {
               id: '',
-              title: data.data.title,
-              subtitle: data.data.subtitle,
-              description: data.data.description,
-              taken: false
+              name: data.data.name,
+              uuid: data.data.surname,
+              role: data.data.role,
             }
           }
 
-          this.machineSvc.update(machine!.id, machineUpdate).subscribe({
-            next:(response: Machine) => {
+          this.userSvc.update(user!.id, userUpdate).subscribe({
+            next:(response: Userff) => {
               this.refresh();
             }
           })

@@ -12,7 +12,6 @@ export class UserFormComponent  implements OnInit {
   formGroup: FormGroup
   isMobile: boolean = false;
 
-
   @Input() set user(_user: Userff){
     if(_user && _user.id){
       this.formGroup.controls['name'].setValue(_user.name)

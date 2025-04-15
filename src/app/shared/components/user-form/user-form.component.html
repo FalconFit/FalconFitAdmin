@@ -24,7 +24,7 @@
     <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
     <ion-input
       type="text"
-      formControlName="title"
+      formControlName="name"
       [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
     </ion-input>
     <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('title')?.errors" field="TITLE" page="EXERCISE" color="danger">
@@ -34,7 +34,7 @@
     <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
     <ion-input
       type="text"
-      formControlName="subtitle"
+      formControlName="surname"
       [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
     </ion-input>
     <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('subtitle')?.errors" field="SUBTITLE" page="EXERCISE" color="danger">
@@ -43,7 +43,7 @@
     <!-- Descripción -->
     <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
     <ion-textarea
-      formControlName="description"
+      formControlName="email"
       [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate"
       [autoGrow]="true"
       [rows]="3">
@@ -53,7 +53,7 @@
 
     <!-- Selección de máquinas -->
     <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
-    <app-machine-selectable formControlName="machineId"></app-machine-selectable>
+    <app-machine-selectable formControlName="role"></app-machine-selectable>
 
     <!-- Botón de envío -->
     <div class="button-container">

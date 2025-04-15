@@ -21,7 +21,7 @@
 
           <!-- Bloque 3: Botones -->
           <div class="button-block">
-            <ion-button appRole color="success" (click)="onUpdateMachine(machine, i); $event.stopPropagation()">
+            <ion-button appRole color="success" (click)="onUpdateMachine(machine); $event.stopPropagation()">
               <ion-icon  name="create-outline"></ion-icon>
             </ion-button>
             <ion-button appRole color="danger" (click)="onDeleteMachine(machine); $event.stopPropagation()">

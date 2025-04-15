@@ -1,13 +1,16 @@
 import { User } from 'src/app/core/models/auth.model';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { Userff } from 'src/app/core/models/userff.model';
 import { USERFF_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { BaseMediaService } from 'src/app/core/services/impl/base-media.service';
 import { UserffService } from 'src/app/core/services/impl/userff.service';
 import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
+import { UserFormComponent } from 'src/app/shared/components/user-form/user-form.component';
+import { Machine } from 'src/app/core/models/machine.model';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-user-list',
@@ -23,6 +26,7 @@ export class UserListPage implements OnInit {
   constructor(
     private userSvc: UserffService,
     private mediaService: BaseMediaService,
+    private modalCtrl: ModalController,
     private router: Router,
     @Inject(USERFF_COLLECTION_SUBSCRIPTION_TOKEN)
     private userSubscription: ICollectionSubscription<Userff>
@@ -104,7 +108,57 @@ export class UserListPage implements OnInit {
     });
   }
 
-  updateUserRole(user: Userff) {
+  async updateUserRole(user: Userff) {
+        const modal = await this.modalCtrl.create({
+          component: UserFormComponent,
+          componentProps: {
+            mode: "edit",
+            machine: user,
+            groups: await lastValueFrom(this.userSvc.getAll()),
+          }
+        })
 
+        modal.onDidDismiss().then(async (data:any)=>{
+          let machineUpdate:Machine
+          if(data.data.picture){
+            // Convertir base64 a blob
+            const base64Response = await fetch(data.data.picture);
+            const blob = await base64Response.blob();
+
+            // Subir imagen
+            const uploadedUrls = await lastValueFrom(this.mediaService.upload(blob));
+            const imageUrls = uploadedUrls.map(url => url.toString());
+            machineUpdate = {
+              id: '',
+              picture: {
+                url: imageUrls[0],
+                large: imageUrls[0],
+                medium: imageUrls[0],
+                small: imageUrls[0],
+                thumbnail: imageUrls[0]
+              },
+              title: data.data.title,
+              subtitle: data.data.subtitle,
+              description: data.data.description,
+              taken: false
+            }
+          }else{
+            machineUpdate = {
+              id: '',
+              title: data.data.title,
+              subtitle: data.data.subtitle,
+              description: data.data.description,
+              taken: false
+            }
+          }
+
+          this.machineSvc.update(machine!.id, machineUpdate).subscribe({
+            next:(response: Machine) => {
+              this.refresh();
+            }
+          })
+        })
+
+        await modal.present();
   }
 }

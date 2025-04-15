@@ -5,4 +5,5 @@ import { IBaseService } from './base-service.interface';
 
 export interface IUserffService extends IBaseService<Userff> {
   getByUserId(userId: string): Observable<Userff | null>;
+  getByUuid(uuid: string): Observable<Userff | null>;
 }

@@ -149,7 +149,7 @@ export class MachinePage implements OnInit {
     return await modal.present();
   }
 
-  async onUpdateMachine(machine: any, index: number){
+  async onUpdateMachine(machine: any){
     const modal = await this.modalCtrl.create({
       component: MachineFormComponent,
       componentProps: {

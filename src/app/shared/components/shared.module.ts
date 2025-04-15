@@ -16,6 +16,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ShowPasswordPipe } from '../pipes/show-password.pipe';
 import { CustomLabelDirective } from '../directives/custom-label.directive';
 import { RoleDirective } from '../directives/showOrNotRole.directive';
+import { UserFormComponent } from './user-form/user-form.component';
 
 @NgModule({
     declarations: [
@@ -27,6 +28,7 @@ import { RoleDirective } from '../directives/showOrNotRole.directive';
     ExerciseFormComponent,
     MachineSelectableComponent,
     ToolbarComponent,
+    UserFormComponent,
     ShowPasswordPipe,
     CustomLabelDirective,
     RoleDirective
@@ -47,6 +49,7 @@ import { RoleDirective } from '../directives/showOrNotRole.directive';
     ExerciseFormComponent,
     MachineSelectableComponent,
     ToolbarComponent,
+    UserFormComponent,
     ShowPasswordPipe,
     CustomLabelDirective,
     RoleDirective

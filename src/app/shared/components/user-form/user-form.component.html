@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      {{('EXERCISE.EDIT_TITLE' | translate)}}
+    </ion-title>
+    <!-- Botón de cierre para desktop -->
+    <ion-buttons slot="start" *ngIf="!isMobile">
+      <ion-button (click)="dismiss()" color="light">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <!-- Botón de cierre para mobile -->
+    <ion-buttons slot="end" *ngIf="isMobile">
+      <ion-button (click)="dismiss()" color="light">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding custom-form-container">
+  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+    <!-- Título -->
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="title"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
+    </ion-input>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('title')?.errors" field="TITLE" page="EXERCISE" color="danger">
+    </ion-text>
+
+    <!-- Subtítulo -->
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="subtitle"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
+    </ion-input>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('subtitle')?.errors" field="SUBTITLE" page="EXERCISE" color="danger">
+    </ion-text>
+
+    <!-- Descripción -->
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
+    <ion-textarea
+      formControlName="description"
+      [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate"
+      [autoGrow]="true"
+      [rows]="3">
+    </ion-textarea>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="EXERCISE" color="danger">
+    </ion-text>
+
+    <!-- Selección de máquinas -->
+    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
+    <app-machine-selectable formControlName="machineId"></app-machine-selectable>
+
+    <!-- Botón de envío -->
+    <div class="button-container">
+      <ion-button
+        [disabled]="!formGroup.valid || !formGroup.dirty"
+        expand="full"
+        type="submit"
+        color="success">
+        {{('EXERCISE.BUTTONS.UPDATE' | translate)}}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

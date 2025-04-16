@@ -21,6 +21,13 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
     return {
       name: data.name,
       surname: data.surname,
+      picture: data.picture ? {
+        url: data.picture,
+        large: data.picture,
+        medium: data.picture,
+        small: data.picture,
+        thumbnail: data.picture
+      } : undefined,
       email: data.email,
       phoneNumber: data.phoneNumber,
       registerDate: data.registerDate,

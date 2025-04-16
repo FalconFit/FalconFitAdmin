@@ -11,6 +11,7 @@ import { Userff } from 'src/app/core/models/userff.model';
 export class UserFormComponent  implements OnInit {
   formGroup: FormGroup
   isMobile: boolean = false;
+  picture: string | null = null;
 
   @Input() set user(_user: Userff){
     if(_user && _user.id){
@@ -20,6 +21,7 @@ export class UserFormComponent  implements OnInit {
       this.formGroup.controls['phoneNumber'].setValue(_user.phoneNumber)
       this.formGroup.controls['role'].setValue(_user.role)
       this.formGroup.controls['registerDate'].setValue(_user.registerDate)
+      this.formGroup.controls['picture'].setValue(_user.picture?.large);
     }
   }
 
@@ -28,13 +30,16 @@ export class UserFormComponent  implements OnInit {
     private modalCtrl: ModalController,
     private platform: Platform
   ) {
+    this.isMobile = this.platform.is('ios') || this.platform.is('android');
+
     this.formGroup = this.fb.group({
       name:['', [Validators.required, Validators.minLength(3)]],
       surname:['', [Validators.required, Validators.minLength(3)]],
       email:['', [Validators.required, Validators.maxLength(500)]],
       phoneNumber:['', [Validators.maxLength(9)]],
       role:['', [Validators.required, Validators.maxLength(500)]],
-      registerDate:['', [Validators.required, Validators.maxLength(500)]]
+      registerDate:['', [Validators.required, Validators.maxLength(500)]],
+      picture:['']
     })
   }
 

@@ -131,6 +131,13 @@ export class UserListPage implements OnInit {
             userUpdate = {
               name: data.data.name,
               surname: data.data.surname,
+              picture: {
+                url: imageUrls[0],
+                large: imageUrls[0],
+                medium: imageUrls[0],
+                small: imageUrls[0],
+                thumbnail: imageUrls[0]
+              },
               email: data.data.email,
               uuid: data.data.surname,
               role: data.data.role,

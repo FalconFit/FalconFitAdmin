@@ -20,6 +20,13 @@
 
 <ion-content class="ion-padding custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+    <ion-label position="stacked" color="tertiary">{{ 'MACHINE.IMAGE' | translate }}</ion-label>
+    <div class="photo-container">
+      <!-- Previsualización de la imagen -->
+      <app-picture-selectable formControlName="picture"></app-picture-selectable>
+    </div>
+
     <!-- Nombre -->
     <ion-label position="stacked" color="tertiary">{{ 'USERLIST.NAME' | translate }}</ion-label>
     <ion-input

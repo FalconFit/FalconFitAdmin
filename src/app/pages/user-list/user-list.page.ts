@@ -134,8 +134,8 @@ export class UserListPage implements OnInit {
               email: data.data.email,
               uuid: data.data.surname,
               role: data.data.role,
-              registerDate: data.registerDate,
-              phoneNumber: data.phoneNumber,
+              registerDate: data.data.registerDate,
+              phoneNumber: data.data.phoneNumber,
               id: ''
             }
           }else{
@@ -146,8 +146,8 @@ export class UserListPage implements OnInit {
               email: data.data.email,
               uuid: data.data.surname,
               role: data.data.role,
-              registerDate: data.registerDate,
-              phoneNumber: data.phoneNumber,
+              registerDate: data.data.registerDate,
+              phoneNumber: data.data.phoneNumber,
             }
           }
 

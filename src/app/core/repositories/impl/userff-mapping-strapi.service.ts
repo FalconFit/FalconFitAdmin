@@ -30,7 +30,10 @@ export interface PersonData {
 
 export interface PersonAttributes {
     name: string
-    surname?: string
+    surname: string
+    email: string
+    phoneNumber: string
+    registerDate: string
     birthdate?: string
     createdAt?: string
     updatedAt?: string
@@ -53,11 +56,14 @@ export interface Meta {}
     setAdd(data: Userff):PersonData {
         return {
             data:{
-                name:data.name,
-                surname:data.surname,
-                user:data.uuid?Number(data.uuid):null,
-                picture:data.picture?Number(data.picture):null,
-                role: data.role
+              name: data.name,
+              surname: data.surname,
+              phoneNumber: data.phoneNumber || 'Vacio',
+              user: data.uuid ? Number(data.uuid) : null,
+              picture: data.picture ? Number(data.picture) : null,
+              role: data.role,
+              email: data.email,
+              registerDate: data.registerDate
             }
         };
     }
@@ -97,6 +103,9 @@ export interface Meta {}
             id: id.toString(),
             name: attributes.name,
             surname: attributes.surname,
+            email: attributes.email,
+            registerDate: attributes.registerDate,
+            phoneNumber: attributes.phoneNumber,
             uuid: typeof attributes.user === 'object' ? attributes.user?.data?.id.toString() : undefined,
             picture: typeof attributes.picture === 'object' ? {
                 url: attributes.picture?.data?.attributes?.url,

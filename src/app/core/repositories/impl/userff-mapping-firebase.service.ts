@@ -20,9 +20,13 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
   getOne(data: { id: string } & FirebaseUserff): Userff {
     return {
       name: data.name,
+      surname: data.surname,
+      email: data.email,
+      phoneNumber: data.phoneNumber,
+      registerDate: data.registerDate,
       role: data.role,
-      id: data.id,
       uuid: data.uuid,
+      id: data.id,
     };
   }
 
@@ -37,10 +41,14 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
 
   setAdd(data: Userff): FirebaseUserff {
     let dataMapping: FirebaseUserff = {
-      picture: data.picture?.url || '',
       name: data.name,
+      surname: data.surname,
+      email: data.email,
+      registerDate: data.registerDate,
+      phoneNumber: data.phoneNumber || '',
       role: data.role,
-      uuid: data.uuid
+      uuid: data.uuid,
+      picture: data.picture?.url || '',
     };
 
     return dataMapping
@@ -51,6 +59,8 @@ export class UserffMappingFirebaseService implements IBaseMapping<Userff> {
 
     if (data.name) result.name = data.name;
     if (data.surname) result.surname = data.surname;
+    if (data.email) result.email = data.email;
+    if (data.phoneNumber) result.phoneNumber = data.phoneNumber;
     if (data.role) result.role = data.role;
     if (data.uuid) result.user = data.uuid || '';
     if (data.picture) result.picture = data.picture?.url || '';

@@ -130,16 +130,24 @@ export class UserListPage implements OnInit {
             const imageUrls = uploadedUrls.map(url => url.toString());
             userUpdate = {
               name: data.data.name,
+              surname: data.data.surname,
+              email: data.data.email,
               uuid: data.data.surname,
               role: data.data.role,
+              registerDate: data.registerDate,
+              phoneNumber: data.phoneNumber,
               id: ''
             }
           }else{
             userUpdate = {
               id: '',
               name: data.data.name,
+              surname: data.data.surname,
+              email: data.data.email,
               uuid: data.data.surname,
               role: data.data.role,
+              registerDate: data.registerDate,
+              phoneNumber: data.phoneNumber,
             }
           }
 

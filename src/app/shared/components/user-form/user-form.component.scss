@@ -1,0 +1,98 @@
+ion-content {
+  --background: var(--background-color-models);
+  --padding-bottom: 0;
+}
+
+ion-header {
+  ion-toolbar {
+    --border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+    --background: var(--ion-color-primary);
+    padding-top: 8px;
+
+    &::part(container) {
+      border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+    }
+
+    ion-title {
+      color: var(--color-text-toolbar);
+      font-weight: 500;
+    }
+  }
+}
+
+.custom-form-container {
+  padding: 20px;
+  height: 100%;
+  font-size: 2.1ch;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  ion-label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  ion-input, ion-textarea {
+    --background: rgba(255, 255, 255, 0.05);
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --border-radius: 8px;
+    --color: var(--color-text-secondary);
+    margin-bottom: 16px;
+  }
+
+  ion-textarea {
+    --auto-grow: true;
+    --rows: 3;
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  // Personalizamos la barra de scroll para navegadores webkit (Chrome, Safari, etc.)
+  &::-webkit-scrollbar {
+    width: 8px;  // Ancho discreto para la barra
+    background-color: transparent;  // Fondo transparente
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);  // Color suave para la barra
+    border-radius: 4px;  // Bordes redondeados
+
+    // Efecto hover para mejor interactividad
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;  // Fondo transparente para el track
+  }
+
+  // Estilos para Firefox
+  scrollbar-width: thin;  // Barra delgada
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;  // Color de la barra y el track
+
+}
+
+.button-container {
+  margin: 24px 16px;
+
+  ion-button {
+    --border-radius: 25px;
+    height: 48px;
+    font-weight: 500;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &::part(native) {
+      border-radius: var(--border-radius);
+    }
+  }
+}

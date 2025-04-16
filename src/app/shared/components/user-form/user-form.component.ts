@@ -17,7 +17,9 @@ export class UserFormComponent  implements OnInit {
       this.formGroup.controls['name'].setValue(_user.name)
       this.formGroup.controls['surname'].setValue(_user.surname)
       this.formGroup.controls['email'].setValue(_user.email)
+      this.formGroup.controls['phoneNumber'].setValue(_user.phoneNumber)
       this.formGroup.controls['role'].setValue(_user.role)
+      this.formGroup.controls['registerDate'].setValue(_user.registerDate)
     }
   }
 
@@ -30,7 +32,9 @@ export class UserFormComponent  implements OnInit {
       name:['', [Validators.required, Validators.minLength(3)]],
       surname:['', [Validators.required, Validators.minLength(3)]],
       email:['', [Validators.required, Validators.maxLength(500)]],
+      phoneNumber:['', [Validators.maxLength(9)]],
       role:['', [Validators.required, Validators.maxLength(500)]],
+      registerDate:['', [Validators.required, Validators.maxLength(500)]]
     })
   }
 

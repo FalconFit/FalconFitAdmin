@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar color="primary">
     <ion-title>
-      {{('EXERCISE.EDIT_TITLE' | translate)}}
+      {{('USERLIST.PLACEHOLDERS.UPDATE' | translate)}}
     </ion-title>
     <!-- Botón de cierre para desktop -->
     <ion-buttons slot="start" *ngIf="!isMobile">
@@ -20,40 +20,59 @@
 
 <ion-content class="ion-padding custom-form-container">
   <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
-    <!-- Título -->
-    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.TITLE' | translate }}</ion-label>
+    <!-- Nombre -->
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.NAME' | translate }}</ion-label>
     <ion-input
       type="text"
       formControlName="name"
-      [placeholder]="'EXERCISE.PLACEHOLDERS.TITLE' | translate">
+      [placeholder]="'USERLIST.PLACEHOLDERS.NAME' | translate">
     </ion-input>
-    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('title')?.errors" field="TITLE" page="EXERCISE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('name')?.errors" field="NAME" page="USERLIST" color="danger">
     </ion-text>
 
-    <!-- Subtítulo -->
-    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.SUBTITLE' | translate }}</ion-label>
+    <!-- Apellido -->
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.SURNAME' | translate }}</ion-label>
     <ion-input
       type="text"
       formControlName="surname"
-      [placeholder]="'EXERCISE.PLACEHOLDERS.SUBTITLE' | translate">
+      [placeholder]="'USERLIST.PLACEHOLDERS.SURNAME' | translate">
     </ion-input>
-    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('subtitle')?.errors" field="SUBTITLE" page="EXERCISE" color="danger">
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('surname')?.errors" field="SURNAME" page="USERLIST" color="danger">
     </ion-text>
 
-    <!-- Descripción -->
-    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.DESCRIPTION' | translate }}</ion-label>
-    <ion-textarea
+    <!-- Correo -->
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.EMAIL' | translate }}</ion-label>
+    <ion-input
+      type="text"
       formControlName="email"
-      [placeholder]="'EXERCISE.PLACEHOLDERS.DESCRIPTION' | translate"
-      [autoGrow]="true"
-      [rows]="3">
-    </ion-textarea>
-    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('description')?.errors" field="DESCRIPTION" page="EXERCISE" color="danger">
+      [placeholder]="'USERLIST.PLACEHOLDERS.EMAIL' | translate">
+    </ion-input>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('email')?.errors" field="EMAIL" page="USERLIST" color="danger">
+    </ion-text>
+
+    <!-- Telefono -->
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.PHONENUMBER' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="phoneNumber"
+      [placeholder]="'USERLIST.PLACEHOLDERS.PHONENUMBER' | translate">
+    </ion-input>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('phoneNumber')?.errors" field="PHONENUMBER" page="USERLIST" color="danger">
     </ion-text>
 
     <!-- Selección de máquinas -->
-    <ion-label position="stacked" color="tertiary">{{ 'EXERCISE.MACHINE' | translate }}</ion-label>
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.ROLE' | translate }}</ion-label>
     <app-machine-selectable formControlName="role"></app-machine-selectable>
+
+    <!-- Fecha Registro -->
+    <ion-label position="stacked" color="tertiary">{{ 'USERLIST.REGISTERDATE' | translate }}</ion-label>
+    <ion-input
+      type="text"
+      formControlName="registerDate"
+      [placeholder]="'USERLIST.PLACEHOLDERS.REGISTERDATE' | translate">
+    </ion-input>
+    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get('registerDate')?.errors" field="REGISTERDATE" page="USERLIST" color="danger">
+    </ion-text>
 
     <!-- Botón de envío -->
     <div class="button-container">
@@ -62,7 +81,7 @@
         expand="full"
         type="submit"
         color="success">
-        {{('EXERCISE.BUTTONS.UPDATE' | translate)}}
+        {{('USERLIST.BUTTONS.UPDATE' | translate)}}
       </ion-button>
     </div>
   </form>

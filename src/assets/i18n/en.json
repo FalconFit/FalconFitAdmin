@@ -113,16 +113,25 @@
   },
 
   "USERLIST": {
-    "EDIT_TITLE": "Edit Place",
-    "NEW_TITLE": "New place",
-    "TITLE": "Title",
-    "DESCRIPTION": "Description",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "EMAIL": "Email",
+    "PHONENUMBER": "Phone number",
+    "ROLE": "Role",
+    "REGISTERDATE":"Register Date",
     "PLACEHOLDERS": {
-      "TITLE": "Enter a title",
-      "DESCRIPTION": "Enter a description"
+      "NAME": "Enter a name",
+      "SURNAME": "Enter a surname",
+      "EMAIL": "Enter a email",
+      "PHONENUMBER": "Enter a phone number",
+      "ROLE": "Choose role",
+      "UPDATE": "Update",
+      "REGISTERDATE":"Enter a date"
     },
     "ERRORS": {
-      "TITLE_REQUIRED": "Title is required.",
+      "NAME_REQUIRED": "Name is mandatory.",
+      "SURNAME_REQUIRED": "Surname is mandatory.",
+      "EMAIL_REQUIRED": "Email is mandatory.",
       "TITLE_MIN_LENGTH": "Title must be at least 3 characters.",
       "DESCRIPTION_REQUIRED": "Description is required.",
       "DESCRIPTION_MAX_LENGTH": "Description must not exceed 500 characters."

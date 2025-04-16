@@ -113,16 +113,25 @@
   },
 
   "USERLIST": {
-    "EDIT_TITLE": "Editar lugar",
-    "NEW_TITLE": "Nuevo lugar",
-    "TITLE": "Título",
-    "DESCRIPTION": "Descripción",
+    "NAME": "Nombre",
+    "SURNAME": "Apellidos",
+    "EMAIL": "Correo",
+    "PHONENUMBER": "Número teléfono",
+    "ROLE": "Rol",
+    "REGISTERDATE":"Fecha registro",
     "PLACEHOLDERS": {
-      "TITLE": "Introduce un título",
-      "DESCRIPTION": "Introduce una descripción"
+      "NAME": "Introduce un nombre",
+      "SURNAME": "Introduce un apellido",
+      "EMAIL": "Introduce un correo",
+      "PHONENUMBER": "Introduce un número de teléfono",
+      "ROLE": "Elige el rol",
+      "UPDATE": "Actualizar",
+      "REGISTERDATE":"Introduzca una fecha"
     },
     "ERRORS": {
-      "TITLE_REQUIRED": "El título es obligatorio.",
+      "NAME_REQUIRED": "El nombre es obligatorio.",
+      "SURNAME_REQUIRED": "El apellido es obligatorio.",
+      "EMAIL_REQUIRED": "El correo es obligatorio.",
       "TITLE_MIN_LENGTH": "El título debe tener al menos 3 caracteres.",
       "DESCRIPTION_REQUIRED": "La descripción es obligatoria.",
       "DESCRIPTION_MAX_LENGTH": "La descripción no debe superar los 500 caracteres."

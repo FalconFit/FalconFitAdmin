@@ -7,26 +7,34 @@
         <ion-card class="card" (click)="updateUserRole(user)">
           <!-- Contenedor principal para organizar horizontalmente -->
           <div class="card-horizontal-layout">
-            <!-- Bloque 1: Imagen (ahora a la izquierda) -->
+            <!-- Bloque 1: Imagen (a la izquierda) -->
             <div class="image-container">
               <img
                 [src]="user.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'"
                 alt="User Picture" />
             </div>
 
-            <!-- Bloque 2: Información (ahora a la derecha) -->
+            <!-- Bloque 2: Información (a la derecha, ahora en formato de 3 columnas) -->
             <ion-card-content class="info-block">
-              <h2 class="title">{{ user.surname || 'Sin apellido' }}</h2>
-              <p class="subtitle">{{ user.name }}</p>
+              <div class="info-grid">
+                <!-- Primera columna -->
+                <div class="info-column">
+                  <p class="title">{{ 'USERLIST.NAME' | translate }}: <span class="subtitle">{{ user.name }}</span></p>
+                  <p class="title">{{ 'USERLIST.SURNAME' | translate }}: <span class="subtitle">{{ user.surname }}</span></p>
+                </div>
 
-              <!-- Selector de rol -->
-              <ion-item class="role-selector">
-                <ion-label>Rol</ion-label>
-                <ion-select [(ngModel)]="user.role">
-                  <ion-select-option value="admin">Admin</ion-select-option>
-                  <ion-select-option value="user">User</ion-select-option>
-                </ion-select>
-              </ion-item>
+                <!-- Segunda columna -->
+                <div class="info-column">
+                  <p class="title">{{ 'USERLIST.EMAIL' | translate }}: <span class="subtitle">{{ user.email }}</span></p>
+                  <p class="title">{{ 'USERLIST.PHONENUMBER' | translate }}: <span class="subtitle">{{ user.phoneNumber }}</span></p>
+                </div>
+
+                <!-- Tercera columna -->
+                <div class="info-column">
+                  <p class="title">{{ 'USERLIST.ROLE' | translate }}: <span class="subtitle">{{ user.role }}</span></p>
+                  <p class="title">{{ 'USERLIST.REGISTERDATE' | translate }}: <span class="subtitle">{{ user.registerDate }}</span></p>
+                </div>
+              </div>
             </ion-card-content>
           </div>
         </ion-card>

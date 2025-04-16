@@ -12,7 +12,7 @@ ion-card {
   cursor: pointer;
 }
 
-/* Nuevo contenedor para organizar horizontalmente */
+/* Contenedor para organizar horizontalmente */
 .card-horizontal-layout {
   display: flex;
   flex-direction: row;
@@ -20,35 +20,48 @@ ion-card {
 }
 
 .image-container {
-  width: 30%; /* Ajusta este valor según lo grande que quieras el recuadro de la imagen */
-  min-width: 120px; /* Asegura un tamaño mínimo para la imagen */
-  max-width: 200px; /* Limita el tamaño máximo de la imagen */
+  width: 20%; /* Reducido para dar más espacio a la información */
+  min-width: 100px;
+  max-width: 180px;
   height: auto;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-right: 2px solid var(--highlight-color); /* Borde entre la imagen y el contenido */
+  border-right: 2px solid var(--highlight-color);
 }
 
 .image-container img {
   width: 100%;
   height: 100%;
-  min-height: 150px; /* Altura mínima de la imagen */
+  min-height: 150px;
   object-fit: cover;
   display: block;
 }
 
 .info-block {
-  text-align: left;
+  flex: 1;
   padding: 15px;
-  flex: 1; /* Toma el espacio restante */
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
+}
+
+/* Nueva cuadrícula de información para organizar en 3 columnas */
+.info-grid {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.info-column {
+  flex: 1;
+  min-width: 200px; /* Asegura que las columnas tengan un ancho mínimo */
+  padding: 0 10px;
 }
 
 .info-block .title {
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
   color: #F8F8F8;
   font-family: 'Playfair Display', serif;
@@ -59,24 +72,28 @@ ion-card {
   font-size: 1em;
   color: #C4C4C4;
   font-family: 'Lato', sans-serif;
-  margin: 5px 0;
 }
 
-/* Estilo para el selector de rol */
-.role-selector {
-  --background: transparent;
-  margin-top: 10px;
+/* Estilos responsivos */
+@media screen and (max-width: 992px) {
+  /* En tablets medianas, pasamos a 2 columnas */
+  .info-column {
+    flex: 0 0 50%;
+    margin-bottom: 10px;
+  }
 }
 
-ion-select {
-  --color: #F0F0F0;
-  max-width: 100%;
+@media screen and (max-width: 768px) {
+  /* En tablets pequeñas, ajustamos el tamaño */
+  .image-container {
+    width: 25%;
+  }
 }
 
-/* Estilos responsivos para pantallas pequeñas */
 @media screen and (max-width: 576px) {
+  /* En móviles, volvemos a la disposición vertical */
   .card-horizontal-layout {
-    flex-direction: column; /* En móviles, volvemos a la disposición vertical */
+    flex-direction: column;
   }
 
   .image-container {
@@ -88,5 +105,10 @@ ion-select {
 
   .image-container img {
     height: 180px;
+  }
+
+  /* En móviles, una columna */
+  .info-column {
+    flex: 0 0 100%;
   }
 }

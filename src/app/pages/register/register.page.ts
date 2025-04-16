@@ -7,6 +7,8 @@ import { passwordsMatchValidator, passwordValidator } from 'src/app/core/utils/v
 import { TranslationService } from 'src/app/core/services/translate.service';
 import { Userff } from 'src/app/core/models/userff.model';
 import { UserffService } from 'src/app/core/services/impl/userff.service';
+import { Timestamp } from 'firebase/firestore';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-register',
@@ -43,8 +45,11 @@ export class RegisterPage {
           // Le asignamos predeterminadamente el rol de user para que un administrador busque al usuario y lo haga admin
           // El id no lo puedo ignorar
           let user2: Userff = {
-            name: user.username,
+            name: this.name.value,
+            surname: this.surname.value,
+            email: this.email.value,
             uuid: user.id,
+            registerDate: formatDate(new Date(), 'dd/MM/yyyy', 'en'),
             role: 'user',
             id: ''
           }

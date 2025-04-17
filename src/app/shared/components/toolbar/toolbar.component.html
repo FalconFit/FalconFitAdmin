@@ -10,12 +10,12 @@
       </div>
 
       <!-- Contenedor derecho para avatar y usuario -->
-      <div class="user-content" *ngIf="(user$ | async) as user">
+      <div class="user-content" *ngIf="(userff$ | async) as user">
         <ion-avatar>
-          <img src="https://ionicframework.com/docs/img/demos/avatar.svg" alt="Avatar" />
+          <img [src]="user.picture?.url || 'https://ionicframework.com/docs/img/demos/avatar.svg'" alt="Avatar" />
         </ion-avatar>
         <ion-label class="username-label">
-          <h3>{{ user.username }}</h3>
+          <h3>{{ user.name }}</h3>
         </ion-label>
       </div>
     </div>

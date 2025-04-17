@@ -9,6 +9,7 @@ import { Userff } from 'src/app/core/models/userff.model';
 import { UserffService } from 'src/app/core/services/impl/userff.service';
 import { Timestamp } from 'firebase/firestore';
 import { formatDate } from '@angular/common';
+import { RoleManagerService } from 'src/app/core/services/role-manager.service';
 
 @Component({
   selector: 'app-register',
@@ -25,6 +26,7 @@ export class RegisterPage {
     private route:ActivatedRoute,
     private authSvc:BaseAuthenticationService,
     private userffSvc: UserffService,
+    private roleSvc: RoleManagerService,
     private translationService: TranslationService
   ) {
     this.registerForm = this.fb.group({
@@ -53,6 +55,7 @@ export class RegisterPage {
             role: 'user',
             id: ''
           }
+          this.roleSvc.setRole('user')
           this.userffSvc.add(user2)
 
           const returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/home';

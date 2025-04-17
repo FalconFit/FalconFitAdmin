@@ -17,6 +17,7 @@ import { ShowPasswordPipe } from '../pipes/show-password.pipe';
 import { CustomLabelDirective } from '../directives/custom-label.directive';
 import { RoleDirective } from '../directives/showOrNotRole.directive';
 import { UserFormComponent } from './user-form/user-form.component';
+import { RoleSelectableComponent } from './role-selectable/role-selectable.component';
 
 @NgModule({
     declarations: [
@@ -31,7 +32,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     UserFormComponent,
     ShowPasswordPipe,
     CustomLabelDirective,
-    RoleDirective
+    RoleDirective,
+    RoleSelectableComponent
   ],
   imports: [
     CommonModule,
@@ -52,7 +54,8 @@ import { UserFormComponent } from './user-form/user-form.component';
     UserFormComponent,
     ShowPasswordPipe,
     CustomLabelDirective,
-    RoleDirective
+    RoleDirective,
+    RoleSelectableComponent
   ]
 })
 export class SharedModule { }

@@ -112,7 +112,7 @@ export class UserListPage implements OnInit {
         const modal = await this.modalCtrl.create({
           component: UserFormComponent,
           componentProps: {
-            mode: "edit",
+            role: user.role,
             user: user,
             groups: await lastValueFrom(this.userSvc.getAll()),
           }

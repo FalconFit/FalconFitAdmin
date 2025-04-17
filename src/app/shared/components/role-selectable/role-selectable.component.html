@@ -1,0 +1,38 @@
+<div id="popover-button" #popoverButton class="user-selector">
+  <div class="selector-header">
+    <div class="selector-text">
+      <ion-text *ngIf="!role && !disabled" class="placeholder">
+        Seleccionar rol
+      </ion-text>
+      <ion-text *ngIf="!role && disabled" class="placeholder disabled">
+        Ninguno
+      </ion-text>
+      <ion-text *ngIf="role" class="selected-text">
+        {{role}}
+      </ion-text>
+    </div>
+    <ion-icon name="chevron-down-outline" color="medium" class="selector-icon"></ion-icon>
+  </div>
+
+  <ion-popover
+  class="user-popover"
+  [style]="{'--width': 'auto'}"
+  *ngIf="!disabled"
+  trigger="popover-button"
+  #popover>
+    <ng-template>
+      <ion-content class="popover-content">
+        <ion-list class="user-list">
+          <div class="scrollable-wrapper">
+            <ion-item button class="user-item" (click)="selectRole('admin', popover)">
+              <ion-text>Admin</ion-text>
+            </ion-item>
+            <ion-item button class="user-item" (click)="selectRole('user', popover)">
+              <ion-text>User</ion-text>
+            </ion-item>
+          </div>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-popover>
+</div>

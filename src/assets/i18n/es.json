@@ -154,8 +154,21 @@
     "USERLIST": "Usuarios"
   },
 
+  "PICTURE_SELECTABLE": {
+    "SELECT_PICTURE": "Selecciona una imagen",
+    "NONE": "Ninguna imagen seleccionada",
+    "CHANGE": "Elegir",
+    "DELETE": "Eliminar"
+  },
+
   "MACHINE_SELECTABLE": {
     "SELECT_MACHINE": "Seleccione una máquina",
+    "NONE": "Ninguna",
+    "SEARCH": "Buscar"
+  },
+
+  "ROLE_SELECTABLE": {
+    "SELECT_ROLE": "Seleccione un rol",
     "NONE": "Ninguna",
     "SEARCH": "Buscar"
   }

@@ -6,7 +6,6 @@
         <ng-template>
           <ion-header>
             <ion-toolbar>
-              <ion-title>View Picture</ion-title>
               <ion-buttons slot="end">
                 <ion-button color="danger" (click)="close()" fill="clear">
                   <ion-icon slot="icon-only" name="close-outline"></ion-icon>
@@ -24,11 +23,11 @@
         <div class="action-buttons">
           <ion-button color="primary" (click)="onChangePicture($event, fileLoader)" fill="solid">
             <ion-icon slot="start" name="image"></ion-icon>
-            Change
+            {{ 'PICTURE_SELECTABLE.CHANGE' | translate }}
           </ion-button>
           <ion-button color="danger" (click)="onDeletePicture($event)" fill="solid">
             <ion-icon slot="start" name="trash"></ion-icon>
-            Delete
+            {{ 'PICTURE_SELECTABLE.DELETE' | translate }}
           </ion-button>
         </div>
       </div>
@@ -36,9 +35,9 @@
     <ng-container *ngIf="!hasValue">
       <div class="empty-state">
         <ion-icon name="image" class="placeholder-icon"></ion-icon>
-        <p>No picture selected</p>
+        <p>{{ 'PICTURE_SELECTABLE.NONE' | translate }}</p>
         <ion-button color="primary" (click)="onChangePicture($event, fileLoader)">
-          Select Picture
+          {{ 'PICTURE_SELECTABLE.SELECT_PICTURE' | translate }}
         </ion-button>
       </div>
     </ng-container>

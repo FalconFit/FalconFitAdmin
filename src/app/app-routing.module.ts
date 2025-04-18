@@ -49,9 +49,11 @@ const routes: Routes = [
     path: 'user-list',
     canActivate: [authGuard],
     loadChildren: () => import('./pages/user-list/user-list.module').then( m => m.UserListPageModule)
+  },
+  {
+    path: 'barcode-scanner',
+    loadChildren: () => import('./pages/barcode-scanner/barcode-scanner.module').then( m => m.BarcodeScannerPageModule)
   }
-
-
 ];
 
 @NgModule({

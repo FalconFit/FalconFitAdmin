@@ -33,6 +33,7 @@
     "@ionic/angular": "^8.0.0",
     "@ngx-translate/core": "^16.0.3",
     "@ngx-translate/http-loader": "^16.0.0",
+    "@zxing/ngx-scanner": "^19.0.0",
     "firebase": "^11.1.0",
     "html5-qrcode": "^2.3.8",
     "ionicons": "^7.0.0",

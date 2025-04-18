@@ -9,6 +9,7 @@ import { BaseMediaService } from 'src/app/core/services/impl/base-media.service'
 import { MACHINE_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
 import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { Router } from '@angular/router';
+import { BarcodeScannerPage } from '../barcode-scanner/barcode-scanner.page';
 
 @Component({
   selector: 'app-machine',
@@ -238,4 +239,7 @@ export class MachinePage implements OnInit {
     this.router.navigate(['/machine', machineUrlParam]);
   }
 
+  navigateQrScanner(){
+    this.router.navigate(['/barcode-scanner'])
+  }
 }

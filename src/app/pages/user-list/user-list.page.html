@@ -1,9 +1,20 @@
 <app-toolbar [title]="'MENU.USERLIST' | translate"></app-toolbar>
 
 <ion-content [fullscreen]="true" class="content">
+
+  <div class="search-container">
+    <ion-searchbar
+      (ionChange)="searchUser($event)"
+      animated="true"
+      show-clear-button="always"
+      clear-icon="trash-bin"
+      [placeholder]="'USERLIST.PLACEHOLDERS.SEARCH' | translate">
+    </ion-searchbar>
+  </div>
+
   <ion-grid>
     <ion-row>
-      <ion-col size="12" *ngFor="let user of _users | async; let i=index">
+      <ion-col size="12" *ngFor="let user of searchedUsers | async; let i=index">
         <ion-card class="card" (click)="updateUserRole(user)">
           <!-- Contenedor principal para organizar horizontalmente -->
           <div class="card-horizontal-layout">

@@ -126,7 +126,8 @@
       "PHONENUMBER": "Introduce un número de teléfono",
       "ROLE": "Elige el rol",
       "UPDATE": "Actualizar",
-      "REGISTERDATE":"Introduzca una fecha"
+      "REGISTERDATE":"Introduzca una fecha",
+      "SEARCH": "Buscar"
     },
     "ERRORS": {
       "NAME_REQUIRED": "El nombre es obligatorio.",

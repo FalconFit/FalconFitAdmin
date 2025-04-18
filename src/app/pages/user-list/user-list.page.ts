@@ -1,7 +1,6 @@
-import { User } from 'src/app/core/models/auth.model';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, lastValueFrom, Observable } from 'rxjs';
+import { BehaviorSubject, lastValueFrom, Observable, filter } from 'rxjs';
 import { Paginated } from 'src/app/core/models/paginated.model';
 import { Userff } from 'src/app/core/models/userff.model';
 import { USERFF_COLLECTION_SUBSCRIPTION_TOKEN } from 'src/app/core/repositories/repository.tokens';
@@ -9,7 +8,6 @@ import { BaseMediaService } from 'src/app/core/services/impl/base-media.service'
 import { UserffService } from 'src/app/core/services/impl/userff.service';
 import { CollectionChange, ICollectionSubscription } from 'src/app/core/services/interfaces/collection-subscription.interface';
 import { UserFormComponent } from 'src/app/shared/components/user-form/user-form.component';
-import { Machine } from 'src/app/core/models/machine.model';
 import { ModalController } from '@ionic/angular';
 
 @Component({
@@ -23,6 +21,13 @@ export class UserListPage implements OnInit {
 
   private loadedIds: Set<string> = new Set();
 
+  // Cambiamos searchedUser a un BehaviorSubject
+  _searchedUsers: BehaviorSubject<Userff[]> = new BehaviorSubject<Userff[]>([]);
+  searchedUsers: Observable<Userff[]> = this._searchedUsers.asObservable();
+
+  // Añadimos un término de búsqueda
+  searchTerm: string = '';
+
   constructor(
     private userSvc: UserffService,
     private mediaService: BaseMediaService,
@@ -30,10 +35,15 @@ export class UserListPage implements OnInit {
     private router: Router,
     @Inject(USERFF_COLLECTION_SUBSCRIPTION_TOKEN)
     private userSubscription: ICollectionSubscription<Userff>
-  ) { }
+  ) {
+  }
 
   ngOnInit() {
     this.loadUsers()
+
+    this.users.subscribe(users => {
+      this._searchedUsers.next(users);
+    });
 
     this.userSubscription.subscribe('userffs').subscribe((change: CollectionChange<Userff>) =>{
       const currentUsers = [...this._users.value];
@@ -166,5 +176,27 @@ export class UserListPage implements OnInit {
         })
 
         await modal.present();
+  }
+
+  searchUser(event: any) {
+    // Obtengo la busqueda
+    this.searchTerm = event.detail.value ? event.detail.value.toLowerCase() : '';
+
+    this.users.subscribe(users => {
+      if (!this.searchTerm) {
+        // Si no hay busqueda muestro todos los usuarios
+        this._searchedUsers.next(users);
+      } else {
+        // Cojo los usuario que en su nombre apellido o email incluya la busqueda
+        const filteredUsers = users.filter(user => {
+          return (
+            user.name?.toLowerCase().includes(this.searchTerm) ||
+            user.surname?.toLowerCase().includes(this.searchTerm) ||
+            user.email?.toLowerCase().includes(this.searchTerm)
+          );
+        });
+        this._searchedUsers.next(filteredUsers);
+      }
+    });
   }
 }

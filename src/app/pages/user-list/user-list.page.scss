@@ -74,6 +74,60 @@ ion-card {
   font-family: 'Lato', sans-serif;
 }
 
+ion-searchbar {
+  --background: var(--card-color);
+  --color: #F8F8F8;
+  --placeholder-color: #C4C4C4;
+  --icon-color: var(--highlight-color);
+  --clear-button-color: var(--highlight-color);
+  --border-radius: 12px;
+  --box-shadow: none;
+  margin: 10px 16px;
+  --placeholder-font-family: 'Lato', sans-serif;
+  --placeholder-font-weight: 300;
+
+  /* Estos son los cambios clave para centrar la barra */
+  max-width: 800px; /* Ajusta este valor según lo ancho que quieras que sea */
+  margin: 10px auto; /* El "auto" en los lados izquierdo y derecho centra el elemento */
+  width: calc(100% - 32px); /* Esto asegura que tenga margen en ambos lados */
+
+  /* Efecto de borde que coincide con el estilo de las tarjetas */
+  border: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+/* Efecto hover para la barra de búsqueda */
+ion-searchbar:hover {
+  transform: translateY(-2px);
+  border-radius: 25%;
+  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+}
+
+/* Efecto cuando la barra está activa/enfocada */
+ion-searchbar.searchbar-has-focus {
+  border: 2px solid var(--highlight-color);
+  --background: rgba(40, 47, 53, 0.5); /* Un tono más oscuro cuando activo */
+}
+
+/* Estilos para los íconos dentro del searchbar */
+ion-searchbar .searchbar-search-icon,
+ion-searchbar .searchbar-clear-button {
+  color: var(--highlight-color);
+  font-size: 1.2rem;
+}
+
+/* Animación suave para el texto de búsqueda */
+ion-searchbar input {
+  transition: all 0.2s ease;
+  font-family: 'Lato', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+/* Efecto de desplazamiento para el texto al enfocar */
+ion-searchbar.searchbar-has-focus input {
+  transform: translateX(3px);
+}
+
 /* Estilos responsivos */
 @media screen and (max-width: 992px) {
   /* En tablets medianas, pasamos a 2 columnas */

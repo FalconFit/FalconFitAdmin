@@ -126,7 +126,8 @@
       "PHONENUMBER": "Enter a phone number",
       "ROLE": "Choose role",
       "UPDATE": "Update",
-      "REGISTERDATE":"Enter a date"
+      "REGISTERDATE":"Enter a date",
+      "SEARCH": "Search"
     },
     "ERRORS": {
       "NAME_REQUIRED": "Name is mandatory.",

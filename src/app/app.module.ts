@@ -21,7 +21,6 @@ import { PlaceService } from './core/services/impl/place.service';
 import { provideLottieOptions } from 'ngx-lottie';
 import player from 'lottie-web';
 import { ExerciseService } from './core/services/impl/exercise.service';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -39,7 +38,6 @@ export function createTranslateLoader(http: HttpClient) {
     HttpClientModule,
     SharedModule,
     GoogleMapsModule,
-    ZXingScannerModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

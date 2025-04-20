@@ -1,5 +1,27 @@
-:host zxing-scanner::ng-deep {
-  max-height: 70vh;
-  width: 100vw;
-  object-fit: contain;
+ion-button{
+  text-transform: none;
+}
+
+ion-textarea{
+  text-align: start;
+}
+
+#qrImage{
+  padding: 20px 0;
+}
+
+.qr-wrapper{
+  width: 230px;
+  min-height: 230px;
+  background: rgb(91, 73, 73);
+}
+
+.qr-placeholder{
+  width: 60px;
+}
+
+.d-flex-center{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

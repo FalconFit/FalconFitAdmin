@@ -1,33 +1,40 @@
-<div class="scanner-shell">
-  <!-- Mostrar el estado actual -->
-  <div class="status-message" *ngIf="!isScanning || !hasPermission">
-    <p>{{ statusMessage }}</p>
+<app-toolbar [title]="'MENU.EXERCISES'"></app-toolbar>
+
+<ion-content class="ion-padding ion-text-center">
+
+  <!-- Segemtos -->
+  <ion-segment [(ngModel)]="segment" mode="ios">
+
+    <ion-segment-button value="scan">
+      <ion-label>Scan QR</ion-label>
+    </ion-segment-button>
+
+    <ion-segment-button value="generate">
+      <ion-label>Generate QR</ion-label>
+    </ion-segment-button>
+
+  </ion-segment>
+
+  <!-- Escanear QR -->
+  <div *ngIf="segment === 'scan'">
+    segment is scan
   </div>
 
-  <!-- El escáner solo se muestra cuando está iniciado y con permisos -->
-  <div class="scanner-container" *ngIf="isInitialized">
-    <zxing-scanner
-      #scanner
-      [enable]="isScanning && hasPermission"
-      (scanSuccess)="handleQrResult($event)"
-      [formats]="allowedFormats">
-    </zxing-scanner>
+  <!-- Generar QR -->
+  <div class="segment" *ngIf="segment === 'generate'">
+    <div class="segment-content">
+
+      <div id="qrImage">
+
+        <div class="d-flex-center">
+          <div class="d-flex-center qr-wrapper">
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
-  <!-- Controles para el usuario -->
-  <div class="controls" *ngIf="isInitialized && hasPermission">
-    <button (click)="toggleScanner()">
-      {{ isScanning ? 'Pausar escáner' : 'Activar escáner' }}
-    </button>
-
-    <button *ngIf="qrResultString" (click)="resetScan()">
-      Nuevo escaneo
-    </button>
-  </div>
-
-  <!-- Resultados -->
-  <section class="results" *ngIf="qrResultString">
-    <small>Resultado:</small>
-    <strong>{{qrResultString}}</strong>
-  </section>
-</div>
+</ion-content>

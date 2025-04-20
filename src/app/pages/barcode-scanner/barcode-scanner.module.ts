@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { BarcodeScannerPageRoutingModule } from './barcode-scanner-routing.module';
 
 import { BarcodeScannerPage } from './barcode-scanner.page';
-import { ZXingScannerModule } from '@zxing/ngx-scanner';
 import { SharedModule } from 'src/app/shared/components/shared.module';
 
 @NgModule({
@@ -16,8 +15,7 @@ import { SharedModule } from 'src/app/shared/components/shared.module';
     FormsModule,
     IonicModule,
     BarcodeScannerPageRoutingModule,
-    SharedModule,
-    ZXingScannerModule
+    SharedModule
   ],
   declarations: [BarcodeScannerPage]
 })

@@ -30,7 +30,9 @@ export class BarcodeScannerPage implements OnInit, AfterViewInit, OnDestroy {
     BarcodeFormat.DATA_MATRIX
   ];
 
-  constructor() { }
+  constructor() {
+    this.scanner = new ZXingScannerComponent()
+  }
 
   ngOnInit() {
     // No intentamos acceder al scanner aquí

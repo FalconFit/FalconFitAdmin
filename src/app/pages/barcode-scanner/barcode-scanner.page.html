@@ -1,1 +1,33 @@
-<zxing-scanner (scanSuccess)="onCodeScanned($event)"></zxing-scanner>
+<div class="scanner-shell">
+  <!-- Mostrar el estado actual -->
+  <div class="status-message" *ngIf="!isScanning || !hasPermission">
+    <p>{{ statusMessage }}</p>
+  </div>
+
+  <!-- El escáner solo se muestra cuando está iniciado y con permisos -->
+  <div class="scanner-container" *ngIf="isInitialized">
+    <zxing-scanner
+      #scanner
+      [enable]="isScanning && hasPermission"
+      (scanSuccess)="handleQrResult($event)"
+      [formats]="allowedFormats">
+    </zxing-scanner>
+  </div>
+
+  <!-- Controles para el usuario -->
+  <div class="controls" *ngIf="isInitialized && hasPermission">
+    <button (click)="toggleScanner()">
+      {{ isScanning ? 'Pausar escáner' : 'Activar escáner' }}
+    </button>
+
+    <button *ngIf="qrResultString" (click)="resetScan()">
+      Nuevo escaneo
+    </button>
+  </div>
+
+  <!-- Resultados -->
+  <section class="results" *ngIf="qrResultString">
+    <small>Resultado:</small>
+    <strong>{{qrResultString}}</strong>
+  </section>
+</div>

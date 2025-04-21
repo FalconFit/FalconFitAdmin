@@ -2,22 +2,55 @@ import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular
 import html2canvas from 'html2canvas';
 import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
 import { Share } from '@capacitor/share';
-import { LoadingController, Platform } from '@ionic/angular';
+import { LoadingController, ModalController, Platform } from '@ionic/angular';
+import { BarcodeScanningModalComponent } from './barcode-scanning-modal.component';
+import { BarcodeScanner, LensFacing } from '@capacitor-mlkit/barcode-scanning';
 
 @Component({
   selector: 'app-barcode-scanner',
   templateUrl: './barcode-scanner.page.html',
   styleUrls: ['./barcode-scanner.page.scss'],
 })
-export class BarcodeScannerPage {
+export class BarcodeScannerPage implements OnInit {
 
-  segment = 'generate'; // Inicialmente esta comienza en generate
+  segment = 'scan';
   qrText = '' // El qr generará el valor de esta variable
+  scanResult = ''
 
   constructor(
     private loadingController: LoadingController,
-    private platform: Platform
+    private platform: Platform,
+    private modalCtrl: ModalController
   ){}
+
+  ngOnInit(): void {
+    if(this.platform.is('capacitor')){
+      BarcodeScanner.isSupported().then();
+      BarcodeScanner.checkPermissions().then();
+      BarcodeScanner.removeAllListeners();
+    }
+  }
+
+  async startScan() {
+    const modal = await this.modalCtrl.create({
+    component: BarcodeScanningModalComponent,
+    cssClass: 'barcode-scanning-modal',
+    showBackdrop: false,
+    componentProps: {
+      formats: [],
+      lensFacing: LensFacing.Back
+    }
+    });
+
+    await modal.present();
+
+    const { data } = await modal.onWillDismiss();
+
+    if(data){
+      this.scanResult = data?.barcode?.displayValue
+    }
+
+  }
 
   // Captura un elemento HTML, lo convierte a canvas y recoge una imagen
   captureScreen(){

@@ -9,6 +9,7 @@ import { BarcodeScannerPageRoutingModule } from './barcode-scanner-routing.modul
 import { BarcodeScannerPage } from './barcode-scanner.page';
 import { SharedModule } from 'src/app/shared/components/shared.module';
 import { QrCodeModule } from 'ng-qrcode';
+import { BarcodeScanningModalComponent } from './barcode-scanning-modal.component';
 
 @NgModule({
   imports: [
@@ -17,8 +18,8 @@ import { QrCodeModule } from 'ng-qrcode';
     IonicModule,
     BarcodeScannerPageRoutingModule,
     SharedModule,
-    QrCodeModule
+    QrCodeModule,
   ],
-  declarations: [BarcodeScannerPage]
+  declarations: [BarcodeScannerPage, BarcodeScanningModalComponent]
 })
 export class BarcodeScannerPageModule {}

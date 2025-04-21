@@ -80,3 +80,21 @@
   --color-text-primary: #F8F8F8;  // Bright white for primary text
   --color-text-secondary: #E0E0E0;  // Slightly dimmer for secondary text
 }
+
+body.barcode-scanning-active{
+  visibility: hidden;
+  --background: transparent;
+  --ion-background-color: transparent;
+}
+
+.barcode-scanning-modal{
+  visibility: visible;
+}
+
+@media(prefers-color-scheme: dark) {
+  .barcode-scanning-active{
+    visibility: hidden;
+    --background: transparent;
+    --ion-background-color: transparent;
+  }
+}

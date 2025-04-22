@@ -30,7 +30,7 @@
         </ion-button>
       </ion-col>
       <ion-col size="6">
-        <ion-button class="submit" expand="block">
+        <ion-button (click)="readBarcodeFromImage()" class="submit" expand="block">
           Seleccionar
           <ion-icon slot="end" name="image-outline"></ion-icon>
         </ion-button>
@@ -42,6 +42,11 @@
         <p>Scan result</p>
         <div>{{scanResult}}</div>
       </ion-label>
+      <ion-buttons slot="end">
+        <ion-button (click)="writeToClipboard()">
+          <ion-icon slot="icon-only" name="copy-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
     </ion-item>
 
   </div>

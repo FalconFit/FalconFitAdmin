@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild, AfterViewInit, OnDestroy } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import html2canvas from 'html2canvas';
-import { Filesystem, Directory, Encoding } from '@capacitor/filesystem';
+import { Filesystem, Directory } from '@capacitor/filesystem';
 import { Share } from '@capacitor/share';
-import { LoadingController, ModalController, Platform } from '@ionic/angular';
+import { LoadingController, ModalController, Platform, ToastController } from '@ionic/angular';
 import { BarcodeScanningModalComponent } from './barcode-scanning-modal.component';
 import { BarcodeScanner, LensFacing } from '@capacitor-mlkit/barcode-scanning';
+import { FilePicker } from '@capawesome/capacitor-file-picker';
+import { Clipboard } from '@capacitor/clipboard';
 
 @Component({
   selector: 'app-barcode-scanner',
@@ -20,7 +22,8 @@ export class BarcodeScannerPage implements OnInit {
   constructor(
     private loadingController: LoadingController,
     private platform: Platform,
-    private modalCtrl: ModalController
+    private modalCtrl: ModalController,
+    private toastCtrl: ToastController
   ){}
 
   ngOnInit(): void {
@@ -70,34 +73,69 @@ export class BarcodeScannerPage implements OnInit {
     link.click();
   }
 
-    // Comparte imagen (Solo movil)
-    async shareImage(canvas: HTMLCanvasElement){
-      let base64 =  canvas.toDataURL();
-      let path = 'qr.png';
+  // Comparte imagen (Solo movil)
+  async shareImage(canvas: HTMLCanvasElement){
+    let base64 =  canvas.toDataURL();
+    let path = 'qr.png';
 
 
-      const loading = await this.loadingController.create({
-        spinner: 'crescent'
-      });
+    const loading = await this.loadingController.create({
+      spinner: 'crescent'
+    });
 
-      await loading.present();
+    await loading.present();
 
-      await Filesystem.writeFile({
-        path: path,
-        data: base64,
-        directory: Directory.Cache,
-      }).then(async (res) => {
-        let uri = res.uri
+    await Filesystem.writeFile({
+      path: path,
+      data: base64,
+      directory: Directory.Cache,
+    }).then(async (res) => {
+      let uri = res.uri
 
-        await Share.share({url: uri});
-        await Filesystem.deleteFile({
-          path,
-          directory: Directory.Cache
-        })
-
-      }).finally(() =>{
-        loading.dismiss();
+      await Share.share({url: uri});
+      await Filesystem.deleteFile({
+        path,
+        directory: Directory.Cache
       })
 
+    }).finally(() =>{
+      loading.dismiss();
+    })
+
+  }
+
+  // Leer qr de una imagen y guardar el resultado en scanResult
+  async readBarcodeFromImage(){
+    const { files } = await FilePicker.pickImages();
+
+    const path = files[0]?.path
+
+    if(!path){
+      return
     }
+
+    const { barcodes } = await BarcodeScanner.readBarcodesFromImage({
+      path,
+      formats: []
+    })
+
+    this.scanResult = barcodes[0].displayValue;
+
+  }
+
+  // Copiar el san result al portapepeles
+  writeToClipboard = async () => {
+    await Clipboard.write({
+      string: this.scanResult
+    });
+
+    const toast = await this.toastCtrl.create({
+      message: 'Copiado a portapapeles',
+      duration: 1000,
+      color: 'tertiary',
+      icon: 'clipboard-outline',
+      position: 'middle'
+    });
+    toast.present();
+  };
 }

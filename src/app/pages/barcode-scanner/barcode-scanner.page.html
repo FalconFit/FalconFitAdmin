@@ -43,9 +43,17 @@
         <div>{{scanResult}}</div>
       </ion-label>
       <ion-buttons slot="end">
+
+        <!-- Boton para navegar -->
+        <ion-button *ngIf="isUrl()" (click)="openCapacitorSite()">
+          <ion-icon slot="icon-only" name="globe-outline"></ion-icon>
+        </ion-button>
+
+        <!-- Boton para copiar al portapapeles -->
         <ion-button (click)="writeToClipboard()">
           <ion-icon slot="icon-only" name="copy-outline"></ion-icon>
         </ion-button>
+
       </ion-buttons>
     </ion-item>
 

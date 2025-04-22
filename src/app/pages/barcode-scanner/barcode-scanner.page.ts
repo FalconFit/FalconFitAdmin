@@ -7,6 +7,7 @@ import { BarcodeScanningModalComponent } from './barcode-scanning-modal.componen
 import { BarcodeScanner, LensFacing } from '@capacitor-mlkit/barcode-scanning';
 import { FilePicker } from '@capawesome/capacitor-file-picker';
 import { Clipboard } from '@capacitor/clipboard';
+import { Browser } from '@capacitor/browser';
 
 @Component({
   selector: 'app-barcode-scanner',
@@ -17,13 +18,13 @@ export class BarcodeScannerPage implements OnInit {
 
   segment = 'scan';
   qrText = '' // El qr generará el valor de esta variable
-  scanResult = ''
+  scanResult = 'https://falconfit.netlify.app/machine/peck-deck'
 
   constructor(
     private loadingController: LoadingController,
     private platform: Platform,
     private modalCtrl: ModalController,
-    private toastCtrl: ToastController
+    private toastCtrl: ToastController,
   ){}
 
   ngOnInit(): void {
@@ -137,5 +138,32 @@ export class BarcodeScannerPage implements OnInit {
       position: 'middle'
     });
     toast.present();
+  };
+
+  // Chequea si el resultado del escaneo es una url
+  isUrl(){
+    try {
+      if (this.scanResult.startsWith('http://') || this.scanResult.startsWith('https://')) {
+        return true;
+      }
+
+      let domainRegex = /^[a-zA-Z0-9][a-zA-Z0-9-]{1,61}[a-zA-Z0-9]\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?/;
+      if (domainRegex.test(this.scanResult)) {
+        return true;
+      }
+
+      return false;
+    } catch {
+      return false;
+    }
+  }
+
+  // Abrir navegador
+  openCapacitorSite = async () => {
+    let url = this.scanResult
+
+    if(!['https://'].includes(this.scanResult)) url = 'https://' + this.scanResult
+
+    await Browser.open({ url: url });
   };
 }

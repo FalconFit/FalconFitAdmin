@@ -18,7 +18,7 @@ export class BarcodeScannerPage implements OnInit {
 
   segment = 'scan';
   qrText = '' // El qr generará el valor de esta variable
-  scanResult = 'https://falconfit.netlify.app/machine/peck-deck'
+  scanResult = ''
 
   constructor(
     private loadingController: LoadingController,

@@ -1,56 +1,138 @@
-<ion-content class="login-page">
+<ion-content fullscreen class="relative flex items-center justify-center p-4 bg-gradient-to-br from-purple-800 via-pink-600 to-orange-500 overflow-hidden">
 
-  <!-- Language Selector -->
-  <div class="language-selector">
-    <ion-select interface="popover" placeholder="🌐 {{ 'LANGUAGE' | translate }}" (ionChange)="changeLanguage($event.detail.value)">
-      <ion-select-option value="en">English</ion-select-option>
-      <ion-select-option value="es">Español</ion-select-option>
-    </ion-select>
+  <!-- Fondo decorativo extra (opcional) -->
+  <div class="absolute inset-0 -z-10">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
   </div>
 
-  <div class="login-container">
-    <ion-text color="light" class="title">
-      <h1>{{ 'LOGIN.TITLE' | translate }}</h1>
-    </ion-text>
-    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <!-- Email Input -->
-      <ion-item>
-        <ion-label position="floating">{{ 'LOGIN.EMAIL' | translate }}</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
+  <!-- Tarjeta principal -->
+  <div class="w-full max-w-lg mx-auto">
+    <div class="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-8 space-y-6">
 
-      <!-- Password Input -->
-      <ion-item>
-        <ion-label position="floating">{{ 'LOGIN.PASSWORD' | translate }}</ion-label>
-        <ion-input [type]="showPasswordFirst ? 'text' : 'password'" formControlName="password"></ion-input>
-        <!-- Botón del ojo -->
-        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilityFirst()">
-          <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+      <!-- Selector de idioma -->
+      <div class="absolute top-6 left-6 z-10">
+        <ion-select
+          interface="popover"
+          placeholder="🌐 {{ 'LANGUAGE' | translate }}"
+          (ionChange)="changeLanguage($event.detail.value)"
+          class="text-amber-400 bg-transparent border border-amber-400/30 rounded-lg px-3 py-2 backdrop-blur-sm hover:border-amber-400/60 transition-all duration-300">
+          <ion-select-option value="en">English</ion-select-option>
+          <ion-select-option value="es">Español</ion-select-option>
+        </ion-select>
+      </div>
+
+      <!-- Cabecera -->
+      <div class="text-center space-y-2">
+        <div class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-amber-400 to-yellow-500 rounded-full mb-4 shadow-lg">
+          <ion-icon name="person-outline" class="text-2xl text-slate-900"></ion-icon>
+        </div>
+        <h1 class="text-3xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
+          {{ 'LOGIN.TITLE' | translate }}
+        </h1>
+        <p class="text-slate-400 text-sm">Bienvenido de vuelta</p>
+      </div>
+
+      <!-- Formulario -->
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+        <!-- Email -->
+        <div class="space-y-1">
+          <ion-item class="relative bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 p-0">
+            <!-- Icono -->
+            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400">
+              <ion-icon name="mail-outline" class="text-lg"></ion-icon>
+            </div>
+            <!-- Label flotante -->
+            <ion-label
+              position="floating"
+              class="ml-12 text-slate-300 transition-colors duration-300 group-focus-within:text-amber-400"
+            >
+              {{ 'LOGIN.EMAIL' | translate }}
+            </ion-label>
+            <!-- Input -->
+            <ion-input
+              type="email"
+              formControlName="email"
+              class="ml-12 pr-4 py-4 text-slate-100 placeholder:text-slate-500"
+            ></ion-input>
+          </ion-item>
+          <ion-text
+            *ngIf="loginForm.touched && loginForm.get('email')?.errors"
+            customLabel
+            [errors]="loginForm.get('email')?.errors"
+            field="EMAIL"
+            page="LOGIN"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="space-y-1">
+          <ion-item class="relative bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 p-0">
+            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400">
+              <ion-icon name="lock-closed-outline" class="text-lg"></ion-icon>
+            </div>
+            <ion-label
+              position="floating"
+              class="ml-12 text-slate-300 transition-colors duration-300 group-focus-within:text-amber-400"
+            >
+              {{ 'LOGIN.PASSWORD' | translate }}
+            </ion-label>
+            <ion-input
+              [type]="showPasswordFirst ? 'text' : 'password'"
+              formControlName="password"
+              class="ml-12 pr-10 py-4 text-slate-100 placeholder:text-slate-500"
+            ></ion-input>
+            <ion-button
+              fill="clear"
+              slot="end"
+              (click)="togglePasswordVisibilityFirst()"
+              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-amber-400 transition-colors duration-300 p-0"
+            >
+              <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'" class="text-lg"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-text
+            *ngIf="loginForm.touched && loginForm.get('password')?.errors"
+            customLabel
+            [errors]="loginForm.get('password')?.errors"
+            field="PASSWORD"
+            page="LOGIN"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Botón Iniciar -->
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="loginForm.invalid"
+          class="h-12 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-900 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 disabled:shadow-none"
+        >
+          <span class="flex items-center justify-center space-x-2">
+            <span>{{ 'LOGIN.SUBMIT' | translate }}</span>
+            <ion-icon name="arrow-forward-outline" class="text-sm"></ion-icon>
+          </span>
         </ion-button>
-      </ion-item>
 
+        <!-- Registro -->
+        <div class="text-center pt-4 border-t border-slate-700/50">
+          <div class="flex items-center justify-center space-x-2 text-sm">
+            <span class="text-slate-400">{{ 'LOGIN.NO_ACCOUNT' | translate }}</span>
+            <ion-button
+              (click)="onRegister()"
+              fill="clear"
+              class="text-amber-400 hover:text-amber-300 transition-colors duration-300 font-medium underline-offset-4 hover:underline p-0 h-auto bg-transparent shadow-none"
+            >
+              {{ 'LOGIN.REGISTER' | translate }}
+            </ion-button>
+          </div>
+        </div>
 
-      <!-- Error Messages -->
-      <ion-text class="input-error" customLabel *ngIf="loginForm.touched" [errors]="loginForm.get('email')?.errors" field="EMAIL" page="LOGIN" color="danger">
-      </ion-text>
-      <p></p>
-      <ion-text class="input-error" customLabel *ngIf="loginForm.touched" [errors]="loginForm.get('password')?.errors" field="PASSWORD" page="LOGIN" color="danger">
-      </ion-text>
-
-      <!-- Register Button -->
-      <ion-grid>
-        <ion-row>
-          <ion-col style="display: flex" class="ion-justify-content-center ion-align-items-center">
-            <span class="secondary-text">{{ 'LOGIN.NO_ACCOUNT' | translate }}</span>
-            <ion-button style="text-transform: none" (click)="onRegister()" fill="clear" color="secondary">{{ 'LOGIN.REGISTER' | translate }}</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <!-- Login Button -->
-      <ion-button expand="block" color="primary" type="submit" [disabled]="loginForm.invalid">
-        {{ 'LOGIN.SUBMIT' | translate }}
-      </ion-button>
-    </form>
+      </form>
+    </div>
   </div>
 </ion-content>

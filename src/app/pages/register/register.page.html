@@ -1,92 +1,194 @@
-<ion-content class="register-page">
+<ion-content
+  class="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-black via-blue-900 to-yellow-600/10 overflow-hidden"
+  scroll-y="false"
+  style="--background: transparent;"
+>
 
-  <!-- Language Selector -->
-  <div class="language-selector">
-    <ion-select interface="popover" placeholder="🌐 {{ 'LANGUAGE' | translate }}" (ionChange)="changeLanguage($event.detail.value)">
-      <ion-select-option value="en">English</ion-select-option>
-      <ion-select-option value="es">Español</ion-select-option>
-    </ion-select>
+  <!-- Fondos decorativos -->
+  <div class="absolute inset-0 -z-10">
+    <!-- Resplandor negro suave -->
+    <div class="absolute -top-48 -left-48 w-96 h-96 bg-black/20 rounded-full blur-3xl"></div>
+    <!-- Resplandor azul tenue -->
+    <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-blue-800/20 rounded-full blur-3xl"></div>
+    <!-- Toque amarillo casi imperceptible -->
+    <div class="absolute top-1/2 -right-32 w-64 h-64 bg-yellow-600/5 rounded-full blur-2xl"></div>
   </div>
 
-  <div class="register-container">
-    <ion-text color="light" class="title">
-      <h1>{{ 'REGISTER.TITLE' | translate }}</h1>
-    </ion-text>
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <!-- Wrapper flex para centrar el card -->
+  <div class="flex items-center justify-center w-full h-full px-4">
 
-      <!-- Nombre -->
-      <ion-item>
-        <ion-label position="floating">{{ 'REGISTER.NAME' | translate }}</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
-      </ion-item>
-      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('name')?.errors" field="NAME" page="REGISTER" color="danger">
-      </ion-text>
+    <!-- Tarjeta principal -->
+    <div class="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-8 space-y-6 max-w-lg w-full">
 
-      <!-- Apellidos -->
-      <ion-item>
-        <ion-label position="floating">{{ 'REGISTER.SURNAME' | translate }}</ion-label>
-        <ion-input type="text" formControlName="surname"></ion-input>
-      </ion-item>
-      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('surname')?.errors" field="SURNAME" page="REGISTER" color="danger">
-      </ion-text>
+      <!-- Selector de idioma -->
+      <div class="absolute top-6 left-6 z-10">
+        <ion-select
+          interface="popover"
+          placeholder="🌐 {{ 'LANGUAGE' | translate }}"
+          (ionChange)="changeLanguage($event.detail.value)"
+          class="text-amber-400 bg-transparent border border-amber-400/30 rounded-lg px-3 py-2 backdrop-blur-sm hover:border-amber-400/60 transition-all duration-300"
+        >
+          <ion-select-option value="en">English</ion-select-option>
+          <ion-select-option value="es">Español</ion-select-option>
+        </ion-select>
+      </div>
 
-      <!-- Email -->
-      <ion-item>
-        <ion-label position="floating">{{ 'REGISTER.EMAIL' | translate }}</ion-label>
-        <ion-input type="email" formControlName="email"></ion-input>
-      </ion-item>
-      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('email')?.errors" field="EMAIL" page="REGISTER" color="danger">
-      </ion-text>
+      <!-- Cabecera Register -->
+      <div class="text-center space-y-2">
 
-      <!-- Contraseña -->
-      <ion-item>
-        <ion-label position="floating">{{ 'REGISTER.PASSWORD' | translate }}</ion-label>
-        <ion-input
-          [type]="showPasswordFirst ? 'text' : 'password'"
-          formControlName="password">
-        </ion-input>
-        <!-- Botón del ojo -->
-        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilityFirst()">
-          <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
+        <h1 class="text-3xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent">
+          {{ 'REGISTER.TITLE' | translate }}
+        </h1>
+        <p class="text-slate-400 text-sm">¡Únete a nuestra plataforma!</p>
+      </div>
+
+      <!-- Formulario de Registro -->
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="space-y-6">
+
+        <!-- Nombre -->
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20">
+            <ion-icon name="person-outline" slot="start" class="text-amber-400 text-lg self-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
+              {{ 'REGISTER.NAME' | translate }}
+            </ion-label>
+            <ion-input type="text" formControlName="name" class="text-slate-100 placeholder:text-slate-500"></ion-input>
+          </ion-item>
+          <ion-text
+            *ngIf="registerForm.touched && registerForm.get('name')?.errors"
+            customLabel
+            [errors]="registerForm.get('name')?.errors"
+            field="NAME"
+            page="REGISTER"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Apellidos -->
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20">
+            <ion-icon name="reader-outline" slot="start" class="text-amber-400 text-lg self-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
+              {{ 'REGISTER.SURNAME' | translate }}
+            </ion-label>
+            <ion-input type="text" formControlName="surname" class="text-slate-100 placeholder:text-slate-500"></ion-input>
+          </ion-item>
+          <ion-text
+            *ngIf="registerForm.touched && registerForm.get('surname')?.errors"
+            customLabel
+            [errors]="registerForm.get('surname')?.errors"
+            field="SURNAME"
+            page="REGISTER"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Email -->
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20">
+            <ion-icon name="mail-outline" slot="start" class="text-amber-400 text-lg self-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
+              {{ 'REGISTER.EMAIL' | translate }}
+            </ion-label>
+            <ion-input type="email" formControlName="email" class="text-slate-100 placeholder:text-slate-500"></ion-input>
+          </ion-item>
+          <ion-text
+            *ngIf="registerForm.touched && registerForm.get('email')?.errors"
+            customLabel
+            [errors]="registerForm.get('email')?.errors"
+            field="EMAIL"
+            page="REGISTER"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Contraseña -->
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 items-center">
+            <ion-icon name="lock-closed-outline" slot="start" class="text-amber-400 text-lg flex items-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
+              {{ 'REGISTER.PASSWORD' | translate }}
+            </ion-label>
+            <ion-input
+              [type]="showPasswordFirst ? 'text' : 'password'"
+              formControlName="password"
+              class="text-slate-100 placeholder:text-slate-500"
+            ></ion-input>
+            <ion-button fill="clear" slot="end" type="button" (click)="togglePasswordVisibilityFirst()" class="text-slate-400 hover:text-amber-400 transition-colors duration-300 min-w-0">
+              <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'" class="text-lg"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-text
+            *ngIf="registerForm.touched && registerForm.get('password')?.errors"
+            customLabel
+            [errors]="registerForm.get('password')?.errors"
+            field="PASSWORD"
+            page="REGISTER"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Confirmar Contraseña -->
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 items-center">
+            <ion-icon name="lock-open-outline" slot="start" class="text-amber-400 text-lg flex items-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
+              {{ 'REGISTER.CONFIRM_PASSWORD' | translate }}
+            </ion-label>
+            <ion-input
+              [type]="showPasswordSecond ? 'text' : 'password'"
+              formControlName="confirmPassword"
+              class="text-slate-100 placeholder:text-slate-500"
+            ></ion-input>
+            <ion-button fill="clear" slot="end" type="button" (click)="togglePasswordVisibilitySecond()" class="text-slate-400 hover:text-amber-400 transition-colors duration-300 min-w-0">
+              <ion-icon [name]="showPasswordSecond ? 'eye-off-outline' : 'eye-outline'" class="text-lg"></ion-icon>
+            </ion-button>
+          </ion-item>
+          <ion-text
+            *ngIf="registerForm.touched && registerForm.get('confirmPassword')?.errors"
+            customLabel
+            [errors]="registerForm.get('confirmPassword')?.errors"
+            field="PASSWORD"
+            page="REGISTER"
+            color="danger"
+            class="block text-xs text-red-400 ml-4"
+          ></ion-text>
+        </div>
+
+        <!-- Error de contraseñas no coinciden -->
+        <ion-text color="danger" *ngIf="registerForm.errors?.['passwordsMismatch']" class="block text-xs text-red-400 text-center">
+          {{ 'REGISTER.ERRORS.PASSWORDS_MISMATCH' | translate }}
+        </ion-text>
+
+        <!-- Link a Login -->
+        <div class="text-center pt-4 border-t border-slate-700/50">
+          <div class="flex items-center justify-center space-x-2 text-sm">
+            <span class="text-slate-400">{{ 'REGISTER.NO_ACCOUNT' | translate }}</span>
+            <ion-button
+              (click)="onLogin()"
+              fill="clear"
+              class="text-amber-400 hover:text-amber-300 transition-colors duration-300 font-medium underline-offset-4 hover:underline p-0 h-auto bg-transparent shadow-none"
+            >
+              {{ 'REGISTER.LOGIN' | translate }}
+            </ion-button>
+          </div>
+        </div>
+
+        <!-- Botón Crear Cuenta -->
+        <ion-button
+          expand="block"
+          type="submit"
+          [disabled]="registerForm.invalid"
+          class="h-12 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 disabled:shadow-none"
+        >
+          {{ 'REGISTER.SUBMIT' | translate }}
         </ion-button>
-      </ion-item>
-      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('password')?.errors" field="PASSWORD" page="REGISTER" color="danger">
-      </ion-text>
 
-      <!-- Confirmar Contraseña -->
-      <ion-item>
-        <ion-label position="floating">{{ 'REGISTER.CONFIRM_PASSWORD' | translate }}</ion-label>
-        <ion-input
-          [type]="showPasswordSecond ? 'text' : 'password'"
-          formControlName="confirmPassword">
-        </ion-input>
-        <!-- Botón del ojo -->
-        <ion-button fill="clear" class="password-toggle" slot="end" (click)="togglePasswordVisibilitySecond()">
-          <ion-icon [name]="showPasswordSecond ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
-        </ion-button>
-      </ion-item>
-      <ion-text class="input-error" *ngIf="registerForm.touched" customLabel [errors]="registerForm.get('confirmPassword')?.errors" field="PASSWORD" page="REGISTER" color="danger">
-      </ion-text>
-
-      <!-- Error de contraseñas no coinciden -->
-      <ion-text class="input-error" color="danger" *ngIf="registerForm.errors?.['passwordsMismatch']">
-        <p>{{ 'REGISTER.ERRORS.PASSWORDS_MISMATCH' | translate }}</p>
-      </ion-text>
-
-      <!-- Login Link -->
-      <ion-grid>
-        <ion-row>
-          <ion-col style="display: flex" class="ion-justify-content-center ion-align-items-center">
-            <span class="secondary-text">{{ 'REGISTER.NO_ACCOUNT' | translate }}</span>
-            <ion-button style="text-transform: none" (click)="onLogin()" fill="clear" color="secondary">{{ 'REGISTER.LOGIN' | translate }}</ion-button>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-
-      <!-- Botón Crear Cuenta -->
-      <ion-button expand="block" color="primary" type="submit" [disabled]="registerForm.invalid">
-        {{ 'REGISTER.SUBMIT' | translate }}
-      </ion-button>
-    </form>
+      </form>
+    </div>
   </div>
 </ion-content>

@@ -4,6 +4,7 @@ import { Observable, switchMap, of } from 'rxjs';
 import { User } from 'src/app/core/models/auth.model';
 import { UserffService } from '../../../core/services/impl/userff.service';
 import { Userff } from 'src/app/core/models/userff.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-toolbar',
@@ -17,7 +18,8 @@ export class ToolbarComponent implements OnInit {
 
   constructor(
     private authSvc: BaseAuthenticationService,
-    private userSvc: UserffService
+    private userSvc: UserffService,
+    private router: Router,
   ) {
     this.user$ = this.authSvc.user$;
   }
@@ -32,5 +34,9 @@ export class ToolbarComponent implements OnInit {
         return of(null); // Si no hay usuario, retornamos null
       })
     );
+  }
+
+  navigateQrScanner(){
+    this.router.navigate(['/barcode-scanner'])
   }
 }

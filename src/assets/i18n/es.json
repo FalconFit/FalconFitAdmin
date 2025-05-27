@@ -4,6 +4,7 @@
   "ABOUTME":"Proyecto realizado por Miguel Falcón para el 1º trimestre. Estudiante de 2ºDAM, sigueme en mis redes sociales para ver mi progreso",
   "LOGIN": {
     "TITLE": "Iniciar sesión",
+    "WELCOME": "Bienvenido de vuelta",
     "EMAIL": "Correo electrónico",
     "PASSWORD": "Contraseña",
     "ERRORS": {
@@ -18,6 +19,7 @@
 
   "REGISTER": {
     "TITLE": "Crear cuenta",
+    "JOIN": "¡Únete a nuestra plataforma!",
     "NAME": "Nombre",
     "SURNAME": "Apellidos",
     "EMAIL": "Correo electrónico",

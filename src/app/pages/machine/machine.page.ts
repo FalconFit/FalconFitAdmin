@@ -239,7 +239,4 @@ export class MachinePage implements OnInit {
     this.router.navigate(['/machine', machineUrlParam]);
   }
 
-  navigateQrScanner(){
-    this.router.navigate(['/barcode-scanner'])
-  }
 }

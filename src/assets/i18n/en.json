@@ -4,6 +4,7 @@
   "ABOUTME":"Project done by Miguel Falcón for the 1º quarter. 2ºDAM student, leave a follow in my social media to see my progress",
   "LOGIN": {
     "TITLE": "Login",
+    "WELCOME": "Welcome back",
     "EMAIL": "Email",
     "PASSWORD": "Password",
     "ERRORS": {
@@ -18,6 +19,7 @@
 
   "REGISTER": {
     "TITLE": "Create Account",
+    "JOIN": "Join to our platform!",
     "NAME": "First Name",
     "SURNAME": "Last Name",
     "EMAIL": "Email",

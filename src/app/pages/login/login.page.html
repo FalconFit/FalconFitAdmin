@@ -1,14 +1,20 @@
-<ion-content fullscreen class="relative flex items-center justify-center p-4 bg-gradient-to-br from-purple-800 via-pink-600 to-orange-500 overflow-hidden">
+<ion-content
+  class="h-screen w-screen flex items-center justify-center bg-gradient-to-br from-indigo-900 via-purple-800 to-blue-600 overflow-hidden"
+  scroll-y="false"
+  style="--background: transparent;"
+>
 
-  <!-- Fondo decorativo extra (opcional) -->
+  <!-- Fondos decorativos -->
   <div class="absolute inset-0 -z-10">
-    <div class="absolute -top-24 -left-24 w-96 h-96 bg-amber-400/20 rounded-full blur-3xl"></div>
-    <div class="absolute -bottom-24 -right-24 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl"></div>
+    <div class="absolute -top-48 -left-48 w-96 h-96 bg-blue-300/20 rounded-full blur-3xl"></div>
+    <div class="absolute -bottom-48 -right-48 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
   </div>
 
-  <!-- Tarjeta principal -->
-  <div class="w-full max-w-lg mx-auto">
-    <div class="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-8 space-y-6">
+  <!-- Wrapper flex para centrar el card -->
+  <div class="flex items-center justify-center w-full h-full px-4">
+
+    <!-- Tarjeta principal -->
+    <div class="relative bg-slate-900/60 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl p-8 space-y-6 max-w-lg w-full">
 
       <!-- Selector de idioma -->
       <div class="absolute top-6 left-6 z-10">
@@ -16,7 +22,8 @@
           interface="popover"
           placeholder="🌐 {{ 'LANGUAGE' | translate }}"
           (ionChange)="changeLanguage($event.detail.value)"
-          class="text-amber-400 bg-transparent border border-amber-400/30 rounded-lg px-3 py-2 backdrop-blur-sm hover:border-amber-400/60 transition-all duration-300">
+          class="text-amber-400 bg-transparent border border-amber-400/30 rounded-lg px-3 py-2 backdrop-blur-sm hover:border-amber-400/60 transition-all duration-300"
+        >
           <ion-select-option value="en">English</ion-select-option>
           <ion-select-option value="es">Español</ion-select-option>
         </ion-select>
@@ -37,24 +44,16 @@
       <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="space-y-6">
 
         <!-- Email -->
-        <div class="space-y-1">
-          <ion-item class="relative bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 p-0">
-            <!-- Icono -->
-            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400">
-              <ion-icon name="mail-outline" class="text-lg"></ion-icon>
-            </div>
-            <!-- Label flotante -->
-            <ion-label
-              position="floating"
-              class="ml-12 text-slate-300 transition-colors duration-300 group-focus-within:text-amber-400"
-            >
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 items-center">
+            <ion-icon name="mail-outline" slot="start" class="text-amber-400 text-lg flex items-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
               {{ 'LOGIN.EMAIL' | translate }}
             </ion-label>
-            <!-- Input -->
             <ion-input
               type="email"
               formControlName="email"
-              class="ml-12 pr-4 py-4 text-slate-100 placeholder:text-slate-500"
+              class="text-slate-100 placeholder:text-slate-500"
             ></ion-input>
           </ion-item>
           <ion-text
@@ -69,27 +68,23 @@
         </div>
 
         <!-- Contraseña -->
-        <div class="space-y-1">
-          <ion-item class="relative bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 p-0">
-            <div class="absolute left-4 top-1/2 -translate-y-1/2 text-amber-400">
-              <ion-icon name="lock-closed-outline" class="text-lg"></ion-icon>
-            </div>
-            <ion-label
-              position="floating"
-              class="ml-12 text-slate-300 transition-colors duration-300 group-focus-within:text-amber-400"
-            >
+        <div class="space-y-1 relative">
+          <ion-item class="bg-slate-800/30 rounded-xl border border-slate-600/50 transition-all duration-300 hover:border-amber-400/50 focus-within:border-amber-400 focus-within:shadow-lg focus-within:shadow-amber-400/20 items-center">
+            <ion-icon name="lock-closed-outline" slot="start" class="text-amber-400 text-lg flex items-center"></ion-icon>
+            <ion-label position="floating" class="text-slate-300 transition-colors duration-300">
               {{ 'LOGIN.PASSWORD' | translate }}
             </ion-label>
             <ion-input
               [type]="showPasswordFirst ? 'text' : 'password'"
               formControlName="password"
-              class="ml-12 pr-10 py-4 text-slate-100 placeholder:text-slate-500"
+              class="text-slate-100 placeholder:text-slate-500"
             ></ion-input>
             <ion-button
               fill="clear"
               slot="end"
+              type="button"
               (click)="togglePasswordVisibilityFirst()"
-              class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-amber-400 transition-colors duration-300 p-0"
+              class="text-slate-400 hover:text-amber-400 transition-colors duration-300 min-w-0 w-auto h-auto flex items-center justify-center --ripple-color: transparent"
             >
               <ion-icon [name]="showPasswordFirst ? 'eye-off-outline' : 'eye-outline'" class="text-lg"></ion-icon>
             </ion-button>
@@ -105,12 +100,12 @@
           ></ion-text>
         </div>
 
-        <!-- Botón Iniciar -->
+        <!-- Botón Iniciar sesión -->
         <ion-button
           expand="block"
           type="submit"
           [disabled]="loginForm.invalid"
-          class="h-12 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-slate-900 font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 disabled:shadow-none"
+          class="h-12 rounded-xl bg-gradient-to-r from-emerald-500 to-teal-400 hover:from-emerald-600 hover:to-teal-500 text-white font-semibold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:from-slate-600 disabled:to-slate-700 disabled:text-slate-400 disabled:shadow-none"
         >
           <span class="flex items-center justify-center space-x-2">
             <span>{{ 'LOGIN.SUBMIT' | translate }}</span>

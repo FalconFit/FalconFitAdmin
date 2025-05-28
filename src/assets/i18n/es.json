@@ -154,7 +154,8 @@
     "LANGUAGE": "Idioma",
     "ABOUT": "Sobre mi",
     "PROFILE": "Perfil",
-    "USERLIST": "Usuarios"
+    "USERLIST": "Usuarios",
+    "SCANNER": "Escaner QR"
   },
 
   "PICTURE_SELECTABLE": {
@@ -174,5 +175,15 @@
     "SELECT_ROLE": "Seleccione un rol",
     "NONE": "Ninguna",
     "SEARCH": "Buscar"
+  },
+
+  "QR_SCANNER": {
+    "SCAN": "Escanear QR",
+    "GENERATE": "Generar QR",
+    "SCAN_SELECT": "Escanea o selecciona una imagen para obtener su valor",
+    "SELECT": "Seleccionar",
+    "SCAN_RESULT": "Resultado del escaneo",
+    "SHARE": "Compartir",
+    "TYPE_INTO": "Escribe algo para convertir a QR"
   }
 }

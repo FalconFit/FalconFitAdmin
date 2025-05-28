@@ -7,7 +7,6 @@ import { passwordsMatchValidator, passwordValidator } from 'src/app/core/utils/v
 import { TranslationService } from 'src/app/core/services/translate.service';
 import { Userff } from 'src/app/core/models/userff.model';
 import { UserffService } from 'src/app/core/services/impl/userff.service';
-import { Timestamp } from 'firebase/firestore';
 import { formatDate } from '@angular/common';
 import { RoleManagerService } from 'src/app/core/services/role-manager.service';
 

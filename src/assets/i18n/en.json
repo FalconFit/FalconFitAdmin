@@ -154,7 +154,8 @@
     "LANGUAGE": "Language",
     "ABOUT": "About",
     "PROFILE": "Profile",
-    "USERLIST": "User List"
+    "USERLIST": "User List",
+    "SCANNER": "QR Scanner"
   },
 
   "PICTURE_SELECTABLE": {
@@ -174,5 +175,15 @@
     "SELECT_ROLE": "Select a role",
     "NONE": "None",
     "SEARCH": "Search"
+  },
+
+  "QR_SCANNER": {
+    "SCAN": "Scan QR",
+    "GENERATE": "Generate QR",
+    "SCAN_SELECT": "Scan or select a QR to obtein its value",
+    "SELECT": "Select",
+    "SCAN_RESULT": "Scan result",
+    "SHARE": "Share",
+    "TYPE_INTO": "Write something to convert to QR"
   }
 }

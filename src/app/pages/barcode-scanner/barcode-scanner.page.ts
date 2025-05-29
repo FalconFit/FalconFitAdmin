@@ -160,10 +160,14 @@ export class BarcodeScannerPage implements OnInit {
 
   // Abrir navegador
   openCapacitorSite = async () => {
-    let url = this.scanResult
+  let url = this.scanResult;
 
-    if(!['https://'].includes(this.scanResult)) url = 'https://' + this.scanResult
+  // Verificar si NO tiene protocolo usando regex
+  const protocolRegex = /^https?:\/\//i;
+  if (!protocolRegex.test(this.scanResult)) {
+    url = 'https://' + this.scanResult;
+  }
 
-    await Browser.open({ url: url });
-  };
+  await Browser.open({ url: url });
+};
 }

@@ -17,8 +17,15 @@
 
   <!-- Escanear QR -->
   <div class="segment" *ngIf="segment === 'scan'">
+
     <div class="segment-content">
-      <img *ngIf="!qrText" class="qr-placeholder" src="assets/img/placeHolderQr.webp">
+      <div id="qrImage">
+        <div class="d-flex-center">
+          <div class="d-flex-center qr-wrapper">
+            <img *ngIf="!qrText" class="qr-placeholder" src="assets/img/placeHolderQr.webp">
+          </div>
+        </div>
+      </div>
     </div>
 
     <h6 class="scan-label">{{ 'QR_SCANNER.SCAN_SELECT' | translate }}</h6>

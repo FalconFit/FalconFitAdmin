@@ -1,0 +1,2600 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FalconFitAdmin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	   <link rel="stylesheet" href="./styles/style.css">
+        <link rel="stylesheet" href="./styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="./" class="navbar-brand">FalconFitAdmin documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content coverage">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">Documentation coverage</li>
+</ol>
+
+<div>
+    <img src="./images/coverage-badge-documentation.svg">
+</div>
+
+<table class="table table-bordered coverage" id="coverage-table">
+    <thead class="coverage-header">
+        <tr>
+            <th>File</th>
+            <th>Type</th>
+            <th>Identifier</th>
+            <th style="text-align:right" class="statements" data-sort-default>Statements</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#config">capacitor.config.ts</a>
+            </td>
+            <td>variable</td>
+            <td>config</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AppComponent.html">src/app/app.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>AppComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#createTranslateLoader">src/app/app.module.ts</a>
+            </td>
+            <td>function</td>
+            <td>createTranslateLoader</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#authGuard">src/app/core/guards/auth.guard.ts</a>
+            </td>
+            <td>variable</td>
+            <td>authGuard</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/SignInPayload.html">src/app/core/models/auth.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>SignInPayload</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/SignUpPayload.html">src/app/core/models/auth.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>SignUpPayload</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/User.html">src/app/core/models/auth.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>User</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Model.html">src/app/core/models/base.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Model</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Exercise.html">src/app/core/models/exercise.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Exercise</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FirebaseExercise.html">src/app/core/models/firebase/firebase-exercise.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FirebaseExercise</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FirebaseMachine.html">src/app/core/models/firebase/firebase-machine.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FirebaseMachine</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FirebaseMachineDetails.html">src/app/core/models/firebase/firebase-machineDetails.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FirebaseMachineDetails</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FirebasePlace.html">src/app/core/models/firebase/firebase-place.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FirebasePlace</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/FirebaseUserff.html">src/app/core/models/firebase/firebase-user.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>FirebaseUserff</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Machine.html">src/app/core/models/machine.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Machine</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Paginated.html">src/app/core/models/paginated.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Paginated</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Place.html">src/app/core/models/place.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Place</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Superset.html">src/app/core/models/superset.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Superset</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Userff.html">src/app/core/models/userff.model.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Userff</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BaseRepositoryFirebaseService.html">src/app/core/repositories/impl/base-repository-firebase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BaseRepositoryFirebaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BaseRepositoryHttpService.html">src/app/core/repositories/impl/base-repository-http.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BaseRepositoryHttpService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BaseRepositoryLocalStorageService.html">src/app/core/repositories/impl/base-repository-local-storage.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BaseRepositoryLocalStorageService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ExerciseMappingFirebaseService.html">src/app/core/repositories/impl/exercise-mapping-firebase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ExerciseMappingFirebaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ExerciseLocalStorageMapping.html">src/app/core/repositories/impl/exercise-mapping-local-storage.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ExerciseLocalStorageMapping</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ExerciseRaw.html">src/app/core/repositories/impl/exercise-mapping-local-storage.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ExerciseRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ExerciseMappingStrapi.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ExerciseMappingStrapi</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Data.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ExerciseAttributes.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ExerciseAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ExerciseData.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ExerciseData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ExerciseRaw.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ExerciseRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineAttributes.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineData.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineRaw.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UserRaw.html">src/app/core/repositories/impl/exercise-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UserRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MachineMappingFirebaseService.html">src/app/core/repositories/impl/machine-mapping-firebase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MachineMappingFirebaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MachineLocalStorageMapping.html">src/app/core/repositories/impl/machine-mapping-local-storage.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MachineLocalStorageMapping</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineRaw.html">src/app/core/repositories/impl/machine-mapping-local-storage.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MachineMappingStrapi.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MachineMappingStrapi</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Data.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineAttributes.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineData.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MachineRaw.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MachineRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MediaRaw.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MediaRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UserRaw.html">src/app/core/repositories/impl/machine-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UserRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/PlaceMappingFirebaseService.html">src/app/core/repositories/impl/place-mapping-firebase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PlaceMappingFirebaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/PlaceMappingStrapi.html">src/app/core/repositories/impl/place-mapping-strapi.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PlaceMappingStrapi</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Data.html">src/app/core/repositories/impl/place-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PlaceAttributes.html">src/app/core/repositories/impl/place-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PlaceAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PlaceData.html">src/app/core/repositories/impl/place-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PlaceData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PlaceRaw.html">src/app/core/repositories/impl/place-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PlaceRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/StrapiRepositoryService.html">src/app/core/repositories/impl/strapi-repository.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StrapiRepositoryService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Data.html">src/app/core/repositories/impl/strapi-repository.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Meta.html">src/app/core/repositories/impl/strapi-repository.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Meta</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PaginatedRaw.html">src/app/core/repositories/impl/strapi-repository.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PaginatedRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Pagination.html">src/app/core/repositories/impl/strapi-repository.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Pagination</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/UserffMappingFirebaseService.html">src/app/core/repositories/impl/userff-mapping-firebase.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>UserffMappingFirebaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/UserffMappingStrapi.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>UserffMappingStrapi</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Data.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Data</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/GroupAttributes.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>GroupAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/GroupRaw.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>GroupRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/MediaRaw.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>MediaRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Meta.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Meta</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PersonAttributes.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PersonAttributes</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PersonData.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PersonData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/PersonRaw.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>PersonRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/UserRaw.html">src/app/core/repositories/impl/userff-mapping-strapi.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>UserRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBaseMapping.html">src/app/core/repositories/interfaces/base-mapping.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBaseMapping</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBaseRepository.html">src/app/core/repositories/interfaces/base-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBaseRepository</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/SearchParams.html">src/app/core/repositories/interfaces/base-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>SearchParams</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IExerciseRepository.html">src/app/core/repositories/interfaces/exercise-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IExerciseRepository</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IMachineRepository.html">src/app/core/repositories/interfaces/machine-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IMachineRepository</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IPlaceRepository.html">src/app/core/repositories/interfaces/place-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IPlaceRepository</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IUserffRepository.html">src/app/core/repositories/interfaces/userff-repository.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IUserffRepository</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#createBaseAuthMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>function</td>
+            <td>createBaseAuthMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#createBaseMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>function</td>
+            <td>createBaseMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#createBaseRepositoryFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>function</td>
+            <td>createBaseRepositoryFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#createCollectionSubscriptionFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>function</td>
+            <td>createCollectionSubscriptionFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AuthenticationServiceFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AuthenticationServiceFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AuthMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AuthMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ExerciseCollectionSubscriptionFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ExerciseCollectionSubscriptionFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ExerciseMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ExerciseMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#ExerciseRepositoryFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>ExerciseRepositoryFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MachineCollectionSubscriptionFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MachineCollectionSubscriptionFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MachineMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MachineMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MachineRepositoryFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MachineRepositoryFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MediaServiceFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MediaServiceFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PlaceCollectionSubscriptionFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PlaceCollectionSubscriptionFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PlaceMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PlaceMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PlaceRepositoryFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PlaceRepositoryFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#UserffCollectionSubscriptionFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>UserffCollectionSubscriptionFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#UserffMappingFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>UserffMappingFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#UserffRepositoryFactory">src/app/core/repositories/repository.factory.ts</a>
+            </td>
+            <td>variable</td>
+            <td>UserffRepositoryFactory</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AUTH_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AUTH_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AUTH_ME_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AUTH_ME_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AUTH_SIGN_IN_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AUTH_SIGN_IN_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AUTH_SIGN_UP_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AUTH_SIGN_UP_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#AUTH_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>AUTH_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#BACKEND_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>BACKEND_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#COLLECTION_SUBSCRIPTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>COLLECTION_SUBSCRIPTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EXERCISE_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EXERCISE_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EXERCISE_REPOSITORY_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EXERCISE_REPOSITORY_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EXERCISE_REPOSITORY_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EXERCISE_REPOSITORY_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#EXERCISE_RESOURCE_NAME_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>EXERCISE_RESOURCE_NAME_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FIREBASE_COLLECTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FIREBASE_COLLECTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#FIREBASE_CONFIG_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>FIREBASE_CONFIG_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MACHINE_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MACHINE_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MACHINE_COLLECTION_SUBSCRIPTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MACHINE_COLLECTION_SUBSCRIPTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MACHINE_REPOSITORY_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MACHINE_REPOSITORY_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MACHINE_REPOSITORY_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MACHINE_REPOSITORY_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#MACHINE_RESOURCE_NAME_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>MACHINE_RESOURCE_NAME_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PLACE_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PLACE_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PLACE_COLLECTION_SUBSCRIPTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PLACE_COLLECTION_SUBSCRIPTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PLACE_REPOSITORY_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PLACE_REPOSITORY_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PLACE_REPOSITORY_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PLACE_REPOSITORY_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PLACE_RESOURCE_NAME_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PLACE_RESOURCE_NAME_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#REPOSITORY_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>REPOSITORY_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#REPOSITORY_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>REPOSITORY_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#RESOURCE_NAME_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>RESOURCE_NAME_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#STRAPI_AUTH_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>STRAPI_AUTH_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#UPLOAD_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>UPLOAD_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#USERFF_API_URL_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>USERFF_API_URL_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#USERFF_COLLECTION_SUBSCRIPTION_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>USERFF_COLLECTION_SUBSCRIPTION_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#USERFF_REPOSITORY_MAPPING_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>USERFF_REPOSITORY_MAPPING_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#USERFF_REPOSITORY_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>USERFF_REPOSITORY_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#USERFF_RESOURCE_NAME_TOKEN">src/app/core/repositories/repository.tokens.ts</a>
+            </td>
+            <td>variable</td>
+            <td>USERFF_RESOURCE_NAME_TOKEN</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/BaseAuthenticationService.html">src/app/core/services/impl/base-authentication.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>BaseAuthenticationService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/15)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BaseMediaService.html">src/app/core/services/impl/base-media.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>BaseMediaService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/BaseService.html">src/app/core/services/impl/base-service.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>BaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/ExerciseService.html">src/app/core/services/impl/exercise.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>ExerciseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FirebaseAuthMappingService.html">src/app/core/services/impl/firebase-auth-mapping.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FirebaseAuthMappingService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FirebaseAuthenticationService.html">src/app/core/services/impl/firebase-authentication.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FirebaseAuthenticationService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FirebaseCollectionSubscriptionService.html">src/app/core/services/impl/firebase-collection-subscription.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FirebaseCollectionSubscriptionService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/FirebaseMediaService.html">src/app/core/services/impl/firebase-media.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>FirebaseMediaService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/MachineService.html">src/app/core/services/impl/machine.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>MachineService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/PlaceService.html">src/app/core/services/impl/place.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>PlaceService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/StrapiAuthMappingService.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StrapiAuthMappingService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/GroupRaw.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>GroupRaw</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiMeResponse.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiMeResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiSignIn.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiSignIn</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiSignInResponse.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiSignInResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiSignUp.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiSignUp</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiSignUpResponse.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiSignUpResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiUser.html">src/app/core/services/impl/strapi-auth-mapping.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiUser</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/StrapiAuthenticationService.html">src/app/core/services/impl/strapi-authentication.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>StrapiAuthenticationService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./classes/StrapiMediaService.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>class</td>
+            <td>StrapiMediaService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Formats.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Formats</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Large.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Large</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Medium.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Medium</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ProviderMetadata.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ProviderMetadata</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Small.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Small</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiMedia.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiMedia</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/StrapiMediaData.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>StrapiMediaData</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/18)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/Thumbnail.html">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>interface</td>
+            <td>Thumbnail</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/typealiases.html#StrapiUploadResponse">src/app/core/services/impl/strapi-media.service.ts</a>
+            </td>
+            <td>type alias</td>
+            <td>StrapiUploadResponse</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/UserffService.html">src/app/core/services/impl/userff.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>UserffService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/9)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IAuthMapping.html">src/app/core/services/interfaces/auth-mapping.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IAuthMapping</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IAuthentication.html">src/app/core/services/interfaces/authentication.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IAuthentication</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IBaseService.html">src/app/core/services/interfaces/base-service.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IBaseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/CollectionChange.html">src/app/core/services/interfaces/collection-subscription.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>CollectionChange</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/4)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/ICollectionSubscription.html">src/app/core/services/interfaces/collection-subscription.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>ICollectionSubscription</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IExerciseService.html">src/app/core/services/interfaces/exercise-service.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IExerciseService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IMachineService.html">src/app/core/services/interfaces/machine-service.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IMachineService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IPlaceService.html">src/app/core/services/interfaces/place-service.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IPlaceService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IStrapiAuthentication.html">src/app/core/services/interfaces/strapi-authentication.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IStrapiAuthentication</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/2)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/IUserffService.html">src/app/core/services/interfaces/userff-service.interface.ts</a>
+            </td>
+            <td>interface</td>
+            <td>IUserffService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/RoleManagerService.html">src/app/core/services/role-manager.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>RoleManagerService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./injectables/TranslationService.html">src/app/core/services/translate.service.ts</a>
+            </td>
+            <td>injectable</td>
+            <td>TranslationService</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#dataURLtoBlob">src/app/core/utils/blob.ts</a>
+            </td>
+            <td>function</td>
+            <td>dataURLtoBlob</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#passwordsMatchValidator">src/app/core/utils/validators.ts</a>
+            </td>
+            <td>function</td>
+            <td>passwordsMatchValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/functions.html#passwordValidator">src/app/core/utils/validators.ts</a>
+            </td>
+            <td>function</td>
+            <td>passwordValidator</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/AboutPage.html">src/app/pages/about/about.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>AboutPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/BarcodeScannerPage.html">src/app/pages/barcode-scanner/barcode-scanner.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>BarcodeScannerPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/BarcodeScanningModalComponent.html">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>BarcodeScanningModalComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/13)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/DumbbellPage.html">src/app/pages/dumbbell/dumbbell.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>DumbbellPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/5)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ExercisePage.html">src/app/pages/exercise/exercise.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>ExercisePage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/22)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/HomePage.html">src/app/pages/home/home.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>HomePage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/21)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./interfaces/LocationMarker.html">src/app/pages/home/home.page.ts</a>
+            </td>
+            <td>interface</td>
+            <td>LocationMarker</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/LoginPage.html">src/app/pages/login/login.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>LoginPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/8)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MachineDetailsPage.html">src/app/pages/machine-details/machine-details.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>MachineDetailsPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MachinePage.html">src/app/pages/machine/machine.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>MachinePage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/19)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/RegisterPage.html">src/app/pages/register/register.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>RegisterPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/UserListPage.html">src/app/pages/user-list/user-list.page.ts</a>
+            </td>
+            <td>component</td>
+            <td>UserListPage</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/20)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ExerciseFormComponent.html">src/app/shared/components/exercise-form/exercise-form.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ExerciseFormComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MachineFormComponent.html">src/app/shared/components/machine-form/machine-form.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MachineFormComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MachineSelectableComponent.html">src/app/shared/components/machine-selectable/machine-selectable.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MachineSelectableComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/26)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MapModuleComponent.html">src/app/shared/components/map-module/map-module.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MapModuleComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/12)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/MapComponent.html">src/app/shared/components/map/map.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>MapComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="good">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/PictureSelectableComponent.html">src/app/shared/components/picture-selectable/picture-selectable.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>PictureSelectableComponent</td>
+            <td align="right" data-sort="70">
+                <span class="coverage-percent">70 %</span>
+                <span class="coverage-count">(12/17)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#PICTURE_SELECTABLE_VALUE_ACCESSOR">src/app/shared/components/picture-selectable/picture-selectable.component.ts</a>
+            </td>
+            <td>variable</td>
+            <td>PICTURE_SELECTABLE_VALUE_ACCESSOR</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/RoleSelectableComponent.html">src/app/shared/components/role-selectable/role-selectable.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RoleSelectableComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/14)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/RoutingBarComponent.html">src/app/shared/components/routing-bar/routing-bar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>RoutingBarComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/3)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/ToolbarComponent.html">src/app/shared/components/toolbar/toolbar.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>ToolbarComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/7)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./components/UserFormComponent.html">src/app/shared/components/user-form/user-form.component.ts</a>
+            </td>
+            <td>component</td>
+            <td>UserFormComponent</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/10)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/CustomLabelDirective.html">src/app/shared/directives/custom-label.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>CustomLabelDirective</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/11)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./directives/RoleDirective.html">src/app/shared/directives/showOrNotRole.directive.ts</a>
+            </td>
+            <td>directive</td>
+            <td>RoleDirective</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/6)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                <a href="./pipes/ShowPasswordPipe.html">src/app/shared/pipes/show-password.pipe.ts</a>
+            </td>
+            <td>pipe</td>
+            <td>ShowPasswordPipe</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#environment">src/environments/environment.prod.ts</a>
+            </td>
+            <td>variable</td>
+            <td>environment</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+        <tr class="low">
+            <td>
+                <!-- miscellaneous -->
+                        <a href="./miscellaneous/variables.html#environment">src/environments/environment.ts</a>
+            </td>
+            <td>variable</td>
+            <td>environment</td>
+            <td align="right" data-sort="0">
+                <span class="coverage-percent">0 %</span>
+                <span class="coverage-count">(0/1)</span>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script src="js/libs/tablesort.min.js"></script>
+<script src="js/libs/tablesort.number.min.js"></script>
+<script>
+    new Tablesort(document.getElementById('coverage-table'));
+</script>
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 0;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'coverage';
+            var COMPODOC_CURRENT_PAGE_URL = 'coverage.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="./js/libs/custom-elements.min.js"></script>
+       <script src="./js/libs/lit-html.js"></script>
+
+       <script src="./js/menu-wc.js" defer></script>
+       <script nomodule src="./js/menu-wc_es5.js" defer></script>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/clipboard.min.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+          <script src="./js/search/search.js"></script>
+          <script src="./js/search/lunr.min.js"></script>
+          <script src="./js/search/search-lunr.js"></script>
+          <script src="./js/search/search_index.js"></script>
+       <script src="./js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

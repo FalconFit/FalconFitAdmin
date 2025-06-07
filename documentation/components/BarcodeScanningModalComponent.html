@@ -1,0 +1,1141 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FalconFitAdmin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">FalconFitAdmin documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  BarcodeScanningModalComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+                <code>AfterViewInit</code>
+                <code>OnDestroy</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-barcode-scanning</code></td>
+            </tr>
+
+
+
+
+            <tr>
+                <td class="col-md-3">styles</td>
+                <td class="col-md-9"><code>
+      ion-content {
+        --background: transparent;
+      }
+
+      .square {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 16px;
+        width: 200px;
+        height: 200px;
+        border: 6px solid white;
+        box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.3);
+      }
+    </code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">template</td>
+                <td class="col-md-9"><pre class="line-numbers"><code class="language-html">&lt;ion-header class&#x3D;&quot;ion-no-border&quot;&gt;
+  &lt;ion-toolbar color&#x3D;&quot;tertiary&quot;&gt;
+    &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;closeModal()&quot;&gt;
+        &lt;ion-icon name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content&gt;
+  &lt;div #square class&#x3D;&quot;square&quot;&gt;&lt;/div&gt;
+  &lt;ion-fab
+    *ngIf&#x3D;&quot;isTorchAvailable&quot;
+    slot&#x3D;&quot;fixed&quot;
+    horizontal&#x3D;&quot;end&quot;
+    vertical&#x3D;&quot;bottom&quot;
+  &gt;
+    &lt;ion-fab-button (click)&#x3D;&quot;toggleTorch()&quot;&gt;
+      &lt;ion-icon name&#x3D;&quot;flashlight&quot;&gt;&lt;/ion-icon&gt;
+    &lt;/ion-fab-button&gt;
+  &lt;/ion-fab&gt;
+&lt;/ion-content&gt;
+</code></pre></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#isTorchAvailable" >isTorchAvailable</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#squareElement" >squareElement</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#closeModal" >closeModal</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngAfterViewInit" >ngAfterViewInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnDestroy" >ngOnDestroy</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#startScan" >startScan</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Private</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#stopScan" >stopScan</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
+                                <a href="#toggleTorch" >toggleTorch</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formats" >formats</a>
+                            </li>
+                            <li>
+                                <a href="#lensFacing" >lensFacing</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(ngZone: NgZone, modalController: ModalController)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:78</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>ngZone</td>
+                                                  
+                                                        <td>
+                                                                    <code>NgZone</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalController</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="formats"></a>
+                        <b>formats</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>BarcodeFormat[]</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="71" class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:71</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="lensFacing"></a>
+                        <b>lensFacing</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>LensFacing</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>LensFacing.Back</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="73" class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:73</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="closeModal"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>closeModal</b></span>
+                        <a href="#closeModal"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>closeModal(barcode?: Barcode)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="101"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:101</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>barcode</td>
+                                            <td>
+                                                        <code>Barcode</code>
+                                            </td>
+
+                                            <td>
+                                                    Yes
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngAfterViewInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngAfterViewInit</b></span>
+                        <a href="#ngAfterViewInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngAfterViewInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="91"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:91</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnDestroy"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnDestroy</b></span>
+                        <a href="#ngOnDestroy"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnDestroy()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="97"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:97</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="85"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:85</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="startScan"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>startScan</b></span>
+                        <a href="#startScan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>startScan()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="109"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:109</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="stopScan"></a>
+                    <span class="name">
+                            <span class="modifier">Private</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>stopScan</b></span>
+                        <a href="#stopScan"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>stopScan()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="172"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:172</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleTorch"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>toggleTorch</b></span>
+                        <a href="#toggleTorch"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>toggleTorch()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="105"
+                                    class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:105</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>    <code>Promise&lt;void&gt;</code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isTorchAvailable"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                        <span ><b>isTorchAvailable</b></span>
+                        <a href="#isTorchAvailable"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="78" class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:78</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="squareElement"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>squareElement</b></span>
+                        <a href="#squareElement"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>ElementRef&lt;HTMLDivElement&gt; | undefined</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ViewChild(&#x27;square&#x27;)<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="76" class="link-to-prism">src/app/pages/barcode-scanner/barcode-scanning-modal.component.ts:76</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  Input,
+  NgZone,
+  OnDestroy,
+  OnInit,
+  ViewChild,
+} from &#x27;@angular/core&#x27;;
+import {
+  Barcode,
+  BarcodeFormat,
+  BarcodeScanner,
+  LensFacing,
+  StartScanOptions,
+} from &#x27;@capacitor-mlkit/barcode-scanning&#x27;;
+import { ModalController } from &#x27;@ionic/angular&#x27;;
+
+
+@Component({
+  selector: &#x27;app-barcode-scanning&#x27;,
+  template: &#x60;
+    &lt;ion-header class&#x3D;&quot;ion-no-border&quot;&gt;
+      &lt;ion-toolbar color&#x3D;&quot;tertiary&quot;&gt;
+        &lt;ion-buttons slot&#x3D;&quot;end&quot;&gt;
+          &lt;ion-button (click)&#x3D;&quot;closeModal()&quot;&gt;
+            &lt;ion-icon name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;
+          &lt;/ion-button&gt;
+        &lt;/ion-buttons&gt;
+      &lt;/ion-toolbar&gt;
+    &lt;/ion-header&gt;
+
+    &lt;ion-content&gt;
+      &lt;div #square class&#x3D;&quot;square&quot;&gt;&lt;/div&gt;
+      &lt;ion-fab
+        *ngIf&#x3D;&quot;isTorchAvailable&quot;
+        slot&#x3D;&quot;fixed&quot;
+        horizontal&#x3D;&quot;end&quot;
+        vertical&#x3D;&quot;bottom&quot;
+      &gt;
+        &lt;ion-fab-button (click)&#x3D;&quot;toggleTorch()&quot;&gt;
+          &lt;ion-icon name&#x3D;&quot;flashlight&quot;&gt;&lt;/ion-icon&gt;
+        &lt;/ion-fab-button&gt;
+      &lt;/ion-fab&gt;
+    &lt;/ion-content&gt;
+  &#x60;,
+  styles: [
+    &#x60;
+      ion-content {
+        --background: transparent;
+      }
+
+      .square {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 16px;
+        width: 200px;
+        height: 200px;
+        border: 6px solid white;
+        box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.3);
+      }
+    &#x60;,
+  ],
+})
+export class BarcodeScanningModalComponent
+  implements OnInit, AfterViewInit, OnDestroy {
+  @Input()
+  public formats: BarcodeFormat[] &#x3D; [];
+  @Input()
+  public lensFacing: LensFacing &#x3D; LensFacing.Back;
+
+  @ViewChild(&#x27;square&#x27;)
+  public squareElement: ElementRef&lt;HTMLDivElement&gt; | undefined;
+
+  public isTorchAvailable &#x3D; false;
+
+  constructor(
+    private readonly ngZone: NgZone,
+    private modalController: ModalController
+  ) { }
+
+  public ngOnInit(): void {
+    BarcodeScanner.isTorchAvailable().then((result) &#x3D;&gt; {
+      this.isTorchAvailable &#x3D; result.available;
+    });
+  }
+
+  public ngAfterViewInit(): void {
+    setTimeout(() &#x3D;&gt; {
+      this.startScan();
+    }, 250);
+  }
+
+  public ngOnDestroy(): void {
+    this.stopScan();
+  }
+
+  public async closeModal(barcode?: Barcode): Promise&lt;void&gt; {
+    this.modalController.dismiss({ barcode });
+  }
+
+  public async toggleTorch(): Promise&lt;void&gt; {
+    await BarcodeScanner.toggleTorch();
+  }
+
+  private async startScan(): Promise&lt;void&gt; {
+    // Hide everything behind the modal (see &#x60;src/theme/variables.scss&#x60;)
+    document.querySelector(&#x27;body&#x27;)?.classList.add(&#x27;barcode-scanning-active&#x27;);
+
+    const options: StartScanOptions &#x3D; {
+      formats: this.formats,
+      lensFacing: this.lensFacing,
+    };
+
+    const squareElementBoundingClientRect &#x3D;
+      this.squareElement?.nativeElement.getBoundingClientRect();
+    const scaledRect &#x3D; squareElementBoundingClientRect
+      ? {
+        left: squareElementBoundingClientRect.left * window.devicePixelRatio,
+        right:
+          squareElementBoundingClientRect.right * window.devicePixelRatio,
+        top: squareElementBoundingClientRect.top * window.devicePixelRatio,
+        bottom:
+          squareElementBoundingClientRect.bottom * window.devicePixelRatio,
+        width:
+          squareElementBoundingClientRect.width * window.devicePixelRatio,
+        height:
+          squareElementBoundingClientRect.height * window.devicePixelRatio,
+      }
+      : undefined;
+    const detectionCornerPoints &#x3D; scaledRect
+      ? [
+        [scaledRect.left, scaledRect.top],
+        [scaledRect.left + scaledRect.width, scaledRect.top],
+        [
+          scaledRect.left + scaledRect.width,
+          scaledRect.top + scaledRect.height,
+        ],
+        [scaledRect.left, scaledRect.top + scaledRect.height],
+      ]
+      : undefined;
+    const listener &#x3D; await BarcodeScanner.addListener(
+      &#x27;barcodeScanned&#x27;,
+      async (event) &#x3D;&gt; {
+        this.ngZone.run(() &#x3D;&gt; {
+          const cornerPoints &#x3D; event.barcode.cornerPoints;
+          if (detectionCornerPoints &amp;&amp; cornerPoints) {
+            if (
+              detectionCornerPoints[0][0] &gt; cornerPoints[0][0] ||
+              detectionCornerPoints[0][1] &gt; cornerPoints[0][1] ||
+              detectionCornerPoints[1][0] &lt; cornerPoints[1][0] ||
+              detectionCornerPoints[1][1] &gt; cornerPoints[1][1] ||
+              detectionCornerPoints[2][0] &lt; cornerPoints[2][0] ||
+              detectionCornerPoints[2][1] &lt; cornerPoints[2][1] ||
+              detectionCornerPoints[3][0] &gt; cornerPoints[3][0] ||
+              detectionCornerPoints[3][1] &lt; cornerPoints[3][1]
+            ) {
+              return;
+            }
+          }
+          listener.remove();
+          this.closeModal(event.barcode);
+        });
+      }
+    );
+    await BarcodeScanner.startScan(options);
+  }
+
+  private async stopScan(): Promise&lt;void&gt; {
+    // Show everything behind the modal again
+    document.querySelector(&#x27;body&#x27;)?.classList.remove(&#x27;barcode-scanning-active&#x27;);
+
+    await BarcodeScanner.stopScan();
+  }
+}
+</code></pre>
+    </div>
+
+
+    <div class="tab-pane fade " id="styleData">
+            <pre class="line-numbers"><code class="language-scss">
+      ion-content {
+        --background: transparent;
+      }
+
+      .square {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 16px;
+        width: 200px;
+        height: 200px;
+        border: 6px solid white;
+        box-shadow: 0 0 0 4000px rgba(0, 0, 0, 0.3);
+      }
+    
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header class="ion-no-border">  <ion-toolbar color="tertiary">    <ion-buttons slot="end">      <ion-button (click)="closeModal()">        <ion-icon name="close"></ion-icon>      </ion-button>    </ion-buttons>  </ion-toolbar></ion-header><ion-content>  <div #square class="square"></div>  <ion-fab    *ngIf="isTorchAvailable"    slot="fixed"    horizontal="end"    vertical="bottom"  >    <ion-fab-button (click)="toggleTorch()">      <ion-icon name="flashlight"></ion-icon>    </ion-fab-button>  </ion-fab></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarcodeScannerPage', 'selector': 'app-barcode-scanner'},{'name': 'BarcodeScanningModalComponent', 'selector': 'app-barcode-scanning'},{'name': 'DumbbellPage', 'selector': 'app-dumbbell'},{'name': 'ExerciseFormComponent', 'selector': 'app-exercise-form'},{'name': 'ExercisePage', 'selector': 'app-exercise'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MachineDetailsPage', 'selector': 'app-machine-details'},{'name': 'MachineFormComponent', 'selector': 'app-machine-form'},{'name': 'MachinePage', 'selector': 'app-machine'},{'name': 'MachineSelectableComponent', 'selector': 'app-machine-selectable'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapModuleComponent', 'selector': 'app-map-module'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RoleSelectableComponent', 'selector': 'app-role-selectable'},{'name': 'RoutingBarComponent', 'selector': 'app-routing-bar'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'},{'name': 'UserFormComponent', 'selector': 'app-user-form'},{'name': 'UserListPage', 'selector': 'app-user-list'}];
+    var DIRECTIVES = [{'name': 'CustomLabelDirective', 'selector': '[customLabel]'},{'name': 'RoleDirective', 'selector': '[appRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'BarcodeScanningModalComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'BarcodeScanningModalComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

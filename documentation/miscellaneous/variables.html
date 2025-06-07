@@ -1,0 +1,1695 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FalconFitAdmin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">FalconFitAdmin documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content miscellaneous-variables">
+                   <div class="content-data">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Miscellaneous</li>
+  <li class="breadcrumb-item">Variables</li>
+</ol>
+
+<section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <ul class="index-list">
+                        <li>
+                            <a href="#API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_ME_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_ME_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_SIGN_IN_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_SIGN_IN_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_SIGN_UP_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_SIGN_UP_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AUTH_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>AUTH_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthenticationServiceFactory" title="src/app/core/repositories/repository.factory.ts" ><b>AuthenticationServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#authGuard" title="src/app/core/guards/auth.guard.ts" ><b>authGuard</b>&nbsp;&nbsp;&nbsp;(src/.../auth.guard.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#AuthMappingFactory" title="src/app/core/repositories/repository.factory.ts" ><b>AuthMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#BACKEND_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>BACKEND_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#COLLECTION_SUBSCRIPTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>COLLECTION_SUBSCRIPTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#config" title="capacitor.config.ts" ><b>config</b>&nbsp;&nbsp;&nbsp;(capacitor.config.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.prod.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.prod.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#environment" title="src/environments/environment.ts" ><b>environment</b>&nbsp;&nbsp;&nbsp;(src/.../environment.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXERCISE_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>EXERCISE_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXERCISE_REPOSITORY_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>EXERCISE_REPOSITORY_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXERCISE_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>EXERCISE_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#EXERCISE_RESOURCE_NAME_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>EXERCISE_RESOURCE_NAME_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ExerciseCollectionSubscriptionFactory" title="src/app/core/repositories/repository.factory.ts" ><b>ExerciseCollectionSubscriptionFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ExerciseMappingFactory" title="src/app/core/repositories/repository.factory.ts" ><b>ExerciseMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#ExerciseRepositoryFactory" title="src/app/core/repositories/repository.factory.ts" ><b>ExerciseRepositoryFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FIREBASE_COLLECTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>FIREBASE_COLLECTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#FIREBASE_CONFIG_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>FIREBASE_CONFIG_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MACHINE_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MACHINE_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MACHINE_COLLECTION_SUBSCRIPTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MACHINE_COLLECTION_SUBSCRIPTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MACHINE_REPOSITORY_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MACHINE_REPOSITORY_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MACHINE_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MACHINE_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MACHINE_RESOURCE_NAME_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>MACHINE_RESOURCE_NAME_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MachineCollectionSubscriptionFactory" title="src/app/core/repositories/repository.factory.ts" ><b>MachineCollectionSubscriptionFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MachineMappingFactory" title="src/app/core/repositories/repository.factory.ts" ><b>MachineMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MachineRepositoryFactory" title="src/app/core/repositories/repository.factory.ts" ><b>MachineRepositoryFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#MediaServiceFactory" title="src/app/core/repositories/repository.factory.ts" ><b>MediaServiceFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PICTURE_SELECTABLE_VALUE_ACCESSOR" title="src/app/shared/components/picture-selectable/picture-selectable.component.ts" ><b>PICTURE_SELECTABLE_VALUE_ACCESSOR</b>&nbsp;&nbsp;&nbsp;(src/.../picture-selectable.component.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PLACE_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>PLACE_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PLACE_COLLECTION_SUBSCRIPTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>PLACE_COLLECTION_SUBSCRIPTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PLACE_REPOSITORY_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>PLACE_REPOSITORY_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PLACE_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>PLACE_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PLACE_RESOURCE_NAME_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>PLACE_RESOURCE_NAME_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlaceCollectionSubscriptionFactory" title="src/app/core/repositories/repository.factory.ts" ><b>PlaceCollectionSubscriptionFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlaceMappingFactory" title="src/app/core/repositories/repository.factory.ts" ><b>PlaceMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#PlaceRepositoryFactory" title="src/app/core/repositories/repository.factory.ts" ><b>PlaceRepositoryFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REPOSITORY_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>REPOSITORY_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#RESOURCE_NAME_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>RESOURCE_NAME_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#STRAPI_AUTH_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>STRAPI_AUTH_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UPLOAD_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>UPLOAD_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERFF_API_URL_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USERFF_API_URL_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERFF_COLLECTION_SUBSCRIPTION_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USERFF_COLLECTION_SUBSCRIPTION_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERFF_REPOSITORY_MAPPING_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USERFF_REPOSITORY_MAPPING_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERFF_REPOSITORY_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USERFF_REPOSITORY_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#USERFF_RESOURCE_NAME_TOKEN" title="src/app/core/repositories/repository.tokens.ts" ><b>USERFF_RESOURCE_NAME_TOKEN</b>&nbsp;&nbsp;&nbsp;(src/.../repository.tokens.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserffCollectionSubscriptionFactory" title="src/app/core/repositories/repository.factory.ts" ><b>UserffCollectionSubscriptionFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserffMappingFactory" title="src/app/core/repositories/repository.factory.ts" ><b>UserffMappingFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                        <li>
+                            <a href="#UserffRepositoryFactory" title="src/app/core/repositories/repository.factory.ts" ><b>UserffRepositoryFactory</b>&nbsp;&nbsp;&nbsp;(src/.../repository.factory.ts)</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+    <h3>src/app/core/repositories/repository.tokens.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>API_URL_TOKEN</b></span>
+                        <a href="#API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;ApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_MAPPING_TOKEN</b></span>
+                        <a href="#AUTH_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;Machine&gt;&gt;(&#x27;IAuthMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_ME_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_ME_API_URL_TOKEN</b></span>
+                        <a href="#AUTH_ME_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;AuthMeApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_SIGN_IN_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_SIGN_IN_API_URL_TOKEN</b></span>
+                        <a href="#AUTH_SIGN_IN_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;AuthSignInApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_SIGN_UP_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_SIGN_UP_API_URL_TOKEN</b></span>
+                        <a href="#AUTH_SIGN_UP_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;AuthSignUpApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AUTH_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>AUTH_TOKEN</b></span>
+                        <a href="#AUTH_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IAuthentication&gt;(&#x27;IAuthentication&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="BACKEND_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>BACKEND_TOKEN</b></span>
+                        <a href="#BACKEND_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;Backend&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="COLLECTION_SUBSCRIPTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>COLLECTION_SUBSCRIPTION_TOKEN</b></span>
+                        <a href="#COLLECTION_SUBSCRIPTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICollectionSubscription&lt;Model&gt;&gt;(&#x27;CollectionSubscriptionToken&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXERCISE_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>EXERCISE_API_URL_TOKEN</b></span>
+                        <a href="#EXERCISE_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;ExerciseApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN</b></span>
+                        <a href="#EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICollectionSubscription&lt;Exercise&gt;&gt;(&#x27;ExerciseCollectionSubscriptionToken&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXERCISE_REPOSITORY_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>EXERCISE_REPOSITORY_MAPPING_TOKEN</b></span>
+                        <a href="#EXERCISE_REPOSITORY_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;Exercise&gt;&gt;(&#x27;IExerciseRepositoryMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXERCISE_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>EXERCISE_REPOSITORY_TOKEN</b></span>
+                        <a href="#EXERCISE_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IExerciseRepository&gt;(&#x27;IExerciseRepository&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="EXERCISE_RESOURCE_NAME_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>EXERCISE_RESOURCE_NAME_TOKEN</b></span>
+                        <a href="#EXERCISE_RESOURCE_NAME_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IExerciseRepository&gt;(&#x27;ExerciseResourceName&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FIREBASE_COLLECTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>FIREBASE_COLLECTION_TOKEN</b></span>
+                        <a href="#FIREBASE_COLLECTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;FIREBASE_COLLECTION_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="FIREBASE_CONFIG_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>FIREBASE_CONFIG_TOKEN</b></span>
+                        <a href="#FIREBASE_CONFIG_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;FIREBASE_CONFIG_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MACHINE_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MACHINE_API_URL_TOKEN</b></span>
+                        <a href="#MACHINE_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;MachineApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MACHINE_COLLECTION_SUBSCRIPTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MACHINE_COLLECTION_SUBSCRIPTION_TOKEN</b></span>
+                        <a href="#MACHINE_COLLECTION_SUBSCRIPTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICollectionSubscription&lt;Machine&gt;&gt;(&#x27;MachineCollectionSubscriptionToken&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MACHINE_REPOSITORY_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MACHINE_REPOSITORY_MAPPING_TOKEN</b></span>
+                        <a href="#MACHINE_REPOSITORY_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;Machine&gt;&gt;(&#x27;IMachineRepositoryMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MACHINE_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MACHINE_REPOSITORY_TOKEN</b></span>
+                        <a href="#MACHINE_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IMachineRepository&gt;(&#x27;IMachineRepository&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MACHINE_RESOURCE_NAME_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>MACHINE_RESOURCE_NAME_TOKEN</b></span>
+                        <a href="#MACHINE_RESOURCE_NAME_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IMachineRepository&gt;(&#x27;MachineResourceName&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PLACE_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>PLACE_API_URL_TOKEN</b></span>
+                        <a href="#PLACE_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;PlaceApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PLACE_COLLECTION_SUBSCRIPTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>PLACE_COLLECTION_SUBSCRIPTION_TOKEN</b></span>
+                        <a href="#PLACE_COLLECTION_SUBSCRIPTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICollectionSubscription&lt;Place&gt;&gt;(&#x27;PlaceCollectionSubscriptionToken&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PLACE_REPOSITORY_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>PLACE_REPOSITORY_MAPPING_TOKEN</b></span>
+                        <a href="#PLACE_REPOSITORY_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;Place&gt;&gt;(&#x27;IPlaceRepositoryMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PLACE_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>PLACE_REPOSITORY_TOKEN</b></span>
+                        <a href="#PLACE_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IPlaceRepository&gt;(&#x27;IPlaceRepository&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PLACE_RESOURCE_NAME_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>PLACE_RESOURCE_NAME_TOKEN</b></span>
+                        <a href="#PLACE_RESOURCE_NAME_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IPlaceRepository&gt;(&#x27;PlaceResourceName&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REPOSITORY_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>REPOSITORY_MAPPING_TOKEN</b></span>
+                        <a href="#REPOSITORY_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;any&gt;&gt;(&#x27;IBaseRepositoryMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>REPOSITORY_TOKEN</b></span>
+                        <a href="#REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseRepository&lt;any&gt;&gt;(&#x27;REPOSITORY_TOKEN&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="RESOURCE_NAME_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>RESOURCE_NAME_TOKEN</b></span>
+                        <a href="#RESOURCE_NAME_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;ResourceName&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="STRAPI_AUTH_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>STRAPI_AUTH_TOKEN</b></span>
+                        <a href="#STRAPI_AUTH_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IStrapiAuthentication&gt;(&#x27;IStrapiAuthentication&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UPLOAD_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>UPLOAD_API_URL_TOKEN</b></span>
+                        <a href="#UPLOAD_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;UploadApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERFF_API_URL_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USERFF_API_URL_TOKEN</b></span>
+                        <a href="#USERFF_API_URL_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;string&gt;(&#x27;UserffApiUrl&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERFF_COLLECTION_SUBSCRIPTION_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USERFF_COLLECTION_SUBSCRIPTION_TOKEN</b></span>
+                        <a href="#USERFF_COLLECTION_SUBSCRIPTION_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;ICollectionSubscription&lt;Userff&gt;&gt;(&#x27;UserffCollectionSubscriptionToken&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERFF_REPOSITORY_MAPPING_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USERFF_REPOSITORY_MAPPING_TOKEN</b></span>
+                        <a href="#USERFF_REPOSITORY_MAPPING_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IBaseMapping&lt;Userff&gt;&gt;(&#x27;IUserffRepositoryMapping&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERFF_REPOSITORY_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USERFF_REPOSITORY_TOKEN</b></span>
+                        <a href="#USERFF_REPOSITORY_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserffRepository&gt;(&#x27;IUserffRepository&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="USERFF_RESOURCE_NAME_TOKEN"></a>
+                    <span class="name">
+                        <span ><b>USERFF_RESOURCE_NAME_TOKEN</b></span>
+                        <a href="#USERFF_RESOURCE_NAME_TOKEN"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>new InjectionToken&lt;IUserffRepository&gt;(&#x27;MachineResourceName&#x27;)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/repositories/repository.factory.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthenticationServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>AuthenticationServiceFactory</b></span>
+                        <a href="#AuthenticationServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: BaseAuthenticationService,
+  useFactory: (backend:string, firebaseConfig: any, signIn:string, signUp:string, meUrl:string, mapping:IAuthMapping, http:HttpClient) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;strapi&#x27;:
+        return new StrapiAuthenticationService(signIn, signUp, meUrl, mapping, http);
+      case &#x27;firebase&#x27;:
+        return new FirebaseAuthenticationService(firebaseConfig, mapping);
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+
+  },
+  deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, AUTH_SIGN_IN_API_URL_TOKEN, AUTH_SIGN_UP_API_URL_TOKEN, AUTH_ME_API_URL_TOKEN, AUTH_MAPPING_TOKEN, HttpClient]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="AuthMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>AuthMappingFactory</b></span>
+                        <a href="#AuthMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseAuthMappingFactory(AUTH_MAPPING_TOKEN, [BACKEND_TOKEN])</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ExerciseCollectionSubscriptionFactory"></a>
+                    <span class="name">
+                        <span ><b>ExerciseCollectionSubscriptionFactory</b></span>
+                        <a href="#ExerciseCollectionSubscriptionFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createCollectionSubscriptionFactory&lt;Exercise&gt;(
+  &#x27;exercises&#x27;,
+  EXERCISE_REPOSITORY_MAPPING_TOKEN,
+  EXERCISE_COLLECTION_SUBSCRIPTION_TOKEN
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ExerciseMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>ExerciseMappingFactory</b></span>
+                        <a href="#ExerciseMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseMappingFactory&lt;Exercise&gt;(
+  EXERCISE_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN],
+  &#x27;exercise&#x27;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ExerciseRepositoryFactory"></a>
+                    <span class="name">
+                        <span ><b>ExerciseRepositoryFactory</b></span>
+                        <a href="#ExerciseRepositoryFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseRepositoryFactory&lt;Exercise&gt;(EXERCISE_REPOSITORY_TOKEN,
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    EXERCISE_API_URL_TOKEN,
+    EXERCISE_RESOURCE_NAME_TOKEN,
+    EXERCISE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MachineCollectionSubscriptionFactory"></a>
+                    <span class="name">
+                        <span ><b>MachineCollectionSubscriptionFactory</b></span>
+                        <a href="#MachineCollectionSubscriptionFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createCollectionSubscriptionFactory&lt;Machine&gt;(
+  &#x27;machines&#x27;,
+  MACHINE_REPOSITORY_MAPPING_TOKEN,
+  MACHINE_COLLECTION_SUBSCRIPTION_TOKEN
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MachineMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>MachineMappingFactory</b></span>
+                        <a href="#MachineMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseMappingFactory&lt;Machine&gt;(
+  MACHINE_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN],
+  &#x27;machine&#x27;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MachineRepositoryFactory"></a>
+                    <span class="name">
+                        <span ><b>MachineRepositoryFactory</b></span>
+                        <a href="#MachineRepositoryFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseRepositoryFactory&lt;Machine&gt;(MACHINE_REPOSITORY_TOKEN,
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    MACHINE_API_URL_TOKEN,
+    MACHINE_RESOURCE_NAME_TOKEN,
+    MACHINE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="MediaServiceFactory"></a>
+                    <span class="name">
+                        <span ><b>MediaServiceFactory</b></span>
+                        <a href="#MediaServiceFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: BaseMediaService,
+  useFactory: (backend:string, firebaseConfig:any, upload:string, auth:IAuthentication, http:HttpClient) &#x3D;&gt; {
+    switch(backend){
+      case &#x27;http&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;local-storage&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;json-server&#x27;:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+      case &#x27;firebase&#x27;:
+        return new FirebaseMediaService(firebaseConfig, auth);
+      case &#x27;strapi&#x27;:
+        return new StrapiMediaService(upload, auth as IStrapiAuthentication, http);
+      default:
+        throw new Error(&quot;BACKEND NOT IMPLEMENTED&quot;);
+    }
+
+  },
+  deps: [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN, UPLOAD_API_URL_TOKEN, BaseAuthenticationService, HttpClient]
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PlaceCollectionSubscriptionFactory"></a>
+                    <span class="name">
+                        <span ><b>PlaceCollectionSubscriptionFactory</b></span>
+                        <a href="#PlaceCollectionSubscriptionFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createCollectionSubscriptionFactory&lt;Place&gt;(
+  &#x27;places&#x27;,
+  PLACE_REPOSITORY_MAPPING_TOKEN,
+  PLACE_COLLECTION_SUBSCRIPTION_TOKEN
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PlaceMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>PlaceMappingFactory</b></span>
+                        <a href="#PlaceMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseMappingFactory&lt;Place&gt;(
+  PLACE_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN],
+  &#x27;place&#x27;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PlaceRepositoryFactory"></a>
+                    <span class="name">
+                        <span ><b>PlaceRepositoryFactory</b></span>
+                        <a href="#PlaceRepositoryFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseRepositoryFactory&lt;Place&gt;(PLACE_REPOSITORY_TOKEN,
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    PLACE_API_URL_TOKEN,
+    PLACE_RESOURCE_NAME_TOKEN,
+    PLACE_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserffCollectionSubscriptionFactory"></a>
+                    <span class="name">
+                        <span ><b>UserffCollectionSubscriptionFactory</b></span>
+                        <a href="#UserffCollectionSubscriptionFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createCollectionSubscriptionFactory&lt;Userff&gt;(
+  &#x27;userffs&#x27;,
+  USERFF_REPOSITORY_MAPPING_TOKEN,
+  USERFF_COLLECTION_SUBSCRIPTION_TOKEN
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserffMappingFactory"></a>
+                    <span class="name">
+                        <span ><b>UserffMappingFactory</b></span>
+                        <a href="#UserffMappingFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseMappingFactory&lt;Userff&gt;(
+  USERFF_REPOSITORY_MAPPING_TOKEN,
+  [BACKEND_TOKEN, FIREBASE_CONFIG_TOKEN],
+  &#x27;userff&#x27;
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="UserffRepositoryFactory"></a>
+                    <span class="name">
+                        <span ><b>UserffRepositoryFactory</b></span>
+                        <a href="#UserffRepositoryFactory"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FactoryProvider</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>createBaseRepositoryFactory&lt;Userff&gt;(USERFF_REPOSITORY_TOKEN,
+  [
+    BACKEND_TOKEN,
+    HttpClient,
+    BaseAuthenticationService,
+    USERFF_API_URL_TOKEN,
+    USERFF_RESOURCE_NAME_TOKEN,
+    USERFF_REPOSITORY_MAPPING_TOKEN,
+    FIREBASE_CONFIG_TOKEN
+  ]
+)</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/core/guards/auth.guard.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="authGuard"></a>
+                    <span class="name">
+                        <span ><b>authGuard</b></span>
+                        <a href="#authGuard"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CanActivateFn</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>(route, state) &#x3D;&gt; {
+    const authService &#x3D; inject(BaseAuthenticationService);
+    const router &#x3D; inject(Router);
+
+    return authService.ready$.pipe(
+        filter(isReady &#x3D;&gt; isReady),
+        take(1),
+        switchMap(() &#x3D;&gt; authService.authenticated$),
+        map(isLoggedIn &#x3D;&gt; {
+          if (isLoggedIn) {
+            return true;
+          } else {
+            router.navigate([&#x27;/login&#x27;], { queryParams: { returnUrl: state.url } });
+            return false;
+          }
+        })
+    );
+  }</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>capacitor.config.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="config"></a>
+                    <span class="name">
+                        <span ><b>config</b></span>
+                        <a href="#config"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>CapacitorConfig</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  appId: &#x27;io.ionic.starter&#x27;,
+  appName: &#x27;FalconFitAdmin&#x27;,
+  webDir: &#x27;www&#x27;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.prod.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: true,
+  apiUrl: &quot;https://falconfitadmin2version.onrender.com&quot;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/environments/environment.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="environment"></a>
+                    <span class="name">
+                        <span ><b>environment</b></span>
+                        <a href="#environment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/object" target="_blank" >object</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  production: false,
+  apiUrl: &quot;http://localhost:1337/admin&quot;
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+    <h3>src/app/shared/components/picture-selectable/picture-selectable.component.ts</h3>
+    <section data-compodoc="block-properties">
+    <h3></h3>    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="PICTURE_SELECTABLE_VALUE_ACCESSOR"></a>
+                    <span class="name">
+                        <span ><b>PICTURE_SELECTABLE_VALUE_ACCESSOR</b></span>
+                        <a href="#PICTURE_SELECTABLE_VALUE_ACCESSOR"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>{
+  provide: NG_VALUE_ACCESSOR,
+  useExisting: forwardRef(() &#x3D;&gt; PictureSelectableComponent),
+  multi: true
+}</code>
+                    </td>
+                </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'miscellaneous-variables';
+            var COMPODOC_CURRENT_PAGE_URL = 'variables.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

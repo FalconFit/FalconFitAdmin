@@ -1,0 +1,1116 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FalconFitAdmin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">FalconFitAdmin documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  UserFormComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/user-form/user-form.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-user-form</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./user-form.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./user-form.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#formGroup" >formGroup</a>
+                            </li>
+                            <li>
+                                <a href="#isMobile" >isMobile</a>
+                            </li>
+                            <li>
+                                <a href="#picture" >picture</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#dismiss" >dismiss</a>
+                            </li>
+                            <li>
+                                <a href="#getDirtyValues" >getDirtyValues</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#onSubmit" >onSubmit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#user" >user</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <h6><b>Accessors</b></h6>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <ul class="index-list">
+                                <li>
+                                    <a href="#user" >user</a>
+                                </li>
+                            </ul>
+                        </td>
+                    </tr>
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(fb: FormBuilder, modalCtrl: ModalController, platform: Platform)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:26</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>fb</td>
+                                                  
+                                                        <td>
+                                                                    <code>FormBuilder</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>modalCtrl</td>
+                                                  
+                                                        <td>
+                                                                    <code>ModalController</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>platform</td>
+                                                  
+                                                        <td>
+                                                                    <code>Platform</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <b>user</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Userff.html" target="_self" >Userff</a></code>
+
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:16</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="dismiss"></a>
+                    <span class="name">
+                        <span ><b>dismiss</b></span>
+                        <a href="#dismiss"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>dismiss()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="72"
+                                    class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:72</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getDirtyValues"></a>
+                    <span class="name">
+                        <span ><b>getDirtyValues</b></span>
+                        <a href="#getDirtyValues"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getDirtyValues(formGroup: FormGroup)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="48"
+                                    class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:48</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>formGroup</td>
+                                            <td>
+                                                        <code>FormGroup</code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="46"
+                                    class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:46</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="onSubmit"></a>
+                    <span class="name">
+                        <span ><b>onSubmit</b></span>
+                        <a href="#onSubmit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>onSubmit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="61"
+                                    class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:61</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="formGroup"></a>
+                    <span class="name">
+                        <span ><b>formGroup</b></span>
+                        <a href="#formGroup"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>FormGroup</code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:12</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="isMobile"></a>
+                    <span class="name">
+                        <span ><b>isMobile</b></span>
+                        <a href="#isMobile"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:13</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="picture"></a>
+                    <span class="name">
+                        <span ><b>picture</b></span>
+                        <a href="#picture"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>string | null</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>null</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:14</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-accessors">
+    <h3 id="accessors">
+        Accessors
+    </h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="user"></a>
+                        <span class="name"><b>user</b><a href="#user"><span class="icon ion-ios-link"></span></a></span>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td class="col-md-4">
+                        <span class="accessor"><b>set</b><code>user(_user: <a href="../interfaces/Userff.html" target="_self">Userff</a>)</code></span>
+                    </td>
+                </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/user-form/user-form.component.ts:16</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <table class="params">
+                                            <thead>
+                                                <tr>
+                                                    <td>Name</td>
+                                                        <td>Type</td>
+                                                    <td>Optional</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                    <tr>
+                                                            <td>_user</td>
+                                                    
+                                                            <td>
+                                                                            <code><a href="../interfaces/Userff.html" target="_self" >Userff</a></code>
+                                                            </td>
+                                                    
+                                                        <td>
+                                                                No
+                                                        </td>
+                                                        
+                                                    </tr>
+                                            </tbody>
+                                        </table>
+                                </div>
+                                <div>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                                </div>
+                        </td>
+                    </tr>
+            </tbody>
+        </table>
+</section>
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { FormBuilder, FormGroup, Validators } from &#x27;@angular/forms&#x27;;
+import { ModalController, Platform } from &#x27;@ionic/angular&#x27;;
+import { Userff } from &#x27;src/app/core/models/userff.model&#x27;;
+
+@Component({
+  selector: &#x27;app-user-form&#x27;,
+  templateUrl: &#x27;./user-form.component.html&#x27;,
+  styleUrls: [&#x27;./user-form.component.scss&#x27;],
+})
+export class UserFormComponent  implements OnInit {
+  formGroup: FormGroup
+  isMobile: boolean &#x3D; false;
+  picture: string | null &#x3D; null;
+
+  @Input() set user(_user: Userff){
+    if(_user &amp;&amp; _user.id){
+      this.formGroup.controls[&#x27;name&#x27;].setValue(_user.name)
+      this.formGroup.controls[&#x27;surname&#x27;].setValue(_user.surname)
+      this.formGroup.controls[&#x27;email&#x27;].setValue(_user.email)
+      this.formGroup.controls[&#x27;phoneNumber&#x27;].setValue(_user.phoneNumber)
+      this.formGroup.controls[&#x27;role&#x27;].setValue(_user.role)
+      this.formGroup.controls[&#x27;registerDate&#x27;].setValue(_user.registerDate)
+      this.formGroup.controls[&#x27;picture&#x27;].setValue(_user.picture?.large);
+    }
+  }
+
+  constructor(
+    private fb: FormBuilder,
+    private modalCtrl: ModalController,
+    private platform: Platform
+  ) {
+    this.isMobile &#x3D; this.platform.is(&#x27;ios&#x27;) || this.platform.is(&#x27;android&#x27;);
+
+    this.formGroup &#x3D; this.fb.group({
+      name:[&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      surname:[&#x27;&#x27;, [Validators.required, Validators.minLength(3)]],
+      email:[&#x27;&#x27;, [Validators.required, Validators.maxLength(500)]],
+      phoneNumber:[&#x27;&#x27;, [Validators.maxLength(9)]],
+      role:[&#x27;&#x27;, [Validators.required]],
+      registerDate:[&#x27;&#x27;, [Validators.required, Validators.maxLength(500)]],
+      picture:[&#x27;&#x27;]
+    })
+  }
+
+  ngOnInit() {}
+
+  getDirtyValues(formGroup: FormGroup): any {
+    const dirtyValues: any &#x3D; {};
+
+    Object.keys(formGroup.controls).forEach(key &#x3D;&gt; {
+      const control &#x3D; formGroup.get(key);
+      if (control?.dirty) {
+        dirtyValues[key] &#x3D; control.value;
+      }
+    });
+
+    return dirtyValues;
+  }
+
+  onSubmit(){
+    if (this.formGroup.valid) {
+      this.modalCtrl.dismiss(
+        this.formGroup.value,
+        this.getDirtyValues(this.formGroup)
+      );
+    } else {
+      console.log(&#x27;Formulario inválido&#x27;);
+    }
+  }
+
+  dismiss() {
+    this.modalCtrl.dismiss();
+  }
+
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header&gt;
+  &lt;ion-toolbar color&#x3D;&quot;primary&quot;&gt;
+    &lt;ion-title&gt;
+      {{(&#x27;USERLIST.PLACEHOLDERS.UPDATE&#x27; | translate)}}
+    &lt;/ion-title&gt;
+    &lt;!-- Botón de cierre para desktop --&gt;
+    &lt;ion-buttons slot&#x3D;&quot;start&quot; *ngIf&#x3D;&quot;!isMobile&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;dismiss()&quot; color&#x3D;&quot;light&quot;&gt;
+        &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+    &lt;!-- Botón de cierre para mobile --&gt;
+    &lt;ion-buttons slot&#x3D;&quot;end&quot; *ngIf&#x3D;&quot;isMobile&quot;&gt;
+      &lt;ion-button (click)&#x3D;&quot;dismiss()&quot; color&#x3D;&quot;light&quot;&gt;
+        &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;close&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+    &lt;/ion-buttons&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+
+&lt;ion-content class&#x3D;&quot;ion-padding custom-form-container&quot;&gt;
+  &lt;form [formGroup]&#x3D;&quot;formGroup&quot; (ngSubmit)&#x3D;&quot;onSubmit()&quot;&gt;
+
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;MACHINE.IMAGE&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;div class&#x3D;&quot;photo-container&quot;&gt;
+      &lt;!-- Previsualización de la imagen --&gt;
+      &lt;app-picture-selectable formControlName&#x3D;&quot;picture&quot;&gt;&lt;/app-picture-selectable&gt;
+    &lt;/div&gt;
+
+    &lt;!-- Nombre --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.NAME&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;ion-input
+      type&#x3D;&quot;text&quot;
+      formControlName&#x3D;&quot;name&quot;
+      [placeholder]&#x3D;&quot;&#x27;USERLIST.PLACEHOLDERS.NAME&#x27; | translate&quot;&gt;
+    &lt;/ion-input&gt;
+    &lt;ion-text customLabel *ngIf&#x3D;&quot;formGroup.touched&quot; [errors]&#x3D;&quot;formGroup.get(&#x27;name&#x27;)?.errors&quot; field&#x3D;&quot;NAME&quot; page&#x3D;&quot;USERLIST&quot; color&#x3D;&quot;danger&quot;&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- Apellido --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.SURNAME&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;ion-input
+      type&#x3D;&quot;text&quot;
+      formControlName&#x3D;&quot;surname&quot;
+      [placeholder]&#x3D;&quot;&#x27;USERLIST.PLACEHOLDERS.SURNAME&#x27; | translate&quot;&gt;
+    &lt;/ion-input&gt;
+    &lt;ion-text customLabel *ngIf&#x3D;&quot;formGroup.touched&quot; [errors]&#x3D;&quot;formGroup.get(&#x27;surname&#x27;)?.errors&quot; field&#x3D;&quot;SURNAME&quot; page&#x3D;&quot;USERLIST&quot; color&#x3D;&quot;danger&quot;&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- Correo --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.EMAIL&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;ion-input
+      type&#x3D;&quot;text&quot;
+      formControlName&#x3D;&quot;email&quot;
+      [placeholder]&#x3D;&quot;&#x27;USERLIST.PLACEHOLDERS.EMAIL&#x27; | translate&quot;&gt;
+    &lt;/ion-input&gt;
+    &lt;ion-text customLabel *ngIf&#x3D;&quot;formGroup.touched&quot; [errors]&#x3D;&quot;formGroup.get(&#x27;email&#x27;)?.errors&quot; field&#x3D;&quot;EMAIL&quot; page&#x3D;&quot;USERLIST&quot; color&#x3D;&quot;danger&quot;&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- Telefono --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.PHONENUMBER&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;ion-input
+      type&#x3D;&quot;text&quot;
+      formControlName&#x3D;&quot;phoneNumber&quot;
+      [placeholder]&#x3D;&quot;&#x27;USERLIST.PLACEHOLDERS.PHONENUMBER&#x27; | translate&quot;&gt;
+    &lt;/ion-input&gt;
+    &lt;ion-text customLabel *ngIf&#x3D;&quot;formGroup.touched&quot; [errors]&#x3D;&quot;formGroup.get(&#x27;phoneNumber&#x27;)?.errors&quot; field&#x3D;&quot;PHONENUMBER&quot; page&#x3D;&quot;USERLIST&quot; color&#x3D;&quot;danger&quot;&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- Selección de máquinas --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.ROLE&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;app-role-selectable formControlName&#x3D;&quot;role&quot;&gt;&lt;/app-role-selectable&gt;
+
+    &lt;!-- Fecha Registro --&gt;
+    &lt;ion-label position&#x3D;&quot;stacked&quot; color&#x3D;&quot;tertiary&quot;&gt;{{ &#x27;USERLIST.REGISTERDATE&#x27; | translate }}&lt;/ion-label&gt;
+    &lt;ion-input
+      type&#x3D;&quot;text&quot;
+      formControlName&#x3D;&quot;registerDate&quot;
+      [placeholder]&#x3D;&quot;&#x27;USERLIST.PLACEHOLDERS.REGISTERDATE&#x27; | translate&quot;&gt;
+    &lt;/ion-input&gt;
+    &lt;ion-text customLabel *ngIf&#x3D;&quot;formGroup.touched&quot; [errors]&#x3D;&quot;formGroup.get(&#x27;registerDate&#x27;)?.errors&quot; field&#x3D;&quot;REGISTERDATE&quot; page&#x3D;&quot;USERLIST&quot; color&#x3D;&quot;danger&quot;&gt;
+    &lt;/ion-text&gt;
+
+    &lt;!-- Botón de envío --&gt;
+    &lt;div class&#x3D;&quot;button-container&quot;&gt;
+      &lt;ion-button
+        [disabled]&#x3D;&quot;!formGroup.valid || !formGroup.dirty&quot;
+        expand&#x3D;&quot;full&quot;
+        type&#x3D;&quot;submit&quot;
+        color&#x3D;&quot;success&quot;&gt;
+        {{(&#x27;USERLIST.BUTTONS.UPDATE&#x27; | translate)}}
+      &lt;/ion-button&gt;
+    &lt;/div&gt;
+  &lt;/form&gt;
+&lt;/ion-content&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./user-form.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-content {
+  --background: var(--background-color-models);
+  --padding-bottom: 0;
+}
+
+ion-header {
+  ion-toolbar {
+    --border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+    --background: var(--ion-color-primary);
+    padding-top: 8px;
+
+    &amp;::part(container) {
+      border-radius: var(--modal-border-radius) var(--modal-border-radius) 0 0;
+    }
+
+    ion-title {
+      color: var(--color-text-toolbar);
+      font-weight: 500;
+    }
+  }
+}
+
+.custom-form-container {
+  padding: 20px;
+  height: 100%;
+  font-size: 2.1ch;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+  }
+
+  ion-label {
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--color-text-primary);
+  }
+
+  ion-input, ion-textarea {
+    --background: rgba(255, 255, 255, 0.05);
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --padding-top: 12px;
+    --padding-bottom: 12px;
+    --border-radius: 8px;
+    --color: var(--color-text-secondary);
+    margin-bottom: 16px;
+  }
+
+  ion-textarea {
+    --auto-grow: true;
+    --rows: 3;
+    max-height: 150px;
+    overflow: hidden;
+  }
+
+  // Personalizamos la barra de scroll para navegadores webkit (Chrome, Safari, etc.)
+  &amp;::-webkit-scrollbar {
+    width: 8px;  // Ancho discreto para la barra
+    background-color: transparent;  // Fondo transparente
+  }
+
+  &amp;::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);  // Color suave para la barra
+    border-radius: 4px;  // Bordes redondeados
+
+    // Efecto hover para mejor interactividad
+    &amp;:hover {
+      background-color: rgba(255, 255, 255, 0.3);
+    }
+  }
+
+  &amp;::-webkit-scrollbar-track {
+    background-color: transparent;  // Fondo transparente para el track
+  }
+
+  // Estilos para Firefox
+  scrollbar-width: thin;  // Barra delgada
+  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;  // Color de la barra y el track
+
+}
+
+.button-container {
+  margin: 24px 16px;
+
+  ion-button {
+    --border-radius: 25px;
+    height: 48px;
+    font-weight: 500;
+    text-transform: uppercase;
+    overflow: hidden;
+
+    &amp;::part(native) {
+      border-radius: var(--border-radius);
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header>  <ion-toolbar color="primary">    <ion-title>      {{(\'USERLIST.PLACEHOLDERS.UPDATE\' | translate)}}    </ion-title>    <!-- Botón de cierre para desktop -->    <ion-buttons slot="start" *ngIf="!isMobile">      <ion-button (click)="dismiss()" color="light">        <ion-icon slot="icon-only" name="close"></ion-icon>      </ion-button>    </ion-buttons>    <!-- Botón de cierre para mobile -->    <ion-buttons slot="end" *ngIf="isMobile">      <ion-button (click)="dismiss()" color="light">        <ion-icon slot="icon-only" name="close"></ion-icon>      </ion-button>    </ion-buttons>  </ion-toolbar></ion-header><ion-content class="ion-padding custom-form-container">  <form [formGroup]="formGroup" (ngSubmit)="onSubmit()">    <ion-label position="stacked" color="tertiary">{{ \'MACHINE.IMAGE\' | translate }}</ion-label>    <div class="photo-container">      <!-- Previsualización de la imagen -->      <app-picture-selectable formControlName="picture"></app-picture-selectable>    </div>    <!-- Nombre -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.NAME\' | translate }}</ion-label>    <ion-input      type="text"      formControlName="name"      [placeholder]="\'USERLIST.PLACEHOLDERS.NAME\' | translate">    </ion-input>    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get(\'name\')?.errors" field="NAME" page="USERLIST" color="danger">    </ion-text>    <!-- Apellido -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.SURNAME\' | translate }}</ion-label>    <ion-input      type="text"      formControlName="surname"      [placeholder]="\'USERLIST.PLACEHOLDERS.SURNAME\' | translate">    </ion-input>    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get(\'surname\')?.errors" field="SURNAME" page="USERLIST" color="danger">    </ion-text>    <!-- Correo -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.EMAIL\' | translate }}</ion-label>    <ion-input      type="text"      formControlName="email"      [placeholder]="\'USERLIST.PLACEHOLDERS.EMAIL\' | translate">    </ion-input>    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get(\'email\')?.errors" field="EMAIL" page="USERLIST" color="danger">    </ion-text>    <!-- Telefono -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.PHONENUMBER\' | translate }}</ion-label>    <ion-input      type="text"      formControlName="phoneNumber"      [placeholder]="\'USERLIST.PLACEHOLDERS.PHONENUMBER\' | translate">    </ion-input>    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get(\'phoneNumber\')?.errors" field="PHONENUMBER" page="USERLIST" color="danger">    </ion-text>    <!-- Selección de máquinas -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.ROLE\' | translate }}</ion-label>    <app-role-selectable formControlName="role"></app-role-selectable>    <!-- Fecha Registro -->    <ion-label position="stacked" color="tertiary">{{ \'USERLIST.REGISTERDATE\' | translate }}</ion-label>    <ion-input      type="text"      formControlName="registerDate"      [placeholder]="\'USERLIST.PLACEHOLDERS.REGISTERDATE\' | translate">    </ion-input>    <ion-text customLabel *ngIf="formGroup.touched" [errors]="formGroup.get(\'registerDate\')?.errors" field="REGISTERDATE" page="USERLIST" color="danger">    </ion-text>    <!-- Botón de envío -->    <div class="button-container">      <ion-button        [disabled]="!formGroup.valid || !formGroup.dirty"        expand="full"        type="submit"        color="success">        {{(\'USERLIST.BUTTONS.UPDATE\' | translate)}}      </ion-button>    </div>  </form></ion-content></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarcodeScannerPage', 'selector': 'app-barcode-scanner'},{'name': 'BarcodeScanningModalComponent', 'selector': 'app-barcode-scanning'},{'name': 'DumbbellPage', 'selector': 'app-dumbbell'},{'name': 'ExerciseFormComponent', 'selector': 'app-exercise-form'},{'name': 'ExercisePage', 'selector': 'app-exercise'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MachineDetailsPage', 'selector': 'app-machine-details'},{'name': 'MachineFormComponent', 'selector': 'app-machine-form'},{'name': 'MachinePage', 'selector': 'app-machine'},{'name': 'MachineSelectableComponent', 'selector': 'app-machine-selectable'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapModuleComponent', 'selector': 'app-map-module'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RoleSelectableComponent', 'selector': 'app-role-selectable'},{'name': 'RoutingBarComponent', 'selector': 'app-routing-bar'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'},{'name': 'UserFormComponent', 'selector': 'app-user-form'},{'name': 'UserListPage', 'selector': 'app-user-list'}];
+    var DIRECTIVES = [{'name': 'CustomLabelDirective', 'selector': '[customLabel]'},{'name': 'RoleDirective', 'selector': '[appRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'UserFormComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'UserFormComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

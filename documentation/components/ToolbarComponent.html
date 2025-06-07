@@ -1,0 +1,808 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>FalconFitAdmin documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">FalconFitAdmin documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  ToolbarComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/shared/components/toolbar/toolbar.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-toolbar</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./toolbar.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./toolbar.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#user$" >user$</a>
+                            </li>
+                            <li>
+                                <a href="#userff$" >userff$</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#navigateQrScanner" >navigateQrScanner</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Inputs</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#title" >title</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(authSvc: <a href="../injectables/BaseAuthenticationService.html" target="_self">BaseAuthenticationService</a>, userSvc: <a href="../injectables/UserffService.html" target="_self">UserffService</a>, router: Router)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:17</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>authSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/BaseAuthenticationService.html" target="_self" >BaseAuthenticationService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>userSvc</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/UserffService.html" target="_self" >UserffService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>router</td>
+                                                  
+                                                        <td>
+                                                                    <code>Router</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+    <section data-compodoc="block-inputs">
+    <h3 id="inputs">Inputs</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <a name="title"></a>
+                        <b>title</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="15" class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:15</a></div>
+                            </td>
+                        </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="navigateQrScanner"></a>
+                    <span class="name">
+                        <span ><b>navigateQrScanner</b></span>
+                        <a href="#navigateQrScanner"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>navigateQrScanner()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="39"
+                                    class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:39</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="user$"></a>
+                    <span class="name">
+                        <span ><b>user$</b></span>
+                        <a href="#user$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/User.html" target="_self" >Observable&lt;User | undefined&gt;</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:16</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="userff$"></a>
+                    <span class="name">
+                        <span ><b>userff$</b></span>
+                        <a href="#userff$"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>    <code>Observable&lt;Userff | null&gt;</code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>of(null)</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/shared/components/toolbar/toolbar.component.ts:17</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, Input, OnInit } from &#x27;@angular/core&#x27;;
+import { BaseAuthenticationService } from &#x27;src/app/core/services/impl/base-authentication.service&#x27;;
+import { Observable, switchMap, of } from &#x27;rxjs&#x27;;
+import { User } from &#x27;src/app/core/models/auth.model&#x27;;
+import { UserffService } from &#x27;../../../core/services/impl/userff.service&#x27;;
+import { Userff } from &#x27;src/app/core/models/userff.model&#x27;;
+import { Router } from &#x27;@angular/router&#x27;;
+
+@Component({
+  selector: &#x27;app-toolbar&#x27;,
+  templateUrl: &#x27;./toolbar.component.html&#x27;,
+  styleUrls: [&#x27;./toolbar.component.scss&#x27;],
+})
+export class ToolbarComponent implements OnInit {
+  @Input() title: string &#x3D; &#x27;&#x27;;
+  user$: Observable&lt;User | undefined&gt;;
+  userff$: Observable&lt;Userff | null&gt; &#x3D; of(null);
+
+  constructor(
+    private authSvc: BaseAuthenticationService,
+    private userSvc: UserffService,
+    private router: Router,
+  ) {
+    this.user$ &#x3D; this.authSvc.user$;
+  }
+
+  ngOnInit() {
+    this.userff$ &#x3D; this.user$.pipe(
+      switchMap(user &#x3D;&gt; {
+        if (user &amp;&amp; user.id) {
+          // Usamos el ID del usuario para obtener la información detallada
+          return this.userSvc.getByUuid(user.id);
+        }
+        return of(null); // Si no hay usuario, retornamos null
+      })
+    );
+  }
+
+  navigateQrScanner(){
+    this.router.navigate([&#x27;/barcode-scanner&#x27;])
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;ion-header [translucent]&#x3D;&quot;true&quot;&gt;
+  &lt;ion-toolbar&gt;
+    &lt;div class&#x3D;&quot;toolbar-container&quot;&gt;
+      &lt;!-- Contenedor izquierdo --&gt;
+      &lt;div class&#x3D;&quot;left-content&quot;&gt;
+        &lt;ion-buttons&gt;
+          &lt;ion-menu-button&gt;&lt;/ion-menu-button&gt;
+        &lt;/ion-buttons&gt;
+        &lt;ion-title&gt;{{ title }}&lt;/ion-title&gt;
+      &lt;/div&gt;
+
+      &lt;!-- Spacer flexible para empujar los items a la derecha --&gt;
+      &lt;div class&#x3D;&quot;toolbar-spacer&quot;&gt;&lt;/div&gt;
+
+      &lt;!-- Botón QR --&gt;
+      &lt;ion-button
+        fill&#x3D;&quot;clear&quot;
+        (click)&#x3D;&quot;navigateQrScanner()&quot;
+        class&#x3D;&quot;qr-button&quot;
+        aria-label&#x3D;&quot;Escanear QR&quot;
+        color&#x3D;&quot;warning&quot;
+      &gt;
+        &lt;ion-icon slot&#x3D;&quot;icon-only&quot; name&#x3D;&quot;qr-code-outline&quot;&gt;&lt;/ion-icon&gt;
+      &lt;/ion-button&gt;
+
+      &lt;!-- Contenedor derecho --&gt;
+      &lt;div class&#x3D;&quot;user-content&quot; *ngIf&#x3D;&quot;(userff$ | async) as user&quot;&gt;
+        &lt;ion-avatar&gt;
+          &lt;img
+            [src]&#x3D;&quot;user.picture?.url || &#x27;https://ionicframework.com/docs/img/demos/avatar.svg&#x27;&quot;
+            alt&#x3D;&quot;Avatar&quot;
+          /&gt;
+        &lt;/ion-avatar&gt;
+        &lt;ion-label class&#x3D;&quot;username-label&quot;&gt;
+          &lt;h3&gt;{{ user.name }}&lt;/h3&gt;
+        &lt;/ion-label&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/ion-toolbar&gt;
+&lt;/ion-header&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./toolbar.component.scss</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss">ion-toolbar {
+  --background: var(--header-color);
+  --color: var(--color-text-toolbar);
+
+  .toolbar-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0 8px;
+
+    // Contenedor izquierdo
+    .left-content {
+      display: flex;
+      align-items: center;
+      flex-shrink: 0;
+
+      ion-buttons {
+        margin: 0;
+      }
+      ion-title {
+        margin-left: 8px;
+        font-size: 1.1rem;
+
+        @media (max-width: 576px) {
+          font-size: 1rem;
+          max-width: 150px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+
+    // Spacer flexible
+    .toolbar-spacer {
+      flex: 1 1 auto;
+    }
+
+    // Botón QR
+    .qr-button {
+      margin: 0 8px;
+      font-size: 1.4rem;
+      --color: var(--ion-color-primary);
+
+      ion-icon {
+        font-size: 1.8rem;
+      }
+
+      @media (max-width: 576px) {
+        ion-icon {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    // Contenedor derecho
+    .user-content {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+
+      ion-avatar {
+        width: 32px;
+        height: 32px;
+      }
+      .username-label h3 {
+        color: #d4af37;
+        margin: 0;
+        font-size: 14px;
+
+        @media (max-width: 576px) {
+          max-width: 80px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+
+          @media (max-width: 360px) {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // Ajustes “globales” para Ionic paddings
+  ::ng-deep {
+    ion-header ion-toolbar {
+      --padding-start: 0;
+      --padding-end: 0;
+    }
+    ion-menu-button {
+      --color: var(--color-text-toolbar) !important;
+    }
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><ion-header [translucent]="true">  <ion-toolbar>    <div class="toolbar-container">      <!-- Contenedor izquierdo -->      <div class="left-content">        <ion-buttons>          <ion-menu-button></ion-menu-button>        </ion-buttons>        <ion-title>{{ title }}</ion-title>      </div>      <!-- Spacer flexible para empujar los items a la derecha -->      <div class="toolbar-spacer"></div>      <!-- Botón QR -->      <ion-button        fill="clear"        (click)="navigateQrScanner()"        class="qr-button"        aria-label="Escanear QR"        color="warning"      >        <ion-icon slot="icon-only" name="qr-code-outline"></ion-icon>      </ion-button>      <!-- Contenedor derecho -->      <div class="user-content" *ngIf="(userff$ | async) as user">        <ion-avatar>          <img            [src]="user.picture?.url || \'https://ionicframework.com/docs/img/demos/avatar.svg\'"            alt="Avatar"          />        </ion-avatar>        <ion-label class="username-label">          <h3>{{ user.name }}</h3>        </ion-label>      </div>    </div>  </ion-toolbar></ion-header></div>'
+    var COMPONENTS = [{'name': 'AboutPage', 'selector': 'app-about'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'BarcodeScannerPage', 'selector': 'app-barcode-scanner'},{'name': 'BarcodeScanningModalComponent', 'selector': 'app-barcode-scanning'},{'name': 'DumbbellPage', 'selector': 'app-dumbbell'},{'name': 'ExerciseFormComponent', 'selector': 'app-exercise-form'},{'name': 'ExercisePage', 'selector': 'app-exercise'},{'name': 'HomePage', 'selector': 'app-home'},{'name': 'LoginPage', 'selector': 'app-login'},{'name': 'MachineDetailsPage', 'selector': 'app-machine-details'},{'name': 'MachineFormComponent', 'selector': 'app-machine-form'},{'name': 'MachinePage', 'selector': 'app-machine'},{'name': 'MachineSelectableComponent', 'selector': 'app-machine-selectable'},{'name': 'MapComponent', 'selector': 'app-map'},{'name': 'MapModuleComponent', 'selector': 'app-map-module'},{'name': 'PictureSelectableComponent', 'selector': 'app-picture-selectable'},{'name': 'RegisterPage', 'selector': 'app-register'},{'name': 'RoleSelectableComponent', 'selector': 'app-role-selectable'},{'name': 'RoutingBarComponent', 'selector': 'app-routing-bar'},{'name': 'ToolbarComponent', 'selector': 'app-toolbar'},{'name': 'UserFormComponent', 'selector': 'app-user-form'},{'name': 'UserListPage', 'selector': 'app-user-list'}];
+    var DIRECTIVES = [{'name': 'CustomLabelDirective', 'selector': '[customLabel]'},{'name': 'RoleDirective', 'selector': '[appRole]'}];
+    var ACTUAL_COMPONENT = {'name': 'ToolbarComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'ToolbarComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

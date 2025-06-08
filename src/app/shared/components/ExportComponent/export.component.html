@@ -1,0 +1,16 @@
+<!-- src/app/components/export/export.component.html -->
+<div class="export-container">
+    <button
+      class="export-button"
+      [disabled]="isExporting"
+      (click)="onExportClick()">
+
+      <span *ngIf="!isExporting">
+        📊 Exportar
+      </span>
+
+      <span *ngIf="isExporting" class="loading">
+        ⏳ Exportando...
+      </span>
+    </button>
+</div>

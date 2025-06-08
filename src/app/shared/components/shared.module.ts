@@ -18,6 +18,7 @@ import { CustomLabelDirective } from '../directives/custom-label.directive';
 import { RoleDirective } from '../directives/showOrNotRole.directive';
 import { UserFormComponent } from './user-form/user-form.component';
 import { RoleSelectableComponent } from './role-selectable/role-selectable.component';
+import { ExportComponent } from './ExportComponent/export.component';
 
 @NgModule({
     declarations: [
@@ -33,7 +34,7 @@ import { RoleSelectableComponent } from './role-selectable/role-selectable.compo
     ShowPasswordPipe,
     CustomLabelDirective,
     RoleDirective,
-    RoleSelectableComponent
+    RoleSelectableComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +42,8 @@ import { RoleSelectableComponent } from './role-selectable/role-selectable.compo
     IonicModule,
     ReactiveFormsModule,
     GoogleMapsModule,
-    TranslateModule.forChild()
+    TranslateModule.forChild(),
+    ExportComponent
   ],
   exports:[RoutingBarComponent,
     MachineFormComponent,
@@ -55,7 +57,8 @@ import { RoleSelectableComponent } from './role-selectable/role-selectable.compo
     ShowPasswordPipe,
     CustomLabelDirective,
     RoleDirective,
-    RoleSelectableComponent
+    RoleSelectableComponent,
+    ExportComponent
   ]
 })
 export class SharedModule { }
